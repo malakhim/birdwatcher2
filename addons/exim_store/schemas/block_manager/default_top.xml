@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+		<container position="TOP" width="16" user_class="">
+			<grid width="5" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+				<blocks>
+					<block>
+						<type><![CDATA[template]]></type>
+						<properties>
+							<template><![CDATA[blocks/static_templates/logo.tpl]]></template>
+						</properties>
+						<lang_code><![CDATA[EN]]></lang_code>
+						<name><![CDATA[Logo]]></name>
+						<object_type />
+						<content />
+						<object_ids />
+						<wrapper />
+						<user_class />
+						<order><![CDATA[0]]></order>
+						<status><![CDATA[A]]></status>
+						<translations />
+						<contents />
+					</block>
+				</blocks>
+			</grid>
+			<grid width="11" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+				<grid width="11" user_class="top-links-grid" suffix="0" prefix="0" omega="1" alpha="1" wrapper="" content_align="RIGHT" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[my_account]]></type>
+							<properties>
+								<template><![CDATA[blocks/my_account.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[My Account]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/onclick_dropdown.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+						<block>
+							<type><![CDATA[languages]]></type>
+							<properties>
+								<template><![CDATA[blocks/languages.tpl]]></template>
+								<text />
+								<format><![CDATA[name]]></format>
+								<dropdown_limit><![CDATA[0]]></dropdown_limit>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Languages]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+						<block>
+							<type><![CDATA[currencies]]></type>
+							<properties>
+								<template><![CDATA[blocks/currencies.tpl]]></template>
+								<text />
+								<format><![CDATA[symbol]]></format>
+								<dropdown_limit><![CDATA[3]]></dropdown_limit>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Currencies]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+						<block>
+							<type><![CDATA[menu]]></type>
+							<properties>
+								<template><![CDATA[blocks/menu/text_links.tpl]]></template>
+								<show_items_in_line><![CDATA[Y]]></show_items_in_line>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Quick links]]></name>
+							<object_type />
+							<content>
+								<menu><![CDATA[1]]></menu>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class><![CDATA[quick-links-top]]></user_class>
+							<order><![CDATA[2]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="6" user_class="search-block-grid" suffix="0" prefix="0" omega="0" alpha="1" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/search.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Search]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="5" user_class="cart-content-grid" suffix="0" prefix="0" omega="1" alpha="0" wrapper="" content_align="RIGHT" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[cart_content]]></type>
+							<properties>
+								<template><![CDATA[blocks/cart_content.tpl]]></template>
+								<display_bottom_buttons><![CDATA[Y]]></display_bottom_buttons>
+								<display_delete_icons><![CDATA[Y]]></display_delete_icons>
+								<products_links_type><![CDATA[thumb]]></products_links_type>
+								<generate_block_title><![CDATA[Y]]></generate_block_title>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Cart content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+			</grid>
+			<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+				<blocks>
+					<block>
+						<type><![CDATA[categories]]></type>
+						<properties>
+							<template><![CDATA[blocks/categories/categories_dropdown_horizontal.tpl]]></template>
+							<dropdown_second_level_elements><![CDATA[12]]></dropdown_second_level_elements>
+							<dropdown_third_level_elements><![CDATA[6]]></dropdown_third_level_elements>
+						</properties>
+						<lang_code><![CDATA[EN]]></lang_code>
+						<name><![CDATA[Top menu]]></name>
+						<object_type />
+						<content>
+							<items>
+								<filling><![CDATA[full_tree_cat]]></filling>
+								<parent_element_id><![CDATA[0]]></parent_element_id>
+							</items>
+						</content>
+						<object_ids />
+						<wrapper />
+						<user_class />
+						<order><![CDATA[0]]></order>
+						<status><![CDATA[A]]></status>
+						<translations />
+						<contents />
+					</block>
+				</blocks>
+			</grid>
+		</container>

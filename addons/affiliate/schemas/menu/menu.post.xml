@@ -1,0 +1,38 @@
+<customers>
+	<item title="affiliates" dispatch="profiles.manage" extra="user_type=P" position="350" />
+</customers>
+
+<affiliate>
+	<item title="product_groups" dispatch="product_groups.manage" position="100" />
+	<item title="affilate_banners_manager" dispatch="banners_manager.manage" position="200" />
+	<item title="plans" dispatch="affiliate_plans.manage" position="300" />
+	<item title="affiliate_partners" dispatch="partners.manage" position="400" />
+	<item title="approve_commissions" dispatch="aff_statistics.approve" position="500" />
+	<item title="pay_affiliates" dispatch="payouts.pay" position="600" />
+	<item title="payouts" dispatch="payouts.manage" position="700" />
+	<item title="accounting_history" dispatch="payouts.previous" position="800" />
+
+	<subitem item="affilate_banners_manager" title="text_banners " href="%INDEX_SCRIPT?dispatch=banners_manager.manage&amp;banner_type=T" />
+	<subitem item="affilate_banners_manager" title="graphic_banners" href="%INDEX_SCRIPT?dispatch=banners_manager.manage&amp;banner_type=G" />
+	<subitem item="affilate_banners_manager" title="product_banners" href="%INDEX_SCRIPT?dispatch=banners_manager.manage&amp;banner_type=P" />
+	
+	<side>
+		<item group="banners_manager" title="affiliate_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#groupaffiliate" />
+		<item group="banners_manager.update" title="add_banner" href="%INDEX_SCRIPT?dispatch=banners_manager.add&amp;banner_type=%BANNER_TYPE&amp;link_to=%LINK_TO" />
+
+		<item group="affiliate_plans" title="affiliate_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#groupaffiliate" />
+		<item group="affiliate_plans.update" title="add_plan" href="%INDEX_SCRIPT?dispatch=%CONTROLLER.add" />
+		<item group="affiliate_plans.update" title="affiliate_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#groupaffiliate" />
+
+		<item group="partners.manage" title="affiliate_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#groupaffiliate" />
+		<item group="partners.manage" title="affiliate_tiers_tree" href="%INDEX_SCRIPT?dispatch=partners.tree" />
+
+		<item group="aff_statistics.approve.reset_search" title="approve_detailed_commissions" href="%INDEX_SCRIPT?dispatch=aff_statistics.commissions.search&amp;search_type=add" />
+
+		<item group="partners.update" title="affiliate_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#groupaffiliate" />
+		<item group="aff_statistics.commissions.search" title="approve_commissions" href="%INDEX_SCRIPT?dispatch=aff_statistics.approve.reset_search&amp;search_type=add" />
+		<item group="payouts.pay" title="affiliate_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#groupaffiliate" />
+
+		<item group="product_groups.update" title="add_product_group" href="%INDEX_SCRIPT?dispatch=%CONTROLLER.add&amp;link_to=%LINK_TO" />
+	</side>
+</affiliate>

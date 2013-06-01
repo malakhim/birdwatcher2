@@ -1,0 +1,11 @@
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('11', 'SI', 'Mrtev ob prihodu');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('12', 'SI', 'Napačna naročila');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('3', 'SI', 'Napačen online opis');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('4', 'SI', 'Se ne bo delo');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('5', 'SI', 'Napaka proizvajalca');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('6', 'SI', 'Napačna dostava');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('7', 'SI', 'Pretečena garancija');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('8', 'SI', 'Poškodba med dostavo');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('1', 'SI', 'Zamenjano');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('2', 'SI', 'Povračilo');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('13', 'SI', 'Ostalo');

@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>quickbooks</id>
+	<name>Quickbooks</name>
+	<description>Integrates the Quickbooks accounting software with the store</description>
+	<version>1.0</version>
+	<priority>1500</priority>
+	<position>150</position>
+	<status>active</status>
+	<translations>
+		<item for="name" lang="IT">Quickbook</item>
+		<item for="name" lang="RO">CărțiRapide</item>
+		<item for="name" lang="SI">Na blagajno</item>
+		<item for="description" lang="RU">Интеграция с сервисом Quickbooks</item>
+	</translations>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="trns_class">
+						<name>Transaction class name</name>
+						<type>input</type>
+						<default_value>Website:Retail</default_value>
+						<translations>
+							<item lang="FR">Nom de classe Transaction</item>
+							<item lang="DA">Transaction klasse navn</item>
+							<item lang="EL">Ονομα κατηγορίας συναλλαγής</item>
+							<item lang="RO">Numele clasei de tranzacție</item>
+							<item lang="RU">Название класса транзакции</item>
+							<item lang="SI">Ime klase transakcije</item>
+						</translations>
+					</item>
+					<item id="accnt_tax">
+						<name>Account to track taxes. The type of this account should be INC.</name>
+						<type>input</type>
+						<default_value>Website:Tax</default_value>
+						<translations>
+							<item lang="FR">Compte de suivi de taxes. Le type de ce compte doit etre INC.</item>
+							<item lang="EL">Λογαριασμός για την παρακολούθηση του φόρου. Ο τύπος αυτού του λογαριασμού θα πρέπει να είναι INC.</item>
+							<item lang="RO">Contul pentru a urmări taxele. Tipul acestui cont trebuie să fie INC.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать налоги. Тип данной записи должен быть INC.</item>
+							<item lang="SI">Račun za spremljanje davkov. Vrsta tega računa mora biti INC</item>
+						</translations>
+					</item>
+					<item id="accnt_product">
+						<name>Account to track product sales. The type of this account should be INC.</name>
+						<type>input</type>
+						<default_value>Sales:Product</default_value>
+						<translations>
+							<item lang="FR">Compte de suivi des ventes de produit. Le type de ce compte doit etre INC.</item>
+							<item lang="EL">Λογαριασμός για να παρακολουθείτε τις πωλήσεις του προϊόντος. Ο τύπος αυτού του λογαριασμού θα πρέπει να είναι INC.</item>
+							<item lang="RO">Contul pentru a urmări vânzările. Tipul acestui cont trebuie să fie INC.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать продажу товара. Тип данной записи должен быть INC.</item>
+							<item lang="SI">Račun za sledenje prodaje izdelkov. Vrsta tega računa mora biti INC</item>
+						</translations>
+					</item>
+					<item id="accnt_shipping">
+						<name>Account to track shipping cost. The type of this account should be INC.</name>
+						<type>input</type>
+						<default_value>Sales:Shipping</default_value>
+						<translations>
+							<item lang="FR">Compte de suivi des frais de port. Le type de ce compte doit etre INC.</item>
+							<item lang="EL">Λογαριασμός για να παρακολουθείτε τα έξοδα αποστολής. Ο τύπος αυτού του λογαριασμού θα πρέπει να είναι INC.</item>
+							<item lang="RO">Contul pentru a urmări costurile de transport . Acest tip de cont terbuie să fie INC.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать плату за доставку. Тип данной записи должен быть INC.</item>
+							<item lang="SI">Račun za spremljanje stroškov. Vrsta tega računa mora biti INC</item>
+						</translations>
+					</item>
+					<item id="accnt_discount">
+						<name>Account to track discounts. The type of this account should be INC.</name>
+						<type>input</type>
+						<default_value>Sales:Discount</default_value>
+						<translations>
+							<item lang="FR">Compte de suivi des remises. Le type de ce compte doit etre INC.</item>
+							<item lang="EL">Λογαριασμός για να παρακολουθείτε τις εκπτώσεις. Ο τύπος αυτού του λογαριασμού θα πρέπει να  είναι INC.</item>
+							<item lang="RO">Contul pentru a urmări discounturile. Tipul acestui cont trebuie să fie INC.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать скидки. Тип данной записи должен быть INC.</item>
+							<item lang="SI">Račun za spremljanje popustov. Vrsta tega računa mora biti INCRačun za spremljanje popustov. Vrsta tega računa mora biti INC</item>
+						</translations>
+					</item>
+					<item id="accnt_surcharge">
+						<name>Account to track the payment surcharge of your items sales (where applicable). The type of this account should be INC.</name>
+						<type>input</type>
+						<default_value>Sales:Surcharge</default_value>
+						<translations>
+							<item lang="EL">Λογαριασμός για να παρακολουθείτε την επιβάρυνση των πωλήσεων των αντικειμένων  σας (όπου εφαρμόζεται). Ο τύπος αυτού του λογαριασμού θα πρέπει να είναι  INC.</item>
+							<item lang="NL">Boeknummer om betalingskosten te registreren. Het type moet zijn INC.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать надбавки к платежам (где есть возможность). Тип данной учетной записи должен быть INC.</item>
+						</translations>
+					</item>
+					<item id="accnt_asset">
+						<name>Account to track the value of your inventory. The type of this account should be OASSET.</name>
+						<type>input</type>
+						<default_value>Inventory Asset</default_value>
+						<translations>
+							<item lang="FR">Compte de suivi de la valeur de votre inventaire. Le type de ce compte doit etre  OASSET.</item>
+							<item lang="EL">Λογαριασμός για να παρακολουθείτε την αξία των αποθεμάτων σας. Ο τύπος αυτού του λογαριασμού θα πρέπει να OASSET.</item>
+							<item lang="RO">Contul pentru a urmări valoarea inventarului dvs. Tipul acestui acestui cont trebuie să fie OASSET.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать количество товаров. Тип данной записи должен быть OASSET.</item>
+							<item lang="SI">Račun za spremljanje vrednosti inventarja. Vrsta tega računa mora biti OASSET.</item>
+						</translations>
+					</item>
+					<item id="accnt_cogs">
+						<name>Account to track the cost of your items sales. The type of this account should be COGS.</name>
+						<type>input</type>
+						<default_value>Cost of Goods Sold</default_value>
+						<translations>
+							<item lang="FR">Compte de suivi du cout de vos items vendus. Le type de ce compte doit etre COGS.</item>
+							<item lang="EL">Λογαριασμός για την παρακολούθηση του κόστους πωλήσεων των αντικειμένων σας. Ο τύπος αυτού του λογαριασμού θα πρέπει να είναι  COGS</item>
+							<item lang="RO">Contul pentru a urmări costul produselor vândute. Tipul acestui cont trebuie să fie COGS.</item>
+							<item lang="RU">Учетная запись, позволяющая отслеживать суммы Ваших продаж. Тип данной записи должен быть COGS.</item>
+							<item lang="SI">Račun za sledenje vaših stroškov prodaje artiklov. Vrsta tega računa, mora biti COGS.</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+</addon>

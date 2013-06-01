@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>age_verification</id>
+	<name>Age verification</name>
+	<description>Toggles age restriction rules for products and categories</description>
+	<version>1.0</version>
+	<priority>2900</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">Vérification de l'âge</item>
+		<item for="name" lang="DA">Aldersverifikation</item>
+		<item for="name" lang="EL">Επαλήθευση ηλικίας</item>
+		<item for="name" lang="IT">Verifica età</item>
+		<item for="name" lang="RO">Verificare vârstei</item>
+		<item for="name" lang="RU">Ограничение по возрасту</item>
+		<item for="name" lang="SI">Preverjanje starosti</item>
+		<item for="description" lang="RU">Позволяет устанавливать возрастное ограничение на товары и категории</item>
+	</translations>
+</addon>

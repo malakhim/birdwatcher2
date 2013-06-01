@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>attachments</id>
+	<name>Attachments</name>
+	<description>Makes it possible to attach files to products</description>
+	<version>1.0</version>
+	<priority>600</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">Attachements</item>
+		<item for="name" lang="EL">Eπισυνάψεις</item>
+		<item for="name" lang="IT">Allegati</item>
+		<item for="name" lang="RO">Atașamente</item>
+		<item for="name" lang="RU">Прикрепленные файлы</item>
+		<item for="name" lang="SI">Priponke</item>
+		<item for="description" lang="RU">Позволяет прикрепить файлы к товарам</item>
+	</translations>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:attachments;</item>
+		<item>DROP TABLE IF EXISTS ?:attachment_descriptions;</item>
+		<item>
+			CREATE TABLE `?:attachments` (
+				`attachment_id` mediumint(8) unsigned NOT NULL auto_increment,
+				`object_type` varchar(30) NOT NULL default '', 
+				`object_id` mediumint(8) unsigned NOT NULL default '0', 
+				`type` char(1) NOT NULL default '', 
+				`position` int(11) NOT NULL default '0', 
+				`filename` varchar(100) NOT NULL default '', 
+				`filesize` int(11) unsigned NOT NULL default '0', 
+				`usergroup_ids` varchar(255) NOT NULL default '0', 
+				`status` char(1) NOT NULL default 'A', 
+				PRIMARY KEY  (`attachment_id`), 
+				KEY `object_type` (`object_type`,`object_id`),
+				KEY `type` (`type`)
+			) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:attachment_descriptions` ( 
+				`attachment_id` mediumint(8) unsigned NOT NULL default '0', 
+				`lang_code` char(2) NOT NULL default '', 
+				`description` varchar(255) NOT NULL default '',
+				PRIMARY KEY  (`attachment_id`,`lang_code`)
+			) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:attachments;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:attachment_descriptions;</item>
+	</queries>
+</addon>

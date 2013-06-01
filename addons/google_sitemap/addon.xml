@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>google_sitemap</id>
+	<name>Google sitemap</name>
+	<description>Creates a sitemap.xml for Google</description>
+	<version>1.0</version>
+	<priority>3500</priority>
+	<position>160</position>
+	<status>active</status>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="information">
+						<name>Information</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Информация</item>
+						</translations>
+					</item>
+					<item id="clear_url">
+						<name>Clear cache</name>
+						<type>info</type>
+						<handler>fn_google_sitemap_clear_url_info</handler>
+						<translations>
+							<item lang="RU">Очистить кеш</item>
+						</translations>
+					</item>
+					<item id="site_setting">
+						<name>Homepage settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки домашней страницы</item>
+						</translations>
+					</item>
+					<item id="site_change">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="site_priority">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>1</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+					<item id="products_setting">
+						<name>Products settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки товаров</item>
+						</translations>
+					</item>
+					<item id="include_products">
+						<name>Include in sitemap</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="RU">Включать в карту сайта (sitemap)</item>
+						</translations>
+					</item>
+					<item id="products_change">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="products_priority">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>0.5</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+					<item id="categories_setting">
+						<name>Categories settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки категорий</item>
+						</translations>
+					</item>
+					<item id="include_categories">
+						<name>Include in sitemap</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="RU">Включать в карту сайта (sitemap)</item>
+						</translations>
+					</item>
+					<item id="categories_change">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="categories_priority">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>0.5</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+					<item id="pages_setting">
+						<name>Pages settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки страниц</item>
+						</translations>
+					</item>
+					<item id="include_pages">
+						<name>Include in sitemap</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="RU">Включать в карту сайта (sitemap)</item>
+						</translations>
+					</item>
+					<item id="pages_change">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="pages_priority">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>0.5</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+					
+					<item id="news_setting">
+						<name>News settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки новостей</item>
+						</translations>
+					</item>
+					<item id="include_news">
+						<name>Include in sitemap</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="RU">Включать в карту сайта (sitemap)</item>
+						</translations>
+					</item>
+					<item id="news_change">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="news_priority">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>0.5</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+					
+					<item id="extended_setting">
+						<name>Extended feature pages settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки страниц с характеристиками</item>
+						</translations>
+					</item>
+					<item id="include_extended">
+						<name>Include in sitemap</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="RU">Включать в карту сайта (sitemap)</item>
+						</translations>
+					</item>
+					<item id="extended_change">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="extended_priority">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>0.5</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+					<item id="companies_setting" edition_type="MVE:ROOT">
+						<name>Companies settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Настройки компаний</item>
+						</translations>
+					</item>
+					<item id="include_companies" edition_type="MVE:ROOT">
+						<name>Include in sitemap</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="RU">Включать в карту сайта (sitemap)</item>
+						</translations>
+					</item>
+					<item id="companies_change" edition_type="MVE:ROOT">
+						<name>Update frequency</name>
+						<type>selectbox</type>
+						<default_value>daily</default_value>
+						<translations>
+							<item lang="RU">Частота обновления</item>
+						</translations>
+					</item>
+					<item id="companies_priority" edition_type="MVE:ROOT">
+						<name>Priority</name>
+						<type>selectbox</type>
+						<default_value>0.5</default_value>
+						<translations>
+							<item lang="RU">Приоритет</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="sitemap_clear_cache_info"><![CDATA[If products, categories and etc... were added or changed, please <a href="[admin_index]?dispatch=addons.manage&cc">clear the cache</a> to regenerate the xml sitemap.<br /><br /> [sitemap_available_in_customer] ]]></item>
+		<item lang="EN" id="sitemap_available_in_customer"><![CDATA[Sitemap is available by this link: <a href="[http_location]/[customer_index]?dispatch=xmlsitemap.view">[http_location]/[customer_index]?dispatch=xmlsitemap.view</a><br /><br />Sitemap can be reached by the URL <a href="[http_location]/sitemap.xml">[http_location]/sitemap.xml</a> if SEO addon is enabled. If it is disabled, you need to add the following code to the ".htaccess" file to get this URL working:<br />RewriteRule ^sitemap\.xml$ ./index.php?dispatch=xmlsitemap.view [L]<br />Add this line after the "RewriteBase" line.<br /><br />]]></item>
+		<item lang="EN" id="always">Always</item>
+		<item lang="EN" id="hourly">Hourly</item>
+		<item lang="EN" id="daily">Daily</item>
+		<item lang="EN" id="weekly">Weekly</item>
+		<item lang="EN" id="monthly">Monthly</item>
+		<item lang="EN" id="yearly">Yearly</item>
+		<item lang="EN" id="never">Never</item>
+		<item lang="RU" id="always">Всегда</item>
+		<item lang="RU" id="daily">Ежедневно</item>
+		<item lang="RU" id="hourly">Ежечасно</item>
+		<item lang="RU" id="monthly">Ежемесячно</item>
+		<item lang="RU" id="never">Никогда</item>
+		<item lang="RU" id="sitemap_available_in_customer"><![CDATA[Карта сайта доступна по следующей ссылке: <a href="[http_location]/[customer_index]?dispatch=xmlsitemap.view">[http_location]/[customer_index]?dispatch=xmlsitemap.view</a><br /><br />Карта сайта также может быть доступна по ссылке <a href="[http_location]/sitemap.xml">[http_location]/sitemap.xml</a> , если включен модуль SEO. Если модуль SEO выключен, Вам нужно добавить следующую часть кода в файл ".htaccess":<br />RewriteRule ^sitemap\.xml$ ./index.php?dispatch=xmlsitemap.view [L]<br />Добавьте данную строчку после строчки "RewriteBase".<br /><br />]]></item>
+		<item lang="RU" id="sitemap_clear_cache_info"><![CDATA[Если товары, категории и т.д. были добавлены или изменены, пожалуйста, <a href="[admin_index]?dispatch=addons.manage&cc">очистите кеш</a>, чтобы заново сгенерировать XML карту сайта.<br /><br /> [sitemap_available_in_customer] ]]></item>
+		<item lang="RU" id="weekly">Еженедельно</item>
+		<item lang="RU" id="yearly">Ежегодно</item>
+	</language_variables>
+	<translations>
+		<item for="name" lang="RU">Google Sitemap</item>
+		<item for="description" lang="RU">Создаёт файл sitemap.xml для Google</item>
+	</translations>
+</addon>

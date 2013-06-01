@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>myob</id>
+	<name>MYOB</name>
+	<description>Adds the MYOB integration</description>
+	<version>1.0</version>
+	<priority>1</priority>
+	<position>150</position>
+	<status>active</status>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="sales_account">
+						<name>Default Sales Account</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="RU">Счет продаж по умолчанию</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="export_to_myob">Export to MYOB</item>
+		<item lang="RU" id="export_to_myob">Экспорт в MYOB</item>
+	</language_variables>
+	<translations>
+		<item for="description" lang="RU">Интеграция с сервисом MYOB</item>
+	</translations>
+</addon>

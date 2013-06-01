@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>banners</id>
+	<name>Banners management</name>
+	<description>Allows you to create text and visual banners</description>
+	<version>1.0</version>
+	<priority>2800</priority>
+	<position>100</position>
+	<status>active</status>
+	<dependencies/>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="DE">Werbeverwaltung</item>
+		<item for="name" lang="ES">Gestor de anuncios</item>
+		<item for="name" lang="FR">Gestion de bannières</item>
+		<item for="name" lang="IT">Gestione banner</item>
+		<item for="name" lang="NL">Advertentiebeheer</item>
+		<item for="name" lang="DA">Bannere forvaltning</item>
+		<item for="name" lang="EL">Διαχείρηση των banners</item>
+		<item for="name" lang="RO">Gestionare bannere</item>
+		<item for="name" lang="RU">Управление баннерами</item>
+		<item for="name" lang="SI">Upravljanje z oglasnimi pasicami</item>
+		<item for="description" lang="RU">Позволяет создавать текстовые и графические баннеры</item>
+	</translations>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item for="demo" type='file' lang="EN" table="banner_descriptions">database/demo_banners_en.sql</item>
+		<item for="demo" type='file' lang="RU" table="banner_descriptions">database/demo_banners_ru.sql</item>
+		<item>DROP TABLE IF EXISTS ?:banners;</item>
+		<item>DROP TABLE IF EXISTS ?:banner_descriptions;</item>
+		<item>
+			CREATE TABLE `?:banners` ( 
+				`banner_id` mediumint(8) unsigned NOT NULL auto_increment, 
+				`url` varchar(255) NOT NULL default '',  
+				`status` char(1) NOT NULL default 'A',  
+				`type` char(1) NOT NULL default 'G', 
+				`target` char(1) NOT NULL default 'B', 
+				`localization` varchar(255) NOT NULL default '', 
+				`timestamp` int(11) unsigned NOT NULL default '0', 
+				PRIMARY KEY  (`banner_id`), 
+				KEY `localization` (`localization`), 
+				KEY `status` (`status`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:banner_descriptions` ( 
+				`banner_id` mediumint(8) unsigned NOT NULL default 0, 
+				`banner` varchar(255) NOT NULL default '', 
+				`description` mediumtext NOT NULL, 
+				`lang_code` char(2) NOT NULL default 'EN', 
+				PRIMARY KEY  (`banner_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_banners', 'View banners', 'EN', '7');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_banners', 'Manage banners', 'EN', '7');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_banners', 'Просмотр баннеров', 'RU', '7');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_banners', 'Управление баннерами', 'RU', '7');</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:banners`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('view_banners', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_banners', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:usergroup_privileges (usergroup_id, privilege) VALUES ('4', 'view_banners');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:usergroup_privileges (usergroup_id, privilege) VALUES ('4', 'manage_banners');</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:banners;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:banner_descriptions;</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'view_banners'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'view_banners'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:usergroup_privileges WHERE privilege = 'view_banners'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'manage_banners'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_banners'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:usergroup_privileges WHERE privilege = 'manage_banners'</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="block_banners">Banners</item>
+		<item lang="EN" id="block_banners_description">Visual and text banners</item>
+		<item lang="RU" id="block_banners">Баннеры</item>
+		<item lang="RU" id="block_banners_description">Графические и текстовые баннеры</item>
+	</language_variables>
+</addon>

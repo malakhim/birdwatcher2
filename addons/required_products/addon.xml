@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>required_products</id>
+	<name>Required products</name>
+	<description>Makes it possible to specify products required for purchase</description>
+	<version>1.0</version>
+	<priority>3900</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">Produits requis</item>
+		<item for="name" lang="DA">Nødvendige produkter</item>
+		<item for="name" lang="EL">Απαιτούμεν προϊόντα</item>
+		<item for="name" lang="RO">Produse necesare</item>
+		<item for="name" lang="RU">Обязательные товары</item>
+		<item for="name" lang="SI">Zahtevani izdelki</item>
+		<item for="description" lang="RU">Позволяет определять товары, которые необходимо купить для приобретения данного</item>
+	</translations>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:product_required_products;</item>
+		<item>
+			CREATE TABLE `?:product_required_products` (  
+				`product_id` mediumint(8) unsigned NOT NULL default '0',  
+				`required_id` mediumint(8) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`product_id`,`required_id`)
+			) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:product_required_products;</item>
+	</queries>
+</addon>

@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>gift_certificates</id>
+	<name>Gift certificates</name>
+	<description>Adds a built-in gift certificate system</description>
+	<version>1.0</version>
+	<priority>1100</priority>
+	<position>180</position>
+	<status>active</status>
+	<translations>
+		<item for="name" lang="ES">Certificados de regalo</item>
+		<item for="name" lang="FR">Bons cadeau</item>
+		<item for="name" lang="DA">Gavekort</item>
+		<item for="name" lang="EL">Δωροεπιταγές</item>
+		<item for="name" lang="IT">Certificati regalo</item>
+		<item for="name" lang="RO">Certificare de cadou</item>
+		<item for="name" lang="RU">Подарочные сертификаты</item>
+		<item for="name" lang="SI">Darilni certifikat</item>
+		<item for="description" lang="RU">Подключает встроенную систему подарочных сертификатов</item>
+	</translations>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="min_amount">
+						<name>Minimal amount</name>
+						<type>input</type>
+						<default_value>50</default_value>
+						<translations>
+							<item lang="ES">Cantidad mínima</item>
+							<item lang="DA">Minimal beløb</item>
+							<item lang="EL">Ελάχιστο ποσό</item>
+							<item lang="RO">Valoarea minimă</item>
+							<item lang="RU">Минимальная сумма</item>
+							<item lang="SI">Minimalni znesek</item>
+						</translations>
+					</item>
+					<item id="max_amount">
+						<name>Maximal amount</name>
+						<type>input</type>
+						<default_value>1500</default_value>
+						<translations>
+							<item lang="ES">Cantidad máxima</item>
+							<item lang="DA">Maksimal størrelse</item>
+							<item lang="EL">Μέγιστο ποσό</item>
+							<item lang="RO">Valoarea maximă</item>
+							<item lang="RU">Максимальная сумма</item>
+							<item lang="SI">Maksimalni znesek</item>
+						</translations>
+					</item>
+					<item id="code_prefix">
+						<name>GC Code prefix</name>
+						<type>input</type>
+						<default_value>GC</default_value>
+						<translations>
+							<item lang="EL">GC Code prefix </item>
+							<item lang="RO">Prefixul codului GC</item>
+							<item lang="RU">Префикс кода подарочного сертификата</item>
+							<item lang="SI">GC predpona kode</item>
+						</translations>
+					</item>
+					<item id="cert_per_page">
+						<name>Gift certificates per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Certificados de regalo por página</item>
+							<item lang="DA">Gavekort per side</item>
+							<item lang="EL">Δωροεπιταγές ανα σελίδα</item>
+							<item lang="RO">Certificate cadou per pagină</item>
+							<item lang="RU">Подарочных сертификатов на страницу</item>
+							<item lang="SI">Darilnih certifikatov na stran</item>
+						</translations>
+					</item>
+					<item id="free_products_allow">
+						<name>Allow to use free products</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Permitir usar productos gratis</item>
+							<item lang="DA">Tillad at bruge gratis produkter</item>
+							<item lang="EL">Δυνατότητα χρήσης δωρεάν προιόντων</item>
+							<item lang="RO">Permiteți folosirea produselor gratuite</item>
+							<item lang="RU">Позволять использовать бесплатные товары</item>
+							<item lang="SI">Dovolite, da se uporabljajo brezplačni izdelki</item>
+						</translations>
+					</item>
+					<item id="redeem_shipping_cost">
+						<name>Allow to redeem shipping cost with gift certificate</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Permitir amortizar los gastos de envío con el certificado de regalo</item>
+							<item lang="EL">Δυνατότητα εξαγοράς εξόδων αποστολής με δωροεπιταγή</item>
+							<item lang="RO">Permiteți și valorificarea transportului cu certificatul cadou</item>
+							<item lang="RU">Позволять оплачивать стоимость доставки подарочным сертификатом</item>
+							<item lang="SI">Dovolite, da se plača storšek dostave z darilnim bonom</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="promo_code_or_certificate">Gift certificate or promo code</item>
+		<item lang="EN" id="gift_certificate_added_to_cart">Gift certificate was added to your cart</item>
+		<item lang="EN" id="gift_certificates_verify">Gift certificate verification</item>
+		<item lang="EN" id="block_gift_certificates_verify">Gift certificate verification</item>
+		<item lang="EN" id="block_gift_certificates_verify_description">Gift certificate input and validation</item>
+		<item lang="EN" id="recipients_name">To</item>
+		<item lang="EN" id="purchasers_name">From</item>
+		<item lang="EN" id="gift_comment">Message</item>
+		<item lang="EN" id="gift_cert_error_amount">Amount should not be higher than [max] and less than [min]</item>
+		<item lang="RU" id="block_gift_certificates_verify">Проверка подарочного сертификата</item>
+		<item lang="RU" id="block_gift_certificates_verify_description">Ввод и проверка подарочного сертификата</item>
+		<item lang="RU" id="gift_certificates_verify">Проверка подарочного сертификата</item>
+		<item lang="RU" id="gift_certificate_added_to_cart">Подарочный сертификат был добавлен в корзину</item>
+		<item lang="RU" id="gift_comment">Сообщение</item>
+		<item lang="RU" id="promo_code_or_certificate">Подарочный сертификат или промо-код</item>
+		<item lang="RU" id="purchasers_name">От</item>
+		<item lang="RU" id="recipients_name">Кому</item>
+	</language_variables>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:gift_certificates;</item>
+		<item>DROP TABLE IF EXISTS ?:gift_certificates_log;</item>
+		<item>
+			CREATE TABLE `?:gift_certificates` (
+				`gift_cert_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`company_id` int(11) unsigned NOT NULL default '0', 
+				`gift_cert_code` varchar(255) NOT NULL default '',  
+				`sender` varchar(64) NOT NULL default '', 
+				`recipient` varchar(64) NOT NULL default '', 
+				`send_via` char(1) NOT NULL default 'E', 
+				`amount` decimal(12,2) NOT NULL default '0.00', 
+				`email` varchar(64) NOT NULL default '',  
+				`address` varchar(255) NOT NULL default '',  
+				`address_2` varchar(255) NOT NULL default '',  
+				`city` varchar(255) NOT NULL default '', 
+				`state` varchar(32) NOT NULL default '', 
+				`country` char(2) NOT NULL default '', 
+				`zipcode` varchar(10) NOT NULL default '',  
+				`status` char(1) NOT NULL default 'P', 
+				`timestamp` int(11) unsigned NOT NULL default '0', 
+				`phone` varchar(32) NOT NULL default '', 
+				`order_ids` varchar(255) NOT NULL default '',  
+				`template` varchar(128) NOT NULL default '', 
+				`message` mediumtext NOT NULL,  `products` text NOT NULL,  
+				PRIMARY KEY  (`gift_cert_id`),  KEY `status` (`status`),  
+				KEY `timestamp` (`timestamp`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:gift_certificates_log` (  
+				`log_id` mediumint(8) unsigned NOT NULL auto_increment, 
+				`gift_cert_id` mediumint(8) unsigned NOT NULL default '0',
+				`area` char(1) NOT NULL default 'C',  
+				`user_id` mediumint(8) unsigned NOT NULL default '0', 
+				`order_id` mediumint(8) unsigned NOT NULL default '0', 
+				`timestamp` int(11) unsigned NOT NULL default '0', 
+				`amount` decimal(12,2) NOT NULL default '0.00', 
+				`debit` decimal(12,2) NOT NULL default '0.00',
+				`products` text NOT NULL, 
+				`debit_products` text NOT NULL, 
+				PRIMARY KEY  (`log_id`), 
+				KEY `area` (`area`),  
+				KEY `user_id` (`user_id`), 
+				KEY `order_id` (`order_id`), 
+				KEY `timestamp` (`timestamp`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_gift_certificates', 'Manage gift certificate system', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_gift_certificates', 'Управление подарочными сертификатами', 'RU', '1');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default) VALUES ('manage_gift_certificates', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege LIKE 'manage_gift_certificates'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege LIKE 'manage_gift_certificates'</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:gift_certificates;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:gift_certificates_log;</item>
+	</queries>
+</addon>

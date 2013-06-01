@@ -1,0 +1,3 @@
+REPLACE INTO ?:news_descriptions (news_id, news, description, lang_code) VALUES('2', 'С Новым Годом!', '<p>Счастливого Нового года.</p>', 'RU');
+REPLACE INTO ?:news_descriptions (news_id, news, description, lang_code) VALUES('3', 'Наш магазин обновлен!', '<p>Теперь еще легче найти то, что Вам нужно.<br /><br />Покупайте с удовольствием!</p>', 'RU');
+REPLACE INTO ?:news_descriptions (news_id, news, description, lang_code) VALUES('4', 'CS-Cart версия 3', '<p>Мы рады сообщить о выходе новой версии CS-Cart 3!</p>', 'RU');

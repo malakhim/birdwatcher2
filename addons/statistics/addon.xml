@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>statistics</id>
+	<name>Statistics</name>
+	<description>Collects visitor statistics</description>
+	<version>1.0</version>
+	<priority>1300</priority>
+	<position>500</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR</auto_install>
+	<translations>
+		<item for="name" lang="ES">Estadísticas</item>
+		<item for="name" lang="FR">Statistiques</item>
+		<item for="name" lang="DA">Statistik</item>
+		<item for="name" lang="EL">Στατιστικές </item>
+		<item for="name" lang="IT">Statistiche</item>
+		<item for="name" lang="RO">Statistici</item>
+		<item for="name" lang="RU">Статистика</item>
+		<item for="name" lang="SI">Statistika</item>
+		<item for="description" lang="RU">Собирает статистику посещений</item>
+	</translations>
+	<settings layout="separate" edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="unique_clients_by">
+						<name>Define unique clients by</name>
+						<type>selectbox</type>
+						<default_value>cookie</default_value>
+						<variants>
+							<item id="cookie">
+								<name>Cookie</name>
+								<translations>
+									<item lang="SI">Piškotek</item>
+								</translations>
+							</item>
+							<item id="ip">
+								<name>IP address</name>
+								<translations>
+									<item lang="ES">Dirección IP</item>
+									<item lang="EL">Διεύθυνση IP</item>
+									<item lang="RO">Adresă IP</item>
+									<item lang="RU">IP адрес</item>
+									<item lang="SI">IP naslov</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Definir clientes únicos por</item>
+							<item lang="EL">Define unique clients by </item>
+							<item lang="RO">Definește clienții unici după</item>
+							<item lang="RU">Определять уникальных посетителей по</item>
+							<item lang="SI">Določi unikatne stranke z</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:stat_browsers;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_ips;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_languages;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_product_search;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_requests;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_search_engines;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_search_phrases;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_sessions;</item>
+		<item>DROP TABLE IF EXISTS ?:stat_banners_log;</item>
+		<item>
+			CREATE TABLE `?:stat_browsers` (  
+				`browser_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`browser` varchar(50) NOT NULL default '',  
+				`version` varchar(20) NOT NULL default '',  
+				PRIMARY KEY  (`browser_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_ips` (  
+				`ip_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`ip` int(11) unsigned NOT NULL default '0',  
+				`country_code` char(2) NOT NULL default '',  
+				`city` varchar(50) NOT NULL default '',  
+				PRIMARY KEY  (`ip_id`),  
+				KEY `country_code` (`country_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_languages` (  
+				`lang_code` varchar(5) NOT NULL default '',  
+				`language` varchar(255) NOT NULL default '',  
+				PRIMARY KEY  (`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_product_search` (  
+				`sess_id` mediumint(8) unsigned NOT NULL default '0',
+				`search_string` text NOT NULL,  
+				`md5` varchar(32) NOT NULL default '',  
+				`quantity` mediumint(8) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`sess_id`,`md5`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_requests` (  
+				`req_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`url` text NOT NULL,  
+				`title` varchar(255) NOT NULL default '',  
+				`https` char(1) NOT NULL default 'N',  
+				`loadtime` int(11) unsigned NOT NULL default '0',  
+				`sess_id` mediumint(8) unsigned NOT NULL default '0',  
+				`request_type` int(11) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`req_id`),  
+				KEY `sess_id` (`sess_id`),  
+				KEY `request_type` (`request_type`),  
+				KEY `timestamp` (`timestamp`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_search_engines` (  
+				`engine_id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT ,  
+				`engine` varchar(128) NOT NULL default '',  
+				PRIMARY KEY ( `engine_id` )
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_search_phrases` (  
+				`phrase_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`phrase` text NOT NULL,  
+				PRIMARY KEY  (`phrase_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_sessions` (  
+				`sess_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`os` varchar(30) NOT NULL default '',  
+				`client_type` char(1) NOT NULL default 'U',  
+				`browser_id` mediumint(8) unsigned NOT NULL default '0',  
+				`robot` varchar(64) NOT NULL default '',  
+				`user_agent` varchar(255) NOT NULL default '',  
+				`screen_x` smallint(5) unsigned NOT NULL default '0',  
+				`screen_y` smallint(5) unsigned NOT NULL default '0',  
+				`color` tinyint(3) unsigned NOT NULL default '0',  
+				`client_language` varchar(5) NOT NULL default '',  
+				`session` varchar(32) NOT NULL default '',  
+				`host_ip` int(11) unsigned NOT NULL default '0',  
+				`proxy_ip` int(11) unsigned NOT NULL default '0',  
+				`ip_id` mediumint(8) unsigned NOT NULL default '0',  
+				`uniq_code` int(11) unsigned NOT NULL default '0',  
+				`referrer` text NOT NULL,  
+				`referrer_scheme` varchar(32) NOT NULL default '',  
+				`referrer_host` varchar(128) NOT NULL default '',  
+				`engine_id` mediumint(8) unsigned NOT NULL default '0',  
+				`phrase_id` mediumint(8) unsigned NOT NULL default '0',  
+				`timestamp` int(11) unsigned NOT NULL default '0', 
+				`expiry` int(11) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`sess_id`),  
+				KEY (`session`, `expiry`),  
+				KEY `browser_id` (`browser_id`),  
+				KEY `ip_id` (`ip_id`),  
+				KEY `engine_id` (`engine_id`),  
+				KEY `phrase_id` (`phrase_id`),  
+				KEY `robot` (`robot`), 
+				KEY `timestamp` (`timestamp`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:stat_banners_log` (  
+			`banner_id` mediumint(8) NOT NULL default '0',  
+			`type` char(1) NOT NULL default 'C',  
+			`timestamp` int(11) NOT NULL default '0',  
+			KEY `banner_id` (`banner_id`,`type`,`timestamp`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_browsers`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_ips`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_languages`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_product_search`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_requests`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_search_engines`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_search_phrases`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_sessions`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:stat_banners_log`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AF', 'Afrikaans');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-SA', 'Arabic (Saudi Arabia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-EG', 'Arabic (Egypt)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-DZ', 'Arabic (Algeria)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-TN', 'Arabic (Tunisia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-YE', 'Arabic (Yemen)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-JO', 'Arabic (Jordan)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-KW', 'Arabic (Kuwait)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-BH', 'Arabic (Bahrain)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EU', 'Basque');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('BE', 'Belarusian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ZH-TW', 'Chinese (Taiwan)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ZH-HK', 'Chinese (Hong Kong SAR)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('HR', 'Croatian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('DA', 'Danish');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('NL-BE', 'Dutch (Belgium)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-US', 'English (United States)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-AU', 'English (Australia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-NZ', 'English (New Zealand)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-ZA', 'English (South Africa)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN', 'English');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-TT', 'English (Trinidad)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FO', 'Faeroese');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FI', 'Finnish');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FR-BE', 'French (Belgium)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FR-CH', 'French (Switzerland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('GD', 'Gaelic (Scotland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('DE', 'German (Standard)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('DE-AT', 'German (Austria)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('DE-LI', 'German (Liechtenstein)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('HE', 'Hebrew');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('HU', 'Hungarian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ID', 'Indonesian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('IT-CH', 'Italian (Switzerland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('KO', 'Korean');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('LV', 'Latvian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('MK', 'Macedonian (FYROM)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('MT', 'Maltese');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('NO', 'Norwegian (Nynorsk)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('PT-BR', 'Portuguese (Brazil)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('RM', 'Rhaeto-Romanic');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('RO-MO', 'Romanian (Moldavia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('RU-MO', 'Russian (Moldavia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SR', 'Serbian (Cyrillic)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SK', 'Slovak');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SB', 'Sorbian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-MX', 'Spanish (Mexico)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-CR', 'Spanish (Costa Rica)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-DO', 'Spanish (Dominican Republic)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-CO', 'Spanish (Colombia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-AR', 'Spanish (Argentina)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-CL', 'Spanish (Chile)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-PY', 'Spanish (Paraguay)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-SV', 'Spanish (El Salvador)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-NI', 'Spanish (Nicaragua)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SX', 'Sutu');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SV-FI', 'Swedish (Finland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('TS', 'Tsonga');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('TR', 'Turkish');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('UR', 'Urdu');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('VI', 'Vietnamese');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('JI', 'Yiddish');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SQ', 'Albanian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-IQ', 'Arabic (Iraq)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-LY', 'Arabic (Libya)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-MA', 'Arabic (Morocco)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-OM', 'Arabic (Oman)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-SY', 'Arabic (Syria)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-LB', 'Arabic (Lebanon)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-AE', 'Arabic (U.A.E.)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR-QA', 'Arabic (Qatar)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('BG', 'Bulgarian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('CA', 'Catalan');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ZH-CN', 'Chinese (PRC)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ZH-SG', 'Chinese (Singapore)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('CS', 'Czech');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('NL', 'Dutch (Standard)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-GB', 'English (United Kingdom)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-CA', 'English (Canada)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-IE', 'English (Ireland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-JM', 'English (Jamaica)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EN-BZ', 'English (Belize)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ET', 'Estonian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FA', 'Farsi');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FR', 'French (Standard)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FR-CA', 'French (Canada)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('FR-LU', 'French (Luxembourg)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('GD-IE', 'Gaelic (Ireland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('DE-CH', 'German (Switzerland)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('DE-LU', 'German (Luxembourg)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('EL', 'Greek');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('HI', 'Hindi');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('IS', 'Icelandic');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('IT', 'Italian (Standard)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('JA', 'Japanese');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('LT', 'Lithuanian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('MS', 'Malaysian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('PL', 'Polish');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('PT', 'Portuguese (Portugal)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('RO', 'Romanian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('RU', 'Russian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SZ', 'Sami (Lappish)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SL', 'Slovenian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES', 'Spanish (Spain)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-GT', 'Spanish (Guatemala)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-PA', 'Spanish (Panama)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-VE', 'Spanish (Venezuela)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-PE', 'Spanish (Peru)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-EC', 'Spanish (Ecuador)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-UY', 'Spanish (Uruguay)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-BO', 'Spanish (Bolivia)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-HN', 'Spanish (Honduras)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ES-PR', 'Spanish (Puerto Rico)');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('SV', 'Swedish');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('TH', 'Thai');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('TN', 'Tswana');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('UK', 'Ukrainian');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('VE', 'Venda');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('XH', 'Xhosa');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ZU', 'Zulu');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('AR', 'Arabic');</item>
+		<item>REPLACE INTO ?:stat_languages (lang_code, language) VALUES ('ZH', 'Chinese');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_statistics', 'View statistics', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_statistics', 'Manage statistics', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_statistics', 'Просмотр статистики', 'RU', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_statistics', 'Управление статистикой', 'RU', '1');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('view_statistics', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_statistics', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege LIKE 'manage_statistics' OR privilege LIKE 'view_statistics'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege LIKE 'manage_statistics' OR privilege LIKE 'view_statistics'</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_browsers;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_ips;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_languages;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_product_search;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_requests;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_search_engines;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_search_phrases;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_sessions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:stat_banners_log;</item>
+	</queries>
+</addon>

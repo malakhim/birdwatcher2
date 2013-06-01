@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>form_builder</id>
+	<name>Form builder</name>
+	<description>Lets you create custom forms (e.g. Contact us or Apply for partnership)</description>
+	<version>1.0</version>
+	<priority>2400</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">Générateur de formulaires</item>
+		<item for="name" lang="EL">Form builder</item>
+		<item for="name" lang="RO">Constructorul de formulare</item>
+		<item for="name" lang="RU">Конструктор форм</item>
+		<item for="name" lang="SI">Izdelava obrazcev</item>
+		<item for="description" lang="RU">Позволяет создавать настраиваемые формы (например, "Связаться с нами")</item>
+	</translations>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item for="demo" type='file' table="form_descriptions" lang="EN" >database/demo_en.sql</item>
+		<item for="demo" type='file' table="page_descriptions" lang="EN" >database/demo_pages_en.sql</item>
+		<item for="demo" type='file' table="form_descriptions" lang="RU" >database/demo_ru.sql</item>
+		<item for="demo" type='file' table="page_descriptions" lang="RU" >database/demo_pages_ru.sql</item>
+		<item>DROP TABLE IF EXISTS ?:form_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:form_options;</item>
+		<item>
+			CREATE TABLE `?:form_descriptions` (  
+				`object_id` mediumint(8) unsigned NOT NULL default '0',
+				`description` text NOT NULL default '',
+				`lang_code` char(2) NOT NULL default 'EN',
+				PRIMARY KEY  (`object_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:form_options` (
+				`element_id` mediumint(8) unsigned NOT NULL auto_increment,
+				`page_id` mediumint(8) unsigned NOT NULL default '0',
+				`parent_id` mediumint(8) unsigned NOT NULL default '0',
+				`element_type` char(1) NOT NULL default 'I',
+				`value` varchar(255) NOT NULL default '',
+				`position` smallint(5) unsigned NOT NULL default '0',
+				`required` char(1) NOT NULL default 'N',
+				`status` char(1) NOT NULL default 'A',
+				PRIMARY KEY  (`element_id`),  KEY `page_id` (`page_id`,`status`),  KEY `position` (`position`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:form_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:form_options;</item>
+	</queries>
+	<functions>
+		<item for="uninstall">fn_form_builder_remove_pages</item>
+	</functions>
+</addon>

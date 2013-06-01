@@ -1,0 +1,11 @@
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('11', 'RO', 'Stricat la sosire');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('12', 'RO', 'Produs comandat greșit');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('3', 'RO', 'Descriere greșită online');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('4', 'RO', 'Nu se poate pune într-o stare de funcționare');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('5', 'RO', 'Defect de fabrică');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('6', 'RO', 'Produs livrat greșit');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('7', 'RO', 'În afara garanției');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('8', 'RO', 'Avariat în timpul transportului');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('1', 'RO', 'Înlocuiți produs');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('2', 'RO', 'Refinanțați');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('13', 'RO', 'Alta');

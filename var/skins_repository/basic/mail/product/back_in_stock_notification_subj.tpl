@@ -1,0 +1,1 @@
+{$company_info.company_name|unescape}: {$product.name|unescape|strip_tags} {$lang.is_back_in_stock}

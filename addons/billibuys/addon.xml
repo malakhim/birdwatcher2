@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+ 
+<addon scheme='2.0'>
+	<id>billibuys</id>
+	<version>0.2</version> 
+	<name>BilliBuys</name>
+	<description>BilliBuys reverse dutch auction addon</description>
+	<priority>100500</priority>
+	<status>active</status>
+	<queries>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_requests</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_request_item</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_bids</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
+		<item for="install">
+			CREATE TABLE `?:bb_notifications` (
+				`bb_notify_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`notify_string` VARCHAR(255),
+				`user_id` int(11) unsigned NOT NULL,
+				`ip_address` int(11) unsigned NOT NULL,
+				`timestamp` int(11) unsigned NOT NULL,
+				PRIMARY KEY (`bb_notify_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_requests` (
+				`bb_bid_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`user_id` int(11) unsigned NOT NULL,
+				`request_item_id` int(11),
+				`ip_address` int(11) unsigned NOT NULL,
+				`timestamp` int(11) unsigned NOT NULL,
+				PRIMARY KEY (`bb_bid_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_bids_archive` (
+				`archive_id` int(11) NOT NULL AUTO_INCREMENT,
+				`request_item_id` int(11),
+				`min_amt` DECIMAL(10,2),
+				`user_id` INT(11),
+				PRIMARY KEY (`archive_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_request_item` (
+				`bb_request_id` int(11) NOT NULL AUTO_INCREMENT,
+				`description` VARCHAR(255),
+				PRIMARY KEY (`bb_request_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_bids` (
+				`bb_item_id` int(11) NOT NULL AUTO_INCREMENT,
+				`request_item_id` int(11),
+				`min_amt` DECIMAL(10,2),
+				`user_id` INT(11),
+				PRIMARY KEY (`bb_item_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item>
+
+	</queries>
+
+	<language_variables>
+		<!-- View variables -->
+		<item lang="EN" id="create_notification">Would you like to be notified when someone places a request for an item?</item>
+		<item lang="EN" id="item">Item</item>
+		<item lang="EN" id="posted">Posted</item>
+		<item lang="EN" id="current_bid">Current Bid</item>
+		<item lang="EN" id="place_bid">Place Bid</item>
+
+		<!-- Notify variables -->
+		<item lang="EN" id="item">Item</item>
+
+		<!-- Front end view variables -->
+		<item lang="EN" id="bb_enter_item">Please enter the item you want here</item>
+		<item lang="EN" id="bb_ms_since_submitted">Microseconds since submitted</item>
+		<item lang="EN" id="bb_current_bid">Current bid</item>
+		<item lang="EN" id="bb_not_logged_in">Please log in to view your bids</item>
+		<item lang="EN" id="bb_no_bids">No bids yet</item>
+
+		<!-- General -->
+		<item lang="EN" id="bb_billibuys">Billibuys</item>		
+	</language_variables>
+
+	<!-- <settings>
+	  <sections>
+	    <section id="general">
+	      <items>
+	        <item id="some_prop">
+	          <name>Enter any text</name>
+	          <type>input</type>
+	          <default_value>Hello World!</default_value>         
+	        </item>
+	        <item id="some_dropdown">
+	          <name>Pick a value from the list</name>
+	          <type>selectbox</type>
+	          <default_value>blue</default_value>
+	            <variants>
+	              <item id="red">
+	                <name>Red</name>                            
+	              </item>
+	              <item id="green">
+	                <name>Green</name>
+	              </item>
+	              <item id="blue">
+	                <name>Blue</name>
+	              </item>
+	            </variants>
+	        </item>
+	      </items>
+	    </section>
+	  </sections>
+	</settings> -->
+</addon>

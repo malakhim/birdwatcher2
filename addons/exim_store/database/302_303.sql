@@ -1,0 +1,37 @@
+UPDATE `?:language_values` SET value='The entered license number is disabled. Please contact <a href=\"http://www.cs-cart.com\">CS-Cart support team</a> to check your license status.' WHERE lang_code='EN' AND name='text_license_disabled';
+UPDATE `?:language_values` SET value='You can buy the license upgrade in <a href=\"http://www.cs-cart.com\">Customer HelpDesk</a>' WHERE lang_code='EN' AND name='text_uc_buy_new_edition_license';
+UPDATE `?:language_values` SET value='<p>Your store has been upgraded successfully.</p>' WHERE lang_code='EN' AND name='text_uc_upgrade_completed';
+UPDATE `?:language_values` SET value='Access to this upgrade and to all future upgrades is closed. You can purchase an upgrade subscription plan at <a href=\"http://www.cs-cart.com\">Customer Help Desk</a>' WHERE lang_code='EN' AND name='update_period_expired';
+UPDATE `?:language_values` SET value='This upgrade is not available for your CS-Cart license. Please contact <a href=\"http://www.cs-cart.com\">CS-Cart support team</a> to update your license status.' WHERE lang_code='EN' AND name='upgrade_is_not_avail';
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'block_localizations', 'Localizations') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'block_localizations_description', 'Localization selector') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'category_is_empty', 'Please specify a category.') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'currency_is_absent', 'You should add the new currency with [cur_code] code.') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'error_empty_company_name', 'Company name cannot be empty') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'text_uc_upgrade_completed_check_and_open', '<p>Your store was closed during the upgrading procedure. We recommend you to check the work of the store after the upgrade and only then open it.</p><p>You will find the [link] link at the bottom of each page on the right-hand side.</p>') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'text_uc_upgrade_completed_with_errors', '<p>Errors occurred during the upgrade.</p><p>You can contact <a href=\"http://www.cs-cart.com\">CS-Cart support team</a> for assistance.</p><p>You can <a href=\"[restore_link]\">restore</a> the previous store version.</p>') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'vsevcredit_secret', 'Secret word') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'vsevcredit_shop_id', 'Shop ID') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:language_values` (lang_code, name, value) VALUES ('EN', 'vsevkredit_url_notice', 'Please set the following URLs in the Vsevkredit admin area:<br /><b>URL for API:</b> [api_url]<br /><b>Return URL:</b> [return_url]') ON DUPLICATE KEY UPDATE `lang_code` = `lang_code`;
+INSERT INTO `?:state_descriptions` (state_id, lang_code, state) VALUES ('503', 'EN', 'Isles of Scilly') ON DUPLICATE KEY UPDATE `state_id` = `state_id`;
+DELETE FROM `?:language_values` WHERE name='for_registered_only';
+DELETE FROM `?:language_values` WHERE name='for_registred_only';
+DELETE FROM `?:language_values` WHERE name='text_uc_ignore_errors';
+DELETE FROM `?:language_values` WHERE name='uc_config_isnt_writable';
+DELETE FROM `?:language_values` WHERE name='uc_deleted';
+DELETE FROM `?:language_values` WHERE name='uc_failed';
+DELETE FROM `?:language_values` WHERE name='uc_new';
+DELETE FROM `?:language_values` WHERE name='uc_non_writable';
+DELETE FROM `?:language_values` WHERE name='uc_skipped';
+DELETE FROM `?:language_values` WHERE name='uc_writable';
+DELETE FROM `?:settings_descriptions` WHERE object_id='181' AND object_type='O';
+
+INSERT INTO `?:payment_processors` (processor_id, processor, processor_script, processor_template, admin_template, callback, type) VALUES ('89', 'Vsevcredit', 'vsevcredit.php', 'cc_outside.tpl', 'vsevcredit.tpl', 'Y', 'P') ON DUPLICATE KEY UPDATE `processor_id` = `processor_id`;
+INSERT INTO `?:states` (state_id, country_code, code, status) VALUES ('503', 'GB', 'IOS', 'A') ON DUPLICATE KEY UPDATE `state_id` = `state_id`;
+DELETE FROM `?:settings_objects` WHERE object_id='92';
+DELETE FROM `?:settings_objects` WHERE object_id='142';
+DELETE FROM `?:settings_objects` WHERE object_id='181';
+
+ALTER TABLE `?:currencies` CHANGE `coefficient` `coefficient` double(12,5) NOT NULL DEFAULT '1.00000';
+ALTER TABLE `?:product_features_values` CHANGE `value_int` `value_int` double(12,2) DEFAULT NULL;
+ALTER TABLE `?:settings_objects` CHANGE `value` `value` text NOT NULL DEFAULT '';

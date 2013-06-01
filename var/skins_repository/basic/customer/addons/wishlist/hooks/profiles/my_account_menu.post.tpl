@@ -1,0 +1,1 @@
+<li><a href="{"wishlist.view"|fn_url}" rel="nofollow">{$lang.wishlist}{if $wishlist_count > 0} ({$wishlist_count}){/if}</a></li>

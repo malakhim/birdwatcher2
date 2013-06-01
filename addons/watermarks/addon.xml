@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>watermarks</id>
+	<name>Watermarks</name>
+	<description>Allows you to add watermarks to product and category images</description>
+	<version>1.0</version>
+	<priority>3000</priority>
+	<position>140</position>
+	<status>active</status>
+	<dependencies/>
+	<settings layout="separate" edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="watermark">
+						<name>Watermark</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Водяной знак</item>
+						</translations>
+					</item>
+					<item id="watermark_settings">
+						<name/>
+						<type>template</type>
+						<default_value>watermark.tpl</default_value>
+						<translations>
+							<item lang="RU">Approve product info updates</item>
+							<item lang="RU" for="tooltip">"None" - this option is disabled for all vendors; "Custom" - the option is enabled on a vendor details page (the Add-ons tab); "All vendors" - the option is enabled for all vendors.</item>
+						</translations>
+					</item>
+					<item id="apply_to_product">
+						<name>Product watermarks</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Водяные знаки товаров</item>
+						</translations>
+					</item>
+					<item id="use_for_product_icons">
+						<name>Resized images</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Изображения с измененным размером</item>
+						</translations>
+					</item>
+					<item id="use_for_product_detailed">
+						<name>Original size images</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Изображения в оригинальном размере</item>
+						</translations>
+					</item>
+					<item id="apply_to_categories">
+						<name>Category watermarks</name>
+						<type>header</type>
+						<translations>
+							<item lang="RU">Водяные знаки категорий</item>
+						</translations>
+					</item>
+					<item id="use_for_category_icons">
+						<name>Resized images</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Изображения с измененным размером</item>
+						</translations>
+					</item>
+					<item id="use_for_category_detailed">
+						<name>Original size images</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Изображения в оригинальном размере</item>
+						</translations>
+					</item>
+					<item id="images_access_info">
+						<name>Images access</name>
+						<type>info</type>
+						<handler>fn_watermarks_images_access_info</handler>
+						<translations>
+							<item lang="RU">Доступ к изображениям</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item>ALTER TABLE ?:images ADD KEY `image_path` (`image_path`);</item>
+		<item for="uninstall">ALTER TABLE ?:images DROP KEY `image_path`;</item>
+	</queries>
+	<language_variables>
+		<item id="wt_watermarks" lang="EN">Watermarks</item>
+		<item id="wt_graphic_watermark" lang="EN">Graphic watermark</item>
+		<item id="wt_text_watermark" lang="EN">Text watermark</item>
+		<item id="wt_watermark_vertical_position" lang="EN">Watermark vertical position</item>
+		<item id="wt_watermark_horizontal_position" lang="EN">Watermark horizontal position</item>
+		<item id="wt_watermark_position" lang="EN">Watermark position</item>
+		<item id="wt_watermark_image" lang="EN">Watermark image</item>
+		<item id="wt_watermark_text" lang="EN">Watermark text</item>
+		<item id="wt_font" lang="EN">Font</item>
+		<item id="wt_font_color" lang="EN">Font color</item>
+		<item id="wt_font_size_icon" lang="EN">Font size (thumbnail)</item>
+		<item id="wt_font_size_detailed" lang="EN">Font size (larger image)</item>
+		<item id="wt_watermark_icon" lang="EN">Thumbnail watermark</item>
+		<item id="wt_watermark_detailed" lang="EN">Popup larger image watermark</item>
+		<item id="wt_fail_apply_graphic_watermark" lang="EN">Failed to apply the watermark to [image_type]. The watermark image is not added.</item>
+		<item id="wt_icons" lang="EN">thumbnails</item>
+		<item id="wt_detailed" lang="EN">popup larger images</item>
+		<item id="wt_images_access_description" lang="EN">To deny access to your original images, please add the following instructions to the '.htaccess' file in the 'images' directory of your CS-Cart installation. It will protect your original images. Even if an original image is opened, the corresponding watermarked image will be show instead.</item>
+		<item id="wt_watermarks_access_description" lang="EN">To generate watermarked images automatically even if they are requested not from your CS-Cart store pages, please add the '.htaccess' file with the following instructions to the 'images/wateramarked' directory of your CS-Cart installation.</item>
+		<item id="wt_access_note" lang="EN">Please note, if you disable or uninstall the 'Watermarks' add-on, you should remove these instructions from '.htaccess' files manually. Otherwise category and product images will be unavailable.</item>
+		<item id="wt_access_warning" lang="EN">Watermark creating is disabled. If there are any "Rewrite watermarks rules" instructions in the "images/.htaccess" file, you should remove them manually. Otherwise category and product images will be unavailable.</item>
+		<item id="wt_images_access_info" lang="EN">Images access</item>
+		<item id="wt_detailed" lang="EN">popup larger images</item>
+		<item lang="RU" id="wt_access_note">Пожалуйста, учтите, что при отключении модуля 'Водяные знаки' Вы должны удалить эти строчки кода из файла '.htaccess' вручную. В противном случае изображения товаров и категорий будут недоступны.</item>
+		<item lang="RU" id="wt_access_warning">Создание водяных знаков отключено. Если в файле "images/.htaccess" прописаны "Правила для создания водяных знаков", Вы должны удалить их вручную. В противном случае изображения товаров и категорий будут недоступны.</item>
+		<item lang="RU" id="wt_detailed">детальное изображение</item>
+		<item lang="RU" id="wt_fail_apply_graphic_watermark">Не удалось применить водяной знак к [image_type]. Изображение водяного знака не было добавлено.</item>
+		<item lang="RU" id="wt_font">Шрифт</item>
+		<item lang="RU" id="wt_font_color">Цвет шрифта</item>
+		<item lang="RU" id="wt_font_size_detailed">Размер шрифта (детальное изображение)</item>
+		<item lang="RU" id="wt_font_size_icon">Размер шрифта (иконка)</item>
+		<item lang="RU" id="wt_graphic_watermark">Графический водяной знак</item>
+		<item lang="RU" id="wt_icons">иконки</item>
+		<item lang="RU" id="wt_images_access_description">Чтобы закрыть доступ к Вашим исходным изображениям, пожалуйста, добавьте следующую часть кода в файл '.htaccess', который находится в директории 'images' Вашей инсталляции CS-Cart. Это защитит Ваши исходные изображения. Даже если открыто исходное изображение, соответствующее изображение с водяным знаком будет отображаться вместо него.</item>
+		<item lang="RU" id="wt_images_access_info">Доступ до изображений</item>
+		<item lang="RU" id="wt_text_watermark">Текст для водяного знака</item>
+		<item lang="RU" id="wt_watermarks">Водяные знаки</item>
+		<item lang="RU" id="wt_watermarks_access_description">Для того, чтобы автоматически генерировать изображения с водяными знаками, даже если они не запрашиваются со страниц магазина CS-Cart, добавьте файл '.htaccess' со следующим содержимым в директорию 'images/wateramarked' Вашей инсталляции CS-Cart.</item>
+		<item lang="RU" id="wt_watermark_detailed">Водяной знак детального изображения</item>
+		<item lang="RU" id="wt_watermark_horizontal_position">Горизонтальное положение водяного знака</item>
+		<item lang="RU" id="wt_watermark_icon">Водяной знак иконки</item>
+		<item lang="RU" id="wt_watermark_image">Изображение водяного знака</item>
+		<item lang="RU" id="wt_watermark_position">Расположение водяного знака</item>
+		<item lang="RU" id="wt_watermark_text">Текст для водяного знака</item>
+		<item lang="RU" id="wt_watermark_vertical_position">Вертикальное положение водяного знака</item>
+	</language_variables>
+	<functions>
+		<item for="uninstall">fn_clear_watermarks</item>
+	</functions>
+	<translations>
+		<item for="name" lang="RU">Водяные знаки</item>
+		<item for="description" lang="RU">Позволяет добавлять водяные знаки к изображениям товаров и категорий</item>
+	</translations>
+</addon>

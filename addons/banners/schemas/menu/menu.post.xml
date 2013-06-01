@@ -1,0 +1,7 @@
+<website>
+	<item title="banners" dispatch="banners.manage" />
+</website>
+
+<administration>
+	<subitem item="statistics" title="banners" href="%INDEX_SCRIPT?dispatch=statistics.banners" />
+</administration>

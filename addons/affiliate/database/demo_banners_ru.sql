@@ -1,0 +1,12 @@
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('28', 'Книги', '<center><b>В нашем магазине</b>\n\n<hr />Любая книга</center>', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('24', 'Для детей', 'Контент для детей. Контент для детей. Контетн для детей. Контент для детей', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('18', 'Рок музыка', '<center><b>Рок музыка</b>\n\n<hr /><font color=\"red\">Это\' классная музыка!</font></center>', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('32', 'Банер продуктов', 'Любой пробукт.', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('35', 'Тестовый банер продукта', 'текст', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('36', 'Тестовый URL', '<center>Тестовый <b>МАГАЗИН</b>\n\n**************</center>', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('38', 'Заголовок баннера, который никто не увидит', 'У текстовых баннеров необязательно должны быть заголовки. К примеру, у этого баннера заголовка нет.', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('42', 'Тестовый баннер продукта', '', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('56', 'Графический банер', '', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('57', 'Графический баннер в партнерской программе', ' Описание графического баннера. Этот текст будет показан рядом с самой картинкой.', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('55', 'Тестовый графический баннер для категории', 'описание', '', 'RU');
+REPLACE INTO ?:aff_banner_descriptions (banner_id, title, content, alt, lang_code) VALUES ('61', 'Партнерский баннер', 'Можно создавать баннеры с заголовками. Например, у этого баннера заголовок будет показан прямо над самим текстом.', '', 'RU');

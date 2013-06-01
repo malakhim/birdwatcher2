@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+		<container position="BOTTOM" width="16" user_class="">
+			<grid width="16" user_class="footer-menu" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+				<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="1" wrapper="" content_align="LEFT" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/my_account_links.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Bottom my account]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[3]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[html_block]]></type>
+							<properties>
+								<template><![CDATA[blocks/html_block.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Demo store]]></name>
+							<object_type />
+							<content>
+								<content><![CDATA[<p><span>Demo Store</span></p>
+<ul>
+<li><a href="index.php?dispatch=pages.view&amp;page_id=2">About us</a></li>
+<li><a href="index.php?dispatch=pages.view&amp;page_id=30">Contact Us</a></li>
+<li><a href="index.php?dispatch=gift_certificates.add">Gift certificates</a></li>
+<li><a href="index.php?dispatch=promotions.list">Promotions</a></li>
+<li><a href="index.php?dispatch=events.search">Events</a></li>
+<li><a href="index.php?dispatch=sitemap.view">Sitemap</a></li>
+<li><a href="index.php?dispatch=news.list">News</a></li>
+</ul>]]></content>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[html_block]]></type>
+							<properties>
+								<template><![CDATA[blocks/html_block.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Customer service]]></name>
+							<object_type />
+							<content>
+								<content><![CDATA[<p><span>Customer Service</span></p>
+<ul>
+<li><a href="index.php?dispatch=orders.search">About your order</a></li>
+<li><a href="index.php?dispatch=wishlist.view">Wishlist</a></li>
+<li><a href="index.php?dispatch=product_features.compare">Compare list</a></li>
+<li><a href="index.php?dispatch=subscriptions.search">Subscriptions</a></li>
+</ul>]]></content>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[html_block]]></type>
+							<properties>
+								<template><![CDATA[blocks/html_block.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[About CS-Cart]]></name>
+							<object_type />
+							<content>
+								<content><![CDATA[<p><span>About CS-Cart</span></p>
+<ul>
+<li><a href="index.php?dispatch=pages.view&amp;page_id=1">What is CS-Cart?</a></li>
+<li><a href="index.php?dispatch=pages.view&amp;page_id=3">Privacy policy</a></li>
+</ul>]]></content>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="4" user_class="" suffix="0" prefix="0" omega="1" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[addons/news_and_emails/blocks/static_templates/subscribe.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Subscribe]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+						<block>
+							<type><![CDATA[html_block]]></type>
+							<properties>
+								<template><![CDATA[blocks/html_block.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Social links]]></name>
+							<object_type />
+							<content>
+								<content><![CDATA[<p><a class="social-link facebook" href="http://www.facebook.com/pages/CS-Cart/156687676230">Find us on Facebook</a> <a class="social-link twitter" href="https://twitter.com/cscart">Follow us on Twitter</a></p>]]></content>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+							<contents />
+						</block>
+					</blocks>
+				</grid>
+			</grid>
+			<grid width="10" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+				<blocks>
+					<block>
+						<type><![CDATA[template]]></type>
+						<properties>
+							<template><![CDATA[blocks/static_templates/copyright.tpl]]></template>
+						</properties>
+						<lang_code><![CDATA[EN]]></lang_code>
+						<name><![CDATA[Copyright]]></name>
+						<object_type />
+						<content />
+						<object_ids />
+						<wrapper />
+						<user_class />
+						<order><![CDATA[0]]></order>
+						<status><![CDATA[A]]></status>
+						<translations />
+						<contents />
+					</block>
+				</blocks>
+			</grid>
+			<grid width="6" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="RIGHT" html_element="div" clear="1">
+				<blocks>
+					<block>
+						<type><![CDATA[template]]></type>
+						<properties>
+							<template><![CDATA[blocks/static_templates/payment_icons.tpl]]></template>
+						</properties>
+						<lang_code><![CDATA[EN]]></lang_code>
+						<name><![CDATA[Payment icons]]></name>
+						<object_type />
+						<content />
+						<object_ids />
+						<wrapper />
+						<user_class />
+						<order><![CDATA[0]]></order>
+						<status><![CDATA[A]]></status>
+						<translations />
+						<contents />
+					</block>
+				</blocks>
+			</grid>
+		</container>

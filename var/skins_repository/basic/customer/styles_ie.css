@@ -1,0 +1,460 @@
+/* Hack to avoid float div float outside the container */
+.border, .sidebox-wrapper, .info-field-body, .tab-wrapper, .tab-content-border, ul.bullets-list li, .form-field, .search-field, .info-field-title, .step-body, .item-wrap, .pagination-container, .buttons-container, #footer, .sidebox-body, .bottom-search, * html .form-field ul {
+	height: 1%;
+}
+.object-container .form-field {
+	height: auto;
+}
+.step-title, .step-title-active {
+	zoom: 1;
+}
+.step-title a, .step-title-active a {
+	float: left;
+}
+.radio {
+	width: 15px;
+	height: 14px;
+}
+.checkbox {
+	margin: 3px 5px 2px 3px;
+	width: 13px;
+	height: 13px;
+}
+input[type="text"], input[type="password"] {
+	height: auto;
+}
+.search-button {
+	margin-top: 0px;
+	vertical-align: -1px;
+}
+.search-advanced:link, .search-advanced:visited, .search-advanced:hover, .search-advanced:active {
+	vertical-align: 5px;
+}
+.flag {
+	position: relative;
+	top: -5px;
+}
+.cm-select-list.flags .flag {
+	top: -3px;
+}
+.sidebox-body .updates-wrapper.track-orders{
+	margin-left: 0px;
+}
+.sidebox-body .updates-wrapper.track-orders .input-text{
+	width: 159px;
+}
+
+.helper-container {
+	padding: 0px 0px 0px 1px;
+}
+.step-title-active span.float-right {
+	margin: -23px 0 -10px 0;
+}
+.step-title-active span.float-right .button-big {
+	margin-bottom: 0;
+}
+/* Buttons */
+.button-submit input, .button-submit-action input, .button-submit-big input {
+	overflow: visible;
+}
+.go-button {
+	vertical-align: -5px;
+	filter:chroma(color=#000000);
+}
+.search-form .button-submit {
+	vertical-align: -2px;
+}
+/* /Buttons */
+.search-input {
+	padding-top: 7px;
+	width: 298px !important;
+}
+/* product LIST view styles */
+
+.product-image, .item-image, .item-description, .product-price-float, .order-search-label, .product-description, * html .cm-select-list a.item-link, * html .cm-select-list a.item-link:link, * html .cm-select-list a.item-link:visited, * html .cm-select-list a.item-link:hover, * html .cm-select-list a.item-link:active, .tabs ul li, .tabs ul li a {
+	display: inline-block;
+}
+.multicolumns-list .quick-view {
+	margin-bottom: 0;
+}
+.object-container {
+	overflow-x: hidden;
+	padding-right: 30px;
+}
+/* /product LIST view styles */
+
+/* product details styles */
+.object-image {
+	display: inline;
+}
+/* /product details styles */
+/* list styles */
+.list-wrapper ul li {
+	vertical-align: 10px;
+}
+/* /list styles */
+
+ul.menu-subcategories {
+	margin: 0px;
+	padding: 1px 0px 5px 6px;
+}
+
+.clear {
+	zoom: 1;
+}
+.search-button {
+	margin-top: 0px;
+	vertical-align: -4px;
+}
+.sidebox-body .updates-wrapper {
+	margin-left: -10px;
+}
+
+#translate_link {
+	filter: alpha(opacity=70);
+}
+.upload-file-local input {
+	font-size:1em !important;
+	filter:alpha(opacity: 0);	
+}
+*:first-child+html .ie7-inline {
+	display: inline;
+}
+.select-field label .checkbox {
+	vertical-align: 0px;
+}
+.scroll-x {
+	padding-bottom: 20px;
+}
+/* For IE6 only */
+* html .updates-wrapper {
+	zoom: 1;
+}
+/* png fix */
+* html .select-wrap img {
+	behavior: expression((this.runtimeStyle.behavior="none")&&(this.pngSet?this.pngSet=true:(this.nodeName == "IMG" && this.src.toLowerCase().indexOf('.png')>-1?(this.runtimeStyle.backgroundImage = "none",
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.src + "', sizingMethod='image')",
+	this.src = images_dir + "/transparent.gif"):(this.origBg = this.origBg? this.origBg :this.currentStyle.backgroundImage.toString().replace('url("','').replace('")',''),
+	this.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + this.origBg + "', sizingMethod='crop')",
+	this.runtimeStyle.backgroundImage = "none")),this.pngSet=true)
+);
+}
+/* /png fix */
+
+/* top menu */
+* html .ajax-loading-box {
+	position: absolute;
+	top: expression(eval(document.documentElement.scrollTop) + 'px');
+}
+* html .cm-notification-container {
+	position: absolute;
+	top: expression(eval(document.documentElement.scrollTop) + 'px');
+}
+* html .bug-report {
+	position: absolute;
+	top: expression(eval(document.documentElement.scrollTop) + eval(document.documentElement.clientHeight) - 30 + 'px');
+}
+* html body {
+	background-attachment: fixed;
+	background-image: url(about:blank);
+	height: 100%;
+}
+.info-field-title label {
+	vertical-align: -3px;
+}
+* html .info-field-title {
+	padding: 6px 4px 7px 8px;
+}
+* html .info-field-title label {
+	vertical-align: middle;
+}
+.statistic-list li.total {
+	overflow: visible;
+}
+.add-buttons {
+	display: inline-block;
+	margin: -23px 0 0 10px;
+}
+.button a:link, .button a:visited, .button a:hover, .button a:active, .button-action a:link, , .button-action a:visited, .button-action a:hover, .button-action a:active {
+	text-decoration: none;
+}
+* html .mainbox-cart-body {
+	height: 230px;
+}
+* html .button-action {
+	overflow: hidden;
+}
+div.tags-buttons {
+	float: left;
+}
+.step-complete-wrapper {
+	zoom: auto !important;
+}
+.step-title a.float-right {
+	display: block;
+	float: right;
+}
+* html .step-title span.float-left, .step-title-active span.float-left {
+	position: relative;
+}
+.step-container-active {
+	padding-bottom: 1px;
+}
+.mainbox-cart-body {
+	width: auto;
+}
+* html .icons {
+	margin-right: 0px;
+}
+
+/* Notification box */
+.notification-w, .notification-n, .notification-e {
+	filter: alpha(opacity=96);
+}
+/* Notification box */
+
+/* News & emails addon */
+.subscribe-block .subscribe-email {
+	height: 15px;
+	position: relative;
+	top: -1px;
+}
+.subscribe-block .go-button {
+	right: 4px;
+}
+/* News & emails addon */
+
+/* Price slider */
+	.price-slider .input-text {
+		width: 67px;
+	}
+/* Price slider */
+
+h5.info-field-title {
+	overflow: hidden;
+}
+.form-field.revert label {
+	float: none;
+	margin: 0px;
+	width: auto;
+	clear: none;
+}
+.form-field.revert .checkbox, .form-field.revert .radio {
+	float: none;
+	clear: none;
+	margin: 1px 3px 0 -20px;
+}
+.cm-opacity {
+	filter:alpha(opacity: 30);
+}
+.checkout-steps .buttons-container .button-submit, .filters-tools {
+	vertical-align: top;
+}
+* html .button-submit-action {
+	overflow: hidden;
+	height: 20px;
+}
+* html .button-submit {
+	overflow: hidden;
+	height: 20px;
+}
+* html .product-info {
+	float: left;
+}
+* html .product-info table {
+	width: 99%;
+}
+* html .tabs {
+	height: 1%;
+}
+* html .error-message .arrow {
+	border: 5px solid #ffffff;
+	border-bottom-color: #f5f5ea;
+	border-top-width: 0px;
+}
+* html .product-main-info .jcarousel-clip-horizontal {
+	margin-top: -38px;
+}
+* html .product-main-info .image-border {
+	width: 150px;
+}
+* html .product-info .float-left {
+	display: inline;
+	width: 100%;
+}
+* html .product-info .float-left .float-left {
+	width: auto;
+}
+* html table.qty-discounts {
+	width: auto;
+}
+* html .jcarousel-prev-horizontal, * html .jcarousel-next-horizontal {
+	position: relative;
+}
+.product-main-info .jcarousel-skin {
+	margin: 0;
+}
+.quantity .cm-value-changer {
+	display: inline;
+	padding-right: 4px;
+}
+.changer .input-text-short {
+	width: 30px;
+}
+.form-field div.subcategories {
+	margin-top: -2px;
+}
+.form-field .select-field label {
+	float: none;
+	display: inline-block;
+}
+.form-field div.subcategories label {
+	white-space: nowrap;
+}
+*html .add-product {
+	width: 20%;
+}
+*html .prod-info {
+	width: 55%;
+}
+.estimation-box {
+	width: 380px;
+}
+.estimation-box select {
+	width: 200px;
+}
+.step-body-active .form-field label{
+	margin:0;
+}
+.product-notification-container {
+	_position:absolute;
+}
+.margin-bottom {
+	padding-bottom:10px;
+}
+.sidebox-body ul li.delim {
+	margin:0;
+	padding:0px;
+	font-size:1px;
+}
+.product-main-info .button-submit-action {
+	vertical-align: -3px;
+}
+* html .prices-container .float-left {
+	display: inline;
+	width: 1%;
+	white-space: nowrap;
+}
+
+.dropdown-box-on {
+	z-index: 500;
+}
+
+.cart-title {
+	white-space:nowrap;
+	zoom:1;
+}
+
+.buttons-container, .login-popup .form-field {
+	height:auto;
+}
+.login-popup {
+	width: 295px;
+}
+.login-popup .form-field .input-text {
+	height: auto;
+}
+.login-popup .form-field label {
+	overflow: hidden;
+}
+.cart-icon, .cart-title {
+	float:left;
+}
+
+.address-switch .float-right .radio {
+	vertical-align: 2px !important;
+}
+#step_one_login .login-form {
+	width: 285px;
+}
+.cvv2 {
+	display: inline !important;
+}
+.form-payment label {
+	margin-top: -3px !important;
+}
+.register-methods li, .cm-tabs-content .paym-methods li {
+	height: 1%;
+}
+.cm-tabs-content .paym-methods li div.radio1, #step_one_login div.radio1 {
+	float: left !important;
+	padding-top: 1px;
+}
+.dropdown-container {
+	position: relative;
+	z-index: 0;
+	display: inline;
+}
+.dropdown-container ul.cm-dropdown-content {
+	top: 22px;
+	left: 0px;
+}
+.dropdown-container ul.cm-dropdown-content li {
+	white-space: nowrap;
+}
+.cm-cart-content .buttons-container {
+	display:inline-block;
+	width:300px;
+}
+.cm-cart-content .buttons-container.hidden {
+	display: none;
+}
+.login-popup {
+	min-width:330px;
+}
+.float-right .select-wrap {
+	float: none;
+}
+.product-quick-view .cm-image-wrap {
+	max-width: 350px;
+}
+.cm-popup-title {
+	height: 19px;
+}
+.popup-content {
+	top: 33px;
+}
+.track-orders .input-text {
+	position: relative;
+	top: -1px;
+	margin-right:0;
+	height: 15px;
+}
+.section-title {
+	overflow: hidden;
+}
+.section-title span {
+	float: left;
+}
+.section-title .section-switch {
+	float: right;
+}
+.kupivkredit-div input,
+.kupivkredit-div-mini input{
+	text-indent: 0 !important;
+	font-size: 0 !important;
+}
+/* Emulate display:inline-block property */
+.payment-icon,
+.option-changer {
+	zoom:1;
+	display: inline;
+}
+#ci_top_wrapper {
+	position: relative;
+	z-index: 200;
+}
+#ci_central_wrapper {
+	position: relative;
+	z-index: 100;
+}

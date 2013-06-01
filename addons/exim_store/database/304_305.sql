@@ -1,0 +1,1 @@
+ALTER TABLE `?:user_session_products` ADD `ip_address` varchar(15) NOT NULL default '' AFTER `session_id`;

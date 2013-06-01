@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>catalog_mode</id>
+	<name>Catalog mode</name>
+	<description>Allows you to use the store as a product catalog</description>
+	<version>1.0</version>
+	<priority>4200</priority>
+	<position>0</position>
+	<status>active</status>
+	<compatibility>
+		<conflicts>buy_together,gift_certificates,product_configurator</conflicts>
+	</compatibility>
+	<language_variables>
+		<item lang="EN" id="catalog_mode">Catalog Mode</item>
+		<item lang="EN" id="enable_catalog_mode">Enable Catalog Mode</item>
+		<item lang="EN" id="text_catalog_mode_zero_price_action_notice">In order that the "Buy now" button could be displayed on the product details page, please set "Zero price action" as "Allow customers to add the product to cart".</item>
+		<item lang="RU" id="catalog_mode">Режим каталога</item>
+		<item lang="RU" id="enable_catalog_mode">Включить режим каталога</item>
+		<item lang="RU" id="text_catalog_mode_zero_price_action_notice">Чтобы на детальной странице товара отображалсь кнопка "Купить сейчас", пожалуйста установите значение поля "Действие при нулевой цене" в "Разрешить добавить товар в корзину".</item>
+	</language_variables>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="main_store_mode">
+						<name>Store operation mode</name>
+						<type>radiogroup</type>
+						<default_value>catalog</default_value>
+						<variants>
+							<item id="catalog">
+								<name>Catalog</name>
+								<translations>
+									<item lang="RU">Каталог</item>
+								</translations>
+							</item>
+							<item id="store">
+								<name>Store</name>
+								<translations>
+									<item lang="RU">Магазин</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="RU">Режим работы магазина</item>
+						</translations>
+					</item>
+					<item id="add_to_cart_empty_buy_now_url">
+						<name>Allow purchasing products with empty Buy Now URL</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<variants/>
+						<translations>
+							<item lang="RU">Позволять покупать товары с пустым полем "Купить, перейдя по ссылке"</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item>ALTER TABLE `?:companies` ADD `catalog_mode` char(1) NOT NULL default 'N', ADD INDEX (`catalog_mode`)</item>
+		<item>ALTER TABLE `?:products` ADD `buy_now_url` varchar(255) NOT NULL</item>
+		<item for="uninstall">ALTER TABLE  `?:companies` DROP `catalog_mode`</item>
+		<item for="uninstall">ALTER TABLE  `?:products` DROP `buy_now_url`</item>
+	</queries>
+	<translations>
+		<item for="name" lang="RU">Режим каталога</item>
+		<item for="description" lang="RU">Позволяет использовать магазин как каталог товаров</item>
+	</translations>
+</addon>

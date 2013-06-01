@@ -1,0 +1,88 @@
+/* /Tag addon */
+.tag {
+	display: inline-block;
+	height: 30px;
+	background: url(../../images/tag.png) 0 0 no-repeat;
+}
+.tag .delete-icon {
+	position: absolute;
+	display: inline-block;
+	visibility: hidden;
+	margin: -1px 0 0 -16px;
+}
+.tag:hover {
+	background-position: 0 -100px;
+}
+.tag:hover .delete-icon {
+	visibility: visible;
+}
+.tag .tag-inner {
+	display: inline-block;
+	overflow: hidden;
+	margin-left: 29px;
+	padding: 8px 15px 7px 0;
+	max-width: 175px;
+	background: url(../../images/tag.png) right -50px no-repeat;
+	color: #666;
+	text-overflow: ellipsis;
+	text-shadow: 0px 1px 0px #ffffff;
+	white-space: nowrap;
+}
+.tags-group {
+	padding: 15px 28px 5px;
+	color: #757575;
+}
+.tags-list-container li {
+	padding: 6px 0 7px 28px;
+}
+.tags-list-container .delete-icon {
+	position: absolute;
+	visibility: hidden;
+	margin-left: -15px;
+}
+.tags-list-container li:hover .delete-icon {
+	visibility: visible;
+}
+.tags-wrap {
+	width: 220px;
+	margin: 15px 15px 0 0;
+	float: left;
+}
+.tags-buttons {
+	margin: -26px 0 0 230px;
+	white-space: nowrap;
+}
+.tags-buttons .button-submit {
+	vertical-align: middle;
+	margin-left: 10px;
+	margin-bottom: 0;
+}
+/* tag addon */
+.tag-level-0 {
+	font-size: 69%;
+}
+
+.tag-level-1 {
+	font-size: 77%;
+}
+
+.tag-level-2 {
+	font-size: 92%;
+}
+
+.tag-level-3 {
+	font-size: 108%;
+}
+
+.tag-level-4 {
+	font-size: 123%;
+}
+
+.tag-level-5 {
+	font-size: 154%;
+}
+
+.tag-level-6 {
+	font-size: 192%;
+}
+/* /Tag addon */

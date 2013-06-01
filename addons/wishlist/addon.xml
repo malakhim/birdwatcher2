@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>wishlist</id>
+	<name>Wish List</name>
+	<description>Lets customers store items in personal wish lists</description>
+	<version>1.0</version>
+	<priority>3100</priority>
+	<position>80</position>
+	<status>active</status>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="DE">Wunschliste</item>
+		<item for="name" lang="ES">Lista de la compra</item>
+		<item for="name" lang="FR">Liste de souhaits</item>
+		<item for="name" lang="EL">Wish List (Λίστα Επιθυμίας)</item>
+		<item for="name" lang="IT">Lista dei desideri</item>
+		<item for="name" lang="NL">Wenslijst</item>
+		<item for="name" lang="DA">Ønskeliste</item>
+		<item for="name" lang="EL">Wish List (Λίστα Επιθυμίας)</item>
+		<item for="name" lang="RO">Lista de preferințe</item>
+		<item for="name" lang="RU">Отложенные товары</item>
+		<item for="name" lang="SI">Seznam želja</item>
+		<item for="description" lang="RU">Позволяет пользователям откладывать товары, добавляя их в специальный список</item>
+	</translations>
+</addon>

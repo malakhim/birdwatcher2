@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<addon scheme="2.0" edition_type="ROOT,ULT:VENDOR">
+	<id>reward_points</id>
+	<name>Reward points</name>
+	<description>Lets customers earn and spend points for purchases</description>
+	<version>1.0</version>
+	<priority>1900</priority>
+	<position>180</position>
+	<translations>
+		<item for="name" lang="ES">Puntos de recompensa</item>
+		<item for="name" lang="FR">Points de fidélité</item>
+		<item for="name" lang="DA">belønning punkter</item>
+		<item for="name" lang="EL">Πόντοι επιβράβευσης</item>
+		<item for="name" lang="IT">Punti ricompensa</item>
+		<item for="name" lang="RO">Puncte de fidelitate</item>
+		<item for="name" lang="RU">Бонусные баллы</item>
+		<item for="name" lang="SI">Nagradne točke</item>
+		<item for="description" lang="RU">Позволяет покупателю зарабатывать бонусные баллы за покупку товаров для их дальнейшего использования</item>
+	</translations>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="point_rate">
+						<name>Points Exchange Rate (PER - the number of points equal to 1 conventional unit)</name>
+						<type>input</type>
+						<default_value>50</default_value>
+						<translations>
+							<item lang="ES">Tipo de cambio de puntos (PER - el número de puntos igual a una unidad convencional)</item>
+							<item lang="EL">Πόντοι Συναλλαγματικών Ισοτιμιών (PER - ο αριθμός των σημείων ίσο με 1 συμβατικό μονάδα)</item>
+							<item lang="RO">Rata punctelor în schimb (PER - numărul de puncte echivalentul unei unități)</item>
+							<item lang="RU">Обменный Курс Балла (количество баллов, равное 1-й условной единице)</item>
+							<item lang="SI">Točke Menjalnega Razmerja (TMR - število točk je enako 1 konvencionalni enoti)</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="auto_price_in_points">
+						<name>"Price in points" is calculated automatically on PER basis</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">"Precio en puntos" es calculado automáticamente en base al PER</item>
+							<item lang="EL">"Price in points" υπολογίζεται αυτόματα με  τη βάση PER</item>
+							<item lang="RO">"Prețul în puncte" e calculat în mod automat în baza PER-ului</item>
+							<item lang="RU">"Цена в " высчитывается автоматически на основе обменного курса</item>
+							<item lang="SI">"Cena v točkah" se izračuna samodejno na podlagi TMR</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="price_in_points_with_discounts">
+						<name>"Price in points" is recalculated taking into account discounts</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">"Precio en puntos" es recalculado teniendo en cuenta los descuentos</item>
+							<item lang="EL">"Price in points" υπολογίζεται εκ νέου λαμβάνοντας υπόψη τις εκπτώσεις για λογαριασμό</item>
+							<item lang="RO">"Prețul în puncte" este recalculat luând în considerare reducerile</item>
+							<item lang="RU">"Цена в баллах" пересчитывается, принимая во внимание скидки</item>
+							<item lang="SI">"Cena v točkah" se ponovno preračuna z upoštevanjem popustov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="points_with_discounts">
+						<name>"Points" is recalculated taking into account discounts</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">"Puntos" son recalculados teniendo descuentos en cuenta</item>
+							<item lang="EL">"Points"υπολογίζεται εκ νέου λαμβάνοντας υπόψη τις εκπτώσεις της παραγγελίας</item>
+							<item lang="RO">"Puncte" sunt recalculate luând în considerare discounturile contului</item>
+							<item lang="RU">"Баллы" пересчитываются, принимая во внимание скидки</item>
+							<item lang="SI">"Točke" se ponovno preračuna z upoštevanjem popustov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="price_in_points_order_discount">
+						<name>"Price in points" is recalculated taking into account order discounts</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="EL">"Price in points" υπολογίζεται εκ νέου λαμβάνοντας υπόψη τις εκπτώσεις της παραγγελίας</item>
+							<item lang="NL">Order-kortingen worden meegerekend in de "prijs in punten" berekening</item>
+							<item lang="RU">"Цена в баллах" пересчитывается, принимая во внимание общую скидку на заказ</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="reward_points_order_discount">
+						<name>"Points" is recalculated taking into account order discounts</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="EL"> "Points" υπολογίζεται εκ νέου λαμβάνοντας υπόψη τις εκπτώσεις της παραγγελίας</item>
+							<item lang="NL">Order kortingen worden in de puntenberekening meegenomen</item>
+							<item lang="RU">"Баллы" пересчитываются, принимая во внимание общую скидку на заказ</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="higher_level_extract">
+						<name>If the product and the product category do not have defined reward points but the higher level category has such reward points, extract data from it</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Si el producto y la categoría de producto no tienen puntos de recompensa definidos pero la categoría de nivel más alta tiene tales puntos de recompensa, extraer datos de ahí</item>
+							<item lang="EL">Εάν το προϊόν και η κατηγορία του προϊόντος δεν έχουν καθορισμένους πόντους ανταμοιβής, αλλά η κατηγορία υψηλότερου επιπέδου έχει τέτοιους πόντους ανταμοιβής, εξάγετε τα  δεδομένα από το</item>
+							<item lang="RO">Dacă produsul și categoria produsului nu i-au fost definite puncte de recompensă dar categoriei cu un nivel mai superior îi va fi definită, extrage datele din aceasta</item>
+							<item lang="RU">Если бонусные баллы не заданы для товара или категории товара, но заданы для категории высшего уровня, извлечь данные из нее</item>
+							<item lang="SI">Če proizvod in kategorija proizvoda nimata opredeljenih nagradnih točke višje kategorijo, kot je raven take nagrade točke, se vzame podatke od tam</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="several_points_action">
+						<name>If several reward points can be applied, set</name>
+						<type>selectbox</type>
+						<default_value>min</default_value>
+						<variants>
+							<item id="min">
+								<name>Minimal</name>
+								<translations>
+									<item lang="ES">Mínimos</item>
+									<item lang="EL">Ελάχιστο</item>
+									<item lang="RO">Minim</item>
+									<item lang="RU">Минимальный</item>
+									<item lang="SI">Minimalno</item>
+								</translations>
+							</item>
+							<item id="max">
+								<name>Maximal</name>
+								<translations>
+									<item lang="ES">Máximos</item>
+									<item lang="EL">Μέγιστο</item>
+									<item lang="RO">Maxim</item>
+									<item lang="RU">Максимальный</item>
+									<item lang="SI">Maksimalno</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Si varios puntos de recompensa pueden ser aplicados, elegir</item>
+							<item lang="EL">Εάν μπορούν να εφαρμοστούν πολλοί πόντοι ανταμοιβής,σειρά</item>
+							<item lang="RO">În cazul în care pot aplicate mai multe puncte de recompensă, setează</item>
+							<item lang="RU">Если можно применить разное количество бонусных баллов, то установить</item>
+							<item lang="SI">Če bo uporabljenih več nagradnih točk, določi</item>
+						</translations>
+					</item>
+					<item id="consider_zero_values">
+						<tooltip>The reward points rules with the zero values should be considered</tooltip>
+						<name>Apply zero reward point values</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="EL">Apply zero reward point values </item>
+							<item lang="RO">Punctele de răsplată cu zerouri ar trebui luate în considerare</item>
+							<item lang="RU">Применять бонусные баллы с нулевым значением</item>
+							<item lang="RU" for="tooltip">Рассматривать правила начисления бонусных баллов с нулевыми значениями</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="log_per_page">
+						<name>Log lines per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Líneas de registro por página</item>
+							<item lang="DA">Log linier per side</item>
+							<item lang="EL">Γραμμές καταγραφής ανα σελίδα</item>
+							<item lang="RO">Linii de jurnal pe pagină</item>
+							<item lang="RU">Количество строчек записей событий на странице</item>
+							<item lang="SI">Prijavnih vrstic na stran</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:reward_point_changes;</item>
+		<item>DROP TABLE IF EXISTS ?:reward_points;</item>
+		<item>DROP TABLE IF EXISTS ?:product_point_prices;</item>
+		<item>
+			CREATE TABLE `?:reward_point_changes` (  
+				`change_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`user_id` mediumint(8) unsigned NOT NULL default '0',  
+				`amount` int(11) NOT NULL default '0',  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`action` char(1) NOT NULL default 'A',  
+				`reason` text NOT NULL,  
+				PRIMARY KEY  (`change_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:reward_points` (
+				`reward_point_id` mediumint(8) unsigned NOT NULL auto_increment,
+				`object_id` mediumint(8) unsigned NOT NULL default '0',
+				`usergroup_id` mediumint(8) unsigned NOT NULL default '0',
+				`amount` int(11) unsigned NOT NULL default '0',
+				`amount_type` char(1) NOT NULL default 'A',
+				`object_type` char(1) NOT NULL default 'P',
+				`company_id` int(11) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`reward_point_id`),
+				UNIQUE KEY `unique_key` (`object_id`,`usergroup_id`,`object_type`,`company_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:product_point_prices` (
+				`point_price_id` mediumint(8) unsigned NOT NULL auto_increment,
+				`product_id` mediumint(8) unsigned NOT NULL default '0',
+				`point_price` int(11) unsigned NOT NULL default '0',
+				`lower_limit` smallint(5) unsigned NOT NULL default '0',
+				`usergroup_id` mediumint(8) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`point_price_id`),
+				UNIQUE KEY `unique_key` (`lower_limit`,`usergroup_id`,`product_id`),
+				KEY `src_k` (`product_id`,`lower_limit`,`usergroup_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_reward_points', 'Manage reward points system', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_reward_points', 'Управление бонусными баллами', 'RU', '1');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_reward_points', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege LIKE 'manage_reward_points'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege LIKE 'manage_reward_points'</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:reward_point_changes;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:reward_points;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:product_point_prices;</item>
+	</queries>
+</addon>

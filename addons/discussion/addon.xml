@@ -1,0 +1,976 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>discussion</id>
+	<name>Comments and reviews</name>
+	<description>Lets customers leave comments to products, categories, orders, etc., review products and write testimonials</description>
+	<version>1.0</version>
+	<priority>3000</priority>
+	<position>140</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="ES">Comentarios y análisis</item>
+		<item for="name" lang="FR">Discussion</item>
+		<item for="name" lang="DA">Kommentarer og anmeldelser</item>
+		<item for="name" lang="EL">Σχόλια και κριτικές</item>
+		<item for="name" lang="IT">Commenti e recensioni</item>
+		<item for="name" lang="RO">Comment-uri și recenzii</item>
+		<item for="name" lang="RU">Отзывы и обсуждения</item>
+		<item for="name" lang="SI">Komentarji in ocene</item>
+		<item for="description" lang="RU">Позволяет покупателям оставлять комментарии к товарам, категориям, заказам и т.д., а также вести обсуждения товаров и писать отзывы</item>
+	</translations>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="products">
+				<name>Products</name>
+				<translations>
+					<item lang="ES">Productos</item>
+					<item lang="FR">Produits</item>
+					<item lang="EL">Προιόντα</item>
+					<item lang="RO">Produse</item>
+					<item lang="RU">Товары</item>
+					<item lang="SI">Izdelek</item>
+				</translations>
+				<items>
+					<item id="product_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="FR">Posts par page</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări per pagină</item>
+							<item lang="RU">Записей на странице</item>
+							<item lang="SI">Pošt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="product_post_approval">
+						<name>Administrator must approve posts submitted by</name>
+						<type>selectbox</type>
+						<default_value>any</default_value>
+						<variants>
+							<item id="any">
+								<name>Any customer</name>
+								<translations>
+									<item lang="ES">Cualquier cliente</item>
+									<item lang="FR">Tout client</item>
+									<item lang="EL">Οποιοσδήποτε πελάτης</item>
+									<item lang="RU">Любой пользователь</item>
+									<item lang="SI">Katerakoli stranka</item>
+								</translations>
+							</item>
+							<item id="anonymous">
+								<name>Only anonymous customers</name>
+								<translations>
+									<item lang="ES">Solo clientes anónimos</item>
+									<item lang="FR">Seuls les clients anonymes</item>
+									<item lang="EL">Μόνο μη καταχωρημένοι πελάτες</item>
+									<item lang="RU">Только анонимные покупатели</item>
+									<item lang="SI">Samo anonimne stranke</item>
+									<item lang="RO">Doar cliențiilor anonimi</item>
+								</translations>
+							</item>
+							<item id="disabled">
+								<name>No approval needed</name>
+								<translations>
+									<item lang="ES">No se requiere aprobación</item>
+									<item lang="FR">Pas besoin d'approbation</item>
+									<item lang="EL">Δεν απαιτείται έγκριση</item>
+									<item lang="RU">Подтверждения не требуется</item>
+									<item lang="SI">Odobritev ni potrebna</item>
+									<item lang="RO">Nu e nevoie de aprobare</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Administrador debe aprobar comentarios presentados por</item>
+							<item lang="FR">L'administrateur doit approuver les posts soumis par</item>
+							<item lang="DA">Administrator skal godkende stillinger sendt af</item>
+							<item lang="EL">Ο διαχειριστής πρέπει να εγκρίνει τις δημοσιεύσεις  που υπέβαλε από</item>
+							<item lang="RO">Administratorul trebuie să aprobe postările</item>
+							<item lang="RU">Администратор должен утверждать оставленные сообщения</item>
+							<item lang="SI">Skrbnik mora odobriti pošto od</item>
+						</translations>
+					</item>
+					<item id="product_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="FR">Seul un post à partir de cette IP est autorisé</item>
+							<item lang="EL">Επιτρέπεται μόνο μια δημοσίευση από μια IP</item>
+							<item lang="RO">O singură postare de la un singur IP</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+							<item lang="SI">Samo ena pošta iz enega IP je dovoljena</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="product_notification_email">
+						<name>Send notifications to this E-mail</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Enviar notificaciones a este E-Mail</item>
+							<item lang="FR">Envoyer des notifications à cet email</item>
+							<item lang="EL">Αποστολή κοινοποιήσεων σε αυτό τo μήνυμα ηλεκτρονικού ταχυδρομείου( e-mail)</item>
+							<item lang="EL">Trimite notificații către această adresă de e-mail</item>
+							<item lang="RU">Отправлять оповещения на данный почтовый адрес</item>
+							<item lang="SI">Poslati obvestilo na ta e-poštni naslov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="product_notify_vendor" edition_type="MVE:ROOT">
+						<name>Send notifications to vendor</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<variants/>
+						<translations>
+							<item lang="RU">Отправлять оповещения продавцу</item>
+						</translations>
+					</item>
+					<item id="product_share_discussion" edition_type="ULT:ROOT">
+						<name>Share discussion with product</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<variants/>
+						<translations>
+							<item lang="RU">Разделить обсуждение с товарами</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+			<section id="categories">
+				<name>Categories</name>
+				<translations>
+					<item lang="ES">Categorias</item>
+					<item lang="FR">Catégories</item>
+					<item lang="EL">Κατηγορίες</item>
+					<item lang="RO">Categorii</item>
+					<item lang="RU">Категории</item>
+					<item lang="SI">Kategorije</item>
+				</translations>
+				<items>
+					<item id="category_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="FR">Posts par page</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări per pagină</item>
+							<item lang="RU">Записей на страницеe</item>
+							<item lang="SI">Pošt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="category_post_approval">
+						<name>Administrator must approve posts submitted by</name>
+						<type>selectbox</type>
+						<default_value>any</default_value>
+						<variants>
+							<item id="any">
+								<name>Any customer</name>
+								<translations>
+									<item lang="ES">Cualquier cliente</item>
+									<item lang="FR">Tout client</item>
+									<item lang="EL">Οποιοσδήποτε πελάτης</item>
+									<item lang="RU">Любой пользователь</item>
+									<item lang="SI">Katerakoli stranka</item>
+									<item lang="RO">Oricărui client</item>
+								</translations>
+							</item>
+							<item id="anonymous">
+								<name>Only anonymous customers</name>
+								<translations>
+									<item lang="ES">Solo clientes anónimos</item>
+									<item lang="FR">Seuls les clients anonymes</item>
+									<item lang="EL">Μόνο μη καταχωρημένοι πελάτες</item>
+									<item lang="RU">Только анонимные покупатели</item>
+									<item lang="SI">Samo anonimne stranke</item>
+									<item lang="RO">Doar cliențiilor anonimi</item>
+								</translations>
+							</item>
+							<item id="disabled">
+								<name>No approval needed</name>
+								<translations>
+									<item lang="ES">No se requiere aprobación</item>
+									<item lang="FR">Pas besoin d'approbation</item>
+									<item lang="EL">Δεν απαιτείται έγκριση</item>
+									<item lang="RU">Подтверждения не требуется</item>
+									<item lang="SI">Odobritev ni potrebna</item>
+									<item lang="RO">Nu e nevoie de aprobare</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Administrador debe aprobar comentarios presentados por</item>
+							<item lang="FR">L'administrateur doit approuver les posts soumis par</item>
+							<item lang="DA">Administrator skal godkende stillinger sendt af</item>
+							<item lang="EL">Ο  διαχειριστής πρέπει να εγκρίνει τις δημοσιεύσεις  που υπέβαλε από</item>
+							<item lang="RO">Administratorul trebuie să aprobe postările</item>
+							<item lang="RU">Администратор должен утверждать оставленные сообщения</item>
+							<item lang="SI">Skrbnik mora odobriti pošto od</item>
+						</translations>
+					</item>
+					<item id="category_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="FR">Seul un post à partir de cette IP est autorisé</item>
+							<item lang="EL">Επιτρέπεται μόνο μια δημοσίευση από μια IP</item>
+							<item lang="RO">O singură postare de la un singur IP</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+							<item lang="SI">Samo ena pošta iz enega IP je dovoljena</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="category_notification_email">
+						<name>Send notifications to this E-mail</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Enviar notificaciones a este E-Mail</item>
+							<item lang="FR">Envoyer des notifications à cet email</item>
+							<item lang="EL">Αποστολή κοινοποιήσεων σε αυτό τo μήνυμα ηλεκτρονικού ταχυδρομείου( e-mail)</item>
+							<item lang="RO">Trimite notificații către această adresă de e-mail</item>
+							<item lang="RU">Отправлять оповещения на данный почтовый адрес</item>
+							<item lang="SI">Poslati obvestilo na ta e-poštni naslov</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+			<section id="orders">
+				<name>Orders</name>
+				<translations>
+					<item lang="ES">Pedidos</item>
+					<item lang="FR">Commandes</item>
+					<item lang="EL">Παραγγελίες</item>
+					<item lang="RO">Comenzi</item>
+					<item lang="RU">Заказы</item>
+					<item lang="SI">Naročila</item>
+				</translations>
+				<items>
+					<item id="order_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="FR">Posts par page</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări per pagină</item>
+							<item lang="RU">Записей на странице</item>
+							<item lang="SI">Pošt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="order_initiate">
+						<name>Allow customer to initiate discussion</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Permitir al cliente iniciar la discusión</item>
+							<item lang="DA">Tillad kunden til at indlede drøftelser</item>
+							<item lang="EL">Δυνατότητα του πελάτη να ξεκινήσει συζήτηση</item>
+							<item lang="RO">Permite clienților să inițieze discuții</item>
+							<item lang="RU">Позволить пользователю начать обсуждение</item>
+							<item lang="SI">Pustite, da stranka prične z razpravo</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="order_notify_vendor" edition_type="MVE:ROOT">
+						<name>Send notifications to vendor</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Отправлять оповещения продавцу</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+			<section id="news">
+				<name>News</name>
+				<translations>
+					<item lang="ES">Noticias</item>
+					<item lang="EL">Ειδήσεις</item>
+					<item lang="RO">Noutăți</item>
+					<item lang="RU">Новости</item>
+					<item lang="SI">Novice</item>
+				</translations>
+				<items>
+					<item id="news_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>3</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="FR">Posts par page</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări</item>
+							<item lang="RU">Записей на странице</item>
+							<item lang="SI">Pošt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="news_post_approval">
+						<name>Administrator must approve posts submitted by</name>
+						<type>selectbox</type>
+						<default_value>any</default_value>
+						<variants>
+							<item id="any">
+								<name>Any customer</name>
+								<translations>
+									<item lang="ES">Cualquier cliente</item>
+									<item lang="FR">Tout client</item>
+									<item lang="EL">Οποιοσδήποτε πελάτης</item>
+									<item lang="RU">Любой пользователь</item>
+									<item lang="SI">Katerakoli stranka</item>
+									<item lang="RO">Oricărui client</item>
+								</translations>
+							</item>
+							<item id="anonymous">
+								<name>Only anonymous customers</name>
+								<translations>
+									<item lang="ES">Solo clientes anónimos</item>
+									<item lang="FR">Seuls les clients anonymes</item>
+									<item lang="EL">Μόνο μη καταχωρημένοι πελάτες</item>
+									<item lang="RU">Только анонимные покупатели</item>
+									<item lang="SI">Samo anonimne stranke</item>
+									<item lang="RO">Doar cliențiilor anonimi</item>
+								</translations>
+							</item>
+							<item id="disabled">
+								<name>No approval needed</name>
+								<translations>
+									<item lang="ES">No se requiere aprobación</item>
+									<item lang="FR">Pas besoin d'approbation</item>
+									<item lang="EL">Δεν απαιτείται έγκριση</item>
+									<item lang="RU">Подтверждения не требуется</item>
+									<item lang="SI">Odobritev ni potrebna</item>
+									<item lang="RO">Nu e nevoie de aprobare</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Administrador debe aprobar comentarios presentados por</item>
+							<item lang="FR">L'administrateur doit approuver les posts soumis par</item>
+							<item lang="DA">Administrator skal godkende stillinger sendt af</item>
+							<item lang="EL">Ο διαχειριστής πρέπει να εγκρίνει τις δημοσιεύσεις που υπέβαλε η</item>
+							<item lang="RO">Administratorul trebuie să aprobe postările</item>
+							<item lang="RU">Администратор должен утверждать оставленные сообщения</item>
+							<item lang="SI">Skrbnik mora odobriti pošto od</item>
+						</translations>
+					</item>
+					<item id="news_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="FR">Seul un post à partir de cette IP est autorisé</item>
+							<item lang="EL">Επιτρέπεται μόνο μια δημοσίευση από μια IP</item>
+							<item lang="RO">O singură postare de la un singur IP</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+							<item lang="SI">Samo ena pošta iz enega IP je dovoljena</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="news_notification_email">
+						<name>Send notifications to this E-mail</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Enviar notificaciones a este E-Mail</item>
+							<item lang="FR">Envoyer des notifications à cet email</item>
+							<item lang="EL">Αποστολή κοινοποιήσεων σε αυτό τo μήνυμα ηλεκτρονικού ταχυδρομείου( e-mail)</item>
+							<item lang="RO">Trimite notificații către această adresă de e-mail</item>
+							<item lang="RU">Отправлять оповещения на данный почтовый адрес</item>
+							<item lang="SI">Poslati obvestilo na ta e-poštni naslov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="news_share_discussion" edition_type="ULT:ROOT">
+						<name>Share discussion with news</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<variants/>
+						<translations>
+							<item lang="RU">Разделить обсуждение с новостями</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+			<section id="gift_registry">
+				<name>Gift registry</name>
+				<translations>
+					<item lang="FR">Liste cadeaux</item>
+					<item lang="DA">Gavelisten</item>
+					<item lang="EL">Λίστα επιθυμητών αγορών</item>
+					<item lang="RO">Registru bonuri cadou</item>
+					<item lang="RU">События</item>
+					<item lang="SI">Registracija daril</item>
+				</translations>
+				<items>
+					<item id="giftreg_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="FR">Posts par page</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări per pagină</item>
+							<item lang="RU">Записей на странице</item>
+							<item lang="SI">Pošt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="giftreg_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="FR">Seul un post à partir de cette IP est autorisé</item>
+							<item lang="EL">Επιτρέπεται μόνο μια δημοσίευση από μια IP</item>
+							<item lang="RO">O singură postare de la un singur IP</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+							<item lang="SI">Samo ena pošta iz enega IP je dovoljena</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+			<section id="pages">
+				<name>Pages</name>
+				<translations>
+					<item lang="ES">Páginas</item>
+					<item lang="EL">σελίδες</item>
+					<item lang="RO">Pagini</item>
+					<item lang="RU">Страницы</item>
+					<item lang="SI">Strani</item>
+				</translations>
+				<items>
+					<item id="page_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="FR">Posts par page</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări per pagină</item>
+							<item lang="RU">Записей на странице</item>
+							<item lang="SI">Pošt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="page_post_approval">
+						<name>Administrator must approve posts submitted by</name>
+						<type>selectbox</type>
+						<default_value>disabled</default_value>
+						<variants>
+							<item id="any">
+								<name>Any customer</name>
+								<translations>
+									<item lang="ES">Cualquier cliente</item>
+									<item lang="FR">Tout client</item>
+									<item lang="EL">Οποιοσδήποτε πελάτης</item>
+									<item lang="RU">Любой пользователь</item>
+									<item lang="SI">Katerakoli stranka</item>
+									<item lang="RO">Oricărui client</item>
+								</translations>
+							</item>
+							<item id="anonymous">
+								<name>Only anonymous customers</name>
+								<translations>
+									<item lang="ES">Solo clientes anónimos</item>
+									<item lang="FR">Seuls les clients anonymes</item>
+									<item lang="EL">Μόνο μη καταχωρημένοι πελάτες</item>
+									<item lang="RU">Только анонимные покупатели</item>
+									<item lang="SI">Samo anonimne stranke</item>
+									<item lang="RO">Doar cliențiilor anonimi</item>
+								</translations>
+							</item>
+							<item id="disabled">
+								<name>No approval needed</name>
+								<translations>
+									<item lang="ES">No se requiere aprobación</item>
+									<item lang="FR">Pas besoin d'approbation</item>
+									<item lang="EL">Δεν απαιτείται έγκριση</item>
+									<item lang="RU">Подтверждения не требуется</item>
+									<item lang="SI">Odobritev ni potrebna</item>
+									<item lang="RO">Nu e nevoie de aprobare</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Administrador debe aprobar comentarios presentados por</item>
+							<item lang="FR">L'administrateur doit approuver les posts soumis par</item>
+							<item lang="DA">Administrator skal godkende stillinger sendt af</item>
+							<item lang="EL">Ο διαχειριστής πρέπει να εγκρίνει τις δημοσιεύσεις που υπέβαλε η</item>
+							<item lang="RO">Administratorul trebuie să aprobe postările</item>
+							<item lang="RU">Администратор должен утверждать оставленные сообщения</item>
+							<item lang="SI">Skrbnik mora odobriti pošto od</item>
+						</translations>
+					</item>
+					<item id="page_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="FR">Seul un post à partir de cette IP est autorisé</item>
+							<item lang="EL">Μόνο μία θέση από μία IP επιτρέπεται</item>
+							<item lang="RO">O singură postare de la un singur IP</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+							<item lang="SI">Samo ena pošta iz enega IP je dovoljena</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="page_notification_email">
+						<name>Send notifications to this E-mail</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Enviar notificaciones a este E-Mail</item>
+							<item lang="FR">Envoyer des notifications à cet email</item>
+							<item lang="EL">Αποστολή κοινοποιήσεων σε αυτό το e-mail</item>
+							<item lang="RO">Trimite notificații către această adresă de e-mail</item>
+							<item lang="RU">Отправлять оповещения на данный почтовый адрес</item>
+							<item lang="SI">Poslati obvestilo na ta e-poštni naslov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="page_notify_vendor" edition_type="MVE:ROOT">
+						<name>Send notifications to vendor</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Отправлять оповещения продавцу</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="page_share_discussion" edition_type="ULT:ROOT">
+						<name>Share discussion with page</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<variants/>
+						<translations>
+							<item lang="RU">Разделить обсуждение со страницами</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+			<section id="testimonials">
+				<name>Testimonials</name>
+				<translations>
+					<item lang="ES">Recomendaciones</item>
+					<item lang="EL">Πιστοποιητικά</item>
+					<item lang="RO">Testimoniale</item>
+					<item lang="RU">Отзывы</item>
+					<item lang="SI">Pričevanja</item>
+				</translations>
+				<items>
+					<item id="home_page_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Comentarios por página</item>
+							<item lang="DA">Posts per side</item>
+							<item lang="EL">Δημοσιεύσεις ανα σελίδα</item>
+							<item lang="RO">Postări per pagină</item>
+							<item lang="RU">Записей на странице</item>
+							<item lang="SI">POšt na stran</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="home_page_post_approval">
+						<name>Administrator must approve posts submitted by</name>
+						<type>selectbox</type>
+						<default_value>any</default_value>
+						<variants>
+							<item id="any">
+								<name>Any customer</name>
+								<translations>
+									<item lang="ES">Cualquier cliente</item>
+									<item lang="FR">Tout client</item>
+									<item lang="EL">Οποιοσδήποτε πελάτης</item>
+									<item lang="RU">Любой пользователь</item>
+									<item lang="SI">Katerakoli stranka</item>
+									<item lang="RO">Oricărui client</item>
+								</translations>
+							</item>
+							<item id="anonymous">
+								<name>Only anonymous customers</name>
+								<translations>
+									<item lang="ES">Solo clientes anónimos</item>
+									<item lang="FR">Seuls les clients anonymes</item>
+									<item lang="EL">Μόνο μη καταχωρημένοι πελάτες</item>
+									<item lang="RU">Только анонимные покупатели</item>
+									<item lang="SI">Samo anonimne stranke</item>
+									<item lang="RO">Doar cliențiilor anonimi</item>
+								</translations>
+							</item>
+							<item id="disabled">
+								<name>No approval needed</name>
+								<translations>
+									<item lang="ES">No se requiere aprobación</item>
+									<item lang="FR">Pas besoin d'approbation</item>
+									<item lang="EL">Δεν απαιτείται έγκριση</item>
+									<item lang="RU">Подтверждения не требуется</item>
+									<item lang="SI">Odobritev ni potrebna</item>
+									<item lang="RO">Nu e nevoie de aprobare</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Administrador debe aprobar comentarios presentados por</item>
+							<item lang="DA">Administrator skal godkende stillinger sendt af</item>
+							<item lang="EL">Ο διαχειριστής πρέπει να εγκρίνει τις δημοσιεύσεις που υπέβαλε η</item>
+							<item lang="RO">Administratorul trebuie să aprobe postările</item>
+							<item lang="RU">Администратор должен утверждать оставленные сообщения</item>
+							<item lang="SI">Skrbnik mora odobriti pošto od</item>
+						</translations>
+					</item>
+					<item id="home_page_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="EL">Μόνο μια δημοσίευση από την IP επιτέπεται</item>
+							<item lang="RO">O singură postare de la un singur IP</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+							<item lang="SI">Samo ena pošta iz enega IP je dovoljena</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="home_page_notification_email">
+						<name>Send notifications to this E-mail</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Enviar notificaciones a este E-Mail</item>
+							<item lang="EL">Αποστολή κοινοποιήσεων σε αυτό τo μήνυμα ηλεκτρονικού ταχυδρομείου( e-mail)</item>
+							<item lang="RO">Trimite notificații către această adresă de e-mail</item>
+							<item lang="RU">Отправлять оповещения на данный почтовый адрес</item>
+							<item lang="SI">Poslati obvestilo na ta e-poštni naslov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="home_page_testimonials" edition_type="PRO:ROOT,MVE:ROOT,ULT:VENDOR">
+						<name>Testimonials</name>
+						<type>selectbox</type>
+						<default_value>D</default_value>
+						<variants>
+							<item id="B">
+								<name>Communication and Rating</name>
+								<translations>
+									<item lang="ES">Comunicado Y Grado</item>
+									<item lang="EL">Επικοινωνία και βαθμολόγηση</item>
+									<item lang="NL">Tekst en score</item>
+									<item lang="RU">Обсуждение и оценка</item>
+								</translations>
+							</item>
+							<item id="C">
+								<name>Communication</name>
+								<translations>
+									<item lang="ES">Comunicado</item>
+									<item lang="EL">Επικοινωνία</item>
+									<item lang="NL">Tekst</item>
+									<item lang="RU">Обсуждение</item>
+								</translations>
+							</item>
+							<item id="R">
+								<name>Rating</name>
+								<translations>
+									<item lang="ES">Grado</item>
+									<item lang="EL">ΒαθμολόγΙση</item>
+									<item lang="NL">Score</item>
+									<item lang="RU">Оценка</item>
+								</translations>
+							</item>
+							<item id="D">
+								<name>Disabled</name>
+								<translations>
+									<item lang="ES">Desactivado</item>
+									<item lang="EL">Απενεργοποιήθηκε</item>
+									<item lang="NL">Uitgeschakeld</item>
+									<item lang="RU">Выкл.</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Recomendaciones</item>
+							<item lang="EL">Πιστοποιητικά</item>
+							<item lang="RU">Отзывы</item>
+						</translations>
+					</item>
+					<item id="testimonials_from_all_stores" edition_type="ULT:ROOT">
+						<name>Show testimonials from all stores</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="RU">Показывать отзывы во всех магазинах</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+			<section id="companies" edition_type="MVE:ROOT">
+				<name>Vendors</name>
+				<translations>
+					<item lang="EL">Πωλητές</item>
+					<item lang="RU">Продавцы</item>
+				</translations>
+				<items>
+					<item id="company_discussion_type">
+						<name>Reviews</name>
+						<type>selectbox</type>
+						<default_value>D</default_value>
+						<translations>
+							<item lang="EL">Κριτικές</item>
+							<item lang="RU">Обсуждения</item>
+						</translations>
+						<variants>
+							<item id="B">
+								<name>Communication and Rating</name>
+								<translations>
+									<item lang="RU">Обсуждение и оценка</item>
+								</translations>
+							</item>
+							<item id="C">
+								<name>Communication</name>
+								<translations>
+									<item lang="RU">Обсуждение</item>
+								</translations>
+							</item>
+							<item id="R">
+								<name>Rating</name>
+								<translations>
+									<item lang="RU">Оценка</item>
+								</translations>
+							</item>
+							<item id="D">
+								<name>Disabled</name>
+								<translations>
+									<item lang="RU">Выкл.</item>
+								</translations>
+							</item>
+						</variants>
+					</item>
+					<item id="company_only_buyers">
+						<name>Allow to post only for the customers who has bought somethins from the vendor</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="EL">Οι δημοσιεύσεις επιτρέπονται μόνο σε πελάτες που έχουν αγοράσει κάτι απο αυτόν τον πωλητή</item>
+							<item lang="RU">Разрешить оставлять отзывы только покупателям, покупавшим у этого продавца</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="company_posts_per_page">
+						<name>Posts per page</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="EL">Δημοσιεύσεις ανά σελίδα</item>
+							<item lang="RU">Записей на странице</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="company_post_approval">
+						<name>Administrator must approve posts submitted by</name>
+						<type>selectbox</type>
+						<default_value>any</default_value>
+						<variants>
+							<item id="any">
+								<name>Any customer</name>
+								<translations>
+									<item lang="ES">Cualquier cliente</item>
+									<item lang="FR">Tout client</item>
+									<item lang="EL">Οποιοσδήποτε πελάτης</item>
+									<item lang="RU">Любой пользователь</item>
+									<item lang="SI">Katerakoli stranka</item>
+									<item lang="RO">Oricărui client</item>
+								</translations>
+							</item>
+							<item id="anonymous">
+								<name>Only anonymous customers</name>
+								<translations>
+									<item lang="ES">Solo clientes anónimos</item>
+									<item lang="FR">Seuls les clients anonymes</item>
+									<item lang="EL">Μόνο μη καταχωρημένοι πελάτες</item>
+									<item lang="RU">Только анонимные покупатели</item>
+									<item lang="SI">Samo anonimne stranke</item>
+									<item lang="RO">Doar cliențiilor anonimi</item>
+								</translations>
+							</item>
+							<item id="disabled">
+								<name>No approval needed</name>
+								<translations>
+									<item lang="ES">No se requiere aprobación</item>
+									<item lang="FR">Pas besoin d'approbation</item>
+									<item lang="EL">Δεν απαιτείται έγκριση</item>
+									<item lang="RU">Подтверждения не требуется</item>
+									<item lang="SI">Odobritev ni potrebna</item>
+									<item lang="RO">Nu e nevoie de aprobare</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Administrador debe aprobar comentarios presentados por</item>
+							<item lang="FR">L'administrateur doit approuver les posts soumis par</item>
+							<item lang="EL">Ο διαχειριστής πρέπει να εγκρίνει τις δημοσιεύσεις από</item>
+							<item lang="RU">Администратор должен утверждать оставленные сообщения</item>
+						</translations>
+					</item>
+					<item id="company_post_ip_check">
+						<name>Only one post from one IP is allowed</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Solo un comentario por IP permitido</item>
+							<item lang="FR">Seul un post à partir de cette IP est autorisé</item>
+							<item lang="EL">Μόνο μία δημοσίευση ανα IP επιτρέπετε</item>
+							<item lang="RU">Разрешить оставлять только одно сообщение с одного IP-адреса</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="company_notification_email">
+						<name>Send notifications to this E-mail</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Enviar notificaciones a este E-Mail</item>
+							<item lang="FR">Envoyer des notifications à cet email</item>
+							<item lang="EL">Αποστολή ειδοποίησης σε αυτό το E-mail</item>
+							<item lang="RU">Отправлять оповещения на данный почтовый адрес</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="company_notify_vendor">
+						<name>Send notifications to vendor</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="EL">Αποστολή ειδοποίησης στον πωλητή</item>
+							<item lang="RU">Отправлять оповещения продавцу</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item>DROP TABLE IF EXISTS ?:discussion;</item>
+		<item>DROP TABLE IF EXISTS ?:discussion_messages;</item>
+		<item>DROP TABLE IF EXISTS ?:discussion_posts;</item>
+		<item>DROP TABLE IF EXISTS ?:discussion_rating;</item>
+		<item>
+			CREATE TABLE `?:discussion` (  
+				`thread_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`object_id` mediumint(8) unsigned NOT NULL default '0',  
+				`object_type` char(1) NOT NULL default '',  
+				`type` char(1) NOT NULL default 'D',  
+				PRIMARY KEY  (`thread_id`),  
+				UNIQUE KEY `object_id` (`object_id`,`object_type`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:discussion_messages` (  
+				`message` mediumtext NOT NULL,  
+				`post_id` mediumint(8) unsigned NOT NULL default '0',
+				`thread_id` mediumint(8) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`post_id`),  KEY `thread_id` (`thread_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:discussion_posts` (  
+				`post_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`thread_id` mediumint(8) unsigned NOT NULL default '0', 
+				`name` varchar(128) NOT NULL default '',  
+				`timestamp` int(11) unsigned NOT NULL default '0',
+				`user_id` mediumint(8) unsigned NOT NULL default '0', 
+				`ip_address` varchar(15) NOT NULL default '', 
+				`status` char(1) NOT NULL default 'D',  
+				PRIMARY KEY  (`post_id`),  
+				KEY `thread_id` (`thread_id`,`ip_address`), 
+				KEY `thread_id_2` (`thread_id`,`status`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:discussion_rating` (  
+				`rating_value` tinyint(4) unsigned NOT NULL default '0',  
+				`post_id` mediumint(8) unsigned NOT NULL default '0', 
+				`thread_id` mediumint(8) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`post_id`),  
+				KEY `thread_id` (`thread_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:discussion`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`),
+			DROP INDEX  `object_id` ,
+			ADD UNIQUE  `object_id` (  `object_id` ,  `object_type` ,  `company_id` );
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_discussions', 'View comments and reviews', 'EN', '6');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_discussions', 'Manage comments and reviews', 'EN', '6');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_discussions', 'Просмотр отзывов и обсуждений', 'RU', '6');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_discussions', 'Управление отзывами и обсуждениями', 'RU', '6');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('view_discussions', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_discussions', 'Y');</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:discussion;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:discussion_messages;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:discussion_posts;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:discussion_rating;</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'view_discussions'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'view_discussions'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'manage_discussions'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_discussions'</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="discussion_manager">Comments and reviews</item>
+		<item id="discussion_manager" lang="ES">Comentarios y análisis</item>
+		<item id="discussion_manager" lang="FR">Discussion</item>
+		<item id="discussion_manager" lang="DA">Kommentarer og anmeldelser</item>
+		<item id="discussion_manager" lang="EL">Σχόλια και κριτικές</item>
+		<item id="discussion_manager" lang="IT">Commenti e recensioni</item>
+		<item id="discussion_manager" lang="RO">Comment-uri și recenzii</item>
+		<item id="discussion_manager" lang="RU">Отзывы и обсуждения</item>
+		<item id="discussion_manager" lang="SI">Komentarji in ocene</item>
+		<item lang="EN" id="testimonials">Testimonials</item>
+		<item lang="ES" id="testimonials">Recomendaciones</item>
+		<item lang="EL" id="testimonials">Πιστοποιητικά</item>
+		<item lang="RO" id="testimonials">Testimoniale</item>
+		<item lang="RU" id="testimonials">Отзывы</item>
+		<item lang="SI" id="testimonials">Pričevanja</item>
+		<item lang="EN" id="block_testimonials">Testimonials</item>
+		<item lang="EN" id="block_testimonials_description">User testimonials</item>
+		<item lang="EN" id="sort_by_rating_asc">Sort by rating: Low to High</item>
+		<item lang="EN" id="sort_by_rating_desc">Sort by rating</item>
+		<item lang="RU" id="block_testimonials">Отзывы</item>
+		<item lang="RU" id="block_testimonials_description">Отзывы пользователей</item>
+		<item lang="RU" id="sort_by_rating_asc">Сортировать по рейтингу: по возрастанию</item>
+		<item lang="RU" id="sort_by_rating_desc">Сортировать по рейтингу</item>
+	</language_variables>
+</addon>

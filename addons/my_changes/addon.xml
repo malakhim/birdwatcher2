@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>my_changes</id>
+	<name>My changes</name>
+	<description>A dummy add-on for easier hook design editing</description>
+	<version>1.0</version>
+	<priority>4294967294</priority>
+	<position>0</position>
+	<status>active</status>
+	<default_language>EN</default_language>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="RU">Мои изменения</item>
+		<item for="description" lang="RU">Шаблон модуля</item>
+	</translations>
+</addon>

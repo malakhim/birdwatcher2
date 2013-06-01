@@ -1,0 +1,1 @@
+a:2:{s:4:"data";a:6:{s:4:"auth";a:1:{s:5:"allow";b:1;}s:5:"image";a:1:{s:5:"allow";b:1;}s:20:"payment_notification";a:1:{s:5:"allow";b:1;}s:8:"profiles";a:1:{s:5:"allow";a:1:{s:17:"password_reminder";b:1;}}s:18:"helpdesk_connector";a:1:{s:5:"allow";b:1;}s:4:"exim";a:1:{s:5:"allow";a:1:{s:11:"cron_export";b:1;}}}s:6:"expiry";i:0;}

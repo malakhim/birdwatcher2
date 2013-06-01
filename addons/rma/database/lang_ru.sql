@@ -1,0 +1,11 @@
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('11', 'RU', 'Оказался неработоспособным на момент получении');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('12', 'RU', 'Заказан неверный товар');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('3', 'RU', 'Неверное описание товара в магазине');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('4', 'RU', 'Не работает');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('5', 'RU', 'Заводской дефект');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('6', 'RU', 'Пришёл другой товар');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('7', 'RU', 'Без гарантии');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('8', 'RU', 'Поврежден в процессе доставки');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('1', 'RU', 'Заменить товар');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('2', 'RU', 'Возврат денег');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('13', 'RU', 'Другое');

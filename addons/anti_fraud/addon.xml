@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>anti_fraud</id>
+	<name>Anti fraud</name>
+	<description>Adds configurable security order verification using the Maxmind service to prevent fraud</description>
+	<version>1.0</version>
+	<priority>2100</priority>
+	<position>130</position>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="ES">Anti Fraude</item>
+		<item for="name" lang="FR">Anti Fraude</item>
+		<item for="name" lang="DA">for Bekæmpelse af Svig</item>
+		<item for="name" lang="EL">Anti Fraud </item>
+		<item for="name" lang="IT">Anti frode</item>
+		<item for="name" lang="RO">Anti fraudă</item>
+		<item for="name" lang="RU">Антимошенничество</item>
+		<item for="name" lang="SI">Boj proti goljufijam</item>
+		<item for="description" lang="RU">Добавляет конфигурируемую проверку безопасности заказа, используя сервис Maxmind, чтобы избежать мошенничества</item>
+	</translations>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="anti_fraud_key">
+						<name>Maxmind license key</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Clave de licencia de MaxMind</item>
+							<item lang="FR">Clé de licence Maxmind</item>
+							<item lang="DA">Maxmind licens nøglen</item>
+							<item lang="EL">Αριθμός-κλειδί Maxmind</item>
+							<item lang="RO">Liciență cheie Maxmind</item>
+							<item lang="RU">Лицензионный ключ Maxmind</item>
+							<item lang="SI">Maxmind licenčni ključ</item>
+						</translations>
+					</item>
+					<item id="anti_fraud_safe_distance">
+						<name>Safe distance (km)</name>
+						<type>input</type>
+						<default_value>90</default_value>
+						<translations>
+							<item lang="ES">Distancia de seguridad (km)</item>
+							<item lang="FR">Distance de sécurité</item>
+							<item lang="DA">Sikker afstand (km)</item>
+							<item lang="EL">Ασφαλής απόσταση (km)</item>
+							<item lang="RO">Distanța de siguranță (km)</item>
+							<item lang="RU">Безопасная дистанция (км)</item>
+							<item lang="SI">Varna razdalja (km)</item>
+						</translations>
+					</item>
+					<item id="anti_fraud_max_order_total">
+						<name>Max order total</name>
+						<type>input</type>
+						<default_value>500</default_value>
+						<translations>
+							<item lang="ES">Máximo del pedido</item>
+							<item lang="FR">Total max de commande</item>
+							<item lang="DA">Maksimum for alt</item>
+							<item lang="EL">Μέγιστο σύνολο παραγγελίας</item>
+							<item lang="RO">Totalul maxim al unei comenzi</item>
+							<item lang="RU">Максимальная сумма заказа</item>
+							<item lang="SI">MAksimalno naročilo skupaj</item>
+						</translations>
+					</item>
+					<item id="anti_fraud_risk_factor">
+						<name>Maximum risk factor (1..100)</name>
+						<type>input</type>
+						<default_value>25</default_value>
+						<translations>
+							<item lang="ES">Factor de riesgo máximo (1..100)</item>
+							<item lang="FR">Facteur de risque maximum  (1..100)</item>
+							<item lang="EL">Μέγιστος παράγοντας κινδύνου (1 .. 100)</item>
+							<item lang="RO">Factorul de risc maxim (1..100)</item>
+							<item lang="RU">Максимальный фактор риска (1..100)</item>
+							<item lang="SI">Največji faktor rizičnosti (1..100)</item>
+						</translations>
+					</item>
+					<item id="antifraud_order_status">
+						<name>Order status</name>
+						<type>hidden</type>
+						<translations>
+							<item lang="RU">Статус заказа</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="antifraud_failed_order">Your order was placed in the store. It is undergoing an additional check now. We will contact you as soon as the administrator finishes it</item>
+		<item lang="RU" id="antifraud_failed_order">Ваш заказ был размещен в магазине и в данный момент проходит дополнительную проверку. Мы свяжемся с вами как только она будет завершена.</item>
+	</language_variables>
+	<functions>
+		<item for="install">fn_anti_fraud_add_status</item>
+		<item for="uninstall">fn_anti_fraud_remove_status</item>
+	</functions>
+</addon>

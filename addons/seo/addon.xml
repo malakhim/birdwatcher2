@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>seo</id>
+	<name>SEO</name>
+	<description>Adds Search engine-friendly URLs support</description>
+	<version>1.0</version>
+	<priority>1800</priority>
+	<position>160</position>
+	<description>requires URL manipulation engine - mod_rewrite or isapi_rewrite</description>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="DA">SEO</item>
+		<item for="name" lang="EL">SEO (απαιτείται μηχανή χειραγώγησης URL  - mod_rewrite ή isapi_rewrite)</item>
+		<item for="name" lang="IT">SEO</item>
+		<item for="name" lang="RO">SEO</item>
+		<item for="name" lang="SI">SEO</item>
+		<item for="description" lang="IT">richiedemod_rewrite o isapi_rewrite</item>
+		<item for="description" lang="RO">necesitră motorul de manipulare a URL-ului - mod_rewrite or isapi_rewrite</item>
+		<item for="description" lang="RU">Добавляет поддержку удобных для восприяттия человеком URLs</item>
+		<item for="description" lang="SI">zahteva URL manipulacijo - mod_rewrite ali isapi_rewrite</item>
+	</translations>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="seo_product_type">
+						<name>Product/page SEF URL format</name>
+						<type>selectbox</type>
+						<default_value>category</default_value>
+						<variants>
+							<item id="product_file">
+								<name>product_name.html</name>
+								<translations>
+									<item lang="ES">nombre_producto.html</item>
+									<item lang="DA">produkt_navn.html</item>
+									<item lang="RO">nume_produs.html</item>
+								</translations>
+							</item>
+							<item id="product_category">
+								<name>category_name/[subcategory_name/]product_name.html</name>
+								<translations>
+									<item lang="ES">nombre_categoria/[nombre_subcategoria/]nombre_producto.html</item>
+									<item lang="RO">nume_categorie/[nume_subcategorie/]nume_produs.html</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Tipo de SEF URL de productos (optimización para motores de busqueda)</item>
+							<item lang="FR">Product SEF URL type</item>
+							<item lang="DA">Produkt / side SEF URL-format</item>
+							<item lang="EL">Μορφή Προϊόντος/Σελίδα SEF URL</item>
+							<item lang="RO">Format Produs/pagină SEF URL</item>
+							<item lang="RU">Формат SEF URL для товаров/страниц</item>
+							<item lang="SI">Izdelek/stran SEF URL formata</item>
+						</translations>
+					</item>
+					<item id="seo_category_type">
+						<name>Categories SEF URL format</name>
+						<type>selectbox</type>
+						<default_value>category</default_value>
+						<variants>
+							<item id="file">
+								<name>[parent_item_name/]item_name[-page2].html</name>
+								<translations>
+									<item lang="DA">[parent_item_name/]item_name[-page2].html</item>
+									<item lang="RO">[nume_de_bază_produs/]nume_produs[-pagina-2].html</item>
+								</translations>
+							</item>
+							<item id="category">
+								<name>[parent_item_name/]item_name/[page2/]</name>
+								<translations>
+									<item lang="DA">[parent_item_name/]item_name/[page2/]</item>
+									<item lang="RO">[nume_de_bază_produs/]nume_produs/[pagina-2/]</item>
+								</translations>
+							</item>
+							<item id="root_category">
+								<name>item_name/[page2/]</name>
+								<translations>
+									<item lang="DA">navn_navn / [Side2 /]</item>
+									<item lang="RO">nume_produs/[pagina2/]</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Tipo de SEO àra Categorías, Fabricantes y Temas</item>
+							<item lang="DA">Categories SEF URL format</item>
+							<item lang="EL">Κατηγορία SEF μορφής URL</item>
+							<item lang="RO">Format Categorie SEF URL</item>
+							<item lang="RU">Формат SEF URL для категорий</item>
+						</translations>
+					</item>
+					
+					<item id="single_url">
+						<name>Use single URL for all languages</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="DA">Brug enkelt webadresse til alle sprog</item>
+							<item lang="EL">Χρήση μονής URL για όλες τις γλώσσες</item>
+							<item lang="RO">Folosește un singur URL pentru toate limbiile</item>
+							<item lang="RU">Использовать один и тот же URL для всех языков</item>
+							<item lang="SI">Uporaba enotnega URL za vse jezike</item>
+						</translations>
+						<variants/>
+					</item>
+					
+					<item id="seo_language">
+						<name>Show language in the URL</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">Mostrar lenguaje en la URL</item>
+							<item lang="DA">Vis sprog i URL</item>
+							<item lang="EL">Προβολή γλώσσας στην διεύθυνση URL</item>
+							<item lang="RO">Afișează limba în URL</item>
+							<item lang="RU">Отображать язык в URL</item>
+							<item lang="SI">Pokaži jezik v URL</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item>DROP TABLE IF EXISTS ?:seo_names;</item>
+		<item>
+			CREATE TABLE `?:seo_names` (  
+				`name` varchar(250) NOT NULL default '',  
+				`object_id` mediumint(8) unsigned NOT NULL default '0',  
+				`company_id` int(11) unsigned NOT NULL default '0', 
+				`type` char(1) NOT NULL default '',  
+				`dispatch` varchar(64) NOT NULL default '',  
+				`lang_code` char(2) not null default 'EN',  
+				PRIMARY KEY  (`object_id`,`type`,`dispatch`,`lang_code`, `company_id`),  
+				KEY `name` (`name`,`lang_code`),  
+				KEY `type` (`name`,`type`,`lang_code`),  
+				KEY (dispatch)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_seo_rules', 'Manage SEO rules', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_seo_rules', 'View SEO rules', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_seo_rules', 'Управление правилами SEO', 'RU', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_seo_rules', 'Просмотр правил SEO', 'RU', '1');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_seo_rules', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default) VALUES ('view_seo_rules', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege LIKE 'view_seo_rules' OR privilege LIKE 'manage_seo_rules'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege LIKE 'view_seo_rules' OR privilege LIKE 'manage_seo_rules'</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:seo_names;</item>
+	</queries>
+</addon>

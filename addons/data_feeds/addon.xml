@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>data_feeds</id>
+	<name>Data feeds</name>
+	<description>Makes it possible to create product data feeds in CSV</description>
+	<version>1.0</version>
+	<priority>4000</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<description>Allows administrators to create any number of product data formats for export.</description>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="cron_password">
+						<name>Cron password</name>
+						<type>input</type>
+						<default_value>MYPASS</default_value>
+						<translations>
+							<item lang="RU">Cron пароль</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item for="demo" type='file' lang="EN" table="data_feed_descriptions">database/demo_data_feed_descriptions_en.sql</item>
+		<item for="demo" type='file' lang="RU" table="data_feed_descriptions">database/demo_data_feed_descriptions_ru.sql</item>
+		<item>DROP TABLE IF EXISTS `?:data_feeds`</item>
+		<item>
+			CREATE TABLE `?:data_feeds` (
+				`datafeed_id` int(11) unsigned NOT NULL auto_increment,
+				`company_id` int(11) unsigned NOT NULL default '0',
+				`categories` text NOT NULL default '',
+				`products` text NOT NULL default '',
+				`fields` text NOT NULL default '',
+				`export_location` char(1) NOT NULL default 'L',
+				`export_by_cron` char(1) NOT NULL default 'N',
+				`ftp_url` varchar(255) NOT NULL default '',
+				`ftp_user` varchar(50) NOT NULL default '',
+				`ftp_pass` varchar(50) NOT NULL default '',
+				`file_name` varchar(50) NOT NULL default '',
+				`enclosure` char(1) NOT NULL default '',
+				`csv_delimiter` char(1) NOT NULL default '',
+				`exclude_disabled_products` char(1) NOT NULL default 'N',
+				`export_options` text NOT NULL default '',
+				`save_dir` varchar(255) NOT NULL default '',
+				`status` char(1) NOT NULL default '',
+				PRIMARY KEY  (`datafeed_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS `?:data_feeds`</item>
+		<item>DROP TABLE IF EXISTS `?:data_feed_descriptions`</item>
+		<item>
+			CREATE TABLE `?:data_feed_descriptions` (
+				`datafeed_id` int(11) unsigned NOT NULL default '0',
+				`datafeed_name` varchar(255) NOT NULL default '',
+				`lang_code` char(2) NOT NULL default 'EN',
+				PRIMARY KEY  (`datafeed_id`, `lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS `?:data_feed_descriptions`</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="data_feeds">Data feeds</item>
+		<item lang="EN" id="export_by_cron">Export by cron</item>
+		<item lang="EN" id="add_new_datafeed">New data feed</item>
+		<item lang="EN" id="add_datafeed">Add data feed</item>
+		<item lang="EN" id="datafeed_name">Data feed name</item>
+		<item lang="EN" id="save_directory">Server directory</item>
+		<item lang="EN" id="ftp_url">FTP server</item>
+		<item lang="EN" id="ftp_url_hint">The format is: FTPHOST[:PORT][/DIRECTORY]. Example: ftp.yourhost.com:21/home/username/folder</item>
+		<item lang="EN" id="ftp_user">FTP username</item>
+		<item lang="EN" id="ftp_pass">FTP password</item>
+		<item lang="EN" id="fields">Fields</item>
+		<item lang="EN" id="field_name">Field name</item>
+		<item lang="EN" id="field_type">Field type</item>
+		<item lang="EN" id="map_fields">Fields mapping</item>
+		<item lang="EN" id="update_datafeed">Editing data feed</item>
+		<item lang="EN" id="export_by_cron_to">Export by cron to</item>
+		<item lang="EN" id="export_cron_hint">Use the following line to run the script according to schedule</item>
+		<item lang="EN" id="exported_items">Exported items</item>
+		<item lang="EN" id="ftp_connection_problem">Unable connect to FTP server. Please, check FTP connection information</item>
+		<item lang="EN" id="categories_products">Products from categories</item>
+		<item lang="EN" id="local_export">Download</item>
+		<item lang="EN" id="export_to_server">Save on server</item>
+		<item lang="EN" id="upload_to_ftp">Upload to FTP server</item>
+		<item lang="EN" id="cron_export">Cron export settings</item>
+		<item lang="EN" id="export_to_server ">Export to server</item>
+		<item lang="EN" id="export_to_ftp">FTP server options</item>
+		<item lang="EN" id="ftp">FTP</item>
+		<item lang="EN" id="check_server_export_settings">Check server export settings</item>
+		<item lang="EN" id="exclude_disabled_products">Exclude disabled products</item>
+		<item lang="RU" id="add_datafeed">Добавить исчтоник данных</item>
+		<item lang="RU" id="add_new_datafeed">Новый источник данных</item>
+		<item lang="RU" id="categories_products">Товары из категорий</item>
+		<item lang="RU" id="check_server_export_settings">Проверьте настройки сервера для экспорта</item>
+		<item lang="RU" id="cron_export">Настройки экспорта Cron</item>
+		<item lang="RU" id="datafeed_name">Имя для источника данных</item>
+		<item lang="RU" id="data_feeds">Источники данных</item>
+		<item lang="RU" id="exclude_disabled_products">Исключить выключенные товары</item>
+		<item lang="RU" id="exported_items">Экспортированные товары</item>
+		<item lang="RU" id="export_by_cron">Экспортировать, используя cron</item>
+		<item lang="RU" id="export_by_cron_to">Экспортировать, используя cron, на</item>
+		<item lang="RU" id="export_cron_hint">Используйте следующую команду для запуска скрипта по расписанию</item>
+		<item lang="RU" id="export_to_ftp">Настройки FTP сервера</item>
+		<item lang="RU" id="export_to_server ">Экспортировать на сервер</item>
+		<item lang="RU" id="fields">Поля</item>
+		<item lang="RU" id="field_name">Название поля</item>
+		<item lang="RU" id="field_type">Тип поля</item>
+		<item lang="RU" id="ftp_connection_problem">Не удалось подключиться к FTP серверу. Пожалуйста, проверьте данные для подключения к серверу.</item>
+		<item lang="RU" id="ftp_pass">FTP пароль</item>
+		<item lang="RU" id="ftp_url">FTP сервер</item>
+		<item lang="RU" id="ftp_url_hint">Формат: FTPHOST[:PORT][/DIRECTORY]. Пример: ftp.yourhost.com:21/home/username/folder</item>
+		<item lang="RU" id="ftp_user">FTP имя пользователя</item>
+		<item lang="RU" id="local_export">Загрузить</item>
+		<item lang="RU" id="map_fields">Отображение полей</item>
+		<item lang="RU" id="save_directory">Директория на сервере</item>
+		<item lang="RU" id="update_datafeed">Редактирование источника данных</item>
+		<item lang="RU" id="upload_to_ftp">Загрузить на FTP сервер</item>
+	</language_variables>
+	<translations>
+		<item for="name" lang="RU">Экспорт данных</item>
+		<item for="description" lang="RU">Позволяет экспортировать товары в CSV файлы. Возможен автоматический экспорт по расписанию</item>
+	</translations>
+</addon>

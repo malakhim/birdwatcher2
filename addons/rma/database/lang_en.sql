@@ -1,0 +1,11 @@
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('12', 'EN', 'Wrong item ordered');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('3', 'EN', 'Wrong description online');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('4', 'EN', 'Can\'t make it work');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('5', 'EN', 'Manufacturer defect');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('6', 'EN', 'Wrong item delivered');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('7', 'EN', 'Out of warranty');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('8', 'EN', 'Damaged during shipping');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('1', 'EN', 'Replace item');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('2', 'EN', 'Refund');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('13', 'EN', 'Other');
+REPLACE INTO ?:rma_property_descriptions (property_id, lang_code, property) VALUES ('11', 'EN', 'Dead on arrival');

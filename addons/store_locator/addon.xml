@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>store_locator</id>
+	<name>Store locator</name>
+	<description>Lets you place local stores on map and inform customers about their nearest stores</description>
+	<version>1.0</version>
+	<priority>1200</priority>
+	<position>10</position>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">Emplacement(s) de magasin(s)</item>
+		<item for="name" lang="DA">Storelocator</item>
+		<item for="name" lang="EL">Εντοπισμός καταστήματος</item>
+		<item for="name" lang="RO">Localizare magazin</item>
+		<item for="name" lang="RU">Поиск ближайших магазинов</item>
+		<item for="name" lang="SI">Lokator trgovine</item>
+		<item for="description" lang="RU">Позволяет отмечать магазины на карте и сообщать покупателям о ближайших к ним магазинах</item>
+	</translations>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="google_key">
+						<name>Google key</name>
+						<tooltip><![CDATA[<a href="http://code.google.com/apis/maps/signup.html">Signup for the Google key</a>]]></tooltip>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="EL">Google key</item>
+							<item lang="RO">Cheia Google</item>
+							<item lang="RU">Ключ Google</item>
+							<item lang="SI">Google ključ</item>
+							<item lang="RU" for="tooltip"><![CDATA[<a href=http://code.google.com/apis/maps/signup.html>Зарегистрируйтесь, чтобы получить ключ Google</a>]]></item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item>DROP TABLE IF EXISTS `?:store_locations`;</item>
+		<item>DROP TABLE IF EXISTS `?:store_location_descriptions`;</item>
+		<item>
+			CREATE TABLE `?:store_locations` (  
+				`store_location_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`position` smallint(5) NOT NULL default '0',  
+				`country` char(2) NOT NULL default '',  
+				`latitude` double NOT NULL default '0',  
+				`longitude` double NOT NULL default '0',  
+				`localization` varchar(255) NOT NULL default '',  
+				`status` char(1) NOT NULL default 'A',  
+				PRIMARY KEY  (`store_location_id`),  
+				KEY `status` (`status`)
+			) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:store_location_descriptions` (  
+				`store_location_id` mediumint(8) unsigned NOT NULL default '0',  
+				`lang_code` char(2) NOT NULL default '',  
+				`name` varchar(80) NOT NULL default '',  
+				`description` varchar(255) NOT NULL default '',  
+				`city` varchar(60) NOT NULL default '', 
+				PRIMARY KEY  (`store_location_id`,`lang_code`)
+			) ENGINE=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS `?:store_locations`;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS `?:store_location_descriptions`;</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="block_store_locator">Store locator</item>
+		<item lang="RU" id="block_store_locator">Поиск ближайших магазинов</item>
+		<item lang="EN" id="block_store_locator_description">Store locator block</item>
+		<item lang="RU" id="block_store_locator_description">Блок поиска ближайших магазинов</item>
+	</language_variables>
+</addon>

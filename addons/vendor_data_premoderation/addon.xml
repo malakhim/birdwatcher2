@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>vendor_data_premoderation</id>
+	<name>Vendor data premoderation</name>
+	<description>Lets you pre-moderate vendors activity</description>
+	<version>1.0</version>
+	<priority>1000</priority>
+	<position>45</position>
+	<status>active</status>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="products_prior_approval">
+						<name>Products require prior approval</name>
+						<type>selectbox</type>
+						<default_value>none</default_value>
+						<variants>
+							<item id="none">
+								<name>None</name>
+								<translations>
+									<item lang="RU">Ни один</item>
+								</translations>
+							</item>
+							<item id="custom">
+								<name>Custom</name>
+								<translations>
+									<item lang="RU">Выборочно</item>
+								</translations>
+							</item>
+							<item id="all">
+								<name>All vendors</name>
+								<translations>
+									<item lang="RU">Все продавцы</item>
+								</translations>
+							</item>
+						</variants>
+						<tooltip>"None" - this option is disabled for all vendors; "Custom" - the option is enabled on a vendor details page (the Add-ons tab); "All vendors" - the option is enabled for all vendors.</tooltip>
+						<translations>
+							<item lang="RU">Товары требуют предварительного утверждения</item>
+							<item lang="RU" for="tooltip">"Ничего" - данная настройка отключена для всех продавцов; "Выборочно" - настройка влючается на странице редактирования продавца (во вкладке Модули); "Все продавцы" - настройка включена для всех продавцов.</item>
+						</translations>
+					</item>
+					<item id="products_updates_approval">
+						<name>Approve product info updates</name>
+						<type>selectbox</type>
+						<default_value>none</default_value>
+						<variants>
+							<item id="none">
+								<name>None</name>
+								<translations>
+									<item lang="RU">Ни один</item>
+								</translations>
+							</item>
+							<item id="custom">
+								<name>Custom</name>
+								<translations>
+									<item lang="RU">Выборочно</item>
+								</translations>
+							</item>
+							<item id="all">
+								<name>All vendors</name>
+								<translations>
+									<item lang="RU">Все продавцы</item>
+								</translations>
+							</item>
+						</variants>
+						<tooltip>"None" - this option is disabled for all vendors; "Custom" - the option is enabled on a vendor details page (the Add-ons tab); "All vendors" - the option is enabled for all vendors.</tooltip>
+						<translations>
+							<item lang="RU">Утверждать изменения в информации о товарах</item>
+							<item lang="RU" for="tooltip">"Ничего" - данная настройка отключена для всех продавцов; "Выборочно" - настройка влючается на странице редактирования продавца (во вкладке Модули); "Все продавцы" - настройка включена для всех продавцов.</item>
+						</translations>
+					</item>
+					<item id="vendor_profile_updates_approval">
+						<name>Approve vendor profile updates</name>
+						<type>selectbox</type>
+						<default_value>none</default_value>
+						<variants>
+							<item id="none">
+								<name>None</name>
+								<translations>
+									<item lang="RU">Ни один</item>
+								</translations>
+							</item>
+							<item id="custom">
+								<name>Custom</name>
+								<translations>
+									<item lang="RU">Выборочно</item>
+								</translations>
+							</item>
+							<item id="all">
+								<name>All vendors</name>
+								<translations>
+									<item lang="RU">Все продавцы</item>
+								</translations>
+							</item>
+						</variants>
+						<tooltip>"None" - this option is disabled for all vendors; "Custom" - the option is enabled on a vendor details page (the Add-ons tab); "All vendors" - the option is enabled for all vendors.</tooltip>
+						<translations>
+							<item lang="RU">Утверждать изменения в учётных записях продавцов</item>
+							<item lang="RU" for="tooltip">"Ничего" - данная настройка отключена для всех продавцов; "Выборочно" - настройка влючается на странице редактирования продавца (во вкладке Модули); "Все продавцы" - настройка включена для всех продавцов.</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="vendor_data_premoderation">Vendor data premoderation</item>
+		<item lang="EN" id="product_approval">Product approval</item>
+		<item lang="EN" id="notify_vendor_by_email">Notify vendor by e-mail</item>
+		<item lang="EN" id="product_approval_status_approved">Your product [product] has been approved by the store administration and added to the product catalog. Now shoppers can order this product in the store.</item>
+		<item lang="EN" id="product_approval_status_disapproved">Your product [product] has been disapproved by the store administration</item>
+		<item lang="EN" id="products_approval_status_approved">Thank you for submitting new products. The following products have been approved by the store administration and added to the product catalog</item>
+		<item lang="EN" id="text_shoppers_can_order_products">Now shoppers can order these products in the store.</item>
+		<item lang="EN" id="products_approval_status_disapproved">Thank you for submitting new products. The following products have been disapproved by the store administration</item>
+		<item lang="EN" id="approve_selected">Approve selected</item>
+		<item lang="EN" id="disapprove_selected">Disapprove selected</item>
+		<item lang="EN" id="pre_moderation">Products require prior approval</item>
+		<item lang="EN" id="pre_moderation_edit">Approve product info updates</item>
+		<item lang="EN" id="pre_moderation_edit_vendors">Approve vendor profile updates</item>
+		<item lang="EN" id="text_not_approved_products">You have products that require your approval. Please [follow this link] to review these products.</item>
+		<item lang="EN" id="products_approval_status_changed">Your product(s) have been [status]</item>
+		<item lang="EN" id="approval">Approval</item>
+		<item lang="EN" id="text_vendor_profile_changes_notice">Are you sure that you want to update the profile? Information about your company will not be available in the customer area until the administrator approves it.</item>
+		<item lang="RU" id="approval">Утверждение</item>
+		<item lang="RU" id="notify_vendor_by_email">Уведомлять продавца по электронной почте</item>
+		<item lang="RU" id="pre_moderation">Товары требуют предварительного подтверждения</item>
+		<item lang="RU" id="pre_moderation_edit">Подтверждать изменения информации о товарах</item>
+		<item lang="RU" id="pre_moderation_edit_vendors">Подтверждать изменения информации в учетной записи продавца</item>
+		<item lang="RU" id="products_approval_status_approved">Спасибо за добавление новых товаров. Следующие товары были утверждены администратором магазина и добавлены в каталог товаров</item>
+		<item lang="RU" id="products_approval_status_changed">Ваш(и) товар(ы) получили статус [status]</item>
+		<item lang="RU" id="products_approval_status_disapproved">Спасибо за добавление новых товаров. Следующие товары были отклонены администратором магазина</item>
+		<item lang="RU" id="product_approval">Утверждение товаров</item>
+		<item lang="RU" id="product_approval_status_approved">Ваш товар [product] был утвержден администратором магазина и добавлен в каталог товаров. Теперь покупатели могут заказать данный товар в магазине.</item>
+		<item lang="RU" id="product_approval_status_disapproved">Ваш товар [product] был отклонен администратором магазина</item>
+		<item lang="RU" id="text_not_approved_products">У Вас есть товары, которые требуют утверждения. Пожалуйста, [follow this link], чтобы просмотреть данные товары.</item>
+		<item lang="RU" id="text_shoppers_can_order_products">Теперь покупатели могут заказывать эти товары в магазине.</item>
+		<item lang="RU" id="text_vendor_profile_changes_notice">Вы уверены, что хотите обновить Вашу учетную запись? Информация о Вашей компании не будет отображаться в витрине магазина до тех пор, пока администратор не подтвердит её.</item>
+		<item lang="RU" id="vendor_data_premoderation">Премодерация данных продавца</item>
+	</language_variables>
+	<queries>
+		<item>ALTER TABLE ?:products ADD `approved` char(1) NOT NULL DEFAULT 'Y' AFTER `company_id`</item>
+		<item for="uninstall">ALTER TABLE ?:products DROP `approved`</item>
+		<item>ALTER TABLE ?:companies ADD `pre_moderation` char(1) NOT NULL DEFAULT 'N'</item>
+		<item for="uninstall">ALTER TABLE ?:companies DROP `pre_moderation`</item>
+		<item>ALTER TABLE ?:companies ADD `pre_moderation_edit` char(1) NOT NULL DEFAULT 'N'</item>
+		<item for="uninstall">ALTER TABLE ?:companies DROP `pre_moderation_edit`</item>
+		<item>ALTER TABLE ?:companies ADD `pre_moderation_edit_vendors` char(1) NOT NULL DEFAULT 'N'</item>
+		<item for="uninstall">ALTER TABLE ?:companies DROP `pre_moderation_edit_vendors`</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_product_premoderation', 'Approve vendor products', 'EN', '10');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_product_premoderation', 'Утверждение товаров, добавляемых продавцами', 'RU', '10');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default) VALUES ('manage_product_premoderation', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'manage_product_premoderation'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_product_premoderation'</item>
+	</queries>
+	<translations>
+		<item for="name" lang="RU">Предварительная модерация данных продавцов</item>
+		<item for="description" lang="RU">Позволяет предварительно модерировать данные, добавленные продавцом</item>
+	</translations>
+</addon>

@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>affiliate</id>
+	<name>Affiliate</name>
+	<description>Toggles and lets configure the affiliate system</description>
+	<version>1.0</version>
+	<priority>700</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL</auto_install>
+	<translations>
+		<item for="name" lang="FR">Affiliation</item>
+		<item for="name" lang="DA">Partner</item>
+		<item for="name" lang="EL">Συνεργάτης</item>
+		<item for="name" lang="IT">Affiliazione</item>
+		<item for="name" lang="RO">Afiliat</item>
+		<item for="name" lang="RU">Партнерство</item>
+		<item for="name" lang="SI">Partnerski program</item>
+		<item for="description" lang="RU">Позволяет настраивать партнёрскую программу</item>
+	</translations>
+	<language_variables>
+		<item lang="EN" id="aff_cant_create_group">Group cannot be modified</item>
+		<item lang="EN" id="aff_cant_create_banner">Banner cannot be modified</item>
+		<item lang="EN" id="aff_object_cant_delete">Object cannot be deleted</item>
+		<item lang="EN" id="block_affiliate">Affiliate</item>
+		<item lang="EN" id="block_affiliate_description">Affiliate profile access</item>
+		<item lang="RU" id="aff_cant_create_banner">Баннер не может быть изменен</item>
+		<item lang="RU" id="aff_cant_create_group">Группа не может быть изменена</item>
+		<item lang="RU" id="aff_object_cant_delete">Объект не может быть удалён</item>
+		<item lang="RU" id="block_affiliate">Партнер</item>
+		<item lang="RU" id="block_affiliate_description">Доступ к учетной записи партнера</item>
+	</language_variables>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="show_affiliate_code">
+						<name>Show affiliate code at front-end</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Mostrar códico de afiliado en el front-end (parte del cliente)</item>
+							<item lang="EL">Show affiliate code at front-end </item>
+							<item lang="RO">Afișează codul afilat pe site</item>
+							<item lang="RU">Показывать код партнера в витрине магазина</item>
+							<item lang="SI">Prikaži kodo partnerskega programa na prvi strani</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="payment_period">
+						<name>Payment period</name>
+						<type>selectbox</type>
+						<default_value>1w</default_value>
+						<variants>
+							<item id="1w">
+								<name>1 week</name>
+								<translations>
+									<item lang="ES">1 semana</item>
+									<item lang="FR">1 semaine</item>
+									<item lang="EL">1 εβδομάδα</item>
+									<item lang="RO">odată pe săptămână</item>
+									<item lang="RU">1 неделя</item>
+									<item lang="SI">1 teden</item>
+								</translations>
+							</item>
+							<item id="2w">
+								<name>twice a month</name>
+								<translations>
+									<item lang="ES">dos veces al mes</item>
+									<item lang="FR">bimensuelle</item>
+									<item lang="EL">Δυο φορές τον μήνα</item>
+									<item lang="RO">de 2 ori pe săptămână</item>
+									<item lang="RU">дважды в месяц</item>
+									<item lang="SI">dvakrat mesečno</item>
+								</translations>
+							</item>
+							<item id="1m">
+								<name>1 month</name>
+								<translations>
+									<item lang="ES">1 mes</item>
+									<item lang="FR">1 mois</item>
+									<item lang="EL">1 μήνας</item>
+									<item lang="RO">odată pe lună</item>
+									<item lang="RU">1 месяц</item>
+									<item lang="SI">1 mesec</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Preiodo de pago</item>
+							<item lang="FR">Période de paiement</item>
+							<item lang="DA">Betaling periode</item>
+							<item lang="EL">Περίοδος πληρωμής</item>
+							<item lang="RO">Termenul de plată</item>
+							<item lang="RU">Период оплаты</item>
+							<item lang="SI">Plačilo obdobje</item>
+						</translations>
+					</item>
+					<item id="number_last_periods">
+						<name>Number of last periods</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="ES">Número de períodos pasados</item>
+							<item lang="DA">Antal sidste perioder</item>
+							<item lang="EL">Αριθμός των τελευταίων περιόδων</item>
+							<item lang="RO">Numărul ultimelor perioade</item>
+							<item lang="RU">Количество последних периодов</item>
+							<item lang="SI">Število zadnjih obdobij</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="automatic_approval_commissions">
+						<name>Automatic approval of affiliate commissions</name>
+						<type>checkbox</type>
+						<default_value/>
+						<translations>
+							<item lang="ES">Aprobación automática de comisiones de afiliado</item>
+							<item lang="DA">Automatisk godkendelse af affiliate provisioner</item>
+							<item lang="EL">Αυτόματη έγκριση προμηθειών συνεργατών</item>
+							<item lang="RO">Aprobare automată a comisioanelor de afiliere</item>
+							<item lang="RU">Автоматическое утверждение партнерской комиссии</item>
+							<item lang="SI">Samodejna odobritev provizije partnerskega programa</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_text_banner">
+						<name>Text banner</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="ES">Banner de texto</item>
+							<item lang="FR">Bannière texte</item>
+							<item lang="DA">Tekst banner</item>
+							<item lang="EL">Βanner κειμένου</item>
+							<item lang="RO">Banner text</item>
+							<item lang="RU">Текстовый баннер</item>
+							<item lang="SI">Besedilna oglasna pasica</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="out_line_clor">
+						<name>Outline color</name>
+						<type>input</type>
+						<default_value>#296DC1</default_value>
+						<translations>
+							<item lang="ES">Color de contorno</item>
+							<item lang="FR">OutlineColor</item>
+							<item lang="EL">Χρώμα περιγράμματος</item>
+							<item lang="RO">Culoare conturului</item>
+							<item lang="RU">Цвет контура</item>
+							<item lang="SI">Barva orisa</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="title_text_color">
+						<name>Title text color</name>
+						<type>input</type>
+						<default_value>#FDFDFD</default_value>
+						<translations>
+							<item lang="ES">Color del texto de título</item>
+							<item lang="FR">TitleTextColor</item>
+							<item lang="DA">Titel tekstfarve</item>
+							<item lang="EL">Χρώμα τίτλου κειμένου</item>
+							<item lang="RO">Culoarea textului de titlu</item>
+							<item lang="RU">Цвет заголовка</item>
+							<item lang="SI">Barva besedila naslova</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="text_color">
+						<name>Text color</name>
+						<type>input</type>
+						<default_value>#333333</default_value>
+						<translations>
+							<item lang="ES">Color de texto</item>
+							<item lang="FR">TextColor</item>
+							<item lang="DA">Tekstfarve</item>
+							<item lang="EL">Χρώμα κειμένου</item>
+							<item lang="RO">Culoarea textului</item>
+							<item lang="RU">Цвет текста</item>
+							<item lang="SI">Barva besedila</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="text_background_color">
+						<name>Text background color</name>
+						<type>input</type>
+						<default_value>#F9F9FF</default_value>
+						<translations>
+							<item lang="ES">Color de fondo de texto</item>
+							<item lang="FR">TextBackgroundColor</item>
+							<item lang="DA">Tekst baggrundsfarve</item>
+							<item lang="EL">Χρώμα φόντου του κειμένου</item>
+							<item lang="RO">Culoarea de fundal a textului</item>
+							<item lang="RU">Цвет фона текста</item>
+							<item lang="SI">Barva ozadja besedila</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_discount_coupons">
+						<name>Discount Coupons</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="ES">Cupones descuentos</item>
+							<item lang="FR">Bons de réductions</item>
+							<item lang="DA">Rabatkupon</item>
+							<item lang="EL">Εκπτωτικά κουπόνια</item>
+							<item lang="RO">Cupoane discounturi</item>
+							<item lang="RU">Купоны на скидку</item>
+							<item lang="SI">Kuponi za popust</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="use_affiliate_id">
+						<name>Affiliate ID is used as coupon prefix</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="ES">La ID del afiliado es usada como el prefijo de cupón</item>
+							<item lang="FR">Partner ID is used as coupon prefix</item>
+							<item lang="EL">Το ID συνεργατών χρησιμοποιείται για το πρόθεμα των κουπονιών</item>
+							<item lang="RO">ID-ul afiliatului va fi folosit ca prefix la cuponul de discount</item>
+							<item lang="RU">Использовать ID партнёра как префикс для купона</item>
+							<item lang="SI">ID partnerskega programa se uporabi kot predpona kupona</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="coupon_prefix_delim">
+						<name>Delimiter between prefix and coupon-code</name>
+						<type>input</type>
+						<default_value>-</default_value>
+						<translations>
+							<item lang="ES">Delimitador entre el prefijo y el código del cupón</item>
+							<item lang="EL">Οριοθέτη μεταξύ προθέματος και κωδικού κουπονιού</item>
+							<item lang="RO">Delimitatorul dintre prefix și codul cuponului</item>
+							<item lang="RU">Разделитель между префиксом и кодом купона</item>
+							<item lang="SI">Ločilo med predpono in kuponom</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item for="demo" type='file' lang="EN" table="aff_banner_descriptions">database/demo_banners_en.sql</item>
+		<item for="demo" type='file' lang="EN" table="aff_group_descriptions">database/demo_groups_en.sql</item>
+		<item>DROP TABLE IF EXISTS ?:affiliate_payouts;</item>
+		<item>DROP TABLE IF EXISTS ?:affiliate_plans;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_action_links;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_banners;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_banner_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_group_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_groups;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_partner_actions;</item>
+		<item>DROP TABLE IF EXISTS ?:aff_partner_profiles;</item>
+		<item>
+			CREATE TABLE `?:affiliate_payouts` (
+				`payout_id` mediumint(8) unsigned NOT NULL auto_increment,
+				`partner_id` mediumint(8) unsigned NOT NULL default '0',
+				`amount` decimal(12,2) NOT NULL default '0.00',
+				`date` int(11) unsigned NOT NULL default '0',
+				`status` char(1) NOT NULL default 'O',
+				PRIMARY KEY  (`payout_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:affiliate_plans` (  
+				`plan_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`payout_types` text NOT NULL,  
+				`commissions` varchar(255) NOT NULL default '',  
+				`min_payment` decimal(12,2) NOT NULL default '0.00',  
+				`product_ids` text NOT NULL, 
+				`category_ids` text NOT NULL, 
+				`promotion_ids` text NOT NULL, 
+				`cookie_expiration` int(11) unsigned NOT NULL default '0',
+				`method_based_selling_price` char(1) NOT NULL default 'N', 
+				`use_coupon_commission` char(1) NOT NULL default 'N', 
+				`status` char(1) NOT NULL default 'A',
+				`company_id` int(11) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`plan_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:aff_action_links` (  
+				`action_id` mediumint(8) unsigned NOT NULL default '0',  
+				`object_data` varchar(255) NOT NULL default '', 
+				`object_type` char(1) NOT NULL default '', 
+				PRIMARY KEY  (`action_id`,`object_type`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_affiliate', 'Manage affiliate system', 'EN', '3');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_affiliate', 'Управление партнерской системой', 'RU', '3');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_affiliate', 'Y');</item>
+		<item>
+			CREATE TABLE `?:aff_banners` (  
+				`banner_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`width` int(4) unsigned NOT NULL default '120',  
+				`height` int(4) unsigned NOT NULL default '60', 
+				`type` char(1) NOT NULL default 'T',  
+				`link_to` char(1) NOT NULL default 'U', 
+				`data` varchar(255) NOT NULL default '', 
+				`show_title` char(1) NOT NULL default 'Y', 
+				`text_location` char(1) NOT NULL default 'B', 
+				`new_window` char(1) NOT NULL default 'N',
+				`to_cart` char(1) NOT NULL default 'N',
+				`show_url` char(1) NOT NULL default 'N', 
+				`status` char(1) NOT NULL default 'A',
+				`company_id` int(11) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`banner_id`),  
+				KEY `type_linkto` (`type`,`link_to`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:aff_banner_descriptions` ( 
+				`banner_id` mediumint(8) unsigned NOT NULL default '0',  
+				`title` varchar(64) NOT NULL default '',  
+				`content` varchar(255) NOT NULL default '',  
+				`alt` varchar(64) NOT NULL default '',  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				PRIMARY KEY (`banner_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:aff_group_descriptions` ( 
+				`group_id` mediumint(8) unsigned NOT NULL default '0', 
+				`name` char(64) NOT NULL default '',
+				`lang_code` char(2) NOT NULL default 'EN', 
+				PRIMARY KEY  (`group_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:aff_groups` ( 
+				`group_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`link_to` char(1) NOT NULL default 'U', 
+				`data` char(255) NOT NULL default '',
+				`status` char(1) NOT NULL default 'A',
+				`company_id` int(11) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`group_id`), 
+				KEY `link_to` (`link_to`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:aff_partner_actions` (  
+				`action_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`banner_id` mediumint(8) unsigned NOT NULL default '0',
+				`partner_id` mediumint(8) unsigned NOT NULL default '0', 
+				`plan_id` mediumint(8) unsigned NOT NULL default '0', 
+				`customer_id` mediumint(8) unsigned NOT NULL default '0', 
+				`date` int(11) unsigned NOT NULL default '0', 
+				`ip` varchar(255) NOT NULL default '', 
+				`action` varchar(32) NOT NULL default '',
+				`amount` decimal(12,2) NOT NULL default '0.00', 
+				`approved` char(1) NOT NULL default 'N', 
+				`payout_id` mediumint(8) unsigned NOT NULL default '0', 
+				PRIMARY KEY  (`action_id`), 
+				KEY `parnerid_approved_date_payoutid` (`partner_id`,`approved`,`date`,`payout_id`,`amount`), 
+				KEY `action_date_amount_approved_payoutid` (`action`,`date`,`amount`,`approved`,`payout_id`), 
+				KEY `data_approved_payoutid` (`approved`,`payout_id`), 
+				KEY `amount` (`amount`), 
+				KEY `partnerid_date` (`partner_id`,`date`), 
+				KEY `payout_id` (`payout_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:aff_partner_profiles` (  
+				`user_id` mediumint(8) unsigned NOT NULL default '0',  
+				`approved` char(1) NOT NULL default 'N', 
+				`plan_id` mediumint(8) unsigned NOT NULL default '0', 
+				`balance` decimal(12,2) NOT NULL default '0.00', 
+				`referrer_partner_id` mediumint(8) unsigned NOT NULL default '0', 
+				PRIMARY KEY  (`user_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_affiliate', 'Y');</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:affiliate_payouts;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:affiliate_plans;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_action_links;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_banners;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_banner_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_group_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_groups;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_partner_actions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:aff_partner_profiles;</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'manage_affiliate'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_affiliate'</item>
+	</queries>
+</addon>

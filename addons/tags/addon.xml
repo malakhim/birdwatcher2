@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>tags</id>
+	<name>Tags</name>
+	<description>Enables product tags</description>
+	<version>1.0</version>
+	<priority>200</priority>
+	<position>200</position>
+	<status>active</status>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="EL">Ετικέτες</item>
+		<item for="name" lang="IT">Tag</item>
+		<item for="name" lang="RO">Etichete</item>
+		<item for="name" lang="RU">Теги</item>
+		<item for="name" lang="SI">Oznake</item>
+		<item for="description" lang="RU">Позволяет создавать теги для товаров</item>
+	</translations>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="tags_for_products">
+						<name>Tags for products</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="FR">Personal delivery (for registered mail only)</item>
+							<item lang="DA">Etiketter for produkter</item>
+							<item lang="EL">Ετικέτες προιόντων</item>
+							<item lang="RO">Etichete pentru produse</item>
+							<item lang="RU">Теги для товаров</item>
+							<item lang="SI">Oznake za proizvode</item>
+						</translations>
+					</item>
+					<item id="tags_for_pages">
+						<name>Tags for pages</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="FR">Acknowledgement of delivery (for registered mail only)</item>
+							<item lang="DA">Etiketter for sider</item>
+							<item lang="EL">Ετικέτες σελίδων</item>
+							<item lang="RO">Etichete pentru pagini</item>
+							<item lang="RU">Теги для страниц</item>
+							<item lang="SI">Oznak na strani</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item>DROP TABLE IF EXISTS ?:tag_links;</item>
+		<item>DROP TABLE IF EXISTS ?:tags;</item>
+		<item>
+			CREATE TABLE `?:tag_links` (  
+				`tag_id` mediumint(8) unsigned NOT NULL,  
+				`object_type` char(1) NOT NULL default 'P',  
+				`object_id` mediumint(8) unsigned NOT NULL,  
+				`user_id` mediumint(8) unsigned NOT NULL,  
+				PRIMARY KEY  (`object_type`,`object_id`,`user_id`,`tag_id`),  
+				KEY `tag_id` (`tag_id`),  
+				KEY `user_id` (`user_id`),  
+				KEY `ids` (`tag_id`,`user_id`,`object_type`,`object_id`)
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+		</item>
+		<item>
+			CREATE TABLE `?:tags` (  
+				`tag_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`company_id` int(11) unsigned NOT NULL default '0', 
+				`tag` varchar(255) NOT NULL default '',  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`status` char(1) NOT NULL default 'P',  
+				PRIMARY KEY  (`tag_id`),  
+				UNIQUE KEY `tag` (`tag`, `company_id`)
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:tag_links;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:tags;</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="block_tags">Tags</item>
+		<item lang="EN" id="block_tags_description">Product tags</item>
+		<item lang="EN" id="tag_modifications_saved">Modifications successfully saved. They will be applied after administrator's approval.</item>
+		<item lang="RU" id="block_tags">Теги</item>
+		<item lang="RU" id="block_tags_description">Теги товаров</item>
+	</language_variables>
+</addon>

@@ -1,0 +1,8 @@
+<orders>
+	<item title="return_requests" dispatch="rma.returns" />
+
+	<subitem item="return_requests" title="return_requests" href="%INDEX_SCRIPT?dispatch=rma.returns" />
+	<subitem item="return_requests" title="rma_reasons" href="%INDEX_SCRIPT?dispatch=rma.properties&amp;property_type=R" />
+	<subitem item="return_requests" title="rma_actions" href="%INDEX_SCRIPT?dispatch=rma.properties&amp;property_type=A" />
+	<subitem item="return_requests" title="rma_request_statuses" href="%INDEX_SCRIPT?dispatch=statuses.manage&amp;type=R" />
+</orders>

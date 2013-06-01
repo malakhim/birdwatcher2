@@ -1,0 +1,45 @@
+/* Recurring billing*/
+.subscription .period {
+	clear: none;
+	margin-top: 9px;
+}
+.subscription .form-field {
+	margin: 6px 0 11px 0;
+}
+.subscription .period-type {
+	margin: 7px 0 0 18px;
+}
+.subscription select {
+	min-width: 180px;
+}
+.subscription .table td {
+	vertical-align: middle;
+	padding: 6px 10px 6px 10px;
+}
+.subscription .buttons-container {
+	border-top: 1px solid #DDD;
+	background: #F2F2F2;
+	border-radius: 0px 0px 3px 3px;
+	padding: 17px 20px 17px 20px;
+	margin-top: 30px;
+}
+.subscription-products {
+	font-weight: bold;
+	color: #666666;
+	padding: 5px 0;
+	position: relative;
+}
+.subscription-products p {
+	font-weight: normal;
+	padding: 3px 0 0 0;
+	color: #666666;
+}
+.subscription-products-arrow {
+	position: absolute;
+	top: -7px;
+	right: 22px;
+	width: 13px;
+	height: 8px;
+	background: url('../../images/icons/subscription_arrow.png') no-repeat;
+}
+/* /Recurring billing*/

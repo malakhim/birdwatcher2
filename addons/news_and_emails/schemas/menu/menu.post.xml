@@ -1,0 +1,23 @@
+<administration>
+	<subitem item="export_data" title="subscribers" href="%INDEX_SCRIPT?dispatch=exim.export&amp;section=subscribers" />
+	<subitem item="import_data" title="subscribers" href="%INDEX_SCRIPT?dispatch=exim.import&amp;section=subscribers" />
+</administration>
+<website>
+	<item title="site_news" dispatch="news.manage" />
+	<item title="newsletters" dispatch="newsletters.manage" alt="mailing_lists.manage,subscribers.manage" />
+
+	<subitem item="newsletters" title="newsletters" href="%INDEX_SCRIPT?dispatch=newsletters.manage&amp;type=N" />
+	<subitem item="newsletters" title="templates" href="%INDEX_SCRIPT?dispatch=newsletters.manage&amp;type=T" />
+	<subitem item="newsletters" title="autoresponders" href="%INDEX_SCRIPT?dispatch=newsletters.manage&amp;type=A" />
+	<subitem item="newsletters" title="campaigns" href="%INDEX_SCRIPT?dispatch=newsletters.campaigns" />
+	<subitem item="newsletters" title="mailing_lists" href="%INDEX_SCRIPT?dispatch=mailing_lists.manage" />
+	<subitem item="newsletters" title="subscribers_menu_item_text" href="%INDEX_SCRIPT?dispatch=subscribers.manage" />
+
+	<side>
+		<item group="news.update" title="add_news" href="%INDEX_SCRIPT?dispatch=news.add" />
+		
+		<item group="newsletters.update" title="add_newsletter" href="%INDEX_SCRIPT?dispatch=newsletters.add&amp;type=N" />
+		<item group="newsletters.update" title="add_template" href="%INDEX_SCRIPT?dispatch=newsletters.add&amp;type=T" />
+		<item group="newsletters.update" title="add_autoresponder" href="%INDEX_SCRIPT?dispatch=newsletters.add&amp;type=A" />
+	</side>
+</website>

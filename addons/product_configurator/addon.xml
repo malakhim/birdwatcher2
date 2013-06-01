@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>product_configurator</id>
+	<name>Product configurator</name>
+	<description>Makes it possible to create products with other products as options (e.g. lets customer select computer components among the store items upon purchase)</description>
+	<version>1.0</version>
+	<priority>300</priority>
+	<position>150</position>
+	<auto_install>PROFESSIONAL,MULTIVENDOR</auto_install>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="thumbnails_width">
+						<name>Thumbnails width</name>
+						<type>input</type>
+						<default_value>120</default_value>
+						<translations>
+							<item lang="RU">Ширина иконок</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<translations>
+		<item for="name" lang="ES">Configurador de productos</item>
+		<item for="name" lang="FR">Configurateur de produit</item>
+		<item for="name" lang="DA">Produkt konfigurator</item>
+		<item for="name" lang="EL">Διαμορφωτής προϊόντων</item>
+		<item for="name" lang="IT">Configuratore di prodotto</item>
+		<item for="name" lang="RO">Configurator produse</item>
+		<item for="name" lang="RU">Конфигуратор товаров</item>
+		<item for="name" lang="SI">Konfigurator izdelka</item>
+		<item for="description" lang="RU">Позволяет создавать товары, используя другие товары в качестве опций для выбора (к примеру, позволяет сконфигурировать компьютер из комплектующих частей)</item>
+	</translations>
+	<language_variables>
+		<item lang="EN" id="pconf_company_update_denied">The 'Store' option is not editable for configurable products or the products in the configurator groups or classes.</item>
+		<item lang="RU" id="pconf_company_update_denied">Настройка 'Витрина' не может быть отредактирована для конфигурируемых товаров или товаров, которые включены в группу или класс конфигуратора.</item>
+	</language_variables>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:conf_class_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_class_products;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_classes;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_compatible_classes;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_group_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_group_products;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_groups;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_product_groups;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_step_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:conf_steps;</item>
+		<item>
+			CREATE TABLE `?:conf_class_descriptions` (  
+				`class_id` mediumint(8) unsigned NOT NULL default '0',  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				`class_name` varchar(255) NOT NULL default '',  
+				PRIMARY KEY  (`class_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_class_products` (  
+				`class_id` mediumint(8) unsigned NOT NULL default '0',  
+				`product_id` mediumint(8) unsigned NOT NULL default '0',  
+				KEY `class_id` (`class_id`,`product_id`),  
+				KEY `product_id` (`product_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>CREATE TABLE `?:conf_classes` (  
+				`class_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`status` char(1) NOT NULL default 'A',  
+				`group_id` mediumint(8) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`class_id`),  
+				KEY `group_id` (`group_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_compatible_classes` (  
+				`master_class_id` mediumint(8) unsigned NOT NULL default '0',  
+				`slave_class_id` mediumint(8) unsigned NOT NULL default '0',  
+				KEY `master_class_id` (`master_class_id`,`slave_class_id`),  
+				KEY `slave_class_id` (`slave_class_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_group_descriptions` (  
+				`group_id` mediumint(8) unsigned NOT NULL default '0',  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				`configurator_group_name` varchar(255) NOT NULL default '',  
+				`full_description` mediumtext NOT NULL,  
+				PRIMARY KEY  (`group_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_group_products` (  
+				`group_id` mediumint(8) unsigned NOT NULL default '0',  
+				`product_id` mediumint(8) unsigned NOT NULL default '0',  
+				KEY `group_id` (`group_id`,`product_id`),  
+				KEY `product_id` (`product_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_groups` (  
+				`group_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`configurator_group_type` char(1) NOT NULL default 'S',  
+				`status` char(1) NOT NULL default 'A',  
+				`step_id` mediumint(8) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`group_id`),  KEY `step_id` (`step_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_product_groups` (  
+				`product_id` mediumint(8) unsigned NOT NULL default '0',  
+				`group_id` mediumint(8) unsigned NOT NULL default '0',  
+				`default_product_ids` text NOT NULL,  
+				`position` smallint(5) unsigned NOT NULL default '0',  
+				`required` char(1) NOT NULL default 'N',  
+				KEY `group_id` (`group_id`,`product_id`,`required`),  
+				KEY `product_id` (`product_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_step_descriptions` (  
+				`step_id` mediumint(8) unsigned NOT NULL default '0',  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				`step_name` varchar(255) NOT NULL default '',  
+				PRIMARY KEY  (`step_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:conf_steps` (  
+				`step_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`position` smallint(5) unsigned NOT NULL default '0',  
+				`status` char(1) NOT NULL default 'A',  
+				PRIMARY KEY  (`step_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:conf_classes`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:conf_groups`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item editions="ULTIMATE">
+			ALTER TABLE `?:conf_steps`
+			ADD COLUMN `company_id` int(11) unsigned NOT NULL DEFAULT '0',
+			ADD KEY `company_id` (`company_id`);
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_class_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_class_products;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_classes;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_compatible_classes;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_group_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_group_products;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_groups;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_product_groups;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_step_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:conf_steps;</item>
+	</queries>
+</addon>

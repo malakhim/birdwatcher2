@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>sms_notifications</id>
+	<name>SMS notifications</name>
+	<description>Allows you to set up administrator SMS order notifications</description>
+	<version>1.0</version>
+	<priority>2200</priority>
+	<position>0</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR</auto_install>
+	<translations>
+		<item for="name" lang="FR">Notifications par SMS</item>
+		<item for="name" lang="DA">SMS-beskeder</item>
+		<item for="name" lang="EL">Ειδοποιήσεις μέσω γραπτών μηνυμάτων</item>
+		<item for="name" lang="IT">Notifiche SMS</item>
+		<item for="name" lang="RO">Notificații SMS</item>
+		<item for="name" lang="RU">SMS-уведомления</item>
+		<item for="name" lang="SI">SMS obvestila</item>
+		<item for="description" lang="RU">Позволяет настраивать SMS-уведомления для администратора магазина</item>
+	</translations>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="phone_number">
+						<name>Phone number</name>
+						<type>input</type>
+						<translations>
+							<item lang="DA">telefonnummer</item>
+							<item lang="EL">Αριθμός τηλεφώνου</item>
+							<item lang="RO">Numărul de telefon</item>
+							<item lang="RU">Телефонный номер</item>
+							<item lang="SI">Številka telefona</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_clickatell_settings">
+						<name>Clickatell settings</name>
+						<type>header</type>
+						<translations>
+							<item lang="FR">Clickatel settings</item>
+							<item lang="DA">Clickatell indstillinger</item>
+							<item lang="EL">Ρυθμίσεις clickatell</item>
+							<item lang="RO">Setări Clickatell</item>
+							<item lang="RU">Настройки Clickatell </item>
+							<item lang="SI">Clickatell nastavitve</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="clickatel_user">
+						<name>Username</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="DA">Brugernavn</item>
+							<item lang="EL">Όνομα Χρήστη</item>
+							<item lang="RO">Utilizator</item>
+							<item lang="RU">Имя пользователя</item>
+							<item lang="SI">Uporabniško ime</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="clickatel_api_id">
+						<name>API ID</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="RO">ID API</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="clickatel_password">
+						<name>Password</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="EL">Κωδικός πρόσβασης</item>
+							<item lang="RO">Parolă</item>
+							<item lang="RU">Пароль</item>
+							<item lang="SI">Geslo</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="clickatel_unicode">
+						<name>Use Unicode</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="EL">Χρήση unicode</item>
+							<item lang="NL">Unicode gebruiken</item>
+							<item lang="RU">Использовать Unicode</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="clickatel_concat">
+						<name>Split long sms into several parts</name>
+						<type>selectbox</type>
+						<default_value>clickatel_concat_3</default_value>
+						<variants>
+							<item id="clickatel_concat_1">
+								<name>Do not split</name>
+								<translations>
+									<item lang="EL">Μην τα διαχορίζετε</item>
+									<item lang="NL">Niet spiltsen</item>
+									<item lang="RU">Не разделять</item>
+								</translations>
+							</item>
+							<item id="clickatel_concat_2">
+								<name>2 sms</name>
+								<translations>
+									<item lang="EL">2  γραπτά μηνύματα (sms)</item>
+									<item lang="NL">2 SMS berichten</item>
+									<item lang="RU">2 СМС</item>
+								</translations>
+							</item>
+							<item id="clickatel_concat_3">
+								<name>3 sms</name>
+								<translations>
+									<item lang="EL">3 γραπτά μηνύματα (sms)</item>
+									<item lang="NL">3 SMS berichten</item>
+									<item lang="RU">3 СМС</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="EL">Διαχορισμός των μεγάλων γραπτών μηνυμάτων (sms) σε αρκετά μέρη</item>
+							<item lang="NL">Lange SMS berichten verdelen over meerdere SMS berichten.</item>
+							<item lang="RU">Разделять длинные sms на несколько частей</item>
+						</translations>
+					</item>
+					<item id="elm_send_sms_if">
+						<name>Send SMS if</name>
+						<type>header</type>
+						<translations>
+							<item lang="DA">Send SMS hvis</item>
+							<item lang="EL">Στείλτε SMS εάν</item>
+							<item lang="RO">Trimite SMS dacă</item>
+							<item lang="RU">Отправить SMS если </item>
+							<item lang="SI">Pošlji SMS, če</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_new_order_placed">
+						<name>New order has been placed</name>
+						<type>checkbox</type>
+						<translations>
+							<item lang="DA">Ny Ordren er modtaget</item>
+							<item lang="EL">Τοποθέτηση νέας παραγγελίας</item>
+							<item lang="RO">O nouă comandă a fost plasată</item>
+							<item lang="RU">Оформлен новый заказ</item>
+							<item lang="SI">Novo naročilo je bilo dano</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_new_cusomer_registered">
+						<name>New customer has been registered</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="DA">Ny kunde blevet registreret</item>
+							<item lang="EL">Καταχώρηση νέου πελάτη</item>
+							<item lang="RO">Un client nou s-a înregistrat</item>
+							<item lang="RU">Зарегистрирован новый покупатель</item>
+							<item lang="SI">Nova stranka je bila registrirana</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_product_negative_amount">
+						<name>Product quantity is less than zero</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="DA">Produkt mængde er mindre end nul</item>
+							<item lang="EL">Η ποσότητα του προιόντος είναι κάτω του μηδενός</item>
+							<item lang="RO">Cantitatea produsului e mai mică decât zero</item>
+							<item lang="RU">Количество продуктов меньше нуля</item>
+							<item lang="SI">Količina izdelek je manj kot nič</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_send_min_amout">
+						<name>Only send when order total amount is more than</name>
+						<type>input</type>
+						<default_value>0</default_value>
+						<translations>
+							<item lang="FR">Only send when order total amount more then</item>
+							<item lang="EL">Αποστολή αποκλειστικά όταν το συνολικό ποσό της παραγγελίας είναι παραπάνω απΑ</item>
+							<item lang="RO">Trimite doar când suma totală a comenzii este mai mare decât</item>
+							<item lang="RU">Отправить только если сумма заказа превышает</item>
+							<item lang="SI">Pošljite le, ko bo skupni znesek več kot</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_send_shipping">
+						<name>Only send for these shipping methods</name>
+						<type>multiple checkboxes</type>
+						<translations>
+							<item lang="FR">Only send for this shipping methods</item>
+							<item lang="DA">Send kun for disse forsendelsesmetoder</item>
+							<item lang="EL">Αποκλειστικά για αυτούς τους τρόπους αποστολής</item>
+							<item lang="RO">Trimite doar pentru aceste modalități de transport</item>
+							<item lang="RU">Отправить только если следующий метод доставки был выбран</item>
+							<item lang="SI">Pošljite samo za te metode stroškov</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_sms_content">
+						<name>SMS content</name>
+						<type>header</type>
+						<translations>
+							<item lang="DA">SMS indhold</item>
+							<item lang="EL">Περιεχόμενο γραπτών μηνυμάτων (sms)</item>
+							<item lang="RO">Conținutul SMS-ului</item>
+							<item lang="RU">Содержание SMS</item>
+							<item lang="SI">SMS vsebina</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_send_payment_info">
+						<name>Add payment info</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="DA">Tilføj betaling info</item>
+							<item lang="EL">Προσθήκη πηηροφοριών πληρωμής</item>
+							<item lang="RO">Adaugă informații cu privire la plată</item>
+							<item lang="RU">Добавить информацию об оплате</item>
+							<item lang="SI">Dodaj informacijo o plačilu</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="sms_send_customer_email">
+						<name>Add customers e-mail</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="DA">Tilføj kunder e-mail</item>
+							<item lang="EL">Προσθήκη ηλεκτρονικής διεύθυνσης (e-mail) πελατών</item>
+							<item lang="RO">Adaugă e-mail-ului clientului</item>
+							<item lang="RU">Добавить e-mail покупателя</item>
+							<item lang="SI">Dodaj strankin e-poštni naslov</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="unicode_not_enabled">Unicode support can not be enabled: 'mbstring' PHP extension is not installed.</item>
+	</language_variables>
+</addon>

@@ -1,0 +1,11 @@
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('11', 'ES', 'Entregado en mal estado');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('12', 'ES', 'Artículo incorrecto pedido');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('3', 'ES', 'Descripción incorrecta en la web');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('4', 'ES', 'No funciona');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('5', 'ES', 'Defecto de fabricación');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('6', 'ES', 'Artículo incorrecto entregado');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('7', 'ES', 'Sin garantía');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('8', 'ES', 'Dañado durante el transporte');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('1', 'ES', 'Sustituir artículo');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('2', 'ES', 'Reembolso');
+REPLACE INTO ?:rma_property_descriptions (`property_id`, `lang_code`, `property`) VALUES ('13', 'ES', 'Otra razón');

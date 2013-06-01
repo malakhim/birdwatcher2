@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>rss_feed</id>
+	<name>RSS feed</name>
+	<description>Generates RSS feeds for products, news and pages</description>
+	<version>1.0</version>
+	<priority>490</priority>
+	<position>0</position>
+	<status>active</status>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="managing_editor">
+						<name>Content editor</name>
+						<type>input</type>
+						<default_value/>
+						<tooltip>Enter the content editor's email and real name, e.g. john@example.com (John Doe)</tooltip>
+						<translations>
+							<item lang="RU">Редактор содержимого</item>
+							<item lang="RU" for="tooltip">Введите адрес электронной почты и имя пользователя, который управляет контентом, к примеру john@example.com (John Doe)</item>
+						</translations>
+					</item>
+					<item id="display_rss_feed_in_category">
+						<name>Show RSS feed for each category</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<tooltip>RSS icon near category title.</tooltip>
+						<translations>
+							<item lang="RU">Показывать RSS ленту для каждой категории</item>
+							<item lang="RU" for="tooltip">Иконка RSS напротив названия каждой категории.</item>
+						</translations>
+					</item>
+					<item id="category_max_products_items">
+						<name>Max product number per category</name>
+						<type>input</type>
+						<default_value>5</default_value>
+						<translations>
+							<item lang="RU">Максимальное кол-во товаров в категории</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="rss_feed">RSS feed</item>
+		<item lang="EN" id="rss_feed_last_added">Last added</item>
+		<item lang="EN" id="rss_feed_last_added_updated">Last added and updated</item>
+		<item lang="EN" id="rss_feed_type">Feed type</item>
+		<item lang="EN" id="feed_title">Feed title</item>
+		<item lang="EN" id="feed_description">Feed description</item>
+		<item lang="EN" id="rss_sort_by">Sort items by</item>
+		<item lang="EN" id="rss_display_sku">Display SKU</item>
+		<item lang="EN" id="rss_display_image">Display image</item>
+		<item lang="EN" id="rss_display_price">Display gross price</item>
+		<item lang="EN" id="rss_display_original_price">Display net price</item>
+		<item lang="EN" id="rss_display_add_to_cart">Display add to cart button</item>
+		<item lang="EN" id="rss_created">Created</item>
+		<item lang="EN" id="rss_updated">Updated</item>
+		<item lang="EN" id="block_rss_feed">RSS feed</item>
+		<item lang="EN" id="block_rss_feed_description">RSS feed subscription icon</item>
+		<item lang="RU" id="block_rss_feed">RSS лента</item>
+		<item lang="RU" id="block_rss_feed_description">Иконка подписки для RSS ленты</item>
+		<item lang="RU" id="feed_description">Описание источника данных</item>
+		<item lang="RU" id="feed_title">Заголовок источника данных</item>
+		<item lang="RU" id="rss_created">Создан</item>
+		<item lang="RU" id="rss_display_add_to_cart">Отображать кнопку "Добавить в корзину"</item>
+		<item lang="RU" id="rss_display_image">Показывать изображение</item>
+		<item lang="RU" id="rss_display_original_price">Показывать ценну нетто</item>
+		<item lang="RU" id="rss_display_price">Показывать валовую цену</item>
+		<item lang="RU" id="rss_display_sku">Показывать код товара</item>
+		<item lang="RU" id="rss_feed">RSS Лента</item>
+		<item lang="RU" id="rss_feed_last_added">Последние добавленные</item>
+		<item lang="RU" id="rss_feed_last_added_updated">Последние добавленные и обновленные</item>
+		<item lang="RU" id="rss_feed_type">Тип RSS ленты</item>
+		<item lang="RU" id="rss_sort_by">Сортировать элементы по</item>
+		<item lang="RU" id="rss_updated">Обновлен</item>
+	</language_variables>
+	<translations>
+		<item for="name" lang="RU">RSS Лента</item>
+		<item for="description" lang="RU">Генерирует RSS ленту для товаров, страниц и новостей</item>
+	</translations>
+</addon>

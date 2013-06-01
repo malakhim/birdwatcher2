@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>send_to_friend</id>
+	<name>Send the page link to a friend</name>
+	<description>Adds the Send to friend tab for products</description>
+	<version>1.0</version>
+	<priority>1700</priority>
+	<position>90</position>
+	<status>active</status>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="DE">Sende einem Freund diese Seite</item>
+		<item for="name" lang="ES">Enviar el link de la pagina a un amigo</item>
+		<item for="name" lang="FR">Envoyer le lien de la page à un ami</item>
+		<item for="name" lang="EL">Αποστολής σελίδας σε Φίλο σας</item>
+		<item for="name" lang="IT">Invia il link della pagina ad un amico</item>
+		<item for="name" lang="NL">Stuur paginalink naar een vriend</item>
+		<item for="name" lang="DA">Send link til en ven</item>
+		<item for="name" lang="EL">Αποστολής σελίδας σε Φίλο σας</item>
+		<item for="name" lang="RO">Trimite link-ul paginii unui prieten</item>
+		<item for="name" lang="RU">Посоветовать другу</item>
+		<item for="name" lang="SI">Pošlji povezavo na stran prijatelju</item>
+		<item for="description" lang="RU">Добавляет вкладку "Отправить другу" на детальной странице товара</item>
+	</translations>
+</addon>

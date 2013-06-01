@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>rma</id>
+	<name>RMA</name>
+	<description>Adds a return management system</description>
+	<version>1.0</version>
+	<priority>1600</priority>
+	<position>220</position>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">RMA (Retour de marchandises)</item>
+		<item for="name" lang="RU">Возврат товаров</item>
+		<item for="description" lang="RU">Активирует систему управления возвратами товаров</item>
+	</translations>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="display_product_return_period">
+						<name>Display product return period</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Mostrar tiempo de devolución del producto</item>
+							<item lang="DA">Vis produkt tilbage periode</item>
+							<item lang="EL">Εμφάνιση περίοδου επιστροφής των προϊόντων</item>
+							<item lang="RO">Afișează perioada de returnare a produsului</item>
+							<item lang="RU">Отображать период возврата товара</item>
+							<item lang="SI">Prikaži obdobje vračila izdelka</item>
+						</translations>
+					</item>
+					<item id="dont_take_weekends_into_account">
+						<name>Do not take weekends into account when calculating product return period</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">No tener en cuenta los fines de semana para calcular el tiempo de devolución del producto</item>
+							<item lang="EL">Μην πάρετε τα Σαββατοκύριακα υπόψη κατά τον υπολογισμό  της περιόδου επιστροφής των προϊόντων</item>
+							<item lang="RO">Nu lua în considerare când se va calcula perioada de returnare a produsului</item>
+							<item lang="RU">Не учитывать выходные при подсчете периода возврата товара</item>
+							<item lang="SI">NE upoštevaj konec tedna pri izračunu dobe vračanja izdelka</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item>DROP TABLE IF EXISTS ?:rma_property_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:rma_properties;</item>
+		<item>DROP TABLE IF EXISTS ?:rma_return_products;</item>
+		<item>DROP TABLE IF EXISTS ?:rma_returns;</item>
+		<!--
+		/********************
+		*
+		* field "type" in
+		* R - RMA Reason
+		* A - RMA Action
+		*
+		*/
+		-->
+		<item>
+			CREATE TABLE `?:rma_properties` (  
+				`property_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`position` smallint(5) unsigned NOT NULL default '0',  
+				`status` char(1) NOT NULL default '',  
+				`type` char(1) NOT NULL default 'R',  
+				`update_totals_and_inventory` char(1) NOT NULL default 'N',  
+				PRIMARY KEY  (`property_id`),  
+				KEY `c_status` (`property_id`,`status`),  
+				KEY `status` (`status`,`type`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:rma_property_descriptions` (  
+				`property_id` mediumint(8) unsigned NOT NULL default '0',  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				`property` varchar(255) NOT NULL default '',  
+				PRIMARY KEY  (`property_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<!--
+		/*********************
+		*
+		* field "type" in
+		* A - Accepted product
+		* D - Declined product
+		*
+		*/
+		-->
+		<item>
+			CREATE TABLE `?:rma_return_products` (  
+				`return_id` mediumint(8) unsigned NOT NULL default '0',  
+				`item_id` int(11) unsigned NOT NULL default '0',  
+				`product_id` mediumint(8) unsigned NOT NULL default '0',  
+				`reason` mediumint(8) unsigned NOT NULL default '0',  
+				`amount` mediumint(8) unsigned NOT NULL default '0',  
+				`type` char(1) NOT NULL default 'A',  
+				`price` decimal(12,2) NOT NULL default '0.00',  
+				`product_options` text,  
+				`product` VARCHAR( 255 ) NOT NULL default '',  
+				PRIMARY KEY  (`return_id`,`item_id`,`type`), 
+				KEY `reason` (`reason`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:rma_returns` (  
+				`return_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`order_id` mediumint(8) unsigned NOT NULL default '0',  
+				`user_id` mediumint(8) unsigned NOT NULL default '0',  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`action` mediumint(8) unsigned NOT NULL default '0',  
+				`status` char(1) NOT NULL default 'O',  
+				`total_amount` mediumint(8) unsigned NOT NULL default '0',  
+				`comment` text,  
+				`extra` text,  
+				PRIMARY KEY  (`return_id`),  
+				KEY `order_id` (`order_id`),  
+				KEY `timestamp` (`timestamp`),  
+				KEY `user_id` (`user_id`),  
+				KEY `status` (`status`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item type="file">database/data.sql</item>
+		<item type="file" lang="EN" table="rma_property_descriptions">database/lang_en.sql</item>
+		<item type="file" lang="RU" table="rma_property_descriptions">database/lang_ru.sql</item>
+		<item type="file" lang="ES" table="rma_property_descriptions">database/lang_es.sql</item>
+		<item type="file" lang="EL" table="rma_property_descriptions">database/lang_el.sql</item>
+		<item type="file" lang="DA" table="rma_property_descriptions">database/lang_da.sql</item>
+		<item type="file" lang="RO" table="rma_property_descriptions">database/lang_ro.sql</item>
+		<item type="file" lang="SI" table="rma_property_descriptions">database/lang_si.sql</item>
+
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_rma', 'Manage RMA system', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_rma', 'Управление системой возврата товаров', 'RU', '1');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default) VALUES ('manage_rma', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege LIKE 'manage_rma'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege LIKE 'manage_rma'</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:rma_property_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:rma_properties;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:rma_return_products;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:rma_returns;</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="add_reason">Add Reason</item>
+		<item lang="EN" id="new_reason">New Reason</item>
+
+		<item lang="BG" id="add_reason">Добави причина</item>
+		<item lang="BG" id="new_reason">Добави нови основания</item>
+
+		<item lang="DA" id="add_reason">Tilføj grund</item>
+		<item lang="DA" id="new_reason">Tilføj ny grund</item>
+
+		<item lang="EL" id="add_reason">Προσθήκη Λόγου</item>
+		<item lang="EL" id="new_reason">Προσθήκη νέων λόγων</item>
+
+		<item lang="ES" id="new_reason">Añadir nuevos reasons</item>
+
+		<item lang="FR" id="new_reason">Ajouter une nouvelle raison</item>
+
+		<item lang="NO" id="add_reason">Legg til Begrunnelse</item>
+		<item lang="NO" id="new_reason">Legg til nye grunner</item>
+
+		<item lang="RO" id="add_reason">Adăugați un motiv</item>
+		<item lang="RO" id="new_reason">Adăugați motive noi</item>
+
+		<item lang="RU" id="add_reason">Добавить причину</item>
+		<item lang="RU" id="new_reason">Добавить новые причины</item>
+
+		<item lang="SI" id="add_reason">Dodaj razlog</item>
+		<item lang="SI" id="new_reason">Dodaj nov razlog</item>
+	</language_variables>
+</addon>

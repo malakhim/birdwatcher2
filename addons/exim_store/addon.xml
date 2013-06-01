@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<addon scheme="2.0" edition_type="ROOT,ULT:VENDOR">
+	<id>exim_store</id>
+	<version>1.0</version>
+	<default_language>EN</default_language>
+	<name>Store Import</name>
+	<priority>10000</priority>
+	<status>active</status>
+
+	<translations>
+		<item for="name" lang="RU">Импорт магазина</item>
+		<item for="description" lang="RU">Позволяет импортировать базу данных из существующего магазина</item>
+	</translations>
+
+	<language_variables>
+		<item lang="EN" id="es_exim_store">Store Import</item>
+		<item lang="EN" id="es_test_connection_and_continue">Test connection and continue</item>
+		<item lang="EN" id="es_enter_settings">Expert settings</item>
+		<item lang="EN" id="es_path_does_not_exist">The specified directory does not exist. Please check if the path you entered is correct</item>
+		<item lang="EN" id="es_this_is_not_cart_path">The specified directory is not a valid store installation root folder</item>
+		<item lang="EN" id="es_storefront_url_already_exists">Storefront URL already exists</item>
+		<item lang="EN" id="es_secure_storefront_url_already_exists">Secure storefront URL already exists</item>
+		<item lang="EN" id="es_cannot_connect_to_database_server">Cannot connect to database server</item>
+		<item lang="EN" id="es_import_store">Import store</item>
+		<item lang="EN" id="es_export_store">Export store</item>
+		<item lang="EN" id="es_store_data">Store data</item>
+		<item lang="EN" id="es_select_store_to_import">Select store to import</item>
+		<item lang="EN" id="es_from_archive">From archive</item>
+		<item lang="EN" id="es_local_store">Store path</item>
+		<item lang="EN" id="es_local_store_validate_path">Validate path</item>
+		<item lang="EN" id="es_local_store_tooltip">Enter the full path to the installation root directory of the store you want to import data from. For example '/var/www/examplestore' on UNIX-based systems or 'C:\examplestore' on Windows</item>
+		<item lang="EN" id="es_check_settings">Check settings</item>
+		<item lang="EN" id="es_storefront_url">Storefront URL</item>
+		<item lang="EN" id="es_secure_storefront_url">Secure storefront URL</item>
+		<item lang="EN" id="es_db_host">Database host</item>
+		<item lang="EN" id="es_db_name">Database name</item>
+		<item lang="EN" id="es_db_user">Database user</item>
+		<item lang="EN" id="es_db_password">Database user password</item>
+		<item lang="EN" id="es_table_prefix">Table prefix</item>
+		<item lang="EN" id="es_import_successfully_finished">Import successfully finished</item>
+		<item lang="EN" id="es_cannot_import_from_this_version">Import from this version is not supported</item>
+		<item lang="EN" id="es_quick_links">Quick links</item>
+		<item lang="EN" id="es_top_menu">Top menu</item>
+		<item lang="EN" id="es_tables_not_found">The following tables were not found in the imported database: [tables].</item>
+		<item lang="EN" id="es_data_feed_check_images">Data Feed Аdd-on: Please check if the Images directory option value is correct.</item>
+		<item lang="EN" id="es_data_feed_check_files">Data Feed Аdd-on: Please check if the Files directory option value is correct.</item>
+		<item lang="EN" id="es_data_feed_check_server">Data Feed Аdd-on: Please check if the Server directory option value is correct.</item>
+		<item lang="EN" id="es_export_old_database">Exporting from the old database</item>
+		<item lang="EN" id="es_import_old_database">Importing to the new database</item>
+		<item lang="EN" id="es_import_patch_database">Patching the new database</item>
+		<item lang="EN" id="es_import_settings">Importing settings</item>
+		<item lang="EN" id="es_import_add_ons">Importing add-ons</item>
+		<item lang="EN" id="es_import_menus_and_blocks">Importing menus and blocks</item>
+		<item lang="EN" id="es_import_product_tabs">Importing product tabs</item>
+		<item lang="EN" id="es_import_languages">Importing languages</item>
+		<item lang="EN" id="es_import_images">Importing images</item>
+		<item lang="EN" id="es_import_blocks">Importing blocks</item>
+		<item lang="EN" id="es_copy_languages">Copying languages</item>
+		<item lang="EN" id="es_import_object">Importing object</item>
+		<item lang="EN" id="es_import_files">Importing EDP product files</item>
+		<item lang="EN" id="es_import_location">Importing location</item>
+		<item lang="EN" id="es_wrong_table_prefix">Store tables with the specified prefix are missing in the specified database.</item>
+		<item lang="EN" id="es_different_primary_currencies">Primary currency in the imported store differs from the one currently used. Please, check the prices of the imported products after the import is finished.</item>
+		<item lang="RU" id="es_exim_store">Импорт магазина</item>
+		<item lang="RU" id="es_test_connection_and_continue">Проверить соединение и продолжить</item>
+		<item lang="RU" id="es_enter_settings">Экспертные настройки</item>
+		<item lang="RU" id="es_path_does_not_exist">Указанная директория не существует. Пожалуйста, проверьте правильность введенного пути</item>
+		<item lang="RU" id="es_this_is_not_cart_path">Указанная директория не является валидной директорией установленного магазина</item>
+		<item lang="RU" id="es_storefront_url_already_exists">Такой URL витрины уже существует</item>
+		<item lang="RU" id="es_secure_storefront_url_already_exists">Такой защищенный URL витрины уже существует</item>
+		<item lang="RU" id="es_cannot_connect_to_database_server">Не удается подключиться к серверу базы данных</item>
+		<item lang="RU" id="es_import_store">Импортировать магазин</item>
+		<item lang="RU" id="es_export_store">Экспортировать магазин</item>
+		<item lang="RU" id="es_store_data">Данные магазина</item>
+		<item lang="RU" id="es_select_store_to_import">Выберите магазин для импорта</item>
+		<item lang="RU" id="es_from_archive">Из архива</item>
+		<item lang="RU" id="es_local_store">Путь к магазину</item>
+		<item lang="RU" id="es_local_store_validate_path">Проверить путь</item>
+		<item lang="RU" id="es_local_store_tooltip">Введите полный путь к директории, в которую установлен магазин, который вы хотите импортировать. Например, '/var/www/examplestore' в UNIX-подобных системах и 'C:\example' в Windows</item>
+		<item lang="RU" id="es_check_settings">Проверить настройки</item>
+		<item lang="RU" id="es_storefront_url">URL витрины</item>
+		<item lang="RU" id="es_secure_storefront_url">Защищенный URL витрины</item>
+		<item lang="RU" id="es_db_host">Хост базы данных</item>
+		<item lang="RU" id="es_db_name">Имя базы данных</item>
+		<item lang="RU" id="es_db_user">Пользователь базы данных</item>
+		<item lang="RU" id="es_db_password">Пароль пользователя базы данных</item>
+		<item lang="RU" id="es_table_prefix">Префикс таблиц</item>
+		<item lang="RU" id="es_import_successfully_finished">Импорт успешно завершен</item>
+		<item lang="RU" id="es_cannot_import_from_this_version">Импорт из данной версии не поддерживается</item>
+		<item lang="RU" id="es_quick_links">Быстрые ссылки</item>
+		<item lang="RU" id="es_top_menu">Верхнее меню</item>
+		<item lang="RU" id="es_tables_not_found">Следующие таблицы не были найдены в импортируемой базе данных: [tables].</item>
+		<item lang="RU" id="es_data_feed_check_images">Модуль Источники данных: Пожалуйста, проверьте правильность значения в поле Директория для изображений.</item>
+		<item lang="RU" id="es_data_feed_check_files">Модуль Источники данных: Пожалуйста, проверьте правильность значения в поле Директория для файлов.</item>
+		<item lang="RU" id="es_data_feed_check_server">Модуль Источники данных: Пожалуйста, проверьте правильность значения в поле Директория сервера.</item>
+		<item lang="RU" id="es_export_old_database">Экспорт из старой базы данных</item>
+		<item lang="RU" id="es_import_old_database">Импорт в новую базу данных</item>
+		<item lang="RU" id="es_import_patch_database">Патч новой базы данных</item>
+		<item lang="RU" id="es_import_settings">Импортируются настройки</item>
+		<item lang="RU" id="es_import_add_ons">Импортируются модули</item>
+		<item lang="RU" id="es_import_menus_and_blocks">Импортируются меню и блоки</item>
+		<item lang="RU" id="es_import_product_tabs">Импортируются вкладки товаров</item>
+		<item lang="RU" id="es_import_languages">Импортируются языки</item>
+		<item lang="RU" id="es_import_images">Импортируются изображения</item>
+		<item lang="RU" id="es_import_blocks">Импортируются блоки</item>
+		<item lang="RU" id="es_copy_languages">Копируются языки</item>
+		<item lang="RU" id="es_import_object">Импортируется объект</item>
+		<item lang="RU" id="es_import_files">Импортируются файлы скачиваемых товаров</item>
+		<item lang="RU" id="es_import_location">Импортируется локация</item>
+		<item lang="RU" id="es_wrong_table_prefix">Таблицы с заданным префиксом отсутствуют в указанной базе данных.</item>
+	</language_variables>
+</addon>

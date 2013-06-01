@@ -1,0 +1,1 @@
+<link href="{$config.skin_path}/addons/form_builder/styles.css" rel="stylesheet" type="text/css" />

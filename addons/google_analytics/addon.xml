@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>google_analytics</id>
+	<name>Google Analytics</name>
+	<description>Integrates a Google Analytics service with the store</description>
+	<version>1.0</version>
+	<priority>2000</priority>
+	<position>230</position>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="tracking_code">
+						<name>Google Analytics account number</name>
+						<type>input</type>
+						<translations>
+							<item lang="ES">Código de seguimiento</item>
+							<item lang="FR">Tracking code</item>
+							<item lang="DA">Google Analytics-kontonummer</item>
+							<item lang="EL">Αριθμός λογαριασμού Google Analytics</item>
+							<item lang="RO">Numărul de cont al contului Google Analytics</item>
+							<item lang="RU">Номер учетной записи Google Analytics</item>
+							<item lang="SI">Številka Google Analytics računa</item>
+						</translations>
+					</item>
+					<item id="track_ecommerce">
+						<name>Track e-commerce transactions</name>
+						<type>checkbox</type>
+						<default_value>Y</default_value>
+						<translations>
+							<item lang="ES">Rastrear transacciones de e-commerce</item>
+							<item lang="DA">spore e-handelstransaktioner</item>
+							<item lang="EL">Παρακολούθηση  των συναλλαγών ηλεκτρονικού εμπορίου</item>
+							<item lang="RO">Urmărește și tranzacții electronice</item>
+							<item lang="RU">Отслеживать продажи</item>
+							<item lang="SI">Sled transakcije e-poslovanja</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<translations>
+		<item for="description" lang="RU">Интегрирует сервис Google Analytics в магазин</item>
+	</translations>
+</addon>

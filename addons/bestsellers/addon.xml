@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>bestsellers</id>
+	<name>Bestsellers</name>
+	<description>Makes it possible to collect data about the best selling products and add a product block filling type to represent them</description>
+	<version>1.0</version>
+	<priority>2300</priority>
+	<position>120</position>
+	<status>active</status>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<queries>
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item>DROP TABLE IF EXISTS ?:product_sales</item>
+		<item>
+			CREATE TABLE IF NOT EXISTS `?:product_sales` (
+				`category_id` mediumint(8) unsigned NOT NULL default '0',
+				`product_id` mediumint(8) unsigned NOT NULL default '0',
+				`amount` mediumint(8) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`category_id`,`product_id`),
+				KEY `pa` (`product_id`,`amount`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:product_sales</item>
+	</queries>
+	<translations>
+		<item for="name" lang="DE">Bestseller</item>
+		<item for="name" lang="ES">Más Vendidos</item>
+		<item for="name" lang="FR">Meilleures ventes</item>
+		<item for="name" lang="IT">I piu venduti</item>
+		<item for="name" lang="DA">Bestseller</item>
+		<item for="name" lang="RO">Cele mai vândute</item>
+		<item for="name" lang="RU">Хиты продаж</item>
+		<item for="name" lang="SI">Najbolj prodajani</item>
+		<item for="description" lang="RU">Позволяет собирать информацию о самых продаваемых товарах и выводить их в блоке на витрине магазина</item>
+	</translations>
+	<language_variables>
+		<item lang="EN" id="sort_by_bestsellers_asc">Sort by Bestselling: Low to High</item>
+		<item lang="EN" id="sort_by_bestsellers_desc">Sort by Bestselling</item>
+		<item lang="RU" id="sort_by_bestsellers_asc">Сортировать по продаваемости: по возрастанию</item>
+		<item lang="RU" id="sort_by_bestsellers_desc">Сортировать по продаваемости</item>
+	</language_variables>
+</addon>

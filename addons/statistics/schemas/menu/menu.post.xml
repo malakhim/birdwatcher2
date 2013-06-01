@@ -1,0 +1,19 @@
+<administration>
+	<item title="statistics" dispatch="statistics.reports" position="150" />
+
+	<side>
+		<item group="statistics" title="users_online" href="%INDEX_SCRIPT?dispatch=statistics.visitors&amp;section=general&amp;report=online" />
+		<item group="statistics" title="all_users" href="%INDEX_SCRIPT?dispatch=statistics.visitors&amp;section=general&amp;client_type=U" />
+		<item group="statistics" title="remove_statistics" href="%INDEX_SCRIPT?dispatch=statistics.delete" meta="cm-confirm" />
+		<item group="banners.manage" title="banners_statistics" href="%INDEX_SCRIPT?dispatch=statistics.banners" />
+	</side>
+
+	<subitem item="statistics" title="general" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=general" />
+	<subitem item="statistics" title="system" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=system" />
+	<subitem item="statistics" title="geography" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=geography" />
+	<subitem item="statistics" title="referrers" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=referrers" />
+	<subitem item="statistics" title="pages" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=pages" />
+	<subitem item="statistics" title="audience" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=audience" />
+	<subitem item="statistics" title="products" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=products" />
+
+</administration>

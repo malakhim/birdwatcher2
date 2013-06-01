@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>gift_registry</id>
+	<name>Gift registry</name>
+	<description>Lets customers create events, invite guests, make up their own and see the others' gift wish lists</description>
+	<version>1.0</version>
+	<priority>1000</priority>
+	<position>45</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="FR">Liste de souhaits</item>
+		<item for="name" lang="DA">Gaveliste</item>
+		<item for="name" lang="EL">Λίστα επιθυμητών αγορών</item>
+		<item for="name" lang="RO">Registru de cadou</item>
+		<item for="name" lang="RU">События</item>
+		<item for="name" lang="SI">Register daril</item>
+		<item for="description" lang="RU">Позволяет пользователям создавать события, приглашать гостей, создавать свои собственные и просматривать чужие списки с желаемыми подарками</item>
+	</translations>
+	<settings edition_type="ROOT,ULT:VENDOR">
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="event_creators">
+						<name>Event can be created by</name>
+						<type>selectbox</type>
+						<default_value>registered</default_value>
+						<variants>
+							<item id="all">
+								<name>All customers</name>
+								<translations>
+									<item lang="ES">Todos los clientes</item>
+									<item lang="FR">Tous les clients</item>
+									<item lang="EL">Όλοι οι πελάτες</item>
+									<item lang="RO">Toți clienții</item>
+									<item lang="RU">Любые посетители</item>
+									<item lang="SI">Vse stranke</item>
+								</translations>
+							</item>
+							<item id="registered">
+								<name>Registered customers</name>
+								<translations>
+									<item lang="ES">Clientes registrados</item>
+									<item lang="FR">Clients enregistrés</item>
+									<item lang="EL">Εγγεγραμμένοι πελάτες</item>
+									<item lang="RO">Clienții înregistrați</item>
+									<item lang="RU">Только зарегистрированные покупатели</item>
+									<item lang="SI">Registrirane  stranke</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">El evento puede ser creado por</item>
+							<item lang="FR">Un événement peut être crée par</item>
+							<item lang="DA">Event kan skabes af</item>
+							<item lang="EL">Γεγονός που  μπορεί να δημιουργηθεί από</item>
+							<item lang="RO">Un eveniment poate fi creat de către</item>
+							<item lang="RU">События могут регистрировать</item>
+							<item lang="SI">Dogodek je lahko ustvarjen z</item>
+						</translations>
+					</item>
+					<item id="events_in_sidebox">
+						<name>Number of items in Events sidebox</name>
+						<type>input</type>
+						<default_value>2</default_value>
+						<translations>
+							<item lang="ES">Número de elementos en el panel de Eventos</item>
+							<item lang="FR">Nombre d'items dans le menu "Evénements"</item>
+							<item lang="DA">Antal poster i Events sidebox</item>
+							<item lang="EL">Αριθμός τεμαχίων στην πλευρική στήλη γεγονότων</item>
+							<item lang="RO">Numărul de prooduse în căsuța de evenimente</item>
+							<item lang="RU">Количество записей в "События"</item>
+							<item lang="SI">Število elementov v polju dogodkov</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:giftreg_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:giftreg_event_fields;</item>
+		<item>DROP TABLE IF EXISTS ?:giftreg_event_products;</item>
+		<item>DROP TABLE IF EXISTS ?:giftreg_event_subscribers;</item>
+		<item>DROP TABLE IF EXISTS ?:giftreg_events;</item>
+		<item>DROP TABLE IF EXISTS ?:giftreg_field_variants;</item>
+		<item>DROP TABLE IF EXISTS ?:giftreg_fields;</item>
+		<item>CREATE TABLE `?:giftreg_descriptions` (  
+				`object_id` mediumint(8) unsigned NOT NULL default '0',  
+				`description` varchar(255) NOT NULL default '',  
+				`object_type` char(1) NOT NULL default 'F',  
+				`lang_code` char(2) NOT NULL default 'EN', 
+				PRIMARY KEY  (`object_id`,`object_type`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:giftreg_event_fields` ( 
+				`event_id` mediumint(8) unsigned NOT NULL default '0', 
+				`field_id` mediumint(8) unsigned NOT NULL default '0',  
+				`value` text NOT NULL, 
+			PRIMARY KEY  (`event_id`,`field_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:giftreg_event_products` ( 
+				`item_id` int(11) unsigned NOT NULL default '0',  
+				`event_id` mediumint(8) unsigned NOT NULL default '0', 
+				`product_id` mediumint(8) unsigned NOT NULL default '0', 
+				`amount` smallint(5) unsigned NOT NULL default '0',  
+				`ordered_amount` smallint(5) unsigned NOT NULL default '0', 
+				`extra` text NOT NULL,
+				PRIMARY KEY  (`item_id`,`event_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:giftreg_event_subscribers` ( 
+				`event_id` mediumint(8) unsigned NOT NULL default '0', 
+				`name` varchar(128) NOT NULL default '', 
+				`email` varchar(64) NOT NULL default '',
+				PRIMARY KEY  (`event_id`,`email`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:giftreg_events` (  
+				`event_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`user_id` mediumint(8) unsigned NOT NULL default '0',
+				`start_date` int(11) unsigned NOT NULL default '0',
+				`end_date` int(11) unsigned NOT NULL default '0', 
+				`status` char(1) NOT NULL default 'A', 
+				`type` char(1) NOT NULL default 'P', 
+				`title` varchar(255) NOT NULL default '',  
+				`owner` varchar(128) NOT NULL default '', 
+				`email` varchar(64) NOT NULL default '',  
+				`company_id` int(11) unsigned NOT NULL default '0',  
+				PRIMARY KEY  (`event_id`),  
+				KEY `start_date` (`start_date`,`end_date`,`type`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:giftreg_field_variants` ( 
+				`variant_id` mediumint(8) unsigned NOT NULL auto_increment, 
+				`field_id` mediumint(8) unsigned NOT NULL default '0', 
+				`position` smallint(5) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`variant_id`), 
+				KEY `field_id` (`field_id`),  
+				KEY `position` (`position`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:giftreg_fields` ( 
+				`field_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`field_type` char(1) NOT NULL default 'I', 
+				`position` smallint(5) unsigned NOT NULL default '0', 
+				`required` char(1) NOT NULL default 'N', 
+				`status` char(1) NOT NULL default 'A', 
+				PRIMARY KEY  (`field_id`),  
+				KEY `position` (`position`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_events', 'View events', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_events', 'Manage events', 'EN', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_events', 'Просмотр событий', 'RU', '1');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_events', 'Управление событиями', 'RU', '1');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default) VALUES ('view_events', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO  ?:privileges (privilege, is_default) VALUES ('manage_events', 'Y');</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege LIKE 'view_events' OR privilege LIKE 'manage_events'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege LIKE 'view_events' OR privilege LIKE 'manage_events'</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_event_fields;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_event_products;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_event_subscribers;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_events;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_field_variants;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:giftreg_fields;</item>
+	</queries>
+	<language_variables>
+		<item lang="FR" id="gift_registry">>Liste de souhaits</item>
+		<item lang="DA" id="gift_registry">>Gaveliste</item>
+		<item lang="EL" id="gift_registry">>Λίστα επιθυμητών αγορών</item>
+		<item lang="RO" id="gift_registry">>Registru de cadou</item>
+		<item lang="RU" id="gift_registry">>События</item>
+		<item lang="SI" id="gift_registry">Register daril</item>
+		<item lang="EN" id="get_access_key_title">Get access key</item>
+		<item lang="EN" id="gift_registry_key">Gift registry access key</item>
+		<item lang="EN" id="block_gift_registry_key">Get event access key</item>
+		<item lang="EN" id="block_gift_registry">Gift registry menu</item>
+		<item lang="EN" id="block_gift_registry_key_description">Event access key request field</item>
+		<item lang="EN" id="block_gift_registry_description">Events management menu</item>
+		<item lang="EN" id="giftregistry_key">Gift registry key</item>
+		<item lang="RU" id="block_gift_registry">Меню событий</item>
+		<item lang="RU" id="block_gift_registry_description">Меню управления событиями</item>
+		<item lang="RU" id="block_gift_registry_key">Получить ключ для доступа к событиям</item>
+		<item lang="RU" id="block_gift_registry_key_description">Запрос ключа для доступа к событиям</item>
+		<item lang="RU" id="get_access_key_title">Получить ключ доступа</item>
+		<item lang="RU" id="gift_registry_key">Ключ доступа</item>
+	</language_variables>
+</addon>

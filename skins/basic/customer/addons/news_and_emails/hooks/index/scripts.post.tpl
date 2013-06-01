@@ -1,0 +1,1 @@
+{script src="addons/news_and_emails/js/func.js"}

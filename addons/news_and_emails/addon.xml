@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>news_and_emails</id>
+	<name><![CDATA[News & e-mails]]></name>
+	<description>Lets you manage site news and configure newsletter sending</description>
+	<version>1.0</version>
+	<priority>500</priority>
+	<position>110</position>
+	<status>active</status>
+	<auto_install>PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<translations>
+		<item for="name" lang="ES"><![CDATA[Noticias & Emails]]></item>
+		<item for="name" lang="FR"><![CDATA[Actualités & emails]]></item>
+		<item for="name" lang="IT"><![CDATA[Notizie & e-mails]]></item>
+		<item for="name" lang="NL"><![CDATA[Nieuws & e-mails]]></item>
+		<item for="name" lang="DA"><![CDATA[Nyheder & e-mails]]></item>
+		<item for="name" lang="EL"><![CDATA[Nέα & e-mails]]></item>
+		<item for="name" lang="RO"><![CDATA[Noutăți & e-mail-uri]]></item>
+		<item for="name" lang="RU">Новости и новостные рассылки</item>
+		<item for="name" lang="SI"><![CDATA[Novice & e-sporočila]]></item>
+		<item for="description" lang="RU">Позволяет создавать новости на сайте и настраивать новостные рассылки</item>
+	</translations>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="newsletters_per_pass">
+						<name>Newsletters sent per step</name>
+						<type>input</type>
+						<default_value>10</default_value>
+						<translations>
+							<item lang="FR">Cash on delivery (ECONOMY only)</item>
+							<item lang="DA">Nyhedsbreve sendt pr trin</item>
+							<item lang="EL">Ενημερωτικά δελτία που στάλθηκαν ανα βήμα</item>
+							<item lang="RO">Buletine de știri trimise per pas</item>
+							<item lang="RU">Отправлять рассылок за один шаг</item>
+							<item lang="SI">Novice poslane po korakih</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_advanced_mailing_server_options">
+						<name>Advanced mailing server options</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="FR">Proxy settings</item>
+							<item lang="DA">Avanceret mail-server options</item>
+							<item lang="EL"> Προηγμένες επιλογές διακομιστή αλληλογραφίας</item>
+							<item lang="RO">Setări avansate ale serverului de e-mail</item>
+							<item lang="RU">Расширенные настройки почтового сервера</item>
+							<item lang="SI">Dodatne možnosti poštnega strežnika</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="mailer_send_method">
+						<name>Method of sending e-mails</name>
+						<type>selectbox</type>
+						<default_value>default</default_value>
+						<variants>
+							<item id="smtp">
+								<name>via SMTP server</name>
+								<translations>
+									<item lang="DA">via SMTP-server</item>
+									<item lang="EL">Μέσω του διακομιστή SMTP </item>
+									<item lang="RO">prin server SMTP</item>
+									<item lang="RU">используя SMTP сервер</item>
+									<item lang="SI">Preko strežnika SMTP</item>
+								</translations>
+							</item>
+							<item id="mail">
+								<name>via php mail function</name>
+								<translations>
+									<item lang="EL">Μέσω της λειτουργίας php mail</item>
+									<item lang="RO">prin funcția mail a php-ului</item>
+									<item lang="RU">используя функцию php mail</item>
+									<item lang="SI">preko php funkcije e-sporočila</item>
+								</translations>
+							</item>
+							<item id="sendmail">
+								<name>via sendmail program</name>
+								<translations>
+									<item lang="EL">Μέδω προγράμματος αποστολής mail</item>
+									<item lang="RO">prin intermediul unui program de trimite a e-mail-urilor</item>
+									<item lang="RU">используя програму sendmail</item>
+									<item lang="SI">preko sendmail programa</item>
+								</translations>
+							</item>
+							<item id="default">
+								<name>use default settings</name>
+								<translations>
+									<item lang="DA">brug stanDArdindstillingerne</item>
+									<item lang="EL">Χρήση προεπιλεγμένων ρυθμίσεων</item>
+									<item lang="RO">folosește setările predefinite</item>
+									<item lang="RU">использовать настройки по умолчанию</item>
+									<item lang="SI">uporabite privzete nastavitev</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="FR">Cash on delivery (for registered mail only)</item>
+							<item lang="DA">Metode til at sende e-mails</item>
+							<item lang="EL">Μέθοδος αποστολής e-mails</item>
+							<item lang="RO">Modalitatea de trimite a e-mail-urilor</item>
+							<item lang="RU">Способ отправки электронной почты</item>
+							<item lang="SI">Način pošiljanja e-pošte</item>
+						</translations>
+					</item>
+					<item id="elm_smtp_server_settings">
+						<name>SMTP server settings</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="FR">Clickatel settings</item>
+							<item lang="DA">SMTP-server indstillinger</item>
+							<item lang="EL">Ρυθμίσεις του διακομιστή SMTP </item>
+							<item lang="RO">Setări server SMTP</item>
+							<item lang="RU">Настройки сервера SMTP</item>
+							<item lang="SI">SMTP nastavitve strežnika</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="mailer_smtp_host">
+						<name>SMTP host</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="EL">SMTP host </item>
+							<item lang="RO">Host SMTP</item>
+							<item lang="RU">SMTP Хост</item>
+							<item lang="SI">SMTP gostitelj</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="mailer_smtp_username">
+						<name>SMTP username</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="FR">Additional insurance (up to CHF 3000.-)</item>
+							<item lang="DA">SMTP-brugernavn</item>
+							<item lang="EL">Ονομα χρήστη του διακομιστή SMTP</item>
+							<item lang="RO">Utilizator SMTP</item>
+							<item lang="RU">SMTP имя пользователя</item>
+							<item lang="SI">SMTP uporabniško ime</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="mailer_smtp_password">
+						<name>SMTP password</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="FR">Bulky goods</item>
+							<item lang="DA">SMTP-adgangskode</item>
+							<item lang="EL">Κωδικός SMTP</item>
+							<item lang="RO">Parolă SMTP</item>
+							<item lang="RU">SMTP пароль</item>
+							<item lang="SI">SMTP geslo</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="mailer_smtp_auth">
+						<name>Use SMTP authentication</name>
+						<type>checkbox</type>
+						<default_value>N</default_value>
+						<translations>
+							<item lang="FR">Manual processing</item>
+							<item lang="DA">Brug SMTP-godkendelse</item>
+							<item lang="EL">Χρήση πιστοποίησης STMP</item>
+							<item lang="RO">Folosește autenficiare SMTP</item>
+							<item lang="RU">Использовать аутентификацию</item>
+							<item lang="SI">uporabi SMTP autentifikacijo</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_sendmail_settings">
+						<name>Sendmail settings</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="FR">Send SMS if</item>
+							<item lang="DA">Sendmail-indstillinger</item>
+							<item lang="EL">Ρυθμίσεις αποστολής mail</item>
+							<item lang="RO">Setări program Sendmail</item>
+							<item lang="RU">Настройки Sendmail</item>
+							<item lang="SI">Nastavitve pošiljanja pošte</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="mailer_sendmail_path">
+						<name>Path to sendmail program</name>
+						<type>input</type>
+						<default_value/>
+						<translations>
+							<item lang="DA">Sti sendmail program</item>
+							<item lang="EL">Η διαδρομή προς το πρόγραμμα αποστολής mail</item>
+							<item lang="RO">Rădăcină către programul sendmail</item>
+							<item lang="RU">Путь до программы sendmail</item>
+							<item lang="SI">Pot do programa za pošiljanje pošte</item>
+						</translations>
+						<variants/>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="warning_subscribers_import">Some mailing lists from the input file could not be found in the database. Certain imported subscribers will be left unassigned.</item>
+		<item lang="EN" id="subscribers_menu_item_text">Subscribers</item>
+		<item lang="EN" id="news_list_page">News list page</item>
+		<item lang="EN" id="view_news_page">News page</item>
+		<item lang="EN" id="block_mailing_lists">Newsletter subscription</item>
+		<item lang="EN" id="block_news">News</item>
+		<item lang="EN" id="block_mailing_lists_description">Email field for newsletter subscription</item>
+		<item lang="EN" id="block_news_description"/>
+		<item lang="RU" id="block_mailing_lists">Подписка на рассылку</item>
+		<item lang="RU" id="block_mailing_lists_description">Поле для ввода email для подписки на рассылку</item>
+		<item lang="RU" id="block_news">Новости</item>
+		<item lang="RU" id="news_list_page">Страница новостей</item>
+		<item lang="RU" id="subscribers_menu_item_text">Подписчики</item>
+		<item lang="RU" id="view_news_page">Просмотреть страницу новостей</item>
+		<item lang="RU" id="warning_subscribers_import">Некоторые списки рассылок, указанных в файле, не найдены в базе данных. Некоторые импортированные подписчики останутся не назначенными для списков рассылок.</item>
+		<item lang="RU" id="block_news_description"/>
+	</language_variables>
+	<queries>
+		<item>DROP TABLE IF EXISTS ?:news;</item>
+		<item>DROP TABLE IF EXISTS ?:news_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:newsletters;</item>
+		<item>DROP TABLE IF EXISTS ?:newsletter_links;</item>
+		<item>DROP TABLE IF EXISTS ?:newsletter_descriptions;</item>
+		<item>DROP TABLE IF EXISTS ?:subscribers;</item>
+		<item>DROP TABLE IF EXISTS ?:newsletter_campaigns;</item>
+		<item>DROP TABLE IF EXISTS ?:mailing_lists;</item>
+		<item>DROP TABLE IF EXISTS ?:user_mailing_lists;</item>
+		<item>
+			CREATE TABLE `?:news` (  
+				`news_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`company_id` int(11) unsigned NOT NULL default '0',
+				`date` int(11) unsigned NOT NULL default '0',  
+				`separate` char(1) NOT NULL default 'N',  
+				`status` char(1) NOT NULL default 'D',  
+				`localization` varchar(255) NOT NULL default '',  
+				PRIMARY KEY  (`news_id`),  
+				KEY `localization` (`localization`),  
+				KEY `status` (`status`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:news_descriptions` (  
+				`news_id` mediumint(8) unsigned NOT NULL default '0',  
+				`news` varchar(128) NOT NULL default '',  
+				`description` mediumtext NOT NULL,  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				PRIMARY KEY  (`news_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:newsletters` (  
+				`newsletter_id` mediumint(8) unsigned unsigned NOT NULL auto_increment,  
+				`campaign_id` mediumint(8) unsigned NOT NULL default '0',  
+				`sent_date` int(11) unsigned NOT NULL default '0',  
+				`status` char(1) NOT NULL default 'A',  
+				`type` char(1) NOT NULL default 'N',  
+				`mailing_lists` varchar(255) NOT NULL default '',  
+				`users` text NOT NULL default '',  
+				`abandoned_type` varchar(10) NOT NULL DEFAULT 'both',  
+				`abandoned_days` int(11) NOT NULL DEFAULT 0,  
+				PRIMARY KEY  (`newsletter_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:newsletter_links` (  
+				`link_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`campaign_id` mediumint(8) unsigned NOT NULL,  
+				`newsletter_id` mediumint(8) unsigned NOT NULL,  
+				`url` varchar(255) NOT NULL default '',  
+				`clicks` mediumint(8) unsigned,  PRIMARY KEY  (`link_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:newsletter_descriptions` (  
+				`newsletter_id` mediumint(8) unsigned NOT NULL default '0',  
+				`newsletter` varchar(255) NOT NULL default '',  
+				`newsletter_multiple` text NOT NULL default '',  
+				`body_html` mediumtext NOT NULL,  
+				`body_txt` mediumtext NOT NULL,  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				PRIMARY KEY  (`newsletter_id`,`lang_code`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:subscribers` (  
+				`subscriber_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`email` varchar(128) NOT NULL default '',  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				UNIQUE KEY  (`email`) ,
+				PRIMARY KEY  (`subscriber_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;</item>
+		<item>
+			CREATE TABLE `?:newsletter_campaigns` (  
+				`campaign_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`status` char(1) NOT NULL default 'D',  
+				PRIMARY KEY  (`campaign_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:mailing_lists` (  
+				`list_id` mediumint(8) unsigned NOT NULL auto_increment,  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`from_email` varchar(64) NOT NULL default '',
+				`from_name` varchar(128) NOT NULL default '',
+				`reply_to` varchar(64) NOT NULL default '',
+				`show_on_checkout` tinyint(3) unsigned NOT NULL default '0',
+				`show_on_registration` tinyint(3) unsigned NOT NULL default '0',
+				`status` char(1) NOT NULL default 'D',
+				`register_autoresponder` mediumint(8) unsigned NOT NULL default '0',
+				PRIMARY KEY  (`list_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item>
+			CREATE TABLE `?:user_mailing_lists` (  
+				`subscriber_id` mediumint(8) unsigned NOT NULL,  
+				`list_id` mediumint(8) unsigned NOT NULL,  
+				`activation_key` varchar(32) NOT NULL default '',  
+				`unsubscribe_key` varchar(32) NOT NULL default '',  
+				`confirmed` tinyint(3) unsigned NOT NULL default '0',  
+				`timestamp` int(11) unsigned NOT NULL default '0',  
+				`lang_code` char(2) NOT NULL default 'EN',  
+				`format` tinyint(3) unsigned NOT NULL default '1',  
+				KEY `subscriber_id` (`subscriber_id`),  
+				KEY `list_id` (`list_id`),  
+				UNIQUE KEY `subscriber_list` (`list_id`, `subscriber_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_news', 'View news', 'EN', '6');</item>
+		<item table="privilege_descriptions" lang="EN" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_news', 'Manage news', 'EN', '6');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('view_news', 'Просмотр новостей', 'RU', '6');</item>
+		<item table="privilege_descriptions" lang="RU" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privilege_descriptions (privilege, description, lang_code, section_id) VALUES ('manage_news', 'Управление новостями', 'RU', '6');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:usergroup_privileges (usergroup_id, privilege) VALUES ('4', 'view_news');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:usergroup_privileges (usergroup_id, privilege) VALUES ('4', 'manage_news');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('view_news', 'Y');</item>
+		<item editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">REPLACE INTO ?:privileges (privilege, is_default) VALUES ('manage_news', 'Y');</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:news;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:news_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:newsletters;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:newsletter_links;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:newsletter_descriptions;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:subscribers;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:newsletter_campaigns;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:mailing_lists;</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:user_mailing_lists;</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'view_news'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'view_news'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:usergroup_privileges WHERE privilege = 'view_news'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privilege_descriptions WHERE privilege = 'manage_news'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:privileges WHERE privilege = 'manage_news'</item>
+		<item for="uninstall" editions="PROFESSIONAL,MULTIVENDOR,ULTIMATE">DELETE FROM ?:usergroup_privileges WHERE privilege = 'manage_news'</item>
+
+		<item for="demo" type='file'>database/demo.sql</item>
+		<item for="demo" type='file' table="news_descriptions" lang="EN" >database/demo_en.sql</item>
+		<item for="demo" type='file' table="common_descriptions" lang="EN" >database/demo_common_en.sql</item>
+		<item for="demo" type='file' table="newsletter_descriptions" lang="EN" >database/demo_newsletters_en.sql</item>
+		<item for="demo" type='file' table="news_descriptions" lang="RU" >database/demo_ru.sql</item>
+		<item for="demo" type='file' table="common_descriptions" lang="RU" >database/demo_common_ru.sql</item>
+		<item for="demo" type='file' table="newsletter_descriptions" lang="RU" >database/demo_newsletters_ru.sql</item>
+	</queries>
+	<language_variables>
+		<item lang="EN" id="add_mailing_lists">Add mailing list</item>
+		<item lang="EN" id="new_mailing_lists">New mailing list</item>
+		<item lang="EN" id="add_subscribers">Add subscribers</item>
+		<item lang="EN" id="new_subscribers">New subscribers</item>
+
+		<item lang="BG" id="add_mailing_lists">Добави пощенския списък</item>
+		<item lang="BG" id="add_subscribers">Добави абонати</item>
+		<item lang="BG" id="new_subscribers">Добави нови абонати</item>
+
+		<item lang="DA" id="add_mailing_lists">Tilføj postlister</item>
+		<item lang="DA" id="add_subscribers">Tilføj abonnenter</item>
+		<item lang="DA" id="new_subscribers">Tilføj nye abonnenter</item>
+
+		<item lang="EL" id="add_mailing_lists">Προσθήκη λίστα διευθύνσεων e-mail</item>
+		<item lang="EL" id="add_subscribers">Προσθήκη συνδρομητών</item>
+		<item lang="EL" id="new_subscribers">Προσθήκη νέων συνδρομητών</item>
+
+		<item lang="FR" id="add_mailing_lists">Ajouter une liste d'email</item>
+		<item lang="FR" id="add_subscribers">Ajouter des abonnés</item>
+		<item lang="FR" id="new_subscribers">Ajouter des nouveaux abonnés</item>
+
+		<item lang="IT" id="add_mailing_lists">Aggiungi mailing lists</item>
+
+		<item lang="NO" id="add_mailing_lists">Legg til forsendelseslister</item>
+		<item lang="NO" id="add_subscribers">Legg til abonnenter</item>
+		<item lang="NO" id="new_subscribers">Legg til nye abonnenter</item>
+
+		<item lang="RO" id="add_mailing_lists">Adăugați listele de discuții</item>
+		<item lang="RO" id="add_subscribers">Adăugați abonați</item>
+		<item lang="RO" id="new_subscribers">Adăugați noi abonați</item>
+
+		<item lang="RU" id="add_mailing_lists">Добавить список рассылки</item>
+		<item lang="RU" id="add_subscribers">Добавить подписчиков</item>
+		<item lang="RU" id="new_subscribers">Добавить новых подписчиков</item>
+
+		<item lang="SI" id="add_mailing_lists">Dodaj dopisni seznam</item>
+		<item lang="SI" id="add_subscribers">Dodaj naročnike</item>
+		<item lang="SI" id="new_subscribers">Dodaj nove naročnike</item>
+	</language_variables>
+</addon>

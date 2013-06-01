@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>barcode</id>
+	<name>Order barcode</name>
+	<description>Makes it possible to configure and attach barcodes to orders</description>
+	<version>1.0</version>
+	<priority>2500</priority>
+	<position>4</position>
+	<translations>
+		<item for="name" lang="ES">Códico de barras de pedido</item>
+		<item for="name" lang="FR">Codes barres</item>
+		<item for="name" lang="DA">Ordre stregkode</item>
+		<item for="name" lang="EL">Barcode παραγγελίας</item>
+		<item for="name" lang="IT">Codice a barre ordini</item>
+		<item for="name" lang="RO">Codul de bare al comenzii</item>
+		<item for="name" lang="RU">Штрих-коды</item>
+		<item for="name" lang="SI">Barkoda naročila</item>
+		<item for="description" lang="RU">Позволяет добавлять и настраивать штрих-коды к заказам</item>
+	</translations>
+	<auto_install>COMMUNITY,PROFESSIONAL,MULTIVENDOR,ULTIMATE</auto_install>
+	<settings>
+		<sections>
+			<section id="general">
+				<name>General</name>
+				<items>
+					<item id="elm_image">
+						<name>Image</name>
+						<type>header</type>
+						<translations>
+							<item lang="ES">Imagen</item>
+							<item lang="EL">Εικόνα</item>
+							<item lang="RO">Imagine</item>
+							<item lang="RU">Изображение</item>
+							<item lang="SI">Slika</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_image_info">
+						<name>Example Image</name>
+						<type>info</type>
+						<handler>fn_get_barcode_image</handler>
+						<variants/>
+						<translations>
+							<item lang="RU">Пример изображения</item>
+						</translations>
+					</item>
+					<item id="elm_configs">
+						<name>Configs</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="ES">Configuración</item>
+							<item lang="FR">Configurations</item>
+							<item lang="EL">Δομές</item>
+							<item lang="RO">Setări</item>
+							<item lang="RU">Настройки</item>
+							<item lang="SI">Nastavitve</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="type">
+						<name>Type</name>
+						<type>selectbox</type>
+						<default_value>C128B</default_value>
+						<variants>
+							<item id="C128A">
+								<name>Code 128-A</name>
+								<translations>
+									<item lang="EL">Κωδικός 128-Α</item>
+									<item lang="RO">Cod 128-A</item>
+									<item lang="SI">Koda 128-A</item>
+									<item lang="RU">Код 128-A</item>
+								</translations>
+							</item>
+							<item id="C128B">
+								<name>Code 128-B</name>
+								<translations>
+									<item lang="EL">Κωδικός 128-Β</item>
+									<item lang="RO">Cod 128-B</item>
+									<item lang="SI">Koda 128-B</item>
+									<item lang="RU">Код 128-B</item>
+								</translations>
+							</item>
+							<item id="C128C">
+								<name>Code 128-C</name>
+								<translations>
+									<item lang="EL">Κωδικός 128-C</item>
+									<item lang="RO">Cod 128-C</item>
+									<item lang="SI">Koda 128-C</item>
+									<item lang="RU">Код 128-C</item>
+								</translations>
+							</item>
+							<item id="I25">
+								<name>Interleaved 2 of 5</name>
+								<translations>
+									<item lang="EL">Παρεμβολλή φύλλων μεταξύ των σελίδων 2 απο 5</item>
+									<item lang="RO">Intercalat între 2 și 5</item>
+									<item lang="SI">Komplet 2 of 5</item>
+									<item lang="RU">Чередуется 2 через 5</item>
+								</translations>
+							</item>
+							<item id="C39">
+								<name>Code 39</name>
+								<translations>
+									<item lang="DA">C39</item>
+									<item lang="EL">Κωδικός 39</item>
+									<item lang="RO">Cod 39</item>
+									<item lang="SI">Koda 39</item>
+									<item lang="RU">Код 39</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Tipo</item>
+							<item lang="EL">Τύπος</item>
+							<item lang="RO">Tip</item>
+							<item lang="RU">Тип</item>
+							<item lang="SI">Tip</item>
+						</translations>
+					</item>
+					<item id="output">
+						<name>Output</name>
+						<type>selectbox</type>
+						<default_value>png</default_value>
+						<variants>
+							<item id="png">
+								<name>Portable Network Graphics (PNG)</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="jpeg">
+								<name>Joint Photographic Experts Group (JPEG)</name>
+								<translations>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Salida</item>
+							<item lang="EL">Εξοδος</item>
+							<item lang="RO">Extensie</item>
+							<item lang="RU">Вывод</item>
+							<item lang="SI">Izhod</item>
+						</translations>
+					</item>
+					<item id="text">
+						<name>Text</name>
+						<type>selectbox</type>
+						<default_value>Y</default_value>
+						<variants>
+							<item id="N">
+								<name>Disabled</name>
+								<translations>
+									<item lang="ES">Desactivado</item>
+									<item lang="EL">Απενεργοποιήθηκε</item>
+									<item lang="RO">Dezactivat</item>
+									<item lang="RU">Выкл.</item>
+									<item lang="SI">Onemogočeno</item>
+								</translations>
+							</item>
+							<item id="Y">
+								<name>Enabled</name>
+								<translations>
+									<item lang="ES">Activado</item>
+									<item lang="EL">Ενεργοποιήθηκε</item>
+									<item lang="RO">Activat</item>
+									<item lang="RU">Вкл.</item>
+									<item lang="SI">Omogočeno</item>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Texto</item>
+							<item lang="FR">Texte</item>
+							<item lang="EL">Κείμενο</item>
+							<item lang="RU">Текст</item>
+							<item lang="SI">Besedilo</item>
+						</translations>
+					</item>
+					<item id="height">
+						<name>Height,px</name>
+						<type>input</type>
+						<default_value>60</default_value>
+						<translations>
+							<item lang="ES">Altura,px</item>
+							<item lang="DA">Højde, px</item>
+							<item lang="EL">Υψος, px</item>
+							<item lang="RO">Înălțime, px</item>
+							<item lang="RU">Высота, пикс.</item>
+							<item lang="SI">Višina, px</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="width">
+						<name>Width,px</name>
+						<type>input</type>
+						<default_value>250</default_value>
+						<translations>
+							<item lang="ES">Ancho,px</item>
+							<item lang="FR">Largeur,px</item>
+							<item lang="DA">Width, px</item>
+							<item lang="EL">Πλάτος, px</item>
+							<item lang="RO">Lățime, px</item>
+							<item lang="RU">Ширина, пикс.</item>
+							<item lang="SI">Širina, px</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="resolution">
+						<name>Resolution</name>
+						<type>radiogroup</type>
+						<default_value>1</default_value>
+						<variants>
+							<item id="1">
+								<name>    1</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="2">
+								<name>    2</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="3">
+								<name>    3</name>
+								<translations>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Resolución</item>
+							<item lang="FR">Résolution</item>
+							<item lang="EL">Aνάλυση</item>
+							<item lang="RO">Rezoluție</item>
+							<item lang="RU">Разрешение</item>
+							<item lang="SI">Resolucija</item>
+						</translations>
+					</item>
+					<item id="text_font">
+						<name>Text Font</name>
+						<type>radiogroup</type>
+						<default_value>3</default_value>
+						<variants>
+							<item id="1">
+								<name>1</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="2">
+								<name>2</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="3">
+								<name>3</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="4">
+								<name>4</name>
+								<translations>
+								</translations>
+							</item>
+							<item id="5">
+								<name>5</name>
+								<translations>
+								</translations>
+							</item>
+						</variants>
+						<translations>
+							<item lang="ES">Fuente del tecto</item>
+							<item lang="DA">Tekstskrifttype</item>
+							<item lang="EL">Κείμενο γραμματοσειράς</item>
+							<item lang="RO">Font-ul textului</item>
+							<item lang="RU">Шрифт текста</item>
+							<item lang="SI">Besedilo pisave</item>
+						</translations>
+					</item>
+					<item id="prefix">
+						<name>Barcode prefix</name>
+						<type>input</type>
+						<default_value>FF45CR99</default_value>
+						<translations>
+							<item lang="ES">Prefijo del código</item>
+							<item lang="DA">stregkode prefix</item>
+							<item lang="EL">Πρόθεμα Barcode</item>
+							<item lang="RO">Prefix-ul codului de bare</item>
+							<item lang="RU">Префикс штрих-кода</item>
+							<item lang="SI">Predpona barkode</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_specification">
+						<name>Specification</name>
+						<type>header</type>
+						<handler/>
+						<translations>
+							<item lang="ES">Especificación</item>
+							<item lang="FR">Spécification</item>
+							<item lang="EL">Προσδιορισμός</item>
+							<item lang="RO">Specificații</item>
+							<item lang="RU">Характеристика</item>
+							<item lang="SI">Specifikacija</item>
+						</translations>
+						<variants/>
+					</item>
+					<item id="elm_spec_descr">
+						<name>Spec Description</name>
+						<type>info</type>
+						<handler>fn_get_barcode_specification</handler>
+						<variants/>
+						<translations>
+							<item lang="RU">Описание характеристики</item>
+						</translations>
+					</item>
+				</items>
+			</section>
+		</sections>
+	</settings>
+	<language_variables>
+		<item lang="EN" id="please_enable_the_add_on_to_see_barcode">Please enable the add-on to see a code example.</item>
+		<item lang="RU" id="please_enable_the_add_on_to_see_barcode">Для того что бы увидеть пример кода включите аддон.</item>
+	</language_variables>
+</addon>
