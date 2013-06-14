@@ -11,7 +11,7 @@
 
 <div id="bb_requests">
 	{if $requests.success eq 1}
-		<table>
+		<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
 			<tr>
 				<th>Item</th>
 				<th>Microseconds since submitted (test)</th>
@@ -19,16 +19,23 @@
 			</tr>
 		{foreach from=$requests item=request}
 			{if is_array($request)}
-				<tr>
+				<tr {cycle values="class=\"table-row\","}>
 					<td>{$request.description}</td>
-					<td>{$request.timestamp}</td>
+					<td>{$request.timestamp/60000000}</td>
 					<td>{if $request.current_bid ne ''}${$request.current_bid}{else}No Bids Yet!{/if}</td>
 				</tr>
 			{/if}
 		{/foreach}
 		</table>
 	{else}
-		Please log in to view your bids!
+		{if $requests.message eq 'no_results'}
+			No results found. Please check your search enquiry.
+		{elseif $requests.message eq 'user_not_logged_in'}
+			Please log in to view your bids!
+		{else}
+			An error has occurred, please contact us at <a href="mailto:webmaster@billibuys.com">webmaster@billibuys.com</a>
+		{/if}
+		
 	{/if}
 </div>
 {capture name="mainbox"}

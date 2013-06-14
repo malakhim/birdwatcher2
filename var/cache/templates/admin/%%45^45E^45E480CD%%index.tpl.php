@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-06-01 18:53:36
+<?php /* Smarty version 2.6.18, created on 2013-06-14 13:08:06
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 38, false),array('modifier', 'escape', 'index.tpl', 76, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 155, false),array('modifier', 'fn_query_remove', 'index.tpl', 186, false),array('modifier', 'fn_url', 'index.tpl', 186, false),array('modifier', 'strpos', 'index.tpl', 187, false),array('modifier', 'fn_link_attach', 'index.tpl', 195, false),array('modifier', 'fn_get_notifications', 'index.tpl', 219, false),array('modifier', 'lower', 'index.tpl', 221, false),array('modifier', 'default', 'index.tpl', 253, false),array('modifier', 'unescape', 'index.tpl', 253, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 48, false),array('function', 'script', 'index.tpl', 63, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 38, false),array('modifier', 'escape', 'index.tpl', 76, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 155, false),array('modifier', 'fn_query_remove', 'index.tpl', 192, false),array('modifier', 'fn_url', 'index.tpl', 192, false),array('modifier', 'strpos', 'index.tpl', 193, false),array('modifier', 'fn_link_attach', 'index.tpl', 201, false),array('modifier', 'fn_get_notifications', 'index.tpl', 225, false),array('modifier', 'lower', 'index.tpl', 227, false),array('modifier', 'default', 'index.tpl', 259, false),array('modifier', 'unescape', 'index.tpl', 259, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 48, false),array('function', 'script', 'index.tpl', 63, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','items','text_required_group_product','save','close','loading','notice','warning','error','text_are_you_sure_to_proceed','text_invalid_url','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','error_ajax','text_changes_not_saved','text_data_changed','text_block_trial_notice','text_expired_license','file_browser','editing_block','editing_grid','editing_container','adding_grid','adding_block_to_grid','manage_blocks','editing_block','add_block','loading','close','close','processing'));
 ?>
@@ -255,6 +255,13 @@ fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','er
 
 // Extend core function
 fn_register_hooks('news_and_emails', ['add_js_item']);
+
+</script><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['banners']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/banners/js/func.js"), $this);?>
+
+<script type="text/javascript">
+
+// Extend core function
+fn_register_hooks('banners', ['add_js_item']);
 
 </script><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['recurring_billing']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/recurring_billing/js/func.js"), $this);?>
 

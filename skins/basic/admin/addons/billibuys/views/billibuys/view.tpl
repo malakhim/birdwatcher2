@@ -1,7 +1,7 @@
 {capture name="mainbox"}
 
 {include file="addons/billibuys/views/billibuys/components/billibuys_search_form.tpl"}
-<a href="{"billibuys.notify"|fn_url}">{$lang.create_notification}</a>
+<a href="{"admin.php?dispatch=billibuys.notify"|fn_url}">{$lang.create_notification}</a>
 <form action="{""|fn_url}" method="post" name="category_tree_form" class="{if ""|fn_check_form_permissions}cm-hide-inputs{/if}">
 
 <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">

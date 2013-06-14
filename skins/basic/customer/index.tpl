@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="{$smarty.const.CART_LANGUAGE|lower}">
 <head>
+{*<link rel="stylesheet" type="text/css" href="/dutchme2/skins/basic/customer/css/main.css">*}
+
 {strip}
 <title>
 {if $page_title}
@@ -25,11 +27,20 @@
 {/if}
 <div class="helper-container">
 	<a name="top"></a>	
+{*
+<div class="lighter">
+<form>
+	<span><input type="text" class="search rounded" placeholder="Search..."></span>
+	<span>
+		<input type="text" class="search square">
+		<input type="button" value="Search"></span>
+</form>
+</div>
+*}
+
 
 	{render_location}
-
 	{include file="common_templates/loading_box.tpl"}
-
 	{if "TRANSLATION_MODE"|defined}
 		{include file="common_templates/translate_box.tpl"}
 	{/if}

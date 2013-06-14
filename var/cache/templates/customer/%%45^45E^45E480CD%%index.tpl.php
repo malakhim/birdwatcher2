@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-06-01 19:32:58
+<?php /* Smarty version 2.6.18, created on 2013-06-14 13:39:27
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 21, false),array('modifier', 'unescape', 'index.tpl', 24, false),array('modifier', 'strip_tags', 'index.tpl', 24, false),array('modifier', 'count', 'index.tpl', 26, false),array('modifier', 'html_entity_decode', 'index.tpl', 50, false),array('modifier', 'default', 'index.tpl', 50, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 52, false),array('modifier', 'sizeof', 'index.tpl', 56, false),array('modifier', 'fn_link_attach', 'index.tpl', 58, false),array('modifier', 'fn_url', 'index.tpl', 58, false),array('modifier', 'defined', 'index.tpl', 85, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 199, false),array('modifier', 'fn_query_remove', 'index.tpl', 236, false),array('modifier', 'strpos', 'index.tpl', 237, false),array('block', 'hook', 'index.tpl', 44, false),array('function', 'join_css', 'index.tpl', 97, false),array('function', 'script', 'index.tpl', 116, false),array('function', 'render_location', 'index.tpl', 267, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 23, false),array('modifier', 'unescape', 'index.tpl', 26, false),array('modifier', 'strip_tags', 'index.tpl', 26, false),array('modifier', 'count', 'index.tpl', 28, false),array('modifier', 'html_entity_decode', 'index.tpl', 52, false),array('modifier', 'default', 'index.tpl', 52, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 54, false),array('modifier', 'sizeof', 'index.tpl', 58, false),array('modifier', 'fn_link_attach', 'index.tpl', 60, false),array('modifier', 'fn_url', 'index.tpl', 60, false),array('modifier', 'defined', 'index.tpl', 87, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 201, false),array('modifier', 'fn_query_remove', 'index.tpl', 238, false),array('modifier', 'strpos', 'index.tpl', 239, false),array('block', 'hook', 'index.tpl', 46, false),array('function', 'join_css', 'index.tpl', 99, false),array('function', 'script', 'index.tpl', 118, false),array('function', 'render_location', 'index.tpl', 280, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','loading','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
 ?>
@@ -23,6 +23,7 @@ fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_s
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo smarty_modifier_lower(@CART_LANGUAGE); ?>
 ">
 <head>
+
 <?php echo '<title>'; ?><?php if ($this->_tpl_vars['page_title']): ?><?php echo ''; ?><?php echo smarty_modifier_escape($this->_tpl_vars['page_title'], 'html'); ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php $_from = $this->_tpl_vars['breadcrumbs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['bkt'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['bkt']['total'] > 0):
     foreach ($_from as $this->_tpl_vars['i']):
@@ -388,15 +389,14 @@ fn_register_hooks('recurring_billing', ['check_exceptions']);
 <div class="helper-container">
 	<a name="top"></a>	
 
-	<?php echo smarty_function_render_location(array(), $this);?>
 
+	<?php echo smarty_function_render_location(array(), $this);?>
 
 	<?php $__parent_tpl_vars = $this->_tpl_vars; ?>
 
 <div id="ajax_loading_box" class="ajax-loading-box"><div id="ajax_loading_message" class="ajax-inner-loading-box"><?php echo fn_get_lang_var('loading', $this->getLanguage()); ?>
 </div></div>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-
 	<?php if (defined('TRANSLATION_MODE')): ?>
 		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/translate_box.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;

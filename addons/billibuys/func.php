@@ -62,6 +62,11 @@ function fn_submit_bids($bb_data,$auth){
 	}
 }
 
+/**
+ * Places a request for an item, so vendors can bid on the request
+ * @param  int $user user_id of user that entered request
+ * @param  string $post $_POST array
+ */
 function fn_submit_request($user, $post = ''){
 	//Check that this function call is done after a post request
 	if(!empty($post)){
@@ -94,6 +99,13 @@ function fn_submit_request($user, $post = ''){
 	}
 }
 
+/**
+ * Gets all requests that match a %product
+ * @author  bryanw
+ * @version 1.0.0
+ * @param   String    $product search term
+ * @return  Array     ['Success'] true or false, error message if false and all matching results if true
+ */
 function fn_get_requests_by_product($product){
 	$product = '%'.$product.'%'; // This also covers empty string case
 	
@@ -118,26 +130,42 @@ function fn_get_requests_by_product($product){
 	return $requests;
 }
 
-function fn_get_requests($user){
+function fn_get_requests($params){
 
-	if($user !== 0){
-		// Get request by this user
-		$requests = db_get_array('
-			SELECT * 
-			FROM ?:bb_requests 
-			INNER JOIN ?:bb_request_item 
-				ON ?:bb_request_item.bb_item_id = ?:bb_requests.request_item_id 
-			WHERE user_id = ?i',$user
-		);
-		$requests['success'] = true;
+	// Initialization
+	$params = array_merge(Array(
+		'user' => 0,
+		'own_auctions' => false
+		),$params);
+
+	if($params['own_auctions'] == false){
+			$requests = db_get_array('
+				SELECT * 
+				FROM ?:bb_requests 
+				INNER JOIN ?:bb_request_item 
+					ON ?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id'
+			);
+			$requests['success'] = true;
 	}else{
-		// Return error message if user not logged in
-		$requests = Array(
-			'success' => false,
-			'message' => 'user_not_logged_in'
-		);
+		$user = $params['user'];
+		if($user !== 0){
+			// Get request by this user
+			$requests = db_get_array('
+				SELECT * 
+				FROM ?:bb_requests 
+				INNER JOIN ?:bb_request_item 
+					ON ?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id 
+				WHERE user_id = ?i',$user
+			);
+			$requests['success'] = true;
+		}else{
+			// Return error message if user not logged in
+			$requests = Array(
+				'success' => false,
+				'message' => 'user_not_logged_in'
+			);
+		}
 	}
-
 	return $requests;
 }
 
