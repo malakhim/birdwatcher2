@@ -26,7 +26,6 @@ function fn_bb_submit_notification($bb_data){
 	}
 }
 
-
 function fn_submit_bids($bb_data,$auth){
 	//TODO: Check is in vendor/admin and in vendor/admin area
 	if(empty($bb_data)){

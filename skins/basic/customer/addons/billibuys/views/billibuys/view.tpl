@@ -33,7 +33,7 @@
 		{elseif $requests.message eq 'user_not_logged_in'}
 			Please log in to view your bids!
 		{else}
-			An error has occurred, please contact us at <a href="mailto:webmaster@billibuys.com">webmaster@billibuys.com</a>
+			An error has occurred, please contact us at <a href="mailto:support@billibuys.com">support@billibuys.com</a>
 		{/if}
 		
 	{/if}

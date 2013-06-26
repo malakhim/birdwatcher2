@@ -40,12 +40,26 @@ if (PHP_INT_SIZE == 4 && (substr(ini_get('memory_limit'), 0, -1) < "48")) {
 /*
  * Database connection options
  */
-$config['db_host'] = 'localhost';
-$config['db_name'] = 'dutchme2';
-$config['db_user'] = 'root';
-$config['db_password'] = '';
-$config['db_type'] = 'mysqli';
 
+if(strpos($_SERVER['SERVER_NAME'],'localhost') !== FALSE){
+	$config['db_host'] = 'localhost';
+	$config['db_name'] = 'dutchme2';
+	$config['db_user'] = 'root';
+	$config['db_password'] = '';
+	$config['db_type'] = 'mysqli';
+}elseif(strpos($_SERVER['SERVER_NAME'],'brystore') !== FALSE){
+	$config['db_host'] = 'localhost';
+	$config['db_name'] = 'malakhim_billibuys';
+	$config['db_user'] = 'malakhim_bryan';
+	$config['db_password'] = '72waLkpE';
+	$config['db_type'] = 'mysqli';
+}else{
+	$config['db_host'] = 'localhost';
+	$config['db_name'] = 'dutchme2';
+	$config['db_user'] = 'root';
+	$config['db_password'] = '';
+	$config['db_type'] = 'mysqli';
+}
 /*
  * Script location options
  *
@@ -61,12 +75,24 @@ $config['db_type'] = 'mysqli';
  */
 
 // Host and directory where software is installed on no-secure server
-$config['http_host'] = 'localhost';
-$config['http_path'] = '/dutchme2';
+if(strpos($_SERVER['SERVER_NAME'],'localhost') !== FALSE){
+	$config['http_host'] = 'localhost';
+	$config['http_path'] = '/dutchme2';
+}else{
+	$config['http_host'] = 'brystore.com';
+	$config['http_path'] = '';
+}
+
 
 // Host and directory where software is installed on secure server
-$config['https_host'] = 'localhost';
-$config['https_path'] = '/dutchme2';
+if(strpos($_SERVER['SERVER_NAME'],'localhost') !== FALSE){
+	$config['http_host'] = 'localhost';
+	$config['http_path'] = '/dutchme2';
+}else{
+	$config['http_host'] = 'brystore.com';
+	$config['http_path'] = '';
+}
+
 
 /*
  * Misc options
