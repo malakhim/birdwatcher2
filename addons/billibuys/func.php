@@ -129,6 +129,12 @@ function fn_get_requests_by_product($product){
 	return $requests;
 }
 
+/**
+ * Gets all auctions
+ * @param  Array $params Array of search criteria
+ * @return Array         Array of auction results from database
+ * @todo Normalise database functions to work with fn_get_requests_by_product
+ */
 function fn_get_requests($params){
 
 	// Initialization
@@ -141,8 +147,8 @@ function fn_get_requests($params){
 			$requests = db_get_array('
 				SELECT * 
 				FROM ?:bb_requests 
-				INNER JOIN ?:bb_request_item 
-					ON ?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id'
+				INNER JOIN ?:bb_request_item ON 
+					?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id'
 			);
 			$requests['success'] = true;
 	}else{
@@ -152,8 +158,8 @@ function fn_get_requests($params){
 			$requests = db_get_array('
 				SELECT * 
 				FROM ?:bb_requests 
-				INNER JOIN ?:bb_request_item 
-					ON ?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id 
+				INNER JOIN ?:bb_request_item ON 
+					?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id 
 				WHERE user_id = ?i',$user
 			);
 			$requests['success'] = true;

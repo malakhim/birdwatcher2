@@ -411,7 +411,7 @@ function db_str_replace($needle, $replacement, $subject, &$offset)
 
 /**
  * Function finds $needle and replace it by $replacement only when $needle is not in quotes.
- * For example in sting "SELECT ?:products ..." ?: will be replaced,
+ * For example in string "SELECT ?:products ..." ?: will be replaced,
  * but in "... WHERE name = '?:products'" ?: will not be replaced by table_prefix
  * 
  * @param string $needle string to replace

@@ -6,6 +6,10 @@
  * @desc Controller for BilliBuys
  */
 
+$SECONDS_PER_HOUR = 3600;
+$DECIMAL_POINTS_AFTER_TIMESTAMP = 0;
+$HOURS_PER_DAY = 24;
+
 if ( !defined('AREA') ) { die('Access denied'); }
 	if($mode == 'view'){
 		// Stub for viewing own auctions
@@ -28,7 +32,16 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		if($requests['success'] == 1){
 			foreach($requests as &$request){
 				if(is_array($request)){
-					$request['timestamp'] = microtime(true) - $request['timestamp'];
+					//Get duration since auction was placed
+					//Find number of hours since placed, and divide by $HOURS_PER_DAY to indicate number of days since placed if over $HOURS_PER_DAY (24)
+					$duration = number_format((microtime(true) - $request['timestamp'])/$SECONDS_PER_HOUR,$DECIMAL_POINTS_AFTER_TIMESTAMP);
+					if($duration >= $HOURS_PER_DAY){
+						$duration = number_format($duration/$HOURS_PER_DAY,$DECIMAL_POINTS_AFTER_TIMESTAMP);
+						$request['duration_unit'] = 'd';
+					}else{
+						$request['duration_unit'] = 'h';
+					}
+					$request['timestamp'] = $duration;
 				}
 			}
 		}
