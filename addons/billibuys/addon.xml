@@ -13,6 +13,17 @@
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_product_packages</item>
+		<item for="install">
+			CREATE TABLE `?:bb_product_packages` (
+				`bb_package_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`user_id` int(11) unsigned NOT NULL,
+				`product` int(11) unsigned NOT NULL,
+				`timestamp` int(11) unsigned NOT NULL,
+				`status` tinyint unsigned NOT NULL default '1' COMMENT '0=inactive, 1=active',
+				PRIMARY KEY (`bb_package_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
 		<item for="install">
 			CREATE TABLE `?:bb_notifications` (
 				`bb_notify_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -58,6 +69,7 @@
 				PRIMARY KEY (`bb_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_product_packages</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item</item>

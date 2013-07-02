@@ -20,7 +20,7 @@
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
 					<td>
-						{$request.description}
+						{include file="buttons/button_popup.tpl" but_href="index.php?auction=`$request.bb_bid_id`&dispatch=billibuys.details" but_text="`$request.description`" but_role="text"}
 					</td>
 					<td>
 						{$request.timestamp}&nbsp;{$request.duration_unit}
@@ -30,9 +30,6 @@
 					</td>
 					<td>
 						{if $request.current_bid ne ''}{$lang.bb_text_view_bid_history}{else}{$lang.bb_text_place_first_bid}{/if}
-					</td>
-					<td>
-						{include file="buttons/button_popup.tpl" but_href="vendor.php?auction=`$request.bb_bid_id`" but_text=$lang.bb_place_bid but_role="text"}
 					</td>
 				</tr>
 			{/if}
