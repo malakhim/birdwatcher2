@@ -1,3 +1,9 @@
+/* Custom */
+
+.search-block{
+	margin-top:20%;
+}
+
 body {
 	background-color: #fcfcfc;
 }
@@ -565,7 +571,7 @@ li.small-description {
 
 /* Footer styles */
 .footer {
-	background: #f2f2f2 url(images/footer_bg.png) repeat-x;
+	/*background: #f2f2f2 url(images/footer_bg.png) repeat-x;*/
 }
 .footer-menu {
 	background: url(images/footer_line.png) bottom repeat-x;

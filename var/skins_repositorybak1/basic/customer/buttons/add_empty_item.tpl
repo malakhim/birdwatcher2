@@ -1,0 +1,1 @@
+<a class="button-icon" id="{$item_id}" alt="{$lang.add_empty_item}" title="{$lang.add_empty_item}" onclick="{$but_onclick}"></a>

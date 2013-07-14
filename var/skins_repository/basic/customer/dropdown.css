@@ -247,7 +247,8 @@ ul.dropdown-multicolumns > li.cm-active {
 	-khtml-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
-	background: #666;
+	/*background: #666;*/
+	background: #;
 }
 ul.dropdown-multicolumns > li.cm-active > a.drop {
 	padding-bottom: 6px;
@@ -268,7 +269,8 @@ ul.dropdown-multicolumns > li.nodrop:hover {
     -khtml-border-radius: 3px;
 	-moz-border-radius: 3px;
     border-radius: 3px;
-	background: #fff;
+	/*background: #fff;*/
+	background: rgb(102, 233, 84);
 }
 ul.dropdown-multicolumns li.nodrop:hover > a {
 	padding: 0px;
@@ -289,7 +291,7 @@ ul.dropdown-multicolumns li:hover a {
 	position: relative;
 	z-index: 600;
 	padding: 9px 10px 6px 10px;
-	border-bottom: 1px solid #fff;
+	/*border-bottom: 1px solid #fff;*/
 	color: #161616;
 	text-shadow: none;
 }
@@ -478,10 +480,12 @@ ul.dropdown-multicolumns li ul li:hover {
 }
 ul.dropdown-multicolumns {
 	padding-bottom: 1px;
-	border: 1px solid #444;
-	border-top: 1px solid #5f5f5f;
+	/*border: 1px solid #444;*/
+	/*border-top: 1px solid #5f5f5f;*/
+	border: 1px solid #43C732;
 	border-bottom: none;
-	background: #353535 url(images/menu_bg.gif) 0 0 repeat-x;
+	/*background: #353535 url(images/menu_bg.gif) 0 0 repeat-x;*/
+	background: #43C732;
 	-webkit-border-radius: 4px 4px 0px 0px;
 	-moz-border-radius: 4px 4px 0px 0px;
 	border-radius: 4px 4px 0px 0px;

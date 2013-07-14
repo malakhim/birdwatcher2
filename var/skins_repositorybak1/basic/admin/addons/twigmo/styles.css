@@ -1,0 +1,14 @@
+.facebook-btn {
+	background-image: url('images/buttons/facebook.png');
+	width: 161px;
+	height: 28px;
+	margin: 0 20px 0 0;
+	display: block;
+}
+
+.twitter-btn {
+	background-image: url('images/buttons/twitter.png');
+	width: 161px;
+	height: 28px;
+	display: block;
+}

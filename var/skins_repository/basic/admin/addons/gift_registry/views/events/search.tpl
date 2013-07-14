@@ -3,7 +3,6 @@
 {include file="addons/gift_registry/views/events/components/events_search_form.tpl"}
 
 <form action="{""|fn_url}" method="post" name="delete_events_form">
-
 {include file="common_templates/pagination.tpl" save_current_url=true}
 
 <table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
@@ -17,6 +16,8 @@
 	<th width="10%">{$lang.type}</th>
 	<th>&nbsp;</th>
 </tr>
+
+
 {foreach from=$events item=event}
 <tr {cycle values="class=\"table-row\","}>
 	<td width="1%" class="center">

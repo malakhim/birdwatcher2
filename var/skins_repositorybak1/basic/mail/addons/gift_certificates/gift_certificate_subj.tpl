@@ -1,0 +1,1 @@
+{if $gift_cert_data.company_name}{$gift_cert_data.company_name|unescape}{else}{$settings.Company.company_name|unescape}{/if}: {$lang.gift_certificate} {$gift_cert_data.gift_cert_code} {$certificate_status.email_subj}

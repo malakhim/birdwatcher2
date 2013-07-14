@@ -7,7 +7,12 @@
 	</form>
 </div>
 *}
-<a href="{"billibuys.place_request"|@fn_url}">{$lang.bb_text_place_request_question}</a>
+
+{if $auth.user_id}
+	<a href="{"billibuys.place_request"|fn_url}">{$lang.bb_text_place_request_question}</a>
+{else}
+	<a href="{"auth.login_form&return_url=billibuys.place_request"|fn_url}">{$lang.bb_text_log_in_to_place_request}</a>
+{/if}
 <div id="bb_requests">
 	{if $requests.success eq 1}
 		<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
@@ -19,7 +24,7 @@
 		{foreach from=$requests item=request}
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
-					<td>{$request.title}</td>
+					<td>{include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=`$request.bb_request_id`"|fn_url but_role="text"}</td>
 					<td>
 						{if $request.timestamp.error == 0}
 							{if $request.timestamp.msg != 'over_two_weeks'}
@@ -29,10 +34,8 @@
 							{/if}
 						{else}
 							{if $request.timestamp.msg == 'invalid_date'}
-							invalid date
 								{$lang.error_occurred}
 							{elseif $request.timestamp.msg == 'nonpositive_value'}
-							nonpositive date
 								{$lang.error_occurred}
 							{/if}
 						{/if}

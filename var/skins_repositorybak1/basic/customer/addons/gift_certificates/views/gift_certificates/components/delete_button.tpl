@@ -1,0 +1,1 @@
+{include file="buttons/button.tpl" but_href="checkout.delete_use_certificate?gift_cert_code=`$code`&amp;redirect_mode=`$mode`" but_meta="delete-icon cm-ajax cm-ajax-full-render" but_role="delete" but_rev="cart_items,cart_status*,checkout*`$additional_ids`"}

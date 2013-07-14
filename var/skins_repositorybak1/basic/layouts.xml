@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block_scheme scheme="1.0">
+	<settings>
+		<default_language>EN</default_language>
+	</settings>
+	<location dispatch="default" is_default="1" object_ids="" lang_code="EN" name="Default" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="1" location_id="1" position="TOP" width="16" user_class="">
+				<grid width="5" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/logo.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Logo]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="11" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<grid width="11" user_class="top-links-grid" suffix="0" prefix="0" omega="1" alpha="1" wrapper="" content_align="RIGHT" html_element="div" clear="0">
+						<blocks>
+							<block>
+								<type><![CDATA[my_account]]></type>
+								<properties>
+									<template><![CDATA[blocks/my_account.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[My Account]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper><![CDATA[blocks/wrappers/onclick_dropdown.tpl]]></wrapper>
+								<user_class />
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+							<block>
+								<type><![CDATA[languages]]></type>
+								<properties>
+									<template><![CDATA[blocks/languages.tpl]]></template>
+									<text />
+									<format><![CDATA[name]]></format>
+									<dropdown_limit><![CDATA[0]]></dropdown_limit>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Languages]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+							<block>
+								<type><![CDATA[currencies]]></type>
+								<properties>
+									<template><![CDATA[blocks/currencies.tpl]]></template>
+									<text />
+									<format><![CDATA[symbol]]></format>
+									<dropdown_limit><![CDATA[3]]></dropdown_limit>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Currencies]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[1]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+							<block>
+								<type><![CDATA[menu]]></type>
+								<properties>
+									<template><![CDATA[blocks/menu/text_links.tpl]]></template>
+									<show_items_in_line><![CDATA[Y]]></show_items_in_line>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Quick links]]></name>
+								<object_type />
+								<content>
+									<menu><![CDATA[1]]></menu>
+								</content>
+								<object_ids />
+								<wrapper />
+								<user_class><![CDATA[quick-links-top]]></user_class>
+								<order><![CDATA[2]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+					<grid width="6" user_class="search-block-grid" suffix="0" prefix="0" omega="0" alpha="1" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+						<blocks>
+							<block>
+								<type><![CDATA[template]]></type>
+								<properties>
+									<template><![CDATA[blocks/static_templates/search.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Search]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[1]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+					<grid width="5" user_class="cart-content-grid" suffix="0" prefix="0" omega="1" alpha="0" wrapper="" content_align="RIGHT" html_element="div" clear="1">
+						<blocks>
+							<block>
+								<type><![CDATA[cart_content]]></type>
+								<properties>
+									<template><![CDATA[blocks/cart_content.tpl]]></template>
+									<display_bottom_buttons><![CDATA[Y]]></display_bottom_buttons>
+									<display_delete_icons><![CDATA[Y]]></display_delete_icons>
+									<products_links_type><![CDATA[thumb]]></products_links_type>
+									<generate_block_title><![CDATA[Y]]></generate_block_title>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Cart content]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+				</grid>
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[categories]]></type>
+							<properties>
+								<template><![CDATA[blocks/categories/categories_dropdown_horizontal.tpl]]></template>
+								<dropdown_second_level_elements><![CDATA[12]]></dropdown_second_level_elements>
+								<dropdown_third_level_elements><![CDATA[6]]></dropdown_third_level_elements>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Top menu]]></name>
+							<object_type />
+							<content>
+								<items>
+									<filling><![CDATA[full_tree_cat]]></filling>
+									<parent_element_id><![CDATA[0]]></parent_element_id>
+								</items>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="2" location_id="1" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="3" location_id="1" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="footer-menu" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="1" wrapper="" content_align="LEFT" html_element="div" clear="0">
+						<blocks>
+							<block>
+								<type><![CDATA[template]]></type>
+								<properties>
+									<template><![CDATA[blocks/static_templates/my_account_links.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Bottom my account]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[3]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+					<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+						<blocks>
+							<block>
+								<type><![CDATA[html_block]]></type>
+								<properties>
+									<template><![CDATA[blocks/html_block.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Demo store]]></name>
+								<object_type />
+								<content>
+									<content><![CDATA[<p><span>Demo Store</span></p>
+										<ul>
+										<li><a href="index.php?dispatch=pages.view&amp;page_id=2">About us</a></li>
+										<li><a href="index.php?dispatch=pages.view&amp;page_id=30">Contact Us</a></li>
+										<li><a href="index.php?dispatch=gift_certificates.add">Gift certificates</a></li>
+										<li><a href="index.php?dispatch=promotions.list">Promotions</a></li>
+										<li><a href="index.php?dispatch=events.search">Events</a></li>
+										<li><a href="index.php?dispatch=sitemap.view">Sitemap</a></li>
+										<li><a href="index.php?dispatch=news.list">News</a></li>
+										</ul>]]>
+									</content>
+								</content>
+								<object_ids />
+								<wrapper />
+								<user_class><![CDATA[footer-no-wysiwyg]]></user_class>
+								<order><![CDATA[1]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+					<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+						<blocks>
+							<block>
+								<type><![CDATA[html_block]]></type>
+								<properties>
+									<template><![CDATA[blocks/html_block.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Customer service]]></name>
+								<object_type />
+								<content>
+									<content><![CDATA[<p><span>Customer Service</span></p>
+									<ul>
+									<li><a href="index.php?dispatch=orders.search">About your order</a></li>
+									<li><a href="index.php?dispatch=wishlist.view">Wishlist</a></li>
+									<li><a href="index.php?dispatch=product_features.compare">Compare list</a></li>
+									<li><a href="index.php?dispatch=subscriptions.search">Subscriptions</a></li>
+									</ul>]]></content>
+								</content>
+								<object_ids />
+								<wrapper />
+								<user_class><![CDATA[footer-no-wysiwyg]]></user_class>
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+					<grid width="3" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+						<blocks>
+							<block>
+								<type><![CDATA[html_block]]></type>
+								<properties>
+									<template><![CDATA[blocks/html_block.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[About CS-Cart]]></name>
+								<object_type />
+								<content>
+									<content><![CDATA[<p><span>About CS-Cart</span></p>
+								<ul>
+								<li><a href="index.php?dispatch=pages.view&amp;page_id=1">What is CS-Cart?</a></li>
+								<li><a href="index.php?dispatch=pages.view&amp;page_id=3">Privacy policy</a></li>
+								</ul>]]></content>
+								</content>
+								<object_ids />
+								<wrapper />
+								<user_class><![CDATA[footer-no-wysiwyg]]></user_class>
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+					<grid width="4" user_class="" suffix="0" prefix="0" omega="1" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="1">
+						<blocks>
+							<block>
+								<type><![CDATA[template]]></type>
+								<properties>
+									<template><![CDATA[addons/news_and_emails/blocks/static_templates/subscribe.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Subscribe]]></name>
+								<object_type />
+								<content />
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+							<block>
+								<type><![CDATA[html_block]]></type>
+								<properties>
+									<template><![CDATA[blocks/html_block.tpl]]></template>
+								</properties>
+								<lang_code><![CDATA[EN]]></lang_code>
+								<name><![CDATA[Social links]]></name>
+								<object_type />
+								<content>
+									<content><![CDATA[<p><a class="social-link facebook" href="http://www.facebook.com/pages/CS-Cart/156687676230">Find us on Facebook</a> <a class="social-link twitter" href="https://twitter.com/cscart">Follow us on Twitter</a></p>]]></content>
+								</content>
+								<object_ids />
+								<wrapper />
+								<user_class />
+								<order><![CDATA[0]]></order>
+								<status><![CDATA[A]]></status>
+								<translations />
+							</block>
+						</blocks>
+					</grid>
+				</grid>
+				<grid width="10" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="LEFT" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/copyright.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Copyright]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="6" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="RIGHT" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/payment_icons.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Payment icons]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+		</containers>
+	</location>
+	<location dispatch="products.view" is_default="0" object_ids="" lang_code="EN" name="Products" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="4" location_id="2" position="TOP" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+			<container container_id="5" location_id="2" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="6" location_id="2" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+		</containers>
+	</location>
+	<location dispatch="categories.view" is_default="0" object_ids="" lang_code="EN" name="Categories" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="7" location_id="3" position="TOP" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+			<container container_id="8" location_id="3" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="4" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[product_filters]]></type>
+							<properties>
+								<template><![CDATA[blocks/product_filters/original.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Product filters]]></name>
+							<object_type />
+							<content>
+								<items>
+									<filling><![CDATA[dynamic]]></filling>
+								</items>
+							</content>
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[my_account]]></type>
+							<properties>
+								<template><![CDATA[blocks/my_account.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[My Account]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[products]]></type>
+							<properties>
+								<template><![CDATA[blocks/products/products_text_links.tpl]]></template>
+								<item_number><![CDATA[N]]></item_number>
+								<hide_add_to_cart_button><![CDATA[Y]]></hide_add_to_cart_button>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Recently Viewed]]></name>
+							<object_type />
+							<content>
+								<items>
+									<filling><![CDATA[recent_products]]></filling>
+									<limit><![CDATA[3]]></limit>
+								</items>
+							</content>
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="12" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="9" location_id="3" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+		</containers>
+	</location>
+	<location dispatch="pages.view" is_default="0" object_ids="" lang_code="EN" name="Pages" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="10" location_id="4" position="TOP" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+			<container container_id="11" location_id="4" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="4" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[my_account]]></type>
+							<properties>
+								<template><![CDATA[blocks/my_account.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[My Account]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[products]]></type>
+							<properties>
+								<template><![CDATA[blocks/products/products_text_links.tpl]]></template>
+								<item_number><![CDATA[N]]></item_number>
+								<hide_add_to_cart_button><![CDATA[Y]]></hide_add_to_cart_button>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Recently Viewed]]></name>
+							<object_type />
+							<content>
+								<items>
+									<filling><![CDATA[recent_products]]></filling>
+									<limit><![CDATA[3]]></limit>
+								</items>
+							</content>
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="12" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="12" location_id="4" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+		</containers>
+	</location>
+	<location dispatch="checkout.cart" is_default="0" object_ids="" lang_code="EN" name="Cart" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="16" location_id="6" position="TOP" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+			<container container_id="17" location_id="6" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="18" location_id="6" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+		</containers>
+	</location>
+	<location dispatch="checkout" is_default="0" object_ids="" lang_code="EN" name="Checkout" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="19" location_id="7" position="TOP" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+			<container container_id="20" location_id="7" position="CENTRAL" width="16" user_class="">
+				<grid width="11" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="5" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[checkout]]></type>
+							<properties>
+								<template><![CDATA[blocks/checkout/summary.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Order summary]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class><![CDATA[order-summary]]></user_class>
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[checkout]]></type>
+							<properties>
+								<template><![CDATA[blocks/checkout/products_in_cart.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Products in your order]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class><![CDATA[order-products]]></user_class>
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[checkout]]></type>
+							<properties>
+								<template><![CDATA[blocks/checkout/order_info.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Order information]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/sidebox_general.tpl]]></wrapper>
+							<user_class><![CDATA[order-information]]></user_class>
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="21" location_id="7" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+		</containers>
+	</location>
+	<location dispatch="checkout.complete" is_default="0" object_ids="" lang_code="EN" name="Order landing page" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="22" location_id="8" position="TOP" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+			<container container_id="23" location_id="8" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="24" location_id="8" position="BOTTOM" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0" />
+			</container>
+		</containers>
+	</location>
+	<location dispatch="index.index" is_default="0" object_ids="" lang_code="EN" name="Homepage" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="25" location_id="9" position="TOP" width="16" user_class="" />
+			<container container_id="26" location_id="9" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[banners]]></type>
+							<properties>
+								<template><![CDATA[addons/banners/blocks/carousel.tpl]]></template>
+								<navigation><![CDATA[D]]></navigation>
+								<delay><![CDATA[7]]></delay>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main banners]]></name>
+							<object_type />
+							<content>
+								<items>
+									<filling><![CDATA[newest]]></filling>
+									<period><![CDATA[A]]></period>
+									<last_days><![CDATA[10]]></last_days>
+									<limit><![CDATA[3]]></limit>
+								</items>
+							</content>
+							<object_ids />
+							<wrapper />
+							<user_class><![CDATA[homepage-banners]]></user_class>
+							<order><![CDATA[1]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+						<block>
+							<type><![CDATA[products]]></type>
+							<properties>
+								<template><![CDATA[blocks/products/products_scroller.tpl]]></template>
+								<show_price><![CDATA[N]]></show_price>
+								<enable_quick_view><![CDATA[N]]></enable_quick_view>
+								<not_scroll_automatically><![CDATA[Y]]></not_scroll_automatically>
+								<scroller_direction><![CDATA[left]]></scroller_direction>
+								<speed><![CDATA[normal]]></speed>
+								<easing><![CDATA[swing]]></easing>
+								<pause_delay><![CDATA[3]]></pause_delay>
+								<item_quantity><![CDATA[4]]></item_quantity>
+								<thumbnail_width><![CDATA[160]]></thumbnail_width>
+								<hide_add_to_cart_button><![CDATA[Y]]></hide_add_to_cart_button>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Hot deals]]></name>
+							<object_type />
+							<content>
+								<items>
+									<filling><![CDATA[newest]]></filling>
+									<period><![CDATA[A]]></period>
+									<last_days><![CDATA[10]]></last_days>
+									<limit><![CDATA[6]]></limit>
+								</items>
+							</content>
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class><![CDATA[homepage-hotdeals]]></user_class>
+							<order><![CDATA[2]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="27" location_id="9" position="BOTTOM" width="16" user_class="" />
+		</containers>
+	</location>
+	<location dispatch="profiles" is_default="0" object_ids="" lang_code="EN" name="Profiles" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="28" location_id="10" position="TOP" width="16" user_class="" />
+			<container container_id="29" location_id="10" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="8" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[2]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="8" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/profile_info.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Profile information]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="30" location_id="10" position="BOTTOM" width="16" user_class="" />
+		</containers>
+	</location>
+	<location dispatch="auth" is_default="0" object_ids="" lang_code="EN" name="Auth" title="" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="31" location_id="11" position="TOP" width="16" user_class="" />
+			<container container_id="32" location_id="11" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="1">
+					<blocks>
+						<block>
+							<type><![CDATA[breadcrumbs]]></type>
+							<properties>
+								<template><![CDATA[common_templates/breadcrumbs.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Breadcrumbs]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="8" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[main]]></type>
+							<properties />
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Main Content]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper><![CDATA[blocks/wrappers/mainbox_general.tpl]]></wrapper>
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+				<grid width="8" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/auth_info.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[Auth information]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="33" location_id="11" position="BOTTOM" width="16" user_class="" />
+		</containers>
+	</location>
+	<location dispatch="no_page" is_default="0" object_ids="" lang_code="EN" name="404" title="Page not found" meta_description="" meta_keywords="">
+		<containers>
+			<container container_id="37" location_id="13" position="TOP" width="16" user_class="" />
+			<container container_id="38" location_id="13" position="CENTRAL" width="16" user_class="">
+				<grid width="16" user_class="" suffix="0" prefix="0" omega="0" alpha="0" wrapper="" content_align="FULL_WIDTH" html_element="div" clear="0">
+					<blocks>
+						<block>
+							<type><![CDATA[template]]></type>
+							<properties>
+								<template><![CDATA[blocks/static_templates/404.tpl]]></template>
+							</properties>
+							<lang_code><![CDATA[EN]]></lang_code>
+							<name><![CDATA[404]]></name>
+							<object_type />
+							<content />
+							<object_ids />
+							<wrapper />
+							<user_class />
+							<order><![CDATA[0]]></order>
+							<status><![CDATA[A]]></status>
+							<translations />
+						</block>
+					</blocks>
+				</grid>
+			</container>
+			<container container_id="39" location_id="13" position="BOTTOM" width="16" user_class="" />
+		</containers>
+	</location>
+</block_scheme>

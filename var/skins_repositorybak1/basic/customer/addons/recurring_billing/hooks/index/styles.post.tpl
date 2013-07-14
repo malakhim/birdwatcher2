@@ -1,0 +1,1 @@
+<link href="{$config.skin_path}/addons/recurring_billing/styles.css" rel="stylesheet" type="text/css" />

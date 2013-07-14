@@ -1,0 +1,1 @@
+<link href="{$config.skin_path}/addons/twigmo/styles.css" rel="stylesheet" type="text/css" />

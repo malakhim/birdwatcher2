@@ -5,8 +5,6 @@
 
 {assign var="categories_company_id" value=$product_data.company_id}
 
-
-
 {if $product_data.product_id}
 	{assign var="id" value=$product_data.product_id}
 {else}

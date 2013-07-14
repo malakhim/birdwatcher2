@@ -29,7 +29,7 @@
 			<input type="text" name="amount_from" id="amount_from" value="{$search.amount_from}" size="6" class="input-text" />&nbsp;&ndash;&nbsp;<input type="text" name="amount_to" value="{$search.amount_to}" size="6" class="input-text" />
 		</div>
 	</td>
-	<td class="buttons-container">
+	<td class="buttons-container">sd
 		{include file="buttons/button.tpl" but_text=$lang.search but_name="dispatch[`$controller`.`$mode`]" but_role="submit"}
 	</td>
 </tr>

@@ -1,0 +1,1 @@
+<a class="button-icon icon-clone" name="clone" id="{$item_id}" title="{$lang.clone_this_item}" alt="{$lang.clone_this_item}" onclick="{$but_onclick}" ></a>
