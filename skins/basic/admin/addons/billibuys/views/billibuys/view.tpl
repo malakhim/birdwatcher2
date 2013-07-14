@@ -17,7 +17,6 @@
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
 					<td>
-						{$request|@var_dump}
 						{assign value=$request.bb_request_id var="request_id"}
 						{include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=$request_id"|@fn_url but_role="link"}
 					</td>

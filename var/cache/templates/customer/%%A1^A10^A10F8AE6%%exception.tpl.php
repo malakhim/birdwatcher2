@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 16:49:24
-         compiled from index.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-07-14 17:10:25
+         compiled from exception.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 23, false),array('modifier', 'unescape', 'index.tpl', 26, false),array('modifier', 'strip_tags', 'index.tpl', 26, false),array('modifier', 'count', 'index.tpl', 28, false),array('modifier', 'html_entity_decode', 'index.tpl', 52, false),array('modifier', 'default', 'index.tpl', 52, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 54, false),array('modifier', 'sizeof', 'index.tpl', 58, false),array('modifier', 'fn_link_attach', 'index.tpl', 60, false),array('modifier', 'fn_url', 'index.tpl', 60, false),array('modifier', 'defined', 'index.tpl', 87, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 204, false),array('modifier', 'fn_query_remove', 'index.tpl', 247, false),array('modifier', 'strpos', 'index.tpl', 248, false),array('block', 'hook', 'index.tpl', 46, false),array('function', 'join_css', 'index.tpl', 102, false),array('function', 'script', 'index.tpl', 121, false),array('function', 'render_location', 'index.tpl', 289, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'exception.tpl', 16, false),array('modifier', 'html_entity_decode', 'exception.tpl', 40, false),array('modifier', 'default', 'exception.tpl', 40, false),array('modifier', 'fn_seo_is_indexed_page', 'exception.tpl', 42, false),array('modifier', 'sizeof', 'exception.tpl', 46, false),array('modifier', 'fn_link_attach', 'exception.tpl', 48, false),array('modifier', 'fn_url', 'exception.tpl', 48, false),array('modifier', 'defined', 'exception.tpl', 75, false),array('modifier', 'escape', 'exception.tpl', 120, false),array('modifier', 'fn_generate_security_hash', 'exception.tpl', 192, false),array('block', 'hook', 'exception.tpl', 34, false),array('function', 'join_css', 'exception.tpl', 90, false),array('function', 'script', 'exception.tpl', 109, false),array('function', 'render_location', 'exception.tpl', 234, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','bundled_products_fill_the_mandatory_fields','loading','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
+fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','in_stock','items','text_required_group_product','notice','warning','loading','none','text_are_you_sure_to_proceed','text_invalid_url','text_cart_changed','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','view_cart','checkout','product_added_to_cart','products_added_to_cart','product_added_to_wl','product_added_to_cl','close','error','error_ajax','text_changes_not_saved','text_data_changed','bundled_products_fill_the_mandatory_fields','customization_mode','translate_mode','switch_to_translation_mode','switch_to_customization_mode'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/google_analytics/hooks/index/footer.post.tpl' => 1367063834,
+  'common_templates/design_mode_panel.tpl' => 1367063745,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -23,12 +23,8 @@ fn_preload_lang_vars(array('cannot_buy','no_products_selected','error_no_items_s
 <html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo smarty_modifier_lower(@CART_LANGUAGE); ?>
 ">
 <head>
-
-<?php echo '<title>'; ?><?php if ($this->_tpl_vars['page_title']): ?><?php echo ''; ?><?php echo smarty_modifier_escape($this->_tpl_vars['page_title'], 'html'); ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php $_from = $this->_tpl_vars['breadcrumbs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['bkt'] = array('total' => count($_from), 'iteration' => 0);
-if ($this->_foreach['bkt']['total'] > 0):
-    foreach ($_from as $this->_tpl_vars['i']):
-        $this->_foreach['bkt']['iteration']++;
-?><?php echo ''; ?><?php if (! ($this->_foreach['bkt']['iteration'] <= 1)): ?><?php echo ''; ?><?php echo smarty_modifier_escape(smarty_modifier_strip_tags(smarty_modifier_unescape($this->_tpl_vars['i']['title'])), 'html'); ?><?php echo ''; ?><?php if (! ($this->_foreach['bkt']['iteration'] == $this->_foreach['bkt']['total'])): ?><?php echo ' :: '; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php endforeach; endif; unset($_from); ?><?php echo ''; ?><?php if (! $this->_tpl_vars['skip_page_title']): ?><?php echo ''; ?><?php if (count($this->_tpl_vars['breadcrumbs']) > 1): ?><?php echo ' - '; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_escape($this->_tpl_vars['location_data']['title'], 'html'); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo '</title>'; ?>
+<title><?php echo $this->_tpl_vars['page_title']; ?>
+</title>
 
 <?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php 
 
@@ -358,58 +354,12 @@ fn_register_hooks('recurring_billing', ['check_exceptions']);
 </head>
 
 <body>
-<?php if (defined('SKINS_PANEL')): ?>
-<?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php $this->assign('area', @AREA, false); ?>
-<?php $this->assign('area_name', @AREA_NAME, false); ?>
-<?php $this->assign('l', "text_".($this->_tpl_vars['area_name'])."_skin", false); ?>
-<?php $this->assign('c_url', fn_url(fn_query_remove($this->_tpl_vars['config']['current_url'], 'demo_skin')), false); ?>
-<?php if (strpos($this->_tpl_vars['c_url'], "?") === false): ?>
-	<?php $this->assign('c_url', ($this->_tpl_vars['c_url'])."?", false); ?>
-<?php endif; ?>
-
-<ul class="demo-site-panel clearfix">
-	<li class="dp-title">DEMO SITE PANEL</li>
-	<li class="dp-label"><?php echo fn_get_lang_var($this->_tpl_vars['l'], $this->getLanguage()); ?>
-:</li>
-	<li>
-		<select name="demo_skin[<?php echo $this->_tpl_vars['area']; ?>
-]" onchange="$.redirect('<?php echo fn_link_attach($this->_tpl_vars['c_url'], "demo_skin[".($this->_tpl_vars['area'])."]="); ?>
-' + this.value);">
-		<?php $_from = $this->_tpl_vars['demo_skin']['available_skins']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['s']):
-?>
-			<option value="<?php echo $this->_tpl_vars['k']; ?>
-" <?php if ($this->_tpl_vars['demo_skin']['selected'][$this->_tpl_vars['area']] == $this->_tpl_vars['k']): ?>selected="selected"<?php endif; ?>><?php echo $this->_tpl_vars['s']['description']; ?>
-</option>
-		<?php endforeach; endif; unset($_from); ?>
-		</select>
-	</li>
-	<li class="dp-area">
-		
-		<select name="area" onchange="$.redirect(this.value);">
-			<option value="<?php echo $this->_tpl_vars['config']['admin_index']; ?>
-" <?php if ($this->_tpl_vars['area'] == 'A'): ?>selected="selected"<?php endif; ?>>Administration panel</option>
-			<option value="<?php echo $this->_tpl_vars['config']['customer_index']; ?>
-" <?php if ($this->_tpl_vars['area'] == 'C'): ?>selected="selected"<?php endif; ?>>Storefront</option>
-		</select>
-		
-		
-
-	</li>
-	<li class="dp-area dp-label">Area:</li>
-</ul><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-<?php endif; ?>
 <div class="helper-container">
-	<a name="top"></a>	
+	<a name="top"></a>
+
+	<?php echo smarty_function_render_location(array('dispatch' => 'no_page'), $this);?>
 
 
-	<?php echo smarty_function_render_location(array(), $this);?>
-
-	<?php $__parent_tpl_vars = $this->_tpl_vars; ?>
-
-<div id="ajax_loading_box" class="ajax-loading-box"><div id="ajax_loading_message" class="ajax-inner-loading-box"><?php echo fn_get_lang_var('loading', $this->getLanguage()); ?>
-</div></div>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 	<?php if (defined('TRANSLATION_MODE')): ?>
 		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/translate_box.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
@@ -449,71 +399,6 @@ unset($_smarty_tpl_vars);
 </div><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 	<?php endif; ?>
 </div>
-
-<?php $this->_tag_stack[] = array('hook', array('name' => "index:footer")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['statistics']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><script type="text/javascript">
-//<![CDATA[
-$(function()<?php echo $this->_tpl_vars['ldelim']; ?>
-
-	$.ajaxRequest('<?php echo fn_url("statistics.collect", 'C', 'rel', '&'); ?>
-', <?php echo $this->_tpl_vars['ldelim']; ?>
-
-		method: 'post',
-		data: <?php echo $this->_tpl_vars['ldelim']; ?>
-
-			've[url]': location.href,
-			've[title]': document.title,
-			've[browser_version]': $.ua.version,
-			've[browser]': $.ua.browser,
-			've[os]': $.ua.os,
-			've[client_language]': $.ua.language,
-			've[referrer]': document.referrer,
-			've[screen_x]': (screen.width || null),
-			've[screen_y]': (screen.height || null),
-			've[color]': (screen.colorDepth || screen.pixelDepth || null),
-			've[time_begin]': <?php echo @MICROTIME; ?>
-
-		<?php echo $this->_tpl_vars['rdelim']; ?>
-,
-		hidden: true
-	<?php echo $this->_tpl_vars['rdelim']; ?>
-);
-<?php echo $this->_tpl_vars['rdelim']; ?>
-);
-//]]>
-</script>
-
-<noscript>
-<?php ob_start(); ?>statistics.collect?ve[url]=<?php echo smarty_modifier_escape(@REAL_URL, 'url'); ?>
-&amp;ve[title]=<?php if ($this->_tpl_vars['page_title']): ?><?php echo smarty_modifier_escape($this->_tpl_vars['page_title'], 'url'); ?>
-<?php else: ?><?php echo smarty_modifier_escape($this->_tpl_vars['location_data']['page_title'], 'url'); ?>
-<?php $_from = $this->_tpl_vars['breadcrumbs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['bkt'] = array('total' => count($_from), 'iteration' => 0);
-if ($this->_foreach['bkt']['total'] > 0):
-    foreach ($_from as $this->_tpl_vars['i']):
-        $this->_foreach['bkt']['iteration']++;
-?><?php if (($this->_foreach['bkt']['iteration']-1) == 1): ?> - <?php endif; ?><?php if (! ($this->_foreach['bkt']['iteration'] <= 1)): ?><?php echo smarty_modifier_escape($this->_tpl_vars['i']['title'], 'url'); ?>
-<?php if (! ($this->_foreach['bkt']['iteration'] == $this->_foreach['bkt']['total'])): ?> :: <?php endif; ?><?php endif; ?><?php endforeach; endif; unset($_from); ?><?php endif; ?>&amp;ve[referrer]=<?php echo smarty_modifier_escape($_SERVER['HTTP_REFERER'], 'url'); ?>
-&amp;ve[time_begin]=<?php echo @MICROTIME; ?>
-<?php $this->_smarty_vars['capture']['statistics_link'] = ob_get_contents(); ob_end_clean(); ?>
-<object data="<?php echo fn_url($this->_smarty_vars['capture']['statistics_link']); ?>
-" width="0" height="0"></object>
-</noscript><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['google_analytics']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><script type="text/javascript">
-//<![CDATA[
-	var _gaq = _gaq || [];
-	_gaq.push(["_setAccount", "<?php echo $this->_tpl_vars['addons']['google_analytics']['tracking_code']; ?>
-"]);
-	_gaq.push(["_trackPageview"]);
-	
-	(function() <?php echo $this->_tpl_vars['ldelim']; ?>
-
-		var ga = document.createElement("script");
-		ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
-		ga.setAttribute("async", "true");
-		document.documentElement.firstChild.appendChild(ga);
-	<?php echo $this->_tpl_vars['rdelim']; ?>
-)();
-//]]>
-</script><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
-
 </body>
 
 </html>

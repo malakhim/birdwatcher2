@@ -78,6 +78,10 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}
 		$view->assign('requests',$requests);
 	}elseif($mode == 'place_request'){
+		if(!$auth.user_id){
+			// Redirect user to login if they ended up on this page accidentally (or otherwise)
+			return array(CONTROLLER_STATUS_REDIRECT, "auth.login_form");
+		}
 	}
 
 

@@ -8,9 +8,8 @@
 </div>
 *}
 
-
 {if $auth.user_id}
-	<a href="{"auth.login_form&return_url=billibuys.place_request"|fn_url}">{$lang.bb_text_place_request_question}</a>
+	<a href="{"billibuys.place_request"|fn_url}">{$lang.bb_text_place_request_question}</a>
 {else}
 	<a href="{"auth.login_form&return_url=billibuys.place_request"|fn_url}">{$lang.bb_text_log_in_to_place_request}</a>
 {/if}
@@ -25,7 +24,7 @@
 		{foreach from=$requests item=request}
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
-					<td>{$request.title}</td>
+					<td>{include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=`$request.bb_request_id`"|fn_url but_role="text"}</td>
 					<td>
 						{if $request.timestamp.error == 0}
 							{if $request.timestamp.msg != 'over_two_weeks'}

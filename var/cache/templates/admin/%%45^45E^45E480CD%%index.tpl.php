@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-06-30 14:23:50
+<?php /* Smarty version 2.6.18, created on 2013-07-14 16:49:08
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 38, false),array('modifier', 'escape', 'index.tpl', 76, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 155, false),array('modifier', 'fn_query_remove', 'index.tpl', 192, false),array('modifier', 'fn_url', 'index.tpl', 192, false),array('modifier', 'strpos', 'index.tpl', 193, false),array('modifier', 'fn_link_attach', 'index.tpl', 201, false),array('modifier', 'fn_get_notifications', 'index.tpl', 225, false),array('modifier', 'lower', 'index.tpl', 227, false),array('modifier', 'default', 'index.tpl', 259, false),array('modifier', 'unescape', 'index.tpl', 259, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 48, false),array('function', 'script', 'index.tpl', 63, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'index.tpl', 38, false),array('modifier', 'escape', 'index.tpl', 76, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 155, false),array('modifier', 'fn_query_remove', 'index.tpl', 198, false),array('modifier', 'fn_url', 'index.tpl', 198, false),array('modifier', 'strpos', 'index.tpl', 199, false),array('modifier', 'fn_link_attach', 'index.tpl', 207, false),array('modifier', 'fn_get_notifications', 'index.tpl', 231, false),array('modifier', 'lower', 'index.tpl', 233, false),array('modifier', 'default', 'index.tpl', 265, false),array('modifier', 'unescape', 'index.tpl', 265, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 48, false),array('function', 'script', 'index.tpl', 63, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','error_no_items_selected','delete_confirmation','text_out_of_stock','items','text_required_group_product','save','close','loading','notice','warning','error','text_are_you_sure_to_proceed','text_invalid_url','error_validator_email','error_validator_confirm_email','error_validator_phone','error_validator_integer','error_validator_multiple','error_validator_password','error_validator_required','error_validator_zipcode','error_validator_message','text_page_loading','error_ajax','text_changes_not_saved','text_data_changed','text_block_trial_notice','text_expired_license','file_browser','editing_block','editing_grid','editing_container','adding_grid','adding_block_to_grid','manage_blocks','editing_block','add_block','loading','close','close','processing'));
 ?>
@@ -249,7 +249,14 @@ fn_preload_lang_vars(array('admin_panel','cannot_buy','no_products_selected','er
 </script>
 
 <?php $this->_tag_stack[] = array('hook', array('name' => "index:scripts")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-<?php if ($this->_tpl_vars['addons']['news_and_emails']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/news_and_emails/js/func.js"), $this);?>
+<?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/bundled_products/js/func.js"), $this);?>
+
+
+<script type="text/javascript">
+// Extend core function
+fn_register_hooks('bundled_products', ['add_js_item', 'transfer_js_items']);
+
+</script><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['news_and_emails']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php echo smarty_function_script(array('src' => "addons/news_and_emails/js/func.js"), $this);?>
 
 <script type="text/javascript">
 

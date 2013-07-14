@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 17:10:16
-         compiled from addons/billibuys/views/billibuys/view.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-07-14 16:49:40
+         compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/view.tpl', 1, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/view.tpl', 66, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/view.tpl', 40, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 16, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 58, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_place_request','item','durat_since_start','current_bid','delete','two_weeks_plus','error_occurred','error_occurred','bb_no_bids','text_no_matching_results_found','please_login','bb_error_occurred','billibuys'));
+fn_preload_lang_vars(array('title','description','max_price','submit','delete'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -20,33 +20,32 @@ fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_p
 					}
 				}
 			 ?>
-<?php if ($this->_tpl_vars['auth']['user_id']): ?>
-	<a href="<?php echo fn_url("billibuys.place_request"); ?>
-"><?php echo fn_get_lang_var('bb_text_place_request_question', $this->getLanguage()); ?>
-</a>
-<?php else: ?>
-	<a href="<?php echo fn_url("auth.login_form&return_url=billibuys.place_request"); ?>
-"><?php echo fn_get_lang_var('bb_text_log_in_to_place_request', $this->getLanguage()); ?>
-</a>
-<?php endif; ?>
-<div id="bb_requests">
-	<?php if ($this->_tpl_vars['requests']['success'] == 1): ?>
-		<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
-			<tr>
-				<th><?php echo fn_get_lang_var('item', $this->getLanguage()); ?>
-</th>
-				<th><?php echo fn_get_lang_var('durat_since_start', $this->getLanguage()); ?>
-</th>
-				<th><?php echo fn_get_lang_var('current_bid', $this->getLanguage()); ?>
-</th>
-			</tr>
-		<?php $_from = $this->_tpl_vars['requests']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['request']):
-?>
-			<?php if (is_array ( $this->_tpl_vars['request'] )): ?>
-				<tr <?php echo smarty_function_cycle(array('values' => "class=\"table-row\","), $this);?>
->
-					<td><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['request']['title'], 'but_href' => fn_url("billibuys.request&request_id=".($this->_tpl_vars['request']['bb_request_id'])), 'but_role' => 'text', )); ?>
+<form name="bb_request_form" action="<?php echo fn_url(""); ?>
+" method="post">
+	<div class="form-field">
+		<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
+</label>
+		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['request']['title']; ?>
+" class="input-text" />
+	</div>
+
+	<div class="form-field">
+		<label for="bb_request_desc" class="cm-required cm-trim"><?php echo fn_get_lang_var('description', $this->getLanguage()); ?>
+</label>
+		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php echo $this->_tpl_vars['request']['desc']; ?>
+" class="input-textarea-long"><?php echo $this->_tpl_vars['request']['desc']; ?>
+</textarea>
+	</div>
+
+	<div class="form-field">
+		<label for="bb_max_price" class="cm-trim"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
+</label>
+		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['request']['max_price']; ?>
+" class="input-text" />
+	</div>
+
+	<div class="buttons-container">
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('submit', $this->getLanguage()), 'but_name' => "dispatch[billibuys.view]", 'but_id' => 'but_submit_request', )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -132,53 +131,6 @@ fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_p
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?></td>
-					<td>
-						<?php if ($this->_tpl_vars['request']['timestamp']['error'] == 0): ?>
-							<?php if ($this->_tpl_vars['request']['timestamp']['msg'] != 'over_two_weeks'): ?>
-								<?php echo $this->_tpl_vars['request']['timestamp']['value']; ?>
-&nbsp;<?php echo $this->_tpl_vars['request']['timestamp']['unit']; ?>
-
-							<?php else: ?>
-								<?php echo fn_get_lang_var('two_weeks_plus', $this->getLanguage()); ?>
-
-							<?php endif; ?>
-						<?php else: ?>
-							<?php if ($this->_tpl_vars['request']['timestamp']['msg'] == 'invalid_date'): ?>
-								<?php echo fn_get_lang_var('error_occurred', $this->getLanguage()); ?>
-
-							<?php elseif ($this->_tpl_vars['request']['timestamp']['msg'] == 'nonpositive_value'): ?>
-								<?php echo fn_get_lang_var('error_occurred', $this->getLanguage()); ?>
-
-							<?php endif; ?>
-						<?php endif; ?>
-					</td>
-					<td><?php if ($this->_tpl_vars['request']['current_bid'] != ''): ?>$<?php echo $this->_tpl_vars['request']['current_bid']; ?>
-<?php else: ?><?php echo fn_get_lang_var('bb_no_bids', $this->getLanguage()); ?>
-!<?php endif; ?></td>
-				</tr>
-			<?php endif; ?>
-		<?php endforeach; endif; unset($_from); ?>
-		</table>
-	<?php else: ?>
-	<!-- Need to add in search results-->
-		<?php if ($this->_tpl_vars['requests']['message'] == 'no_results'): ?>
-			<?php echo fn_get_lang_var('text_no_matching_results_found', $this->getLanguage()); ?>
-
-		<?php elseif ($this->_tpl_vars['requests']['message'] == 'user_not_logged_in'): ?>
-			<?php echo fn_get_lang_var('please_login', $this->getLanguage()); ?>
-
-		<?php else: ?>
-			<?php echo fn_get_lang_var('bb_error_occurred', $this->getLanguage()); ?>
-: <a href="mailto:<?php echo $this->_tpl_vars['settings']['Company']['company_support_department']; ?>
-"><?php echo $this->_tpl_vars['settings']['Company']['company_support_department']; ?>
-</a>
-		<?php endif; ?>
-		
-	<?php endif; ?>
-</div>
-<?php ob_start(); ?>
-<!-- This is a test -->
-
-<?php $this->_smarty_vars['capture']['mainbox'] = ob_get_contents(); ob_end_clean(); ?>
-<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('title' => fn_get_lang_var('billibuys', $this->getLanguage()), 'content' => $this->_smarty_vars['capture']['mainbox'], 'title_extra' => $this->_smarty_vars['capture']['title_extra'], 'tools' => $this->_smarty_vars['capture']['tools'], )); ?><?php  ob_end_flush();  ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	</div>
+</form><?php  ob_end_flush();  ?>
