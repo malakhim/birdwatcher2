@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:26877:"<orders>
+a:2:{s:4:"data";s:22902:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -326,50 +326,7 @@ a:2:{s:4:"data";s:26877:"<orders>
 		<item group="sitemap" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 		<item group="sitemap.manage" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 	</side>
-</design><website>
-	<item title="tags" dispatch="tags.manage" />
-</website>
-<administration>
-	<subitem item="export_data" title="subscribers" href="%INDEX_SCRIPT?dispatch=exim.export&amp;section=subscribers" />
-	<subitem item="import_data" title="subscribers" href="%INDEX_SCRIPT?dispatch=exim.import&amp;section=subscribers" />
-</administration>
-<website>
-	<item title="site_news" dispatch="news.manage" />
-	<item title="newsletters" dispatch="newsletters.manage" alt="mailing_lists.manage,subscribers.manage" />
-
-	<subitem item="newsletters" title="newsletters" href="%INDEX_SCRIPT?dispatch=newsletters.manage&amp;type=N" />
-	<subitem item="newsletters" title="templates" href="%INDEX_SCRIPT?dispatch=newsletters.manage&amp;type=T" />
-	<subitem item="newsletters" title="autoresponders" href="%INDEX_SCRIPT?dispatch=newsletters.manage&amp;type=A" />
-	<subitem item="newsletters" title="campaigns" href="%INDEX_SCRIPT?dispatch=newsletters.campaigns" />
-	<subitem item="newsletters" title="mailing_lists" href="%INDEX_SCRIPT?dispatch=mailing_lists.manage" />
-	<subitem item="newsletters" title="subscribers_menu_item_text" href="%INDEX_SCRIPT?dispatch=subscribers.manage" />
-
-	<side>
-		<item group="news.update" title="add_news" href="%INDEX_SCRIPT?dispatch=news.add" />
-		
-		<item group="newsletters.update" title="add_newsletter" href="%INDEX_SCRIPT?dispatch=newsletters.add&amp;type=N" />
-		<item group="newsletters.update" title="add_template" href="%INDEX_SCRIPT?dispatch=newsletters.add&amp;type=T" />
-		<item group="newsletters.update" title="add_autoresponder" href="%INDEX_SCRIPT?dispatch=newsletters.add&amp;type=A" />
-	</side>
-</website>
-<orders>
-	<item title="gift_certificates" dispatch="gift_certificates.manage" />
-
-	<subitem item="gift_certificates" title="gift_certificates" href="%INDEX_SCRIPT?dispatch=gift_certificates.manage" />
-	<subitem item="gift_certificates" title="gift_certificate_statuses" href="%INDEX_SCRIPT?dispatch=statuses.manage&amp;type=G" />
-	
-	<side>
-		<item group="gift_certificates.add" title="gift_certificates" href="%INDEX_SCRIPT?dispatch=gift_certificates.manage" />
-
-		<item group="gift_certificates.update" title="add_gift_certificate" href="%INDEX_SCRIPT?dispatch=gift_certificates.add" />
-		<item group="gift_certificates.update" title="delete_this_certificate" href="%INDEX_SCRIPT?dispatch=gift_certificates.delete&amp;gift_cert_id=%GIFT_CERT_ID" meta="cm-confirm" />
-
-		<item group="statuses.manage" extra="type=G" title="add_gift_certificate" href="%INDEX_SCRIPT?dispatch=gift_certificates.add" />
-
-		<item group="profiles.update" extra="user_type=C" title="create_gift_certificate_for_customer" href="%INDEX_SCRIPT?dispatch=gift_certificates.add&amp;user_id=%USER_ID" />
-	</side>
-</orders>
-<administration>
+</design><administration>
 	<item title="statistics" dispatch="statistics.reports" position="150" />
 
 	<side>
@@ -388,28 +345,7 @@ a:2:{s:4:"data";s:26877:"<orders>
 	<subitem item="statistics" title="products" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=products" />
 
 </administration>
-<website>
-	<item title="comments_and_reviews" dispatch="discussion_manager.manage" />
-
-	<item title="discussion_title_home_page" dispatch="discussion.update&amp;discussion_type=E" />
-</website>
-<orders>
-	<item title="rb_recurring_plans" dispatch="recurring_plans.manage" />
-	<item title="rb_view_subscriptions" dispatch="subscriptions.manage" />
-	<item title="rb_subscription_events" dispatch="subscriptions.events" />
-	<side>
-		<item group="recurring_plans" title="rb_recurring_billing_settings" href="%INDEX_SCRIPT?dispatch=addons.manage#grouprecurring_billing" />
-	</side>
-</orders>
-<administration>
-	<item title="data_feeds" dispatch="data_feeds.manage" />
-	
-	<side>
-		<item group="data_feeds.update" meta="cm-ajax cm-comet" title="local_export" href="%INDEX_SCRIPT?dispatch=exim.export_datafeed&amp;datafeed_ids[]=%DATAFEED_ID&amp;location=L" />
-		<item group="data_feeds.update" meta="cm-ajax cm-comet" title="export_to_server" href="%INDEX_SCRIPT?dispatch=exim.export_datafeed&amp;datafeed_ids[]=%DATAFEED_ID&amp;location=S" />
-		<item group="data_feeds.update" meta="cm-ajax cm-comet" title="upload_to_ftp" href="%INDEX_SCRIPT?dispatch=exim.export_datafeed&amp;datafeed_ids[]=%DATAFEED_ID&amp;location=F" />
-	</side>
-</administration><products>
+<products>
 	<!-- <item title="billibuys" dispatch="billibuys.view" /> -->
 
 	<!-- <side>

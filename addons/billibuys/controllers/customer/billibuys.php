@@ -77,6 +77,13 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			}
 		}
 		$view->assign('requests',$requests);
+	}elseif($mode == 'request'){
+
+		$params = Array('request_id'=>$_GET['request_id']);
+		// Get all bids
+		$request = fn_get_request($params);
+		
+		$view->assign('request',$request);
 	}elseif($mode == 'place_request'){
 		if(!$auth.user_id){
 			// Redirect user to login if they ended up on this page accidentally (or otherwise)

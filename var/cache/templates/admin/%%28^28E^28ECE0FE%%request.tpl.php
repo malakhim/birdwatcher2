@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 17:21:18
-         compiled from buttons/sign_in.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-07-14 17:30:32
+         compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/sign_in.tpl', 38, false),array('modifier', 'fn_check_view_permissions', 'buttons/sign_in.tpl', 39, false),array('modifier', 'fn_url', 'buttons/sign_in.tpl', 45, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'var_dump', 'addons/billibuys/views/billibuys/request.tpl', 17, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/request.tpl', 42, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/request.tpl', 43, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('sign_in','remove_this_item','remove_this_item'));
+fn_preload_lang_vars(array('place_bid','remove_this_item','remove_this_item','billibuys'));
 ?>
-<?php  ob_start();  ?><?php 
+<?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
@@ -19,7 +19,12 @@ fn_preload_lang_vars(array('sign_in','remove_this_item','remove_this_item'));
 						return;
 					}
 				}
-			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('sign_in', $this->getLanguage()), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_arrow' => 'on', 'but_role' => $this->_tpl_vars['but_role'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+			 ?><?php ob_start(); ?>
+
+<?php echo var_dump($this->_tpl_vars['request']); ?>
+
+
+<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('place_bid', $this->getLanguage()), 'but_href' => fn_url("billibuys.place_bid&request_id=".($this->_tpl_vars['request']['bb_request_id'])), 'but_role' => 'link', )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
 	<?php $this->assign('class', "text-link", false); ?>
 <?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
 	<?php $this->assign('class', "text-button-delete", false); ?>
@@ -111,4 +116,11 @@ fn_preload_lang_vars(array('sign_in','remove_this_item','remove_this_item'));
 "<?php endif; ?> />
 <?php endif; ?>
 
-<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+
+<?php $this->_smarty_vars['capture']['mainbox'] = ob_get_contents(); ob_end_clean(); ?>
+
+<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/mainbox.tpl", 'smarty_include_vars' => array('title' => fn_get_lang_var('billibuys', $this->getLanguage()),'content' => $this->_smarty_vars['capture']['mainbox'],'title_extra' => $this->_smarty_vars['capture']['title_extra'],'tools' => $this->_smarty_vars['capture']['tools'])));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
