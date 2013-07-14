@@ -2,7 +2,7 @@
  
 <addon scheme='2.0'>
 	<id>billibuys</id>
-	<version>0.2</version> 
+	<version>0.1</version> 
 	<name>BilliBuys</name>
 	<description>BilliBuys reverse dutch auction addon</description>
 	<priority>100500</priority>
@@ -13,17 +13,6 @@
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_product_packages</item>
-		<item for="install">
-			CREATE TABLE `?:bb_product_packages` (
-				`bb_package_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-				`user_id` int(11) unsigned NOT NULL,
-				`product` int(11) unsigned NOT NULL,
-				`timestamp` int(11) unsigned NOT NULL,
-				`status` tinyint unsigned NOT NULL default '1' COMMENT '0=inactive, 1=active',
-				PRIMARY KEY (`bb_package_id`)
-			) Engine=MyISAM DEFAULT CHARSET UTF8;
-		</item>
 		<item for="install">
 			CREATE TABLE `?:bb_notifications` (
 				`bb_notify_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -36,12 +25,12 @@
 		</item>
 		<item for="install">
 			CREATE TABLE `?:bb_requests` (
-				`bb_bid_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`bb_request_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				`user_id` int(11) unsigned NOT NULL,
 				`request_item_id` int(11),
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
-				PRIMARY KEY (`bb_bid_id`)
+				PRIMARY KEY (`bb_request_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
@@ -56,7 +45,9 @@
 		<item for="install">
 			CREATE TABLE `?:bb_request_item` (
 				`bb_request_id` int(11) NOT NULL AUTO_INCREMENT,
-				`description` VARCHAR(255),
+				`title` VARCHAR(50),
+				`description` VARCHAR(500),
+				`max_price` DECIMAL(10,2),
 				PRIMARY KEY (`bb_request_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -69,21 +60,22 @@
 				PRIMARY KEY (`bb_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
-		<item for="install">DROP TABLE IF EXISTS ?:bb_product_packages</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item>
-
 	</queries>
 
 	<language_variables>
-		<!-- View variables -->
+		<!-- Back end view variables -->
 		<item lang="EN" id="create_notification">Would you like to be notified when someone places a request for an item?</item>
 		<item lang="EN" id="item">Item</item>
 		<item lang="EN" id="posted">Posted</item>
-		<item lang="EN" id="current_bid">Current Bid</item>
+		<item lang="EN" id="currenth_bid">Current Bid</item>
 		<item lang="EN" id="place_bid">Place Bid</item>
+
+		<!-- Back end package view variables -->
+		<item lang="EN" id="add_package">Add Package</item>
 
 		<!-- Notify variables -->
 		<item lang="EN" id="item">Item</item>
@@ -94,9 +86,19 @@
 		<item lang="EN" id="bb_current_bid">Current bid</item>
 		<item lang="EN" id="bb_not_logged_in">Please log in to view your bids</item>
 		<item lang="EN" id="bb_no_bids">No bids yet</item>
+		<item lang="EN" id="two_weeks_plus">2+ weeks</item>
+		<item lang="EN" id="bb_text_place_request_question">Would you like to place a request?</item>
+		<item lang="EN" id="bb_text_log_in_to_place_requests">Please log in to place a request</item>
+		<item lang="EN" id="max_price">Max Price</item>
 
 		<!-- General -->
-		<item lang="EN" id="bb_billibuys">Billibuys</item>		
+		<item lang="EN" id="bb_billibuys">Billibuys</item>	
+		<item lang="EN"	id="bb_packages">Packages</item>
+
+
+		<!-- Error messages -->
+		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
+
 	</language_variables>
 
 	<!-- <settings>

@@ -1413,7 +1413,6 @@ class Smarty
      */
     function _compile_resource($resource_name, $compile_path)
     {
-
         $_params = array('resource_name' => $resource_name);
         if (!$this->_fetch_resource_info($_params)) {
             return false;
@@ -1451,6 +1450,7 @@ class Smarty
     function _compile_source($resource_name, &$source_content, &$compiled_content, $cache_include_path=null)
     {
         if (file_exists(SMARTY_DIR . $this->compiler_file)) {
+
             require_once(SMARTY_DIR . $this->compiler_file);
         } else {
             // use include_path

@@ -1,4 +1,4 @@
-<div id="bb_submit_form">
+{*<div id="bb_submit_form">
 	<br/><br/>
 	<form id="create" name="create" method="POST" action="/dutchme2/index.php?dispatch=billibuys.view">
 		<label for="item_name">{$lang.bb_enter_item}:</label>
@@ -6,7 +6,14 @@
 		<input type="submit" value="submit" name="submit"/>
 	</form>
 </div>
+*}
 
+
+{if $auth.user_id}
+	<a href="{"auth.login_form&return_url=billibuys.place_request"|fn_url}">{$lang.bb_text_place_request_question}</a>
+{else}
+	<a href="{"auth.login_form&return_url=billibuys.place_request"|fn_url}">{$lang.bb_text_log_in_to_place_request}</a>
+{/if}
 <div id="bb_requests">
 	{if $requests.success eq 1}
 		<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
@@ -14,23 +21,27 @@
 				<th>{$lang.item}</th>
 				<th>{$lang.durat_since_start}</th>
 				<th>{$lang.current_bid}</th>
-				<th>{$lang.bb_heading_bid_history}</th>
 			</tr>
 		{foreach from=$requests item=request}
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
+					<td>{$request.title}</td>
 					<td>
-						{include file="buttons/button_popup.tpl" but_href="index.php?auction=`$request.bb_bid_id`&dispatch=billibuys.details" but_text="`$request.description`" but_role="text"}
+						{if $request.timestamp.error == 0}
+							{if $request.timestamp.msg != 'over_two_weeks'}
+								{$request.timestamp.value}&nbsp;{$request.timestamp.unit}
+							{else}
+								{$lang.two_weeks_plus}
+							{/if}
+						{else}
+							{if $request.timestamp.msg == 'invalid_date'}
+								{$lang.error_occurred}
+							{elseif $request.timestamp.msg == 'nonpositive_value'}
+								{$lang.error_occurred}
+							{/if}
+						{/if}
 					</td>
-					<td>
-						{$request.timestamp}&nbsp;{$request.duration_unit}
-					</td>
-					<td>
-						{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}{/if}
-					</td>
-					<td>
-						{if $request.current_bid ne ''}{$lang.bb_text_view_bid_history}{else}{$lang.bb_text_place_first_bid}{/if}
-					</td>
+					<td>{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>
 				</tr>
 			{/if}
 		{/foreach}

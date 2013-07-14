@@ -1,4 +1,4 @@
-<div id="bb_submit_form">
+{*<div id="bb_submit_form">
 	<br/><br/>
 	<form id="create" name="create" method="POST" action="/dutchme2/index.php?dispatch=billibuys.view">
 		<label for="item_name">{$lang.bb_enter_item}:</label>
@@ -6,7 +6,8 @@
 		<input type="submit" value="submit" name="submit"/>
 	</form>
 </div>
-
+*}
+<a href="{"billibuys.place_request"|@fn_url}">{$lang.bb_text_place_request_question}</a>
 <div id="bb_requests">
 	{if $requests.success eq 1}
 		<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
@@ -14,16 +15,29 @@
 				<th>{$lang.item}</th>
 				<th>{$lang.durat_since_start}</th>
 				<th>{$lang.current_bid}</th>
-				<th>{$lang.bb_heading_bid_history}</th>
 			</tr>
 		{foreach from=$requests item=request}
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
-					<td>{$request.description}</td>
-					<td>{$request.timestamp}&nbsp;{$request.duration_unit}</td>
+					<td>{$request.title}</td>
+					<td>
+						{if $request.timestamp.error == 0}
+							{if $request.timestamp.msg != 'over_two_weeks'}
+								{$request.timestamp.value}&nbsp;{$request.timestamp.unit}
+							{else}
+								{$lang.two_weeks_plus}
+							{/if}
+						{else}
+							{if $request.timestamp.msg == 'invalid_date'}
+							invalid date
+								{$lang.error_occurred}
+							{elseif $request.timestamp.msg == 'nonpositive_value'}
+							nonpositive date
+								{$lang.error_occurred}
+							{/if}
+						{/if}
+					</td>
 					<td>{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>
-					<td>{if $request.current_bid ne ''}{$lang.bb_text_view_bid_history}{else}{$lang.bb_text_place_first_bid}!{/if}</td>
-					<td>BUTTON TO PLACE BIDS GOES HERE</td>
 				</tr>
 			{/if}
 		{/foreach}

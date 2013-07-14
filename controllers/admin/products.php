@@ -493,7 +493,6 @@ if ($mode == 'manage' || $mode == 'p_subscr') {
 	$params['only_short_fields'] = true;
 	$params['extend'][] = 'companies';
 
-
 	if ($mode == 'p_subscr') {
 		$params['get_subscribers'] = true;
 		fn_add_breadcrumb(fn_get_lang_var('products'), "products.manage");

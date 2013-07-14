@@ -3,7 +3,8 @@
 </customers>
 
 <products>
-	<item title="bb_billibuys" links_group="products" dispatch="billibuys.view" position="1" />
+	<item title="bb_billibuys" links_group="products" dispatch="billibuys.view" position="10" />
+	<!--item title="bb_packages" links_group="products" dispatch="billibuys.packages_view" position="20" -->
 </products>
 
 <vendors>

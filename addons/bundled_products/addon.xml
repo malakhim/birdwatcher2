@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+	<id>bundled_products</id>
+	<name>Product packages</name>
+	<description>Allows you to create product packages</description>
+	<version>1.0</version>
+	<priority>100</priority>
+	<position>0</position>
+	<status>active</status>
+	<language_variables>
+		<item lang="EN" id="bundled_products">Package configuration</item>
+		<item lang="EN" id="use_as_a_bundle">Use as a package</item>		
+		<item lang="EN" id="specify_options">Specify options</item>
+		<item lang="EN" id="total_list_price">Total list price</item>
+		<item lang="EN" id="price_for_all">Discounted price</item>
+		<item lang="EN" id="add_all_to_cart">Add all to cart</item>
+		<item lang="EN" id="editing_combination">Editing combination</item>
+		<item lang="EN" id="recalculate">Recalculate</item>
+		<item lang="EN" id="bundled_products_calculation_information">Total price: [total_price], Discount: [discount], Combination price: [combination_price]</item>
+		<item lang="EN" id="display_in_promotions">Display in promotions</item>
+		<item lang="EN" id="combination_products">Combination products</item>
+		<item lang="EN" id="share_discount">Set total discount</item>
+		<item lang="EN" id="bundled_products_is_not_compatible_with_configurator">[product_name] cannot be added to combination. Product packages is not compatible with the Product configurator addon</item>
+		<item lang="EN" id="bundled_products_is_not_compatible_with_recurring_billing">[product_name] cannot be added to combination. Product packages is not compatible with the Recurring billing addon</item>
+		<item lang="EN" id="bundled_products_combination_cannot_be_added">Combination cannot be added to cart</item>
+		<item lang="EN" id="bundled_products_product_was_removed">[product] did not have enough amount ([amount]) and was removed from the cart</item>
+		<item lang="EN" id="bundled_products_fill_the_mandatory_fields">Please specify product options before adding this product combination to the cart.</item>
+	</language_variables>
+	<compatibility>
+		<conflicts>buy_together</conflicts>
+	</compatibility>
+	<queries>
+		<item>DROP TABLE IF EXISTS `?:bundled_products`</item>
+		<item>DROP TABLE IF EXISTS `?:bundled_products_descriptions`</item>
+		<item>
+			CREATE TABLE `?:bundled_products` (
+				`chain_id` int(10) unsigned NOT NULL auto_increment,
+				`product_id` mediumint(8) unsigned NOT NULL default '0',
+				`products` text,`modifier` decimal(12,3) unsigned NOT NULL default '0',
+				`modifier_type` varchar(20) NOT NULL default 'by_fixed',
+				`date_from` int(11) unsigned NOT NULL default '0',
+				`date_to` int(11) unsigned NOT NULL default '0',
+				`display_in_promotions` char(1) NOT NULL default 'Y',
+				`status` char(1) NOT NULL default 'D',
+				PRIMARY KEY (`chain_id`)
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8
+		</item>
+		<item>
+			CREATE TABLE `?:bundled_products_descriptions` (
+				`chain_id` int(10) unsigned NOT NULL,
+				`name` varchar(50) NOT NULL default '',
+				`description` mediumtext,
+				`lang_code` char(2) NOT NULL default 'EN',
+				PRIMARY KEY  (`chain_id`,`lang_code`)
+			) ENGINE=MyISAM DEFAULT CHARSET=utf8
+		</item>
+		<item for="uninstall">ALTER TABLE  `?:products` DROP  `bundle`</item>
+		<item>
+			ALTER TABLE  `?:products` ADD  `bundle` CHAR( 1 ) NOT NULL DEFAULT  'N';
+		</item>
+		<item for="uninstall">DROP TABLE IF EXISTS `?:bundled_products`</item>
+		<item for="uninstall">DROP TABLE IF EXISTS `?:bundled_products_descriptions`</item>
+	</queries>
+</addon>
