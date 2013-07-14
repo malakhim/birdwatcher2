@@ -37,7 +37,9 @@
 			CREATE TABLE `?:bb_bids_archive` (
 				`archive_id` int(11) NOT NULL AUTO_INCREMENT,
 				`request_item_id` int(11),
-				`min_amt` DECIMAL(10,2),
+				`product_id` int(11),
+				`price` DECIMAL(10,2),
+				`quantity` INT(11),
 				`user_id` INT(11),
 				PRIMARY KEY (`archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
@@ -55,7 +57,9 @@
 			CREATE TABLE `?:bb_bids` (
 				`bb_item_id` int(11) NOT NULL AUTO_INCREMENT,
 				`request_item_id` int(11),
-				`min_amt` DECIMAL(10,2),
+				`product_id` int(11),
+				`price` DECIMAL(10,2),
+				`quantity` INT(11),
 				`user_id` INT(11),
 				PRIMARY KEY (`bb_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;

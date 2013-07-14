@@ -40,7 +40,7 @@ function fn_submit_bids($bb_data,$auth){
 			);
 
 			//Archive existing bid if exists
-			if($existing_bid !== false){
+			if(!empty($existing_bid)){
 				db_query('DELETE FROM ?:bb_bids WHERE bb_request_id = ?i',$existing_bid['bb_request_id']);
 				unset($existing_bid['bb_request_id']);
 				db_query('INSERT INTO ?:bb_bids_archive ?e',$existing_bid);

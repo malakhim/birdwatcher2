@@ -99,7 +99,7 @@
 		</ul>
 		{/capture}
 
-		{include file="buttons/save.tpl" but_name="dispatch[products.m_update]" but_role="button_main"}
+		{include file="buttons/save.tpl" but_name="dispatch[billibuys.m_place_bid]" but_role="button_main"}
 	</div>
 </div>
 {/if}

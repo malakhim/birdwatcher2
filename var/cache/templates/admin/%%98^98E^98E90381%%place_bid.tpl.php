@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 17:30:38
+<?php /* Smarty version 2.6.18, created on 2013-07-14 17:39:49
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 25, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'fn_get_company_name', 'addons/billibuys/views/billibuys/place_bid.tpl', 100, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 108, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 163, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 50, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 69, false),array('block', 'hook', 'addons/billibuys/views/billibuys/place_bid.tpl', 221, false),)), $this); ?>
@@ -344,7 +344,7 @@ unset($_smarty_tpl_vars);
 		</ul>
 		<?php $this->_smarty_vars['capture']['tools_list'] = ob_get_contents(); ob_end_clean(); ?>
 
-		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/save.tpl", 'smarty_include_vars' => array('but_name' => "dispatch[products.m_update]",'but_role' => 'button_main')));
+		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/save.tpl", 'smarty_include_vars' => array('but_name' => "dispatch[billibuys.m_place_bid]",'but_role' => 'button_main')));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>

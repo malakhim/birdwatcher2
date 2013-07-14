@@ -325,8 +325,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	$view->assign('search', $search);
 
 
-	}elseif($mode == 'packages_edit'){
-		// Allow users to modify existing packages
+	}elseif($mode == 'm_place_bid'){
+		var_dump($_POST);die;
 	}
 
 
