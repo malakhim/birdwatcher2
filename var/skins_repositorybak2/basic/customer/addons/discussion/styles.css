@@ -1,0 +1,85 @@
+/* Discussion */
+.posts {
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position: relative;
+	line-height: 19px;
+	margin: 22px 0 50px 0;
+	padding: 15px;
+}
+.posts h2 {
+	font: bold 100% Tahoma;
+	float: left;
+	padding: 2px 0 0;
+}
+.posts .float-right {
+	padding-top: 5px;
+}
+.post-arrow {
+	position:absolute;
+	top: -14px;
+	left: 14px;
+	width: 16px;
+	height: 16px;
+	background: url('../../images/icons/comments_arrow.png') no-repeat 0 0;
+}
+.post-author {
+	position: absolute;
+	top: -25px;
+	left: 37px;
+	font-weight: 700;
+}
+.post-date {
+	position: absolute;
+	top: -25px;
+	color: #a6a6a6;
+	right: 0;
+}
+.posts em {
+	font-size: 85%;
+}
+.post-message {
+	padding: 0;
+}
+.left-column .post-author,.right-column .post-author {
+	padding: 3px 0 15px;
+}
+#content_discussion p.stars {
+	text-align: right;
+	margin: 0;
+	padding: 0 0 10px;
+}
+.product-main-info .stars img {
+	margin: 0;
+	padding: 3px 1px 0;
+}
+.product-main-info .stars {
+	float: left;
+	padding: 0 17px 0 0;
+}
+.product-quick-view .stars {
+	float: none;
+	padding: 10px 0 0;
+}
+.product-main-info .image-border .stars {
+	float: none;
+	text-align: center;
+	padding: 8px 0 0;
+}
+.stars {
+	padding-bottom: 0;
+}
+.product-image .stars img,.product-item-image .stars img,.feature-image .stars img,.image-border .stars img,.mainbox2-body .product-image .stars img,.mainbox2-body .product-item-image .stars img,.mainbox2-body .mainbox2-body .feature-image .stars img,.mainbox2-body .image-border .stars img {
+	border: 0 none;
+	background-color: transparent;
+	padding: 0 1px;
+}
+.post-new {
+	margin-top: -15px;
+}
+.posts .no-items {
+	margin-bottom: 40px;
+}
+/* /Discussion */

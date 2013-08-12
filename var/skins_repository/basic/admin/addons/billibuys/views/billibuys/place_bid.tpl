@@ -99,20 +99,22 @@
 		</ul>
 		{/capture}
 
-		{include file="buttons/save.tpl" but_name="dispatch[products.m_update]" but_role="button_main"}
+		{include file="buttons/save.tpl" but_name="dispatch[billibuys.m_place_bid]" but_role="button_main"}
 	</div>
 </div>
 {/if}
 
-
 {capture name="select_fields_to_edit"}
-
 
 <div class="buttons-container">
 	{include file="buttons/save_cancel.tpl" but_text=$lang.modify_selected but_name="dispatch[products.store_selection]" cancel_action="close"}
 </div>
 {/capture}
 {include file="common_templates/popupbox.tpl" id="select_fields_to_edit" text=$lang.select_fields_to_edit content=$smarty.capture.select_fields_to_edit}
+
+{capture name="tools"}
+	{include file="common_templates/tools.tpl" tool_href="products.add" prefix="top" link_text=$lang.create_product_package hide_tools=true}
+{/capture}
 
 </form>
 <!--content_manage_products--></div>

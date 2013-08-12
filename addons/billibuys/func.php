@@ -9,6 +9,38 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
+
+/**
+ * Gets all the bids for a particular request
+ * @param  Array $params At the moment, array containing the request ID
+ * @return Array         List of bids on this particular request
+ */
+function fn_get_bids($params){
+
+	// Filter by fields if field array was specified in $params
+	if(isset($params['fields'])){
+		$fields = implode($params['fields'],',');
+	}else
+		$fields = '*';
+
+	$bids = db_get_array("
+		SELECT $fields
+		FROM 
+			?:bb_bids
+		INNER JOIN
+			?:product_descriptions ON
+				?:product_descriptions.product_id = ?:bb_bids.product_id
+		INNER JOIN
+			?:user_profiles ON
+				?:bb_bids.user_id = ?:user_profiles.user_id
+		WHERE 
+			?:bb_bids.request_item_id = ?i
+		GROUP BY request_item_id",
+			$params['request_id']
+		);
+	return $bids;
+}
+
 function fn_bb_submit_notification($bb_data){
 	if(empty($bb_data))
 		return false;
@@ -31,34 +63,45 @@ function fn_submit_bids($bb_data,$auth){
 	if(empty($bb_data)){
 		return false;
 	}else{
-		foreach($bb_data as $item=>$data){
-			//Search for existing bid
-			$existing_bid = db_get_row('
-				SELECT *
-				FROM ?:bb_bids
-				WHERE ?:bb_bids.request_item_id = ?i',$item
-			);
+		//Search for existing bid
+		$existing_bid = db_get_row('
+			SELECT *
+			FROM ?:bb_bids
+			WHERE ?:bb_bids.user_id = ?i AND ?:bb_bids.request_item_id = ?i',$auth['user_id'], $bb_data['request_id']
+		);
 
-			//Archive existing bid if exists
-			if(!empty($existing_bid)){
-				db_query('DELETE FROM ?:bb_bids WHERE bb_request_id = ?i',$existing_bid['bb_request_id']);
-				unset($existing_bid['bb_request_id']);
-				db_query('INSERT INTO ?:bb_bids_archive ?e',$existing_bid);
-			}
+		// var_dump($existing_bid);die;
 
-			//Execute bid
-			$new_bid = Array(
-				'request_item_id' => $item,
-				'min_amt' => $data['bid'],
-				'user_id' => $auth['user_id']
-			);
-			db_query('INSERT INTO ?:bb_bids ?e',$new_bid);
-
-			//Log event
-			//Not working atm
-			fn_log_event('billibuys', 'create', array('bid' => $new_bid));
+		//Archive existing bid if exists
+		if(!empty($existing_bid)){
+			db_query('DELETE FROM ?:bb_bids WHERE ?:bb_bids.bb_item_id = ?i',$existing_bid['bb_item_id']);
+			unset($existing_bid['bb_item_id']);
+			db_query('DELETE FROM ?:bb_bids_archive WHERE ?:bb_bids_archive.user_id = ?i AND ?:bb_bids_archive.request_item_id = ?i',$auth['user_id'],$bb_data['request_id']);
+			db_query('INSERT INTO ?:bb_bids_archive ?e',$existing_bid);
 		}
-	}
+
+		//Execute bid
+		foreach($bb_data['product_ids'] as $product){
+			foreach($bb_data['products_data'] as $pid=>$pdata){
+				if($pid == $product){
+					$new_bid = Array(
+						'request_item_id' => $bb_data['request_id'],
+						'price' => $pdata['price'],
+						'user_id' => $auth['user_id'],
+						'quantity' => $pdata['amount'],
+						'product_id' => $product,
+					);
+				}
+			}
+		}
+		db_query('INSERT INTO ?:bb_bids ?e',$new_bid);
+
+		//Log event
+		//Not working atm
+		// fn_log_event('billibuys', 'create', array('bid' => $new_bid));
+		// 
+		return true;
+		}
 }
 
 /**
@@ -87,16 +130,6 @@ function fn_get_packages($auth){
 }
 
 /**
- * Add or edit packages
- * @param  Array $pdata Package data
- * @return Array        {1} if success, {0, error_message} if failed
- * DEPRECATED: Using packages addon
- */
-function fn_set_packages($pdata){
-
-}
-
-/**
  * Places a request for an item, so vendors can bid on the request
  * @param  int $user user_id of user that entered request
  * @param  string $post $_POST array
@@ -111,8 +144,6 @@ function fn_submit_request($user, $post = ''){
 
 		//Get last id of the requested item
 		$id = db_get_field('SELECT last_insert_id()');
-var_dump($user);
-		die;
 
 		//Same as above, but for the ?:bb_request table
 		$data = Array(
@@ -150,11 +181,11 @@ function fn_get_requests_by_product($product){
 		'SELECT * 
 		FROM ?:bb_requests 
 		INNER JOIN ?:bb_request_item ON 
-			?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id 
+			?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 
 		LEFT OUTER JOIN ?:bb_bids ON
-			?:bb_request_item.bb_request_id = ?:bb_bids.request_item_id
+			?:bb_request_item.bb_request_item_id = ?:bb_bids.request_item_id
 		WHERE ?:bb_request_item.description LIKE ?l
-		ORDER BY min_amt DESC', $product
+		ORDER BY price DESC', $product
 	);
 
 	if(!empty($requests))
@@ -174,22 +205,27 @@ function fn_get_requests_by_product($product){
 function fn_get_request($params){
 
 	// Initialisation
-	// Todo: What happens if bid_id is not specified? Need a default condition in this case
 	$params = array_merge(Array(
 		'request_id' => 0
 		),$params);
 
+	// Filter by fields if field array was specified in $params
+	if(isset($params['fields'])){
+		$fields = implode($params['fields'],',');
+	}else
+		$fields = '*';
+
 	$data = db_get_row(
-		'SELECT *
+		"SELECT $fields
 		FROM ?:bb_requests
 		INNER JOIN ?:bb_request_item ON 
-			?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id 
-		WHERE ?:bb_requests.bb_request_id = ?s
-		', $params['request_id']
+			?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 
+		WHERE ?:bb_requests.bb_request_id = ?i
+		GROUP BY ?:bb_request_item.bb_request_item_id
+		", $params['request_id']
 		);
 
 	return $data;
-
 }
 
 /**
@@ -211,7 +247,7 @@ function fn_get_requests($params){
 				SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
-					?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id'
+					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id'
 			);
 			$requests['success'] = true;
 	}else{
@@ -222,7 +258,7 @@ function fn_get_requests($params){
 				SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
-					?:bb_request_item.bb_request_id = ?:bb_requests.request_item_id 
+					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 
 				WHERE user_id = ?i',$user
 			);
 			$requests['success'] = true;

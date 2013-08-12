@@ -4,7 +4,7 @@
 
 <div id="content_manage_products">
 <form action="{""|fn_url}" method="post" name="manage_products_form">
-<input type="hidden" name="category_id" value="{$search.cid}" />
+<input type="hidden" name="request_id" value="{$request_id}" />
 
 {include file="common_templates/pagination.tpl" save_current_page=true save_current_url=true div_id=$smarty.request.content_id}
 
@@ -104,15 +104,17 @@
 </div>
 {/if}
 
-
 {capture name="select_fields_to_edit"}
-
 
 <div class="buttons-container">
 	{include file="buttons/save_cancel.tpl" but_text=$lang.modify_selected but_name="dispatch[products.store_selection]" cancel_action="close"}
 </div>
 {/capture}
 {include file="common_templates/popupbox.tpl" id="select_fields_to_edit" text=$lang.select_fields_to_edit content=$smarty.capture.select_fields_to_edit}
+
+{capture name="tools"}
+	{include file="common_templates/tools.tpl" tool_href="products.add" prefix="top" link_text=$lang.create_product_package hide_tools=true}
+{/capture}
 
 </form>
 <!--content_manage_products--></div>

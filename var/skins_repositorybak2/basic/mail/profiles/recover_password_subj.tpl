@@ -1,0 +1,1 @@
+{if $company_name}{$company_name|unescape}{else}{$settings.Company.company_name|unescape}{/if}: {$lang.recover_password_subj}

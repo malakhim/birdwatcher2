@@ -14,7 +14,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			'own_auctions' => false,
 		);
 
-		$user = $search_params['user_id'];
+		$user = $search_params['user'];
 
 		if ($_SERVER['REQUEST_METHOD']	== 'POST') {
 			// When values have been POSTed from billibuys.place_request
@@ -25,6 +25,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}else{
 			$requests = fn_get_requests($search_params);	
 		}
+
 		if($requests['success'] == 1){
 			foreach($requests as &$request){
 				if(is_array($request)){
@@ -79,13 +80,48 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$view->assign('requests',$requests);
 	}elseif($mode == 'request'){
 
-		$params = Array('request_id'=>$_GET['request_id']);
-		// Get all bids
+		$params = Array(
+			'request_id'=>$_GET['request_id'],
+			'fields' => Array(
+				'timestamp',
+				'title',
+				'description',
+				'max_price'
+			)
+		);
+
+		// Get database results
 		$request = fn_get_request($params);
+
+		// Remove underscores from any column names in database results and format timestamp
+		foreach($request as $k=>&$r){
+			if($k == 'timestamp'){
+				$r = date('F j Y, g:i a',$r);
+			}
+			if(strpos($k,'_') !== FALSE){
+				$new_key = str_replace('_', ' ', $k);
+				$request[$new_key] = $r;
+				unset($request[$k]);
+			}
+		}
+
+		// Reset params in case need to modify what is searched by later
+		$params = Array('request_id' => $params['request_id']);
+	
+		$bids = fn_get_bids($params);	
+
+		foreach($bids as &$bid){
+			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
+
+		}
 		
+		// These bids are links to the product pages
+		// Pricing is replaced by the bid price
+		// Once bid is purchased, mark request as purchased and no further bids can be purchased
+		$view->assign('bids',$bids);
 		$view->assign('request',$request);
 	}elseif($mode == 'place_request'){
-		if(!$auth.user_id){
+		if(!$auth['user_id']){
 			// Redirect user to login if they ended up on this page accidentally (or otherwise)
 			return array(CONTROLLER_STATUS_REDIRECT, "auth.login_form");
 		}

@@ -1,0 +1,90 @@
+/*-- Slider--*/
+.cm-slider {
+	position: relative;
+}
+/*--Window/Masking Styles--*/
+.cm-slider-window {
+	width: 100%;
+	overflow: hidden; /*--Hides anything outside of the set width/height--*/
+	position: relative;
+}
+.cm-slide-page-reel {
+	position: absolute;
+	top: 0; left: 0;
+}
+.cm-slide-page-reel img {
+	border: 0; padding: 0;
+}
+/*--Paging Styles--*/
+.cm-paging {
+	position: absolute;
+	bottom: 20px; 
+	right: 25px;
+	width: 200px; 
+	height:20px;
+	margin-bottom: 10px;
+	color: #808080;
+	text-align: right;
+	line-height: 40px;
+	display: none; /*--Hidden by default, will be later shown with jQuery--*/
+}
+.cm-paging a, .cm-paging a:visited, .cm-paging a:hover, .cm-paging a:active {
+	display: inline-block;
+	padding: 5px 8px;
+	background: #dbdbdb;
+	text-decoration: none;
+	text-align: center;
+	color: #808080;
+	line-height: 100%;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.cm-paging a.active {
+	font-weight: bold;
+	background: #4d4d4d;
+	color: #fff;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.cm-paging-dots a, .cm-paging-dots a:hover {
+	width: 15px;
+	padding: 0;
+	background: url(../../images/paging_dots.png) 0 0 no-repeat;
+}
+.cm-paging-dots a.active {
+	width: 15px;
+	padding: 0;
+	background: url(../../images/paging_dots.png) 0 -40px no-repeat;
+}
+.cm-slide-page {
+	float: left;
+	text-align: center;
+	vertical-align: middle;
+}
+/*-- Arrows --*/
+.cm-slide-prev, .cm-slide-next {
+	position: absolute;
+	width: 18px;
+	height: 36px;
+	bottom: 50px;
+	cursor: pointer;
+	background-image: url(../../images/icons/prev_next_btn_sprite.png);
+	background-repeat: no-repeat;
+}
+.cm-slide-prev {
+	left: 20px;
+	background-position: 0 0;
+}
+.cm-slide-next {
+	right: 20px;
+	background-position: 100% 0;
+}
+.cm-slide-prev:hover {
+	background-position: 0 -60px;
+}
+.cm-slide-next:hover {
+	background-position: 100% -60px;	
+}
+/*-- /Slider--*/

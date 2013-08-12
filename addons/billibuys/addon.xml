@@ -77,6 +77,7 @@
 		<item lang="EN" id="posted">Posted</item>
 		<item lang="EN" id="currenth_bid">Current Bid</item>
 		<item lang="EN" id="place_bid">Place Bid</item>
+		<item lang="EN" id="create_product_package">Create new Product/Package</item>
 
 		<!-- Back end package view variables -->
 		<item lang="EN" id="add_package">Add Package</item>
@@ -85,6 +86,7 @@
 		<item lang="EN" id="item">Item</item>
 
 		<!-- Front end view variables -->
+		<item lang="EN" id="bb_item_enter_through_bids">This item can only be purchased through bids</item>
 		<item lang="EN" id="bb_enter_item">Please enter the item you want here</item>
 		<item lang="EN" id="bb_ms_since_submitted">Microseconds since submitted</item>
 		<item lang="EN" id="bb_current_bid">Current bid</item>

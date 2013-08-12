@@ -1,0 +1,1 @@
+<li><a href="{"events.search"|fn_url}" rel="nofollow">{$lang.events}</a></li>

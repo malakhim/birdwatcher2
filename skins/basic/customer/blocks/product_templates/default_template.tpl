@@ -1,13 +1,13 @@
-
 {script src="js/exceptions.js"}
 
 <div class="product-main-info">
 <div class="clearfix">
+
 {hook name="products:view_main_info"}
 
 	{if $product}
 	{assign var="obj_id" value=$product.product_id}
-	{include file="common_templates/product_data.tpl" product=$product separate_buttons=$separate_buttons|default:true but_role="big" but_text=$lang.add_to_shopping_cart}
+
 		{if !$no_images}
 			<div class="image-border float-left center cm-reload-{$product.product_id}" id="product_images_{$product.product_id}_update">
 				{include file="views/products/components/product_images.tpl" product=$product show_detailed_link="Y"}

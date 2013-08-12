@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-06-14 13:39:29
+<?php /* Smarty version 2.6.18, created on 2013-08-13 08:04:36
          compiled from common_templates/product_data.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_product_features_list', 'common_templates/product_data.tpl', 1, false),array('modifier', 'escape', 'common_templates/product_data.tpl', 1, false),array('modifier', 'default', 'common_templates/product_data.tpl', 1, false),array('modifier', 'floatval', 'common_templates/product_data.tpl', 17, false),array('modifier', 'fn_url', 'common_templates/product_data.tpl', 30, false),array('modifier', 'unescape', 'common_templates/product_data.tpl', 46, false),array('modifier', 'strip_tags', 'common_templates/product_data.tpl', 48, false),array('modifier', 'truncate', 'common_templates/product_data.tpl', 48, false),array('modifier', 'trim', 'common_templates/product_data.tpl', 88, false),array('modifier', 'replace', 'common_templates/product_data.tpl', 119, false),array('modifier', 'date_format', 'common_templates/product_data.tpl', 192, false),array('modifier', 'strlen', 'common_templates/product_data.tpl', 371, false),array('modifier', 'format_price', 'common_templates/product_data.tpl', 390, false),array('modifier', 'reset', 'common_templates/product_data.tpl', 440, false),array('modifier', 'fn_get_company_name', 'common_templates/product_data.tpl', 601, false),array('modifier', 'fn_generate_thumbnail', 'common_templates/product_data.tpl', 796, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'common_templates/product_data.tpl', 799, false),array('block', 'hook', 'common_templates/product_data.tpl', 72, false),array('function', 'math', 'common_templates/product_data.tpl', 714, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_product_features_list', 'common_templates/product_data.tpl', 1, false),array('modifier', 'escape', 'common_templates/product_data.tpl', 1, false),array('modifier', 'default', 'common_templates/product_data.tpl', 1, false),array('modifier', 'floatval', 'common_templates/product_data.tpl', 17, false),array('modifier', 'fn_url', 'common_templates/product_data.tpl', 30, false),array('modifier', 'unescape', 'common_templates/product_data.tpl', 46, false),array('modifier', 'strip_tags', 'common_templates/product_data.tpl', 48, false),array('modifier', 'truncate', 'common_templates/product_data.tpl', 48, false),array('modifier', 'trim', 'common_templates/product_data.tpl', 88, false),array('modifier', 'replace', 'common_templates/product_data.tpl', 119, false),array('modifier', 'date_format', 'common_templates/product_data.tpl', 192, false),array('modifier', 'strlen', 'common_templates/product_data.tpl', 371, false),array('modifier', 'format_price', 'common_templates/product_data.tpl', 390, false),array('modifier', 'reset', 'common_templates/product_data.tpl', 440, false),array('modifier', 'fn_get_company_name', 'common_templates/product_data.tpl', 601, false),array('modifier', 'fn_generate_thumbnail', 'common_templates/product_data.tpl', 797, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'common_templates/product_data.tpl', 800, false),array('block', 'hook', 'common_templates/product_data.tpl', 72, false),array('function', 'math', 'common_templates/product_data.tpl', 715, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('sku','select_options','delete','view_details','delete','product_coming_soon','product_coming_soon_add','product_coming_soon','product_coming_soon_add','text_out_of_stock','notify_when_back_in_stock','email','enter_email','enter_email','go','go','product_coming_soon','product_coming_soon_add','view_details','delete','more','old_price','list_price','enter_your_price','contact_us_for_price','sign_in_to_view_price','inc_tax','including_tax','you_save','you_save','in_stock','items','text_out_of_stock','in_stock','text_out_of_stock','vendor','supplier','bought','qty','text_cart_min_qty','text_edp_product','view_larger_image'));
 ?>
@@ -140,6 +140,12 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
 $this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['8bafe07ab63b336ab024574d533dd40e'])) { echo implode("\n", $this->_scripts['8bafe07ab63b336ab024574d533dd40e']); unset($this->_scripts['8bafe07ab63b336ab024574d533dd40e']); }
  ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
+<?php else: ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php ob_start(); $this->_in_capture[] = 'd44e82db4e648a717fb54217c0aa5151';
+$_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/bundled_products/hooks/products/buttons_block.override.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+$this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['d44e82db4e648a717fb54217c0aa5151'])) { echo implode("\n", $this->_scripts['d44e82db4e648a717fb54217c0aa5151']); unset($this->_scripts['d44e82db4e648a717fb54217c0aa5151']); }
+ ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
 <?php else: ?><?php $this->_tag_stack[] = array('hook', array('name' => "products:buttons_block")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
 	<?php if (! ( $this->_tpl_vars['product']['zero_price_action'] == 'R' && $this->_tpl_vars['product']['price'] == 0 ) && ! ( $this->_tpl_vars['settings']['General']['inventory_tracking'] == 'Y' && $this->_tpl_vars['settings']['General']['allow_negative_amount'] != 'Y' && ( ( $this->_tpl_vars['product_amount'] <= 0 || $this->_tpl_vars['product_amount'] < $this->_tpl_vars['product']['min_qty'] ) && $this->_tpl_vars['product']['tracking'] != 'D' ) && $this->_tpl_vars['product']['is_edp'] != 'Y' ) || ( $this->_tpl_vars['product']['has_options'] && ! $this->_tpl_vars['show_product_options'] )): ?>
 		<<?php if ($this->_tpl_vars['separate_buttons']): ?>div class="buttons-container"<?php else: ?>span<?php endif; ?> id="cart_add_block_<?php echo $this->_tpl_vars['obj_prefix']; ?>
@@ -151,6 +157,12 @@ $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_includ
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
 $this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['3873156d53acf01e8b9c41d836c88da9'])) { echo implode("\n", $this->_scripts['3873156d53acf01e8b9c41d836c88da9']); unset($this->_scripts['3873156d53acf01e8b9c41d836c88da9']); }
+ ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
+<?php else: ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php ob_start(); $this->_in_capture[] = 'f1cf3494f21350428f79a25fc09a14a8';
+$_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/bundled_products/hooks/products/add_to_cart.override.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+$this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['f1cf3494f21350428f79a25fc09a14a8'])) { echo implode("\n", $this->_scripts['f1cf3494f21350428f79a25fc09a14a8']); unset($this->_scripts['f1cf3494f21350428f79a25fc09a14a8']); }
  ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
 <?php else: ?><?php $this->_tag_stack[] = array('hook', array('name' => "products:add_to_cart")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
 				<?php if ($this->_tpl_vars['product']['has_options'] && ! $this->_tpl_vars['show_product_options'] && ! $this->_tpl_vars['details_page']): ?>
@@ -346,7 +358,7 @@ unset($_smarty_tpl_vars);
 
 					<?php $this->assign('cart_button_exists', true, false); ?>
 				<?php endif; ?>
-				<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?>
+				<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?><?php endif; ?>
 			<?php endif; ?>
 			<?php if ($this->_tpl_vars['product']['avail_since'] > @TIME): ?>
 				<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('avail_date' => $this->_tpl_vars['product']['avail_since'], 'add_to_cart' => $this->_tpl_vars['product']['out_of_stock_actions'], )); ?><div class="product-coming-soon">
@@ -564,7 +576,7 @@ unset($_smarty_tpl_vars);
 		</div>
 	<?php endif; ?>
 
-		<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?>
+		<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?><?php endif; ?>
 <!--add_to_cart_update_<?php echo $this->_tpl_vars['obj_prefix']; ?>
 <?php echo $this->_tpl_vars['obj_id']; ?>
 --></div>
@@ -681,7 +693,13 @@ if ($this->_foreach['ffev']['total'] > 0):
 " />
 		<?php if ($this->_tpl_vars['show_price_values']): ?>
 			<?php if ($this->_tpl_vars['show_price']): ?>
-			<?php $this->_tag_stack[] = array('hook', array('name' => "products:prices_block")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+			<?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php ob_start(); $this->_in_capture[] = '0bc3784ba8f6564b623da4eb06ee465c';
+$_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/bundled_products/hooks/products/prices_block.override.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+$this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['0bc3784ba8f6564b623da4eb06ee465c'])) { echo implode("\n", $this->_scripts['0bc3784ba8f6564b623da4eb06ee465c']); unset($this->_scripts['0bc3784ba8f6564b623da4eb06ee465c']); }
+ ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
+<?php else: ?><?php $this->_tag_stack[] = array('hook', array('name' => "products:prices_block")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
 				<?php if (floatval($this->_tpl_vars['product']['price']) || $this->_tpl_vars['product']['zero_price_action'] == 'P' || ( $this->_tpl_vars['hide_add_to_cart_button'] == 'Y' && $this->_tpl_vars['product']['zero_price_action'] == 'A' )): ?>
 					<span class="price<?php if (! floatval($this->_tpl_vars['product']['price'])): ?> hidden<?php endif; ?>" id="line_discounted_price_<?php echo $this->_tpl_vars['obj_prefix']; ?>
 <?php echo $this->_tpl_vars['obj_id']; ?>
@@ -713,7 +731,7 @@ if ($this->_foreach['ffev']['total'] > 0):
 ][recurring_plan_id]" value="<?php echo $this->_tpl_vars['_cur_plan_id']; ?>
 " />
 
-<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?>
 			<?php endif; ?>
 		<?php elseif ($this->_tpl_vars['settings']['General']['allow_anonymous_shopping'] == 'P' && ! $this->_tpl_vars['auth']['user_id']): ?>
 			<span class="price"><?php echo fn_get_lang_var('sign_in_to_view_price', $this->getLanguage()); ?>
@@ -974,6 +992,7 @@ unset($_smarty_tpl_vars);
 	<?php echo $this->_smarty_vars['capture'][$this->_tpl_vars['capture_name']]; ?>
 
 <?php endif; ?>
+
 <?php ob_start(); ?>
 	<?php $this->_tag_stack[] = array('hook', array('name' => "products:qty")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
 	<?php if ($this->_tpl_vars['show_qty']): ?>
@@ -1127,7 +1146,10 @@ unset($_smarty_tpl_vars);
 --></div>
 <?php endforeach; endif; unset($_from); ?>
 
-<?php $this->_tag_stack[] = array('hook', array('name' => "products:product_data")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['recurring_billing']['status'] == 'A'): ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/recurring_billing/hooks/products/product_data.post.tpl", 'smarty_include_vars' => array()));
+<?php $this->_tag_stack[] = array('hook', array('name' => "products:product_data")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/bundled_products/hooks/products/product_data.post.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['recurring_billing']['status'] == 'A'): ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/recurring_billing/hooks/products/product_data.post.tpl", 'smarty_include_vars' => array()));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>

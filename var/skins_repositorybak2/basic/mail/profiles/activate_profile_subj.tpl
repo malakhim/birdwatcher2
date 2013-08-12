@@ -1,0 +1,1 @@
+{if $user_data.company_name}{$user_data.company_name|unescape}{else}{$settings.Company.company_name|unescape}{/if}: {$lang.new_user_profile}

@@ -8,7 +8,7 @@
 	<tr>
 		<th>{$lang.item}</th>
 		<th>{$lang.posted}</th>
-		<th>{$lang.current_bid}</th>
+		{*<th>{$lang.current_bid}</th>*}
 		{*<th>{$lang.place_bid}</th> //This has been replaced by button on the request page*}
 	</tr>
 
@@ -35,7 +35,7 @@
 							{/if}
 						{/if}
 					</td>
-					<td>{if $request.min_amt ne ''}${$request.min_amt}{else}No Bids Yet!{/if}</td>
+					{*<td>{if $request.min_amt ne ''}${$request.min_amt}{else}No Bids Yet!{/if}</td>*}
 					{*<td>$&nbsp;
 					
 						<input type="text" name="bb_data[{$request.bb_request_id}][bid]" size="7" class="input-text-medium" /></td>*}

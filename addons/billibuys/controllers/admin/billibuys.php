@@ -10,7 +10,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 
 	if($mode == 'view'){
-
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$bb_data = $_POST['bb_data'];
 			if(is_array($bb_data)){
@@ -85,7 +84,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$params = Array('request_id'=>$_GET['request_id']);
 		// Get all bids
 		$request = fn_get_request($params);
-		
+
 		$view->assign('request',$request);
 	}elseif($mode == 'place_bid'){
 		// Get list of products
@@ -316,17 +315,21 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	$view->assign('feature_items', $features);
 	unset($features);
 
+	$view->assign('request_id',$params['request_id']);
+
 	$view->assign('product_count', $product_count);
 	fn_paginate((isset($_REQUEST['page']) ? $_REQUEST['page'] : 1), $product_count, Registry::get('settings.Appearance.admin_products_per_page'));
 		// Let users place a bid
-		
 
 	$view->assign('products', $products);
 	$view->assign('search', $search);
 
-
 	}elseif($mode == 'm_place_bid'){
-		var_dump($_POST);die;
+		// Todo: Error condition for this (invalid POSTs)
+		$result = fn_submit_bids($_POST,$auth);
+
+		header('Location: vendor.php?dispatch=billibuys.view',true);
+		die;
 	}
 
 

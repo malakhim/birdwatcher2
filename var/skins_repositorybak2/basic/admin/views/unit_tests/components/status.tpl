@@ -1,0 +1,1 @@
+{if $status|fn_test_has_status}{if $status == false}{$false}{elseif $status == true}{$true}{/if}{/if}

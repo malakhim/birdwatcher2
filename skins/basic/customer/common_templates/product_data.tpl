@@ -388,6 +388,7 @@
 	{assign var="capture_name" value="advanced_options_`$obj_id`"}
 	{$smarty.capture.$capture_name}
 {/if}
+
 {capture name="qty_`$obj_id`"}
 	{hook name="products:qty"}
 	{if $show_qty}

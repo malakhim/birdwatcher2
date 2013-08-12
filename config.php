@@ -141,7 +141,7 @@ define('LAST_EDITED_ITEMS_COUNT', 10);
 define('AUTO_META_DESCRIPTION', true);
 
 // Debug mode (displays report a bug button)
-// define('DEBUG_MODE', true);
+define('DEBUG_MODE', true);
 
 // Database default tables prefix
 define('DEFAULT_TABLE_PREFIX', 'cscart_');

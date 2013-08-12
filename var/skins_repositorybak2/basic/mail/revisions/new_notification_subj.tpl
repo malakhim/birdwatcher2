@@ -1,0 +1,1 @@
+{$lang.new_notification_subject}
