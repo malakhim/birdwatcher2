@@ -83,6 +83,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$params = Array(
 			'request_id'=>$_GET['request_id'],
 			'fields' => Array(
+				'bb_request_id',
 				'timestamp',
 				'title',
 				'description',
@@ -98,6 +99,9 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			if($k == 'timestamp'){
 				$r = date('F j Y, g:i a',$r);
 			}
+			if($k == 'bb_request_id'){
+				$request['id'] = $r;
+			}
 			if(strpos($k,'_') !== FALSE){
 				$new_key = str_replace('_', ' ', $k);
 				$request[$new_key] = $r;
@@ -112,12 +116,12 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 		foreach($bids as &$bid){
 			$bid['tot_price'] = $bid['price'] * $bid['quantity'];
-
 		}
 		
 		// These bids are links to the product pages
 		// Pricing is replaced by the bid price
 		// Once bid is purchased, mark request as purchased and no further bids can be purchased
+		$view->assign('uid',md5($auth['user_id']));
 		$view->assign('bids',$bids);
 		$view->assign('request',$request);
 	}elseif($mode == 'place_request'){

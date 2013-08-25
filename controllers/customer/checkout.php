@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$product_cnt += $added_products[$key]['amount'];
 				}
 			}
-
 			if (!empty($added_products)) {
 				$view->assign('added_products', $added_products);
 				if (Registry::get('settings.DHTML.ajax_add_to_cart') != 'Y' && Registry::get('settings.General.redirect_to_cart') == 'Y') {

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-13 08:20:10
+<?php /* Smarty version 2.6.18, created on 2013-08-25 15:11:44
          compiled from addons/billibuys/hooks/products/view_main_info.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 1, false),array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 28, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 34, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 60, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 110, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 323, false),array('modifier', 'escape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 323, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 326, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 551, false),array('function', 'math', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 241, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 1, false),array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 28, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 34, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 60, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 111, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 324, false),array('modifier', 'escape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 324, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 327, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 552, false),array('function', 'math', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 242, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('add_to_shopping_cart','price','qty','add_all_to_cart','delete','bundle_unavailable','bb_item_purchased_through_bids','view_larger_image','description'));
 ?>
@@ -86,9 +86,11 @@ _<?php echo $this->_tpl_vars['chain']['chain_id']; ?>
 								<div class="chain-new-price">
 									<span class="chain-new"><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
 </span>
-									<input type="hidden" name="package_price" value="<?php echo $this->_tpl_vars['chain']['chain_price']; ?>
+									<input type="hidden" name="product_data[<?php echo $this->_tpl_vars['chain']['product_id']; ?>
+_<?php echo $this->_tpl_vars['chain']['chain_id']; ?>
+][price]" value="<?php echo $this->_tpl_vars['price']; ?>
 "/>
-									<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['chain']['chain_price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
+									<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('value' => $this->_tpl_vars['price'], )); ?><?php echo ''; ?><?php if ($this->_tpl_vars['settings']['General']['alternative_currency'] == 'Y'): ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], false); ?><?php echo ''; ?><?php if ($this->_tpl_vars['secondary_currency'] != $this->_tpl_vars['primary_currency']): ?><?php echo '&nbsp;'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo '('; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true, $this->_tpl_vars['is_integer']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '<span class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ')'; ?><?php if ($this->_tpl_vars['class']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php echo smarty_modifier_format_price($this->_tpl_vars['value'], $this->_tpl_vars['currencies'][$this->_tpl_vars['secondary_currency']], $this->_tpl_vars['span_id'], $this->_tpl_vars['class'], true); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 								</div>
 							
@@ -115,10 +117,12 @@ _<?php echo $this->_tpl_vars['chain']['chain_id']; ?>
 												<input type="text" size="5" class="input-text-short cm-amount" id="qty_count_<?php echo $this->_tpl_vars['obj_prefix']; ?>
 <?php echo $this->_tpl_vars['chain']['product_id']; ?>
 _<?php echo $this->_tpl_vars['chain']['chain_id']; ?>
-" name="product_data[<?php echo $this->_tpl_vars['chain']['product_id']; ?>
-_<?php echo $this->_tpl_vars['chain']['chain_id']; ?>
-][amount]" value="<?php echo smarty_modifier_default(($this->_tpl_vars['default_amount']), 1); ?>
+"  value="<?php echo smarty_modifier_default(($this->_tpl_vars['quantity']), 1); ?>
 " disabled />
+												<input type="hidden" name="product_data[<?php echo $this->_tpl_vars['chain']['product_id']; ?>
+_<?php echo $this->_tpl_vars['chain']['chain_id']; ?>
+][amount]" value="<?php echo smarty_modifier_default(($this->_tpl_vars['quantity']), 1); ?>
+" />
 											</div>
 										</div>
 									

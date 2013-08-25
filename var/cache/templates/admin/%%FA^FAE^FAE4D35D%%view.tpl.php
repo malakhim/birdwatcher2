@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 16:54:57
+<?php /* Smarty version 2.6.18, created on 2013-08-18 12:17:19
          compiled from addons/billibuys/views/billibuys/view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/view.tpl', 1, false),array('modifier', 'fn_check_form_permissions', 'addons/billibuys/views/billibuys/view.tpl', 19, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/view.tpl', 58, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/view.tpl', 59, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/view.tpl', 32, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('create_notification','item','posted','current_bid','remove_this_item','remove_this_item','two_weeks_plus','error_occurred','error_occurred','no_data','billibuys'));
+fn_preload_lang_vars(array('create_notification','item','posted','remove_this_item','remove_this_item','two_weeks_plus','error_occurred','error_occurred','no_data','billibuys'));
 ?>
 <?php 
 
@@ -37,9 +37,7 @@ unset($_smarty_tpl_vars);
 </th>
 		<th><?php echo fn_get_lang_var('posted', $this->getLanguage()); ?>
 </th>
-		<th><?php echo fn_get_lang_var('current_bid', $this->getLanguage()); ?>
-</th>
-			</tr>
+					</tr>
 
 	<?php if ($this->_tpl_vars['requests']['success']): ?>
 		<?php $_from = $this->_tpl_vars['requests']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
@@ -164,9 +162,7 @@ unset($_smarty_tpl_vars);
 							<?php endif; ?>
 						<?php endif; ?>
 					</td>
-					<td><?php if ($this->_tpl_vars['request']['min_amt'] != ''): ?>$<?php echo $this->_tpl_vars['request']['min_amt']; ?>
-<?php else: ?>No Bids Yet!<?php endif; ?></td>
-									</tr>
+														</tr>
 			<?php endif; ?>
 		<?php endforeach; endif; unset($_from); ?>
 	<?php else: ?>

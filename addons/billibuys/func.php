@@ -9,6 +9,22 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
+function fn_billibuys_get_product_price_pre($product_id, $amount, $auth){
+	
+}
+
+function fn_get_bid_by_product($product_id,$request_id){
+	$bid = db_get_row("
+			SELECT *
+			FROM
+				?:bb_bids
+			WHERE
+				?:bb_bids.product_id = $product_id AND ?:bb_bids.request_item_id = $request_id
+			GROUP BY bb_item_id
+		");
+
+	return $bid;
+}
 
 /**
  * Gets all the bids for a particular request
@@ -38,6 +54,7 @@ function fn_get_bids($params){
 		GROUP BY request_item_id",
 			$params['request_id']
 		);
+
 	return $bids;
 }
 

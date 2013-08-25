@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 17:10:16
+<?php /* Smarty version 2.6.18, created on 2013-08-18 12:19:12
          compiled from addons/billibuys/views/billibuys/view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/view.tpl', 1, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/view.tpl', 66, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/view.tpl', 40, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_place_request','item','durat_since_start','current_bid','delete','two_weeks_plus','error_occurred','error_occurred','bb_no_bids','text_no_matching_results_found','please_login','bb_error_occurred','billibuys'));
+fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_place_request','item','durat_since_start','delete','two_weeks_plus','error_occurred','error_occurred','text_no_matching_results_found','please_login','bb_error_occurred','billibuys'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -37,9 +37,7 @@ fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_p
 </th>
 				<th><?php echo fn_get_lang_var('durat_since_start', $this->getLanguage()); ?>
 </th>
-				<th><?php echo fn_get_lang_var('current_bid', $this->getLanguage()); ?>
-</th>
-			</tr>
+							</tr>
 		<?php $_from = $this->_tpl_vars['requests']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['request']):
 ?>
@@ -153,10 +151,7 @@ fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_p
 							<?php endif; ?>
 						<?php endif; ?>
 					</td>
-					<td><?php if ($this->_tpl_vars['request']['current_bid'] != ''): ?>$<?php echo $this->_tpl_vars['request']['current_bid']; ?>
-<?php else: ?><?php echo fn_get_lang_var('bb_no_bids', $this->getLanguage()); ?>
-!<?php endif; ?></td>
-				</tr>
+									</tr>
 			<?php endif; ?>
 		<?php endforeach; endif; unset($_from); ?>
 		</table>

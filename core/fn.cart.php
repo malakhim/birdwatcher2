@@ -3646,6 +3646,7 @@ function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
 {
 	$ids = array();
 	if (!empty($product_data) && is_array($product_data)) {
+
 		if (!defined('GET_OPTIONS')) {
 			list($product_data, $cart) = fn_add_product_options_files($product_data, $cart, $auth, $update);
 		}

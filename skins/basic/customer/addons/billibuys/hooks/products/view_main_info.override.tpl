@@ -40,8 +40,8 @@
 							<div class="chain-price">
 								<div class="chain-new-price">
 									<span class="chain-new">{$lang.price}</span>
-									<input type="hidden" name="package_price" value="{$chain.chain_price}"/>
-									{include file="common_templates/price.tpl" value=$chain.chain_price}
+									<input type="hidden" name="product_data[{$chain.product_id}_{$chain.chain_id}][price]" value="{$price}"/>
+									{include file="common_templates/price.tpl" value=$price}
 								</div>
 							
 							</div>
@@ -57,7 +57,8 @@
 										<div style="padding: 0 !important;" class="qty {if $quick_view} form-field{if !$capture_options_vs_qty} product-list-field{/if}{/if}{if $settings.Appearance.quantity_changer == "Y"} changer{/if}" id="qty_{$obj_prefix}{$chain.product_id}_{$chain.chain_id}">
 											<label for="qty_count_{$obj_prefix}{$chain.product_id}_{$chain.chain_id}">{$quantity_text|default:$lang.qty}:</label>
 											<div class="center valign cm-value-changer">
-												<input type="text" size="5" class="input-text-short cm-amount" id="qty_count_{$obj_prefix}{$chain.product_id}_{$chain.chain_id}" name="product_data[{$chain.product_id}_{$chain.chain_id}][amount]" value="{"$default_amount"|default:1}" disabled />
+												<input type="text" size="5" class="input-text-short cm-amount" id="qty_count_{$obj_prefix}{$chain.product_id}_{$chain.chain_id}"  value="{"$quantity"|default:1}" disabled />
+												<input type="hidden" name="product_data[{$chain.product_id}_{$chain.chain_id}][amount]" value="{"$quantity"|default:1}" />
 											</div>
 										</div>
 									

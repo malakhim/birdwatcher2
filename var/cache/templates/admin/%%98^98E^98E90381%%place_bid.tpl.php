@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.18, created on 2013-07-14 17:39:49
+<?php /* Smarty version 2.6.18, created on 2013-08-18 12:16:55
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 25, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'fn_get_company_name', 'addons/billibuys/views/billibuys/place_bid.tpl', 100, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 108, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 163, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 50, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 69, false),array('block', 'hook', 'addons/billibuys/views/billibuys/place_bid.tpl', 221, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 25, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 75, false),array('modifier', 'fn_get_company_name', 'addons/billibuys/views/billibuys/place_bid.tpl', 100, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 108, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 163, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 244, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 245, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 257, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 50, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 69, false),array('block', 'hook', 'addons/billibuys/views/billibuys/place_bid.tpl', 221, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','product_code','price','list_price','purchased_qty','subtotal_sum','quantity','vendor','supplier','product_code','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','edit','remove_this_item','remove_this_item','no_data','select_all','unselect_all','clone_selected','export_selected','delete_selected','edit_selected','modify_selected','select_fields_to_edit','products'));
+fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','product_code','price','list_price','purchased_qty','subtotal_sum','quantity','vendor','supplier','product_code','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','edit','remove_this_item','remove_this_item','no_data','select_all','unselect_all','clone_selected','export_selected','delete_selected','edit_selected','modify_selected','select_fields_to_edit','create_product_package','or','tools','add','products'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/table_tools.tpl' => 1367063753,
+  'common_templates/tools.tpl' => 1367063753,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -29,7 +29,7 @@ unset($_smarty_tpl_vars);
 <div id="content_manage_products">
 <form action="<?php echo fn_url(""); ?>
 " method="post" name="manage_products_form">
-<input type="hidden" name="category_id" value="<?php echo $this->_tpl_vars['search']['cid']; ?>
+<input type="hidden" name="request_id" value="<?php echo $this->_tpl_vars['request_id']; ?>
 " />
 
 <?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/pagination.tpl", 'smarty_include_vars' => array('save_current_page' => true,'save_current_url' => true,'div_id' => $this->_tpl_vars['_REQUEST']['content_id'])));
@@ -352,9 +352,7 @@ unset($_smarty_tpl_vars);
 </div>
 <?php endif; ?>
 
-
 <?php ob_start(); ?>
-
 
 <div class="buttons-container">
 	<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/save_cancel.tpl", 'smarty_include_vars' => array('but_text' => fn_get_lang_var('modify_selected', $this->getLanguage()),'but_name' => "dispatch[products.store_selection]",'cancel_action' => 'close')));
@@ -367,6 +365,50 @@ unset($_smarty_tpl_vars);
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
+
+<?php ob_start(); ?>
+	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('tool_href' => "products.add", 'prefix' => 'top', 'link_text' => fn_get_lang_var('create_product_package', $this->getLanguage()), 'hide_tools' => true, )); ?><?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
+
+<?php if ($this->_tpl_vars['tools_list'] && $this->_tpl_vars['prefix'] == 'main' && ! $this->_tpl_vars['only_popup']): ?> <?php echo fn_get_lang_var('or', $this->getLanguage()); ?>
+ <?php endif; ?>
+
+<?php if (substr_count($this->_tpl_vars['tools_list'], "<li") == 1): ?>
+	<?php echo smarty_modifier_replace($this->_tpl_vars['tools_list'], "<ul>", "<ul class=\"cm-tools-list tools-list\">"); ?>
+
+<?php else: ?>
+	<div class="tools-container<?php if ($this->_tpl_vars['display']): ?> <?php echo $this->_tpl_vars['display']; ?>
+<?php endif; ?>">
+		<?php if (! $this->_tpl_vars['hide_tools'] && $this->_tpl_vars['tools_list']): ?>
+		<div class="tools-content<?php if ($this->_tpl_vars['display']): ?> <?php echo $this->_tpl_vars['display']; ?>
+<?php endif; ?>">
+			<a class="cm-combo-on cm-combination <?php if ($this->_tpl_vars['override_meta']): ?><?php echo $this->_tpl_vars['override_meta']; ?>
+<?php else: ?>select-button<?php endif; ?><?php if ($this->_tpl_vars['link_meta']): ?> <?php echo $this->_tpl_vars['link_meta']; ?>
+<?php endif; ?>" id="sw_tools_list_<?php echo $this->_tpl_vars['prefix']; ?>
+"><?php echo smarty_modifier_default(@$this->_tpl_vars['link_text'], fn_get_lang_var('tools', $this->getLanguage())); ?>
+</a>
+			<div id="tools_list_<?php echo $this->_tpl_vars['prefix']; ?>
+" class="cm-tools-list popup-tools hidden cm-popup-box cm-smart-position">
+					<?php echo $this->_tpl_vars['tools_list']; ?>
+
+			</div>
+		</div>
+		<?php endif; ?>
+		<?php if (! $this->_tpl_vars['hide_actions']): ?>
+			<?php if (! ( defined('COMPANY_ID') && ! fn_check_view_permissions($this->_tpl_vars['tool_href']) )): ?>
+				<span class="action-add">
+					<a<?php if ($this->_tpl_vars['tool_id']): ?> id="<?php echo $this->_tpl_vars['tool_id']; ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['tool_href']): ?> href="<?php echo fn_url($this->_tpl_vars['tool_href']); ?>
+"<?php endif; ?><?php if ($this->_tpl_vars['tool_onclick']): ?> onclick="<?php echo $this->_tpl_vars['tool_onclick']; ?>
+; return false;"<?php endif; ?>><?php echo smarty_modifier_default(@$this->_tpl_vars['link_text'], fn_get_lang_var('add', $this->getLanguage())); ?>
+</a>
+				</span>
+			<?php endif; ?>
+		<?php endif; ?>
+	</div>
+<?php endif; ?>
+
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+<?php $this->_smarty_vars['capture']['tools'] = ob_get_contents(); ob_end_clean(); ?>
 
 </form>
 <!--content_manage_products--></div>
