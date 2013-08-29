@@ -11,7 +11,7 @@ if ($mode == 'add'){
 
 	$prev_cart_products = empty($cart['products']) ? array() : $cart['products'];
 
-	fn_add_product_to_cart($_REQUEST['product_data'], $cart, $auth);
+	fn_add_product_to_cart($_REQUEST['product_data'], $cart, $auth,$_REQUEST['bid_id']);
 	fn_save_cart_content($cart, $auth['user_id']);
 
 	$previous_state = md5(serialize($cart['products']));

@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-29 15:31:50
-         compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-08-29 15:31:56
+         compiled from buttons/add_to_cart.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'ucwords', 'addons/billibuys/views/billibuys/request.tpl', 19, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/request.tpl', 60, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/request.tpl', 34, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/add_to_cart.tpl', 1, false),array('modifier', 'escape', 'buttons/add_to_cart.tpl', 16, false),array('modifier', 'replace', 'buttons/add_to_cart.tpl', 43, false),array('modifier', 'fn_url', 'buttons/add_to_cart.tpl', 43, false),array('block', 'hook', 'buttons/add_to_cart.tpl', 15, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('item','price','name','quantity','total_price','delete','place_bid','delete'));
+fn_preload_lang_vars(array('add_to_cart','delete','sign_in_to_buy','delete','text_login_to_add_to_cart'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -19,39 +19,10 @@ fn_preload_lang_vars(array('item','price','name','quantity','total_price','delet
 						return;
 					}
 				}
-			 ?><?php ob_start(); ?><?php echo $this->_tpl_vars['request']['title']; ?>
-<?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>
-
-<?php $_from = $this->_tpl_vars['request']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['r']):
-?>
-	<?php if ($this->_tpl_vars['k'] != 'title' && $this->_tpl_vars['k'] != 'bb request id' && $this->_tpl_vars['k'] != 'id'): ?>
-		<strong><?php echo ucwords($this->_tpl_vars['k']); ?>
-</strong>: <?php echo $this->_tpl_vars['r']; ?>
-<br />
-	<?php endif; ?>
-<?php endforeach; endif; unset($_from); ?>
-
-<table cellpadding="0" cellspacing="0" width="100%" border="0" class="table">
-	<tr>
-		<th><?php echo fn_get_lang_var('item', $this->getLanguage()); ?>
-</th>
-		<th><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
-</th>
-		<th><?php echo fn_get_lang_var('name', $this->getLanguage()); ?>
-</th>
-		<th><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
-</th>
-		<th><?php echo fn_get_lang_var('total_price', $this->getLanguage()); ?>
-</th>
-			</tr>
-<?php $_from = $this->_tpl_vars['bids']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['bid']):
-?>
-	<?php if (is_array ( $this->_tpl_vars['bid'] )): ?>
-		<tr <?php echo smarty_function_cycle(array('values' => "class=\"table-row\","), $this);?>
->
-			<td><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['bid']['product'], 'but_href' => fn_url("products.view&product_id=".($this->_tpl_vars['bid']['product_id'])."&request_id=".($this->_tpl_vars['_REQUEST']['request_id'])."&bid_id=".($this->_tpl_vars['bid']['bb_item_id'])), 'but_role' => 'text', )); ?>
+			 ?><?php $this->_tag_stack[] = array('hook', array('name' => "buttons:add_to_cart")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+	<?php $this->assign('c_url', smarty_modifier_escape($this->_tpl_vars['config']['current_url'], 'url'), false); ?>
+	<?php if ($this->_tpl_vars['settings']['General']['allow_anonymous_shopping'] == 'Y' || $this->_tpl_vars['auth']['user_id']): ?>
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_id' => $this->_tpl_vars['but_id'], 'but_text' => smarty_modifier_default(@$this->_tpl_vars['but_text'], fn_get_lang_var('add_to_cart', $this->getLanguage())), 'but_name' => $this->_tpl_vars['but_name'], 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_target' => $this->_tpl_vars['but_target'], 'but_role' => smarty_modifier_default(@$this->_tpl_vars['but_role'], 'text'), )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -137,21 +108,16 @@ fn_preload_lang_vars(array('item','price','name','quantity','total_price','delet
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?></td>
-			<td><?php echo $this->_tpl_vars['bid']['price']; ?>
-</td>
-			<td><?php echo $this->_tpl_vars['bid']['profile_name']; ?>
-</td>
-			<td><?php echo $this->_tpl_vars['bid']['quantity']; ?>
-</td>
-			<td><?php echo $this->_tpl_vars['bid']['tot_price']; ?>
-</td>
-					</tr>
-	<?php endif; ?>
-<?php endforeach; endif; unset($_from); ?>
-</table>
-<br />
-<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('place_bid', $this->getLanguage()), 'but_href' => fn_url("vendor.php?dispatch=billibuys.place_bid&request_id=".($this->_tpl_vars['request']['id'])), 'but_role' => 'link', )); ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	<?php else: ?>
+
+		<?php if ($this->_tpl_vars['controller'] == 'auth' && $this->_tpl_vars['mode'] == 'login_form'): ?>
+			<?php $this->assign('login_url', $this->_tpl_vars['config']['current_url'], false); ?>
+		<?php else: ?>
+			<?php $this->assign('login_url', "auth.login_form?return_url=".($this->_tpl_vars['c_url']), false); ?>
+		<?php endif; ?>
+
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_id' => $this->_tpl_vars['but_id'], 'but_text' => fn_get_lang_var('sign_in_to_buy', $this->getLanguage()), 'but_href' => $this->_tpl_vars['login_url'], 'but_role' => smarty_modifier_default(@$this->_tpl_vars['but_role'], 'text'), 'but_name' => "", )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -237,4 +203,8 @@ fn_preload_lang_vars(array('item','price','name','quantity','total_price','delet
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+		<p><?php echo fn_get_lang_var('text_login_to_add_to_cart', $this->getLanguage()); ?>
+</p>
+	<?php endif; ?>
+<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php  ob_end_flush();  ?>

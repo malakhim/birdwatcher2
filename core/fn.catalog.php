@@ -292,7 +292,7 @@ function fn_get_product_name($product_id, $lang_code = CART_LANGUAGE, $as_array 
  * @param array $auth Array of authorization data
  * @return float Price
  */
-function fn_get_product_price($product_id, $amount, &$auth)
+function fn_get_product_price($product_id, $amount, &$auth,$bid_id = 0)
 {
 	/**
 	 * Change parameters for getting product price
@@ -304,7 +304,8 @@ function fn_get_product_price($product_id, $amount, &$auth)
 	fn_set_hook('get_product_price_pre', $product_id, $amount, $auth);	
 
 	$usergroup_condition = db_quote("AND ?:product_prices.usergroup_id IN (?n)", ((AREA == 'C' || defined('ORDER_MANAGEMENT')) ? array_merge(array(USERGROUP_ALL), $auth['usergroup_ids']) : USERGROUP_ALL));
-
+	//Custom change - Bryan
+/*
 	$price = db_get_field(
 		"SELECT MIN(IF(?:product_prices.percentage_discount = 0, ?:product_prices.price, "
 			. "?:product_prices.price - (?:product_prices.price * ?:product_prices.percentage_discount)/100)) as price "
@@ -313,6 +314,20 @@ function fn_get_product_price($product_id, $amount, &$auth)
 		. "ORDER BY lower_limit DESC LIMIT 1", 
 		$amount, $product_id, $usergroup_condition
 	);
+*/
+
+	if($bid_id >= 1){
+		$price = db_get_field(
+			"SELECT price
+			FROM ?:bb_bids
+			WHERE ?:bb_bids.product_id = ?i AND ?:bb_bids.request_item_id = ?i
+			",$product_id,$bid_id
+		);
+	}else{
+		$price = PHP_INT_MAX;
+	}
+	
+	var_dump($price);die;
 
 	/**
 	 * Change product price

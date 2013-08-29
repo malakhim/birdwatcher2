@@ -241,7 +241,6 @@
 		</div>
 	{/if}
 {elseif $quick_view}
-{@die}
 	{if $product}
 	{assign var="obj_id" value=$product.product_id}
 	{include file="common_templates/product_data.tpl" product=$product separate_buttons=false}

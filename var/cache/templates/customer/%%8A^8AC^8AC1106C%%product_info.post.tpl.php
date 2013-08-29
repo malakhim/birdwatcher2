@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-22 11:43:03
+<?php /* Smarty version 2.6.18, created on 2013-08-29 15:32:07
          compiled from addons/bundled_products/hooks/checkout/product_info.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'cycle', 'addons/bundled_products/hooks/checkout/product_info.post.tpl', 34, false),array('modifier', 'fn_url', 'addons/bundled_products/hooks/checkout/product_info.post.tpl', 36, false),array('modifier', 'format_price', 'addons/bundled_products/hooks/checkout/product_info.post.tpl', 57, false),)), $this); ?>

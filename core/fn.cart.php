@@ -3642,7 +3642,7 @@ function fn_check_add_product_to_cart($cart, $product, $product_id)
 // @param array $product_data array with data for the product to add)(product_id, price, amount, product_options, is_edp)
 // @return mixed cart ID for the product if addition is successful and false otherwise
 //
-function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
+function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false,$bid = 0)
 {
 	$ids = array();
 	if (!empty($product_data) && is_array($product_data)) {
@@ -3700,7 +3700,7 @@ function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
 				if ($data['stored_price'] != 'Y') {
 					$allow_add = true;
 					// Check if the product price with options modifiers equals to zero
-					$price = fn_get_product_price($product_id, $amount, $auth);
+					$price = fn_get_product_price($product_id, $amount, $auth,$bid);
 					$zero_price_action = db_get_field("SELECT zero_price_action FROM ?:products WHERE product_id = ?i", $product_id);
 					if (!floatval($price) && $zero_price_action == 'A') {
 						if (isset($cart['products'][$key]['custom_user_price'])) {
