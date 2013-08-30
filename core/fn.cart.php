@@ -3642,7 +3642,7 @@ function fn_check_add_product_to_cart($cart, $product, $product_id)
 // @param array $product_data array with data for the product to add)(product_id, price, amount, product_options, is_edp)
 // @return mixed cart ID for the product if addition is successful and false otherwise
 //
-function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false,$bid = 0)
+function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
 {
 	$ids = array();
 	if (!empty($product_data) && is_array($product_data)) {

@@ -46,11 +46,11 @@
 		</item>
 		<item for="install">
 			CREATE TABLE `?:bb_request_item` (
-				`bb_request_id` int(11) NOT NULL AUTO_INCREMENT,
+				`bb_request_item_id` int(11) NOT NULL AUTO_INCREMENT,
 				`title` VARCHAR(50),
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
-				PRIMARY KEY (`bb_request_id`)
+				PRIMARY KEY (`bb_request_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
@@ -94,7 +94,7 @@
 		<item lang="EN" id="bb_no_bids">No bids yet</item>
 		<item lang="EN" id="two_weeks_plus">2+ weeks</item>
 		<item lang="EN" id="bb_text_place_request_question">Would you like to place a request?</item>
-		<item lang="EN" id="bb_text_log_in_to_place_requests">Please log in to place a request</item>
+		<item lang="EN" id="bb_text_log_in_to_place_request">Please log in to place a request</item>
 		<item lang="EN" id="max_price">Max Price</item>
 
 		<!-- General -->

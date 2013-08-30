@@ -328,7 +328,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		// Todo: Error condition for this (invalid POSTs)
 		$result = fn_submit_bids($_POST,$auth);
 
-		header('Location: vendor.php?dispatch=billibuys.view',true);
+		header('Location: index.php?dispatch=billibuys.view',true);
 		die;
 	}
 

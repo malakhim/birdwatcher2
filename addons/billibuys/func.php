@@ -13,6 +13,15 @@ function fn_billibuys_get_product_price_pre($product_id, $amount, $auth){
 	
 }
 
+function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$price){
+	$bid_id = $_SESSION['bid_id'];
+	$price = db_get_field("
+		SELECT price 
+		FROM ?:bb_bids 
+		WHERE ?:bb_bids.product_id = ?i AND ?:bb_bids.bb_item_id = ?i
+	",$product_id,$bid_id);
+}
+
 function fn_get_bid_by_product($product_id,$request_id){
 	$bid = db_get_row("
 			SELECT *
@@ -55,6 +64,7 @@ function fn_get_bids($params){
 			$params['request_id']
 		);
 
+
 	return $bids;
 }
 
@@ -86,8 +96,6 @@ function fn_submit_bids($bb_data,$auth){
 			FROM ?:bb_bids
 			WHERE ?:bb_bids.user_id = ?i AND ?:bb_bids.request_item_id = ?i',$auth['user_id'], $bb_data['request_id']
 		);
-
-		// var_dump($existing_bid);die;
 
 		//Archive existing bid if exists
 		if(!empty($existing_bid)){

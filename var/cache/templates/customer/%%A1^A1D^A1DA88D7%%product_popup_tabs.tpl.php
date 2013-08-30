@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-29 15:31:58
+<?php /* Smarty version 2.6.18, created on 2013-08-30 12:48:11
          compiled from views/tabs/components/product_popup_tabs.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'block', 'views/tabs/components/product_popup_tabs.tpl', 9, false),array('modifier', 'trim', 'views/tabs/components/product_popup_tabs.tpl', 15, false),)), $this); ?>

@@ -19,7 +19,7 @@
 			<tr>
 				<th>{$lang.item}</th>
 				<th>{$lang.durat_since_start}</th>
-				<th>{$lang.current_bid}</th>
+				{*<th>{$lang.current_bid}</th>*}
 			</tr>
 		{foreach from=$requests item=request}
 			{if is_array($request)}
@@ -40,7 +40,7 @@
 							{/if}
 						{/if}
 					</td>
-					<td>{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>
+					{*<td>{if $request.current_bid ne ''}${$request.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>*}
 				</tr>
 			{/if}
 		{/foreach}

@@ -52,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 		$prev_cart_products = empty($cart['products']) ? array() : $cart['products'];
-
 		fn_add_product_to_cart($_REQUEST['product_data'], $cart, $auth);
 		fn_save_cart_content($cart, $auth['user_id']);
 

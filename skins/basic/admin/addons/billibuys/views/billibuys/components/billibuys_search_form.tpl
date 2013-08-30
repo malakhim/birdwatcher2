@@ -1,9 +1,7 @@
 {capture name="section"}
 <form action="{""|fn_url}" method="get" name="billibuys_search">
 
-{* Search  - Needs to be implemented
 <table cellpadding="0" cellspacing="0" border="0" class="search-header">
-
 <tr>
 	<td class="search-field">
 		<label for="item">{$lang.item}:</label>
@@ -11,12 +9,18 @@
 			<input class="input-text" name="item" id="item" size="25" type="text" value="{$search.item}" />
 		</div>
 	</td>
+	<td class="search-field">
+		<label for="user">{$lang.user}:</label>
+		<div class="break">
+		<input class="input-text" name="user" id="user" size="25" type="text" value="{$search.user}" />
+		</div>
+	</td>
 	<td class="buttons-container">
 		{include file="buttons/search.tpl" but_name="dispatch[billibuys.view]" but_role="submit"}
 	</td>
 </tr>
 </table>
-*}
+
 <!--
 {capture name="advanced_search"}
 
