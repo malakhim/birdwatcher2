@@ -3700,7 +3700,7 @@ function fn_add_product_to_cart($product_data, &$cart, &$auth, $update = false)
 				if ($data['stored_price'] != 'Y') {
 					$allow_add = true;
 					// Check if the product price with options modifiers equals to zero
-					$price = fn_get_product_price($product_id, $amount, $auth,$bid);
+					$price = fn_get_product_price($product_id, $amount, $auth);
 					$zero_price_action = db_get_field("SELECT zero_price_action FROM ?:products WHERE product_id = ?i", $product_id);
 					if (!floatval($price) && $zero_price_action == 'A') {
 						if (isset($cart['products'][$key]['custom_user_price'])) {
