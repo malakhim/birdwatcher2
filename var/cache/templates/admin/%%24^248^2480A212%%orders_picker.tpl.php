@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-18 12:16:56
+<?php /* Smarty version 2.6.18, created on 2013-09-01 10:48:03
          compiled from pickers/orders_picker.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'pickers/orders_picker.tpl', 1, false),array('modifier', 'default', 'pickers/orders_picker.tpl', 1, false),array('modifier', 'is_array', 'pickers/orders_picker.tpl', 21, false),array('modifier', 'explode', 'pickers/orders_picker.tpl', 22, false),array('modifier', 'implode', 'pickers/orders_picker.tpl', 28, false),array('modifier', 'count', 'pickers/orders_picker.tpl', 39, false),array('modifier', 'fn_get_order_short_info', 'pickers/orders_picker.tpl', 58, false),array('modifier', 'escape', 'pickers/orders_picker.tpl', 73, false),array('modifier', 'fn_check_view_permissions', 'pickers/orders_picker.tpl', 104, false),array('function', 'math', 'pickers/orders_picker.tpl', 15, false),array('function', 'script', 'pickers/orders_picker.tpl', 19, false),)), $this); ?>

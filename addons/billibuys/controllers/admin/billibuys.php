@@ -99,7 +99,6 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 	list($products, $search, $product_count) = fn_get_products($params, Registry::get('settings.Appearance.admin_products_per_page'), DESCR_SL);
 	fn_gather_additional_products_data($products, array('get_icon' => true, 'get_detailed' => true, 'get_options' => false, 'get_discounts' => false));
-
 	
 
 	if (!empty($_REQUEST['redirect_if_one']) && $product_count == 1) {

@@ -1,16 +1,16 @@
 <?php /* Smarty version 2.6.18, created on 2013-09-01 10:35:41
-         compiled from views/checkout/components/cart_items.tpl */ ?>
+         compiled from addons/billibuys/hooks/checkout/items_list.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'floatval', 'views/checkout/components/cart_items.tpl', 17, false),array('modifier', 'default', 'views/checkout/components/cart_items.tpl', 35, false),array('modifier', 'trim', 'views/checkout/components/cart_items.tpl', 36, false),array('modifier', 'fn_url', 'views/checkout/components/cart_items.tpl', 43, false),array('modifier', 'unescape', 'views/checkout/components/cart_items.tpl', 134, false),array('modifier', 'fn_generate_thumbnail', 'views/checkout/components/cart_items.tpl', 134, false),array('modifier', 'escape', 'views/checkout/components/cart_items.tpl', 134, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'views/checkout/components/cart_items.tpl', 137, false),array('modifier', 'format_price', 'views/checkout/components/cart_items.tpl', 296, false),array('modifier', 'fn_get_company_name', 'views/checkout/components/cart_items.tpl', 339, false),array('block', 'hook', 'views/checkout/components/cart_items.tpl', 18, false),array('function', 'math', 'views/checkout/components/cart_items.tpl', 52, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('block', 'hook', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 20, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 21, false),array('modifier', 'default', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 79, false),array('modifier', 'unescape', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 112, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 112, false),array('modifier', 'escape', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 112, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 115, false),array('modifier', 'trim', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 251, false),array('modifier', 'floatval', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 254, false),array('modifier', 'format_price', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 274, false),array('modifier', 'fn_get_company_name', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 317, false),array('function', 'math', 'addons/billibuys/hooks/checkout/items_list.override.tpl', 30, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('product','unit_price','quantity','total_price','view_larger_image','remove','sku','free','discount','taxes','price','quantity','discount','tax','subtotal','vendor','supplier','price_in_points','points_lower','reward_points','points_lower','text_click_here','cart_items'));
+fn_preload_lang_vars(array('view_larger_image','remove','sku','free','discount','taxes','price','quantity','discount','tax','subtotal','vendor','supplier','price_in_points','points_lower','reward_points','points_lower','text_click_here'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/mainbox_cart.tpl' => 1367063745,
+  'common_templates/price.tpl' => 1367063745,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -19,43 +19,7 @@ fn_preload_lang_vars(array('product','unit_price','quantity','total_price','view
 						return;
 					}
 				}
-			 ?><?php ob_start(); ?>
-<?php if ($this->_tpl_vars['mode'] == 'checkout'): ?>
-	<?php if (floatval($this->_tpl_vars['cart']['coupons'])): ?><input type="hidden" name="c_id" value="" /><?php endif; ?>
-	<?php $this->_tag_stack[] = array('hook', array('name' => "checkout:form_data")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-	<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
-<?php endif; ?>
-
-<div id="cart_items">
-<table class="table top" width="100%" cellpadding="0" cellspacing="0" border="0">
-<?php if ($this->_tpl_vars['cart_products']): ?>
-
-<?php $this->assign('prods', false, false); ?>
-
-<tr>
-	<th colspan="2" class="left"><?php echo fn_get_lang_var('product', $this->getLanguage()); ?>
-</th>
-	<th class="right"><?php echo fn_get_lang_var('unit_price', $this->getLanguage()); ?>
-</th>
-	<th class="quantity-cell"><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
-</th>
-	<th class="right"><?php echo fn_get_lang_var('total_price', $this->getLanguage()); ?>
-</th>
-</tr>				
-<?php $_from = $this->_tpl_vars['cart_products']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['cart_products'] = array('total' => count($_from), 'iteration' => 0);
-if ($this->_foreach['cart_products']['total'] > 0):
-    foreach ($_from as $this->_tpl_vars['key'] => $this->_tpl_vars['product']):
-        $this->_foreach['cart_products']['iteration']++;
-?>
-<?php $this->assign('obj_id', smarty_modifier_default(@$this->_tpl_vars['product']['object_id'], @$this->_tpl_vars['key']), false); ?>
-<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php ob_start(); $this->_in_capture[] = '68f30e0f7d66ed06bd8530750075db16';
-$_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/hooks/checkout/items_list.override.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
-$this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['68f30e0f7d66ed06bd8530750075db16'])) { echo implode("\n", $this->_scripts['68f30e0f7d66ed06bd8530750075db16']); unset($this->_scripts['68f30e0f7d66ed06bd8530750075db16']); }
- ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
-<?php else: ?><?php $this->_tag_stack[] = array('hook', array('name' => "checkout:items_list")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-<?php if (! $this->_tpl_vars['cart']['products'][$this->_tpl_vars['key']]['extra']['parent']): ?>
+			 ?><?php if (! $this->_tpl_vars['cart']['products'][$this->_tpl_vars['key']]['extra']['parent']): ?>
 <tr>
 	<td valign="top" class="product-image-cell">
 	<?php if ($this->_tpl_vars['mode'] == 'cart' || $this->_tpl_vars['show_images']): ?>
@@ -286,8 +250,7 @@ unset($_smarty_tpl_vars);
 				<input type="text" size="3" id="amount_<?php echo $this->_tpl_vars['key']; ?>
 " name="cart_products[<?php echo $this->_tpl_vars['key']; ?>
 ][amount]" value="<?php echo $this->_tpl_vars['product']['amount']; ?>
-" class="input-text-short cm-amount"<?php if ($this->_tpl_vars['product']['qty_step'] > 1): ?> data-ca-step="<?php echo $this->_tpl_vars['product']['qty_step']; ?>
-"<?php endif; ?> />
+" class="input-text-short cm-amount" disabled/>
 				<?php if ($this->_tpl_vars['settings']['Appearance']['quantity_changer'] == 'Y'): ?>
 					<a class="cm-decrease"></a>
 					</div>
@@ -319,28 +282,3 @@ unset($_smarty_tpl_vars);
 --></td>
 </tr>
 <?php endif; ?>
-<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?>
-<?php endforeach; endif; unset($_from); ?>
-<?php endif; ?>
-
-<?php $this->_tag_stack[] = array('hook', array('name' => "checkout:extra_list")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-<?php if ($this->_tpl_vars['addons']['gift_certificates']['status'] == 'A'): ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/gift_certificates/hooks/checkout/extra_list.post.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
-
-</table>
-<!--cart_items--></div>
-
-<?php $this->_smarty_vars['capture']['cartbox'] = ob_get_contents(); ob_end_clean(); ?>
-<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('title' => fn_get_lang_var('cart_items', $this->getLanguage()), 'content' => $this->_smarty_vars['capture']['cartbox'], )); ?>
-<?php if ($this->_tpl_vars['anchor']): ?>
-<a name="<?php echo $this->_tpl_vars['anchor']; ?>
-"></a>
-<?php endif; ?>
-<div>
-	<div class="mainbox-cart-body" <?php if ($this->_tpl_vars['mainbox_id']): ?>id="<?php echo $this->_tpl_vars['mainbox_id']; ?>
-"<?php endif; ?>><?php echo $this->_tpl_vars['content']; ?>
-<?php if ($this->_tpl_vars['mainbox_id']): ?><!--<?php echo $this->_tpl_vars['mainbox_id']; ?>
---><?php endif; ?></div>
-</div><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>

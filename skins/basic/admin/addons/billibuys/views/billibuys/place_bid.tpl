@@ -5,7 +5,6 @@
 <div id="content_manage_products">
 <form action="{""|fn_url}" method="post" name="manage_products_form">
 <input type="hidden" name="category_id" value="{$search.cid}" />
-<input type="hidden" name="request_id" value="{$smarty.request.request_id}" />
 
 {include file="common_templates/pagination.tpl" save_current_page=true save_current_url=true div_id=$smarty.request.content_id}
 

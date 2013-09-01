@@ -18,8 +18,10 @@ function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$pric
 	$price = db_get_field("
 		SELECT price 
 		FROM ?:bb_bids 
-		WHERE ?:bb_bids.product_id = ?i AND ?:bb_bids.bb_item_id = ?i
-	",$product_id,$bid_id);
+		INNER JOIN ?:bb_requests ON
+			?:bb_requests.bb_request_id = ?:bb_bids.request_item_id
+		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i
+	",$product_id,$auth['user_id']);
 }
 
 function fn_get_bid_by_product($product_id,$request_id){
@@ -105,12 +107,15 @@ function fn_submit_bids($bb_data,$auth){
 			db_query('INSERT INTO ?:bb_bids_archive ?e',$existing_bid);
 		}
 
+		//Used to get the request_id
+		parse_str($bb_data['redirect_url']);
+		
 		//Execute bid
 		foreach($bb_data['product_ids'] as $product){
 			foreach($bb_data['products_data'] as $pid=>$pdata){
 				if($pid == $product){
 					$new_bid = Array(
-						'request_item_id' => $bb_data['request_id'],
+						'request_item_id' => $request_id,
 						'price' => $pdata['price'],
 						'user_id' => $auth['user_id'],
 						'quantity' => $pdata['amount'],
