@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-30 12:48:10
+<?php /* Smarty version 2.6.18, created on 2013-08-31 09:07:01
          compiled from addons/bundled_products/hooks/products/buttons_block.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'addons/bundled_products/hooks/products/buttons_block.override.tpl', 41, false),array('modifier', 'fn_url', 'addons/bundled_products/hooks/products/buttons_block.override.tpl', 41, false),)), $this); ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-30 12:48:09
+<?php /* Smarty version 2.6.18, created on 2013-08-31 09:07:00
          compiled from views/products/view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_product_details_layout', 'views/products/view.tpl', 1, false),array('block', 'hook', 'views/products/view.tpl', 21, false),)), $this); ?>

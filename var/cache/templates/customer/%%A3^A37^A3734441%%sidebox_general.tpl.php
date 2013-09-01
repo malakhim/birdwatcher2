@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-30 14:14:07
+<?php /* Smarty version 2.6.18, created on 2013-08-31 09:05:33
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/sidebox_general.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/sidebox_general.tpl', 1, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/sidebox_general.tpl', 2, false),array('modifier', 'unescape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/sidebox_general.tpl', 12, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/sidebox_general.tpl', 4, false),)), $this); ?>

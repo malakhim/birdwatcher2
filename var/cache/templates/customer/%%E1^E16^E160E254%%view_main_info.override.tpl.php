@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-31 02:41:45
+<?php /* Smarty version 2.6.18, created on 2013-08-31 09:07:00
          compiled from addons/billibuys/hooks/products/view_main_info.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 33, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 38, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 45, false),array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 63, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 96, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 96, false),)), $this); ?>
