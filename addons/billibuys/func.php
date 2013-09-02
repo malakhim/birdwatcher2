@@ -9,6 +9,35 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
+
+function fn_archive_request($request_id){
+	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:requests.bb_request_id = ?i",$request_id);
+	db_query("INSERT INTO ?:bb_request_archive ?a",$request);
+	// If inserted(ie, inserted_id > 0)
+	if(last_insert_id()){
+		db_query("DELETE FROM ?:bb_requests WHERE ?:requests.bb_request_id = ?i",$request_id);
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function fn_billibuys_order_placement_routines($order_id, $force_notification, $order_info, $_error){
+	if(!$_error){
+		foreach($order_info['items'] as $item){
+			$request = fn_get_request_by_order($order_info['user_id'],$item['product_id']);
+			if(!empty($request)){
+				fn_archive_request($request['bb_request_id']);
+			}
+		}
+	}
+	// var_dump($order_id);
+	// var_dump($force_notification);
+	// var_dump($order_info);
+	// var_dump($_error);
+	die;
+}
+
 function fn_billibuys_get_product_price_pre($product_id, $amount, $auth){
 	
 }
@@ -109,7 +138,7 @@ function fn_submit_bids($bb_data,$auth){
 
 		//Used to get the request_id
 		parse_str($bb_data['redirect_url']);
-		
+
 		//Execute bid
 		foreach($bb_data['product_ids'] as $product){
 			foreach($bb_data['products_data'] as $pid=>$pdata){
@@ -227,6 +256,19 @@ function fn_get_requests_by_product($product){
 		);
 	return $requests;
 }
+
+
+function fn_get_request_by_order($user_id,$product_id){
+	$data = db_get_row("
+		SELECT *
+		FROM ?:bb_requests
+		INNER JOIN ?:bb_bids ON ?:bb_bids.request_item_id = ?:bb_requests.bb_request_id
+		WHERE ?:bb_requests.user_id = ?i AND ?:bb_bids.product_id = ?i
+	",$user_id,$product_id);
+
+	return $data;
+}
+
 /**
  * Gets details of a single request, based on request_id
  * @param  Array $params  Search parameters

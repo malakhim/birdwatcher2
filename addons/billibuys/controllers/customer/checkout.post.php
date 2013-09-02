@@ -2,7 +2,7 @@
 
 if (!defined('AREA')) { die('Access denied'); }
 	if($mode == "add"){
-		// if(isset($_SESSION['bid_id']))
-			// unset($_SESSION['bid_id']);
+		// We need to disable ability to add any further items from this auction to the cart
+		// parse_str($_REQUEST['redirect_url']);
 	}
 ?>

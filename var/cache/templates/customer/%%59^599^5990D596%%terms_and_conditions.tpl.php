@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:54
-         compiled from buttons/button_popup.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:13
+         compiled from views/checkout/components/terms_and_conditions.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/button_popup.tpl', 16, false),array('modifier', 'replace', 'buttons/button_popup.tpl', 43, false),array('modifier', 'fn_url', 'buttons/button_popup.tpl', 43, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'views/checkout/components/terms_and_conditions.tpl', 18, false),array('modifier', 'replace', 'views/checkout/components/terms_and_conditions.tpl', 81, false),array('modifier', 'fn_url', 'views/checkout/components/terms_and_conditions.tpl', 81, false),array('modifier', 'unescape', 'views/checkout/components/terms_and_conditions.tpl', 100, false),array('block', 'hook', 'views/checkout/components/terms_and_conditions.tpl', 46, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('delete'));
+fn_preload_lang_vars(array('checkout_terms_n_conditions_alert','checkout_terms_n_conditions','checkout_edp_terms_n_conditions','license_agreement','delete'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -19,21 +19,59 @@ fn_preload_lang_vars(array('delete'));
 						return;
 					}
 				}
-			 ?><?php ob_start(); ?>
-window.open(this.href<?php if ($this->_tpl_vars['href_extra']): ?> + <?php echo $this->_tpl_vars['href_extra']; ?>
-<?php endif; ?>,'<?php echo smarty_modifier_default(@$this->_tpl_vars['window'], 'popupwindow'); ?>
-','width=<?php echo smarty_modifier_default(@$this->_tpl_vars['width'], '450'); ?>
-,height=<?php echo smarty_modifier_default(@$this->_tpl_vars['height'], '350'); ?>
-,toolbar=<?php echo smarty_modifier_default(@$this->_tpl_vars['toolbar'], 'yes'); ?>
-,status=<?php echo smarty_modifier_default(@$this->_tpl_vars['status'], 'no'); ?>
-,scrollbars=<?php echo smarty_modifier_default(@$this->_tpl_vars['scrollbars'], 'yes'); ?>
-,resizable=<?php echo smarty_modifier_default(@$this->_tpl_vars['resizable'], 'no'); ?>
-,menubar=<?php echo smarty_modifier_default(@$this->_tpl_vars['menubar'], 'yes'); ?>
-,location=<?php echo smarty_modifier_default(@$this->_tpl_vars['location'], 'no'); ?>
-,direction=<?php echo smarty_modifier_default(@$this->_tpl_vars['direction'], 'no'); ?>
-');
-<?php $this->_smarty_vars['capture']['pop'] = ob_get_contents(); ob_end_clean(); ?>
-<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_onclick' => $this->_smarty_vars['capture']['pop'], 'but_href' => $this->_tpl_vars['but_href'], 'but_text' => $this->_tpl_vars['but_text'], )); ?>
+			 ?><?php if ($this->_tpl_vars['cart_agreements'] || $this->_tpl_vars['settings']['General']['agree_terms_conditions'] == 'Y'): ?>
+	<script type="text/javascript">
+	//<![CDATA[
+	lang.checkout_terms_n_conditions_alert = '<?php echo smarty_modifier_escape(fn_get_lang_var('checkout_terms_n_conditions_alert', $this->getLanguage()), 'javascript'); ?>
+';
+	<?php echo '
+	function fn_check_agreement(id)
+	{
+		if (!$(\'#\' + id).attr(\'checked\')) {
+			return lang.checkout_terms_n_conditions_alert;
+		}
+
+		return true;
+	}
+	'; ?>
+
+	
+	<?php if ($this->_tpl_vars['iframe_mode']): ?>
+		<?php echo '
+		function fn_check_agreements(suffix)
+		{
+			if ($(\'form[name=payments_form_\' + suffix + \'] input:checkbox.cm-agreement:checked\').length > 0 && $(\'form[name=payments_form_\' + suffix + \'] input:checkbox.cm-agreement:checked\').length == $(\'form[name=payments_form_\' + suffix + \'] input.cm-agreement:checkbox\').length) {
+				$(\'#payment_method_iframe\' + suffix).addClass(\'hidden\');
+			} else {
+				$(\'#payment_method_iframe\' + suffix).removeClass(\'hidden\');
+			}
+		}
+		'; ?>
+
+	<?php endif; ?>
+	//]]>
+	</script>
+		<?php if ($this->_tpl_vars['settings']['General']['agree_terms_conditions'] == 'Y'): ?>
+		<div class="form-field margin-top terms">
+			<?php $this->_tag_stack[] = array('hook', array('name' => "checkout:terms_and_conditions")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+			
+			<label for="id_accept_terms<?php echo $this->_tpl_vars['suffix']; ?>
+" class="valign cm-custom (check_agreement)"><input type="checkbox" id="id_accept_terms<?php echo $this->_tpl_vars['suffix']; ?>
+" name="accept_terms" value="Y" class="cm-agreement checkbox valign" <?php if ($this->_tpl_vars['iframe_mode']): ?>onclick="fn_check_agreements('<?php echo $this->_tpl_vars['suffix']; ?>
+');"<?php endif; ?> /><?php echo fn_get_lang_var('checkout_terms_n_conditions', $this->getLanguage()); ?>
+</label>
+			<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+		</div>
+		<?php endif; ?>
+		<?php if ($this->_tpl_vars['cart_agreements']): ?>
+		<div class="form-field">
+			<?php $this->_tag_stack[] = array('hook', array('name' => "checkout:terms_and_conditions_downloadable")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+			
+			<label for="product_agreements_<?php echo $this->_tpl_vars['suffix']; ?>
+" class="valign cm-custom (check_agreement)"><input type="checkbox" id="product_agreements_<?php echo $this->_tpl_vars['suffix']; ?>
+" name="agreements[]" value="Y" class="cm-agreement valign checkbox"  <?php if ($this->_tpl_vars['iframe_mode']): ?>onclick="fn_check_agreements('<?php echo $this->_tpl_vars['suffix']; ?>
+');"<?php endif; ?>/><?php echo fn_get_lang_var('checkout_edp_terms_n_conditions', $this->getLanguage()); ?>
+</label><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('license_agreement', $this->getLanguage()), 'but_role' => 'text', 'but_id' => 'sw_elm_agreements', 'but_meta' => "cm-combination", )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -119,4 +157,20 @@ window.open(this.href<?php if ($this->_tpl_vars['href_extra']): ?> + <?php echo 
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+			<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+			<div class="hidden" id="elm_agreements">
+			<?php $_from = $this->_tpl_vars['cart_agreements']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['product_agreements']):
+?>
+				<?php $_from = $this->_tpl_vars['product_agreements']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['agreement']):
+?>
+				<p><?php echo smarty_modifier_unescape($this->_tpl_vars['agreement']['license']); ?>
+</p>
+				<?php endforeach; endif; unset($_from); ?>
+			<?php endforeach; endif; unset($_from); ?>
+			</div>
+		</div>
+		<?php endif; ?>
+<?php endif; ?><?php  ob_end_flush();  ?>

@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:54
-         compiled from buttons/button_popup.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:13
+         compiled from buttons/place_order_new.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/button_popup.tpl', 16, false),array('modifier', 'replace', 'buttons/button_popup.tpl', 43, false),array('modifier', 'fn_url', 'buttons/button_popup.tpl', 43, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/place_order_new.tpl', 41, false),array('modifier', 'fn_url', 'buttons/place_order_new.tpl', 41, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('delete'));
 ?>
@@ -19,21 +19,8 @@ fn_preload_lang_vars(array('delete'));
 						return;
 					}
 				}
-			 ?><?php ob_start(); ?>
-window.open(this.href<?php if ($this->_tpl_vars['href_extra']): ?> + <?php echo $this->_tpl_vars['href_extra']; ?>
-<?php endif; ?>,'<?php echo smarty_modifier_default(@$this->_tpl_vars['window'], 'popupwindow'); ?>
-','width=<?php echo smarty_modifier_default(@$this->_tpl_vars['width'], '450'); ?>
-,height=<?php echo smarty_modifier_default(@$this->_tpl_vars['height'], '350'); ?>
-,toolbar=<?php echo smarty_modifier_default(@$this->_tpl_vars['toolbar'], 'yes'); ?>
-,status=<?php echo smarty_modifier_default(@$this->_tpl_vars['status'], 'no'); ?>
-,scrollbars=<?php echo smarty_modifier_default(@$this->_tpl_vars['scrollbars'], 'yes'); ?>
-,resizable=<?php echo smarty_modifier_default(@$this->_tpl_vars['resizable'], 'no'); ?>
-,menubar=<?php echo smarty_modifier_default(@$this->_tpl_vars['menubar'], 'yes'); ?>
-,location=<?php echo smarty_modifier_default(@$this->_tpl_vars['location'], 'no'); ?>
-,direction=<?php echo smarty_modifier_default(@$this->_tpl_vars['direction'], 'no'); ?>
-');
-<?php $this->_smarty_vars['capture']['pop'] = ob_get_contents(); ob_end_clean(); ?>
-<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_onclick' => $this->_smarty_vars['capture']['pop'], 'but_href' => $this->_tpl_vars['but_href'], 'but_text' => $this->_tpl_vars['but_text'], )); ?>
+			 ?>
+<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['but_text'], 'but_name' => $this->_tpl_vars['but_name'], 'but_href' => $this->_tpl_vars['but_href'], 'but_target' => $this->_tpl_vars['but_target'], 'but_role' => 'big', )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -119,4 +106,5 @@ window.open(this.href<?php if ($this->_tpl_vars['href_extra']): ?> + <?php echo 
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+<?php  ob_end_flush();  ?>
