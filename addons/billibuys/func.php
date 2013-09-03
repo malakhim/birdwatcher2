@@ -9,8 +9,8 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
-
 function fn_archive_request($request_id){
+	//TODO: Need to archive associated bids too
 	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:requests.bb_request_id = ?i",$request_id);
 	db_query("INSERT INTO ?:bb_request_archive ?a",$request);
 	// If inserted(ie, inserted_id > 0)
@@ -24,6 +24,7 @@ function fn_archive_request($request_id){
 
 function fn_billibuys_order_placement_routines($order_id, $force_notification, $order_info, $_error){
 	if(!$_error){
+		// Don't archive if order is open?
 		foreach($order_info['items'] as $item){
 			$request = fn_get_request_by_order($order_info['user_id'],$item['product_id']);
 			if(!empty($request)){
@@ -31,11 +32,6 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 			}
 		}
 	}
-	// var_dump($order_id);
-	// var_dump($force_notification);
-	// var_dump($order_info);
-	// var_dump($_error);
-	die;
 }
 
 function fn_billibuys_get_product_price_pre($product_id, $amount, $auth){

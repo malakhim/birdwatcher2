@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:38
+<?php /* Smarty version 2.6.18, created on 2013-09-03 09:47:43
          compiled from orders/order_notification.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'orders/order_notification.tpl', 5, false),)), $this); ?>

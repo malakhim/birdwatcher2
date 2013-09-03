@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:13
+<?php /* Smarty version 2.6.18, created on 2013-09-03 09:47:35
          compiled from views/checkout/components/terms_and_conditions.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'views/checkout/components/terms_and_conditions.tpl', 18, false),array('modifier', 'replace', 'views/checkout/components/terms_and_conditions.tpl', 81, false),array('modifier', 'fn_url', 'views/checkout/components/terms_and_conditions.tpl', 81, false),array('modifier', 'unescape', 'views/checkout/components/terms_and_conditions.tpl', 100, false),array('block', 'hook', 'views/checkout/components/terms_and_conditions.tpl', 46, false),)), $this); ?>

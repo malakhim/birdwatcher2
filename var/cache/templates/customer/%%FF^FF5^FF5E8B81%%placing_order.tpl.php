@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:40
+<?php /* Smarty version 2.6.18, created on 2013-09-03 09:47:46
          compiled from views/orders/components/placing_order.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'views/orders/components/placing_order.tpl', 41, false),array('block', 'hook', 'views/orders/components/placing_order.tpl', 51, false),array('function', 'join_css', 'views/orders/components/placing_order.tpl', 56, false),)), $this); ?>

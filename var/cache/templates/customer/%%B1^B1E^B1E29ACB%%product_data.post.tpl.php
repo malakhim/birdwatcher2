@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:52:54
+<?php /* Smarty version 2.6.18, created on 2013-09-03 09:47:14
          compiled from addons/bundled_products/hooks/products/product_data.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'addons/bundled_products/hooks/products/product_data.post.tpl', 8, false),array('block', 'hook', 'addons/bundled_products/hooks/products/product_data.post.tpl', 8, false),)), $this); ?>

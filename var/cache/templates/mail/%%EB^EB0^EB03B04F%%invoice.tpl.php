@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-01 10:55:38
+<?php /* Smarty version 2.6.18, created on 2013-09-03 09:47:44
          compiled from orders/invoice.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_company_placement_info', 'orders/invoice.tpl', 14, false),array('modifier', 'default', 'orders/invoice.tpl', 26, false),array('modifier', 'replace', 'orders/invoice.tpl', 66, false),array('modifier', 'date_format', 'orders/invoice.tpl', 82, false),array('modifier', 'fn_get_profile_fields', 'orders/invoice.tpl', 115, false),array('modifier', 'fn_fields_from_multi_level', 'orders/invoice.tpl', 121, false),array('modifier', 'escape', 'orders/invoice.tpl', 125, false),array('modifier', 'trim', 'orders/invoice.tpl', 220, false),array('modifier', 'unescape', 'orders/invoice.tpl', 224, false),array('modifier', 'fn_get_company_name', 'orders/invoice.tpl', 230, false),array('modifier', 'floatval', 'orders/invoice.tpl', 236, false),array('modifier', 'nl2br', 'orders/invoice.tpl', 345, false),array('block', 'hook', 'orders/invoice.tpl', 32, false),)), $this); ?>
