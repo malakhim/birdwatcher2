@@ -11,11 +11,12 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 function fn_archive_request($request_id){
 	//TODO: Need to archive associated bids too
-	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:requests.bb_request_id = ?i",$request_id);
-	db_query("INSERT INTO ?:bb_request_archive ?a",$request);
+	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+	db_query("INSERT INTO ?:bb_request_archive ?e",$request);
+	$id = db_get_field("SELECT LAST_INSERT_ID()");
 	// If inserted(ie, inserted_id > 0)
-	if(last_insert_id()){
-		db_query("DELETE FROM ?:bb_requests WHERE ?:requests.bb_request_id = ?i",$request_id);
+	if($id){
+		db_query("DELETE FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 		return true;
 	}else{
 		return false;
