@@ -46,8 +46,18 @@
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
+			CREATE TABLE `?:bb_request_item_archive` (
+				`bb_request_item_id` int(11) NOT NULL AUTO_INCREMENT,
+				`title` VARCHAR(50),
+				`description` VARCHAR(500),
+				`max_price` DECIMAL(10,2),
+				`over_max_price` tinyint(2) unsigned NOT NULL DEFAULT '0',
+				PRIMARY KEY (`bb_request_item_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
 			CREATE TABLE `?:bb_bids_archive` (
-				`archive_id` int(11) NOT NULL AUTO_INCREMENT,
+				`bb_request_id` int(11) NOT NULL AUTO_INCREMENT,
 				`request_item_id` int(11),
 				`product_id` int(11),
 				`price` DECIMAL(10,2),
