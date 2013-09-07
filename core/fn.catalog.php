@@ -182,8 +182,6 @@ function fn_get_product_data($product_id, &$auth, $lang_code = CART_LANGUAGE, $f
 			
 			$path = !empty($product_data['main_category']) ? explode('/', db_get_field("SELECT id_path FROM ?:categories WHERE category_id = ?i", $product_data['main_category'])) : '';
 
-
-
 			$_params = array(
 				'category_ids' => $path,
 				'product_id' => $product_id,

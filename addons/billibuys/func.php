@@ -10,11 +10,18 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 function fn_archive_request($request_id){
-	//TODO: Need to archive associated bids too
+	//Get request
 	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+
+	// Get request details and archive them
+	$request_item = db_get_row("SELECT * FROM ?:bb_request_item WHERE ?:bb_request_item_id = ?i",$request['request_item_id']);
+	db_query("INSERT INTO ?:bb_request_item_archive ?e",$request_item);
+
+	// Archive actual request
 	db_query("INSERT INTO ?:bb_request_archive ?e",$request);
+
+	// If inserted
 	$id = db_get_field("SELECT LAST_INSERT_ID()");
-	// If inserted(ie, inserted_id > 0)
 	if($id){
 		db_query("DELETE FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 		return true;
@@ -118,6 +125,17 @@ function fn_submit_bids($bb_data,$auth){
 	if(empty($bb_data)){
 		return false;
 	}else{
+
+		$request_item = db_get_row("SELECT max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$bb_data['request_id']);
+
+		var_dump($request_item);die;
+		if($request_item['allow_over_max_price']){
+
+			// Check price is over by 10%, if not return to original
+		}else{
+			// Check price is under or equal to max, if not return to original
+		}
+
 		//Search for existing bid
 		$existing_bid = db_get_row('
 			SELECT *

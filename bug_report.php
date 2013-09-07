@@ -1,5 +1,5 @@
 <?php
 
-//Need to add redirect function
-// echo "Add redirect function here";
+header("location: http://brystore.com/mantis/bug_report_page.php");
+
 ?>
