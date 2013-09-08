@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-07 22:32:13
+<?php /* Smarty version 2.6.18, created on 2013-09-08 17:25:38
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 16, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 62, false),)), $this); ?>
@@ -38,14 +38,14 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 	</div>
 
 	<div class="form-field">
-		<label for="bb_max_price" class="cm-trim"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
+		<label for="bb_max_price" class="cm-trim cm-integer"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
 </label>
 		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['request']['max_price']; ?>
 " class="input-text" />
 	</div>
 
 	<div class="form-field">
-		<label for="bb_over_max_price" class="cm-trim"><input type="checkbox" id="bb_over_max_price" name="bb_over_max_price" value="Y" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+		<label for="bb_over_max_price" class="cm-trim"><input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
 " class="checkbox cm-check-items" /><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
 </label>
 	</div>	

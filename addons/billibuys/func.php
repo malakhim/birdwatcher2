@@ -42,10 +42,6 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 	}
 }
 
-function fn_billibuys_get_product_price_pre($product_id, $amount, $auth){
-	
-}
-
 function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$price){
 	$bid_id = $_SESSION['bid_id'];
 	$price = db_get_field("
@@ -122,20 +118,32 @@ function fn_bb_submit_notification($bb_data){
 
 function fn_submit_bids($bb_data,$auth){
 	//TODO: Check is in vendor/admin and in vendor/admin area
-	if(empty($bb_data)){
+	if(empty($bb_data) || !is_array($bb_data)){
 		return false;
 	}else{
-
 		$request_item = db_get_row("SELECT max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$bb_data['request_id']);
 
-		var_dump($request_item);die;
-		if($request_item['allow_over_max_price']){
+		var_dump($bb_data);die;
 
-			// Check price is over by 10%, if not return to original
-		}else{
-			// Check price is under or equal to max, if not return to original
+		$mp = $request_item['max_price'];
+
+		// Flag to be set to true if request price > allowed max price
+		$over_max = false;
+
+		if(exists($mp)){
+			if($mp > 0 && is_numeric($mp) && $mp != NULL){
+				if($request_item['allow_over_max_price'] && $bb_data['price'] > $mp + 0.1 * $mp){
+					// Check price is over by 10%, if not return to original
+					$over_max = true;
+				}elseif($bb_data['price'] > $mp){
+					// Check price is under or equal to max, if not return to original
+					$over_max = true;
+				}
+			}else{
+				// Throw non-numeric error
+				$msg = $lang['invalid_bid'];
+			}
 		}
-
 		//Search for existing bid
 		$existing_bid = db_get_row('
 			SELECT *

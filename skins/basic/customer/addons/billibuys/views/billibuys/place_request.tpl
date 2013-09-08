@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="form-field">
-		<label for="bb_max_price" class="cm-trim">{$lang.max_price}</label>
+		<label for="bb_max_price" class="cm-trim cm-integer">{$lang.max_price}</label>
 		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="{$request.max_price}" class="input-text" />
 	</div>
 
