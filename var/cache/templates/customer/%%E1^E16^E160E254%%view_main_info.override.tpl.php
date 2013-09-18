@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-03 09:47:12
+<?php /* Smarty version 2.6.18, created on 2013-09-16 20:39:40
          compiled from addons/billibuys/hooks/products/view_main_info.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 33, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 38, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 45, false),array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 63, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 96, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 96, false),)), $this); ?>
@@ -187,9 +187,11 @@ _update--></div>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 				<?php endif; ?>
 
-				<?php $this->assign('add_to_cart', "add_to_cart_".($this->_tpl_vars['obj_id']), false); ?>
-				<?php echo $this->_smarty_vars['capture'][$this->_tpl_vars['add_to_cart']]; ?>
+				<?php if ($this->_tpl_vars['auth']['user_id'] == $this->_tpl_vars['owned_user']): ?>
+					<?php $this->assign('add_to_cart', "add_to_cart_".($this->_tpl_vars['obj_id']), false); ?>
+					<?php echo $this->_smarty_vars['capture'][$this->_tpl_vars['add_to_cart']]; ?>
 
+				<?php endif; ?>
 
 				<?php $this->assign('list_buttons', "list_buttons_".($this->_tpl_vars['obj_id']), false); ?>
 				<?php echo $this->_smarty_vars['capture'][$this->_tpl_vars['list_buttons']]; ?>

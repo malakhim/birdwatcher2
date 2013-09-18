@@ -18,9 +18,10 @@
 			CREATE TABLE `?:bb_request_archive` (
 				`archive_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				`user_id` int(11) unsigned NOT NULL,
-				`request_item_id` int(11),
+				`request_id` int(11),
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
+				`allow_over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
 				PRIMARY KEY (`archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -41,7 +42,8 @@
 				`request_item_id` int(11),
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
-				`allow_over_max_price` tinyint(2) unsigned NOT NULL DEFAULT '0',
+				`allow_over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
+				`item_added_to_cart` tinyint(2) unsigned NOT NULL ZEROFILL,
 				PRIMARY KEY (`bb_request_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -51,7 +53,7 @@
 				`title` VARCHAR(50),
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
-				`over_max_price` tinyint(2) unsigned NOT NULL DEFAULT '0',
+				`over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
 				PRIMARY KEY (`bb_request_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -72,14 +74,14 @@
 				`title` VARCHAR(50),
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
-				`over_max_price` tinyint(2) unsigned NOT NULL DEFAULT '0',
+				`over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
 				PRIMARY KEY (`bb_request_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
 			CREATE TABLE `?:bb_bids` (
 				`bb_item_id` int(11) NOT NULL AUTO_INCREMENT,
-				`request_item_id` int(11),
+				`request_id` int(11),
 				`product_id` int(11),
 				`price` DECIMAL(10,2),
 				`quantity` INT(11),
@@ -130,36 +132,6 @@
 
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
-
+		<item lang="EN" id="bid_is_over_request_max">Your bid is over the customer's limit. Please keep your total bid under </item>
 	</language_variables>
-
-	<!-- <settings>
-	  <sections>
-	    <section id="general">
-	      <items>
-	        <item id="some_prop">
-	          <name>Enter any text</name>
-	          <type>input</type>
-	          <default_value>Hello World!</default_value>         
-	        </item>
-	        <item id="some_dropdown">
-	          <name>Pick a value from the list</name>
-	          <type>selectbox</type>
-	          <default_value>blue</default_value>
-	            <variants>
-	              <item id="red">
-	                <name>Red</name>                            
-	              </item>
-	              <item id="green">
-	                <name>Green</name>
-	              </item>
-	              <item id="blue">
-	                <name>Blue</name>
-	              </item>
-	            </variants>
-	        </item>
-	      </items>
-	    </section>
-	  </sections>
-	</settings> -->
 </addon>

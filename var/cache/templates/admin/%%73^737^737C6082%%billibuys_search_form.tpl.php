@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-18 12:17:20
+<?php /* Smarty version 2.6.18, created on 2013-09-14 15:56:52
          compiled from addons/billibuys/views/billibuys/components/billibuys_search_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 16, false),array('modifier', 'fn_parse_date', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 95, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 95, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 111, false),array('function', 'math', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 111, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 16, false),array('modifier', 'fn_parse_date', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 99, false),array('modifier', 'date_format', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 99, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 115, false),array('function', 'math', 'addons/billibuys/views/billibuys/components/billibuys_search_form.tpl', 115, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('status','awaiting','in_progress','finished','type','public','private','disabled','period','yes','no','calendar','calendar','weekday_abr_0','weekday_abr_1','weekday_abr_2','weekday_abr_3','weekday_abr_4','weekday_abr_5','weekday_abr_6','month_name_abr_1','month_name_abr_2','month_name_abr_3','month_name_abr_4','month_name_abr_5','month_name_abr_6','month_name_abr_7','month_name_abr_8','month_name_abr_9','month_name_abr_10','month_name_abr_11','month_name_abr_12','close'));
+fn_preload_lang_vars(array('item','user','status','awaiting','in_progress','finished','type','public','private','disabled','period','yes','no','calendar','calendar','weekday_abr_0','weekday_abr_1','weekday_abr_2','weekday_abr_3','weekday_abr_4','weekday_abr_5','weekday_abr_6','month_name_abr_1','month_name_abr_2','month_name_abr_3','month_name_abr_4','month_name_abr_5','month_name_abr_6','month_name_abr_7','month_name_abr_8','month_name_abr_9','month_name_abr_10','month_name_abr_11','month_name_abr_12','close'));
 ?>
 <?php 
 
@@ -22,6 +22,33 @@ fn_preload_lang_vars(array('status','awaiting','in_progress','finished','type','
 			 ?><?php ob_start(); ?>
 <form action="<?php echo fn_url(""); ?>
 " method="get" name="billibuys_search">
+
+<table cellpadding="0" cellspacing="0" border="0" class="search-header">
+<tr>
+	<td class="search-field">
+		<label for="item"><?php echo fn_get_lang_var('item', $this->getLanguage()); ?>
+:</label>
+		<div class="break">
+			<input class="input-text" name="item" id="item" size="25" type="text" value="<?php echo $this->_tpl_vars['search']['item']; ?>
+" />
+		</div>
+	</td>
+	<td class="search-field">
+		<label for="user"><?php echo fn_get_lang_var('user', $this->getLanguage()); ?>
+:</label>
+		<div class="break">
+		<input class="input-text" name="user" id="user" size="25" type="text" value="<?php echo $this->_tpl_vars['search']['user']; ?>
+" />
+		</div>
+	</td>
+	<td class="buttons-container">
+		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/search.tpl", 'smarty_include_vars' => array('but_name' => "dispatch[billibuys.view]",'but_role' => 'submit')));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+	</td>
+</tr>
+</table>
 
 <!--
 <?php ob_start(); ?>

@@ -9,6 +9,11 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
+/**
+ * Archives the request, ie moves from bb_requests to bb_request_archive
+ * @param  Int $request_id
+ * @return boolean indicating whether has been successfully archived or not based on whether it was added to archive
+ */
 function fn_archive_request($request_id){
 	//Get request
 	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
@@ -20,13 +25,45 @@ function fn_archive_request($request_id){
 	// Archive actual request
 	db_query("INSERT INTO ?:bb_request_archive ?e",$request);
 
-	// If inserted
+	// If inserted into archive table, return true else return false
 	$id = db_get_field("SELECT LAST_INSERT_ID()");
 	if($id){
 		db_query("DELETE FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 		return true;
 	}else{
 		return false;
+	}
+}
+/**
+ * Post add-to-cart script, toggles item_added_to_cart flag on the request table for associated request
+ * @param  Array $product_data product data
+ * @param  Array $cart current cart
+ * @param  Array $auth auth array
+ * @param  Boolean $update if cart has been updated, this will be true
+ * @return [type]
+ */
+function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
+	if($update){
+		$update_data = Array(
+			"?:bb_requests.item_added_to_cart" => "0",
+		);
+	}else{
+		$update_data = Array(
+			"?:bb_requests.item_added_to_cart" => "1",
+		);
+	}
+	foreach($product_data as $prod){
+		db_query('UPDATE ?:bb_requests 
+			INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.request_id
+			SET ?u 
+			WHERE 
+				?:bb_requests.user_id = ?i 
+				AND 
+					?:bb_bids.product_id = ?i
+				AND
+					?:bb_bids.quantity = ?i',
+			$update_data,$auth['user_id'],$prod['product_id'],$prod['amount']
+		);
 	}
 }
 
@@ -48,7 +85,7 @@ function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$pric
 		SELECT price 
 		FROM ?:bb_bids 
 		INNER JOIN ?:bb_requests ON
-			?:bb_requests.bb_request_id = ?:bb_bids.request_item_id
+			?:bb_requests.bb_request_id = ?:bb_bids.request_id
 		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i
 	",$product_id,$auth['user_id']);
 }
@@ -59,7 +96,7 @@ function fn_get_bid_by_product($product_id,$request_id){
 			FROM
 				?:bb_bids
 			WHERE
-				?:bb_bids.product_id = $product_id AND ?:bb_bids.request_item_id = $request_id
+				?:bb_bids.product_id = $product_id AND ?:bb_bids.request_id = $request_id
 			GROUP BY bb_item_id
 		");
 
@@ -90,7 +127,7 @@ function fn_get_bids($params){
 			?:user_profiles ON
 				?:bb_bids.user_id = ?:user_profiles.user_id
 		WHERE 
-			?:bb_bids.request_item_id = ?i
+		 ?:bb_bids.request_id = ?i
 		GROUP BY request_item_id",
 			$params['request_id']
 		);
@@ -121,53 +158,69 @@ function fn_submit_bids($bb_data,$auth){
 	if(empty($bb_data) || !is_array($bb_data)){
 		return false;
 	}else{
-		$request_item = db_get_row("SELECT max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$bb_data['request_id']);
+		//Used to get the request_id
+		parse_str($bb_data['redirect_url']);
 
-		var_dump($bb_data);die;
+		//FIXME: $bb_data['request_id'] doesn't exist, need to get the right variable from it
+		$request_item = db_get_row("SELECT max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+
+		foreach($bb_data['product_ids'] as $pid){
+			$price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'] ;
+		}
 
 		$mp = $request_item['max_price'];
 
 		// Flag to be set to true if request price > allowed max price
 		$over_max = false;
 
-		if(exists($mp)){
-			if($mp > 0 && is_numeric($mp) && $mp != NULL){
-				if($request_item['allow_over_max_price'] && $bb_data['price'] > $mp + 0.1 * $mp){
+		if($price != NULL && $request_item['max_price'] != 0){
+			if($price > 0 && is_numeric($price) && $price != NULL){
+				if($request_item['allow_over_max_price'] && $price > ($mp + 0.1 * $mp)){
 					// Check price is over by 10%, if not return to original
 					$over_max = true;
-				}elseif($bb_data['price'] > $mp){
+					$error_msg = $lang['bid_is_over_request_max'].'$'.$mp+0.1*$mp;
+				}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
 					// Check price is under or equal to max, if not return to original
 					$over_max = true;
+					$error_msg = $lang['bid_is_over_request_max'].'$'.$mp;
 				}
 			}else{
 				// Throw non-numeric error
-				$msg = $lang['invalid_bid'];
+				// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
+				$error_msg = $lang['error_occurred'];
 			}
+		}else{
+			// Throw non-numeric error
+			// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
+			$error_msg = $lang['error_occurred'];
 		}
+
+		if($over_max){
+			fn_set_notification('E', $lang['error'], $error_msg);
+			return false;
+		}
+
 		//Search for existing bid
 		$existing_bid = db_get_row('
 			SELECT *
 			FROM ?:bb_bids
-			WHERE ?:bb_bids.user_id = ?i AND ?:bb_bids.request_item_id = ?i',$auth['user_id'], $bb_data['request_id']
+			WHERE ?:bb_bids.user_id = ?i AND ?:bb_bids.request_id = ?i',$auth['user_id'], $request_id
 		);
 
 		//Archive existing bid if exists
-		if(!empty($existing_bid)){
+		if(!empty($existing_bid) || $existing_bid != NULL){
 			db_query('DELETE FROM ?:bb_bids WHERE ?:bb_bids.bb_item_id = ?i',$existing_bid['bb_item_id']);
 			unset($existing_bid['bb_item_id']);
-			db_query('DELETE FROM ?:bb_bids_archive WHERE ?:bb_bids_archive.user_id = ?i AND ?:bb_bids_archive.request_item_id = ?i',$auth['user_id'],$bb_data['request_id']);
+			db_query('DELETE FROM ?:bb_bids_archive WHERE ?:bb_bids_archive.user_id = ?i AND ?:bb_bids_archive.request_id = ?i',$auth['user_id'],$bb_data['request_id']);
 			db_query('INSERT INTO ?:bb_bids_archive ?e',$existing_bid);
 		}
-
-		//Used to get the request_id
-		parse_str($bb_data['redirect_url']);
 
 		//Execute bid
 		foreach($bb_data['product_ids'] as $product){
 			foreach($bb_data['products_data'] as $pid=>$pdata){
 				if($pid == $product){
 					$new_bid = Array(
-						'request_item_id' => $request_id,
+						'request_id' => $request_id,
 						'price' => $pdata['price'],
 						'user_id' => $auth['user_id'],
 						'quantity' => $pdata['amount'],
@@ -265,7 +318,7 @@ function fn_get_requests_by_product($product){
 		INNER JOIN ?:bb_request_item ON 
 			?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 
 		LEFT OUTER JOIN ?:bb_bids ON
-			?:bb_request_item.bb_request_item_id = ?:bb_bids.request_item_id
+			?:bb_requests.bb_request_id = ?:bb_bids.request_id
 		WHERE ?:bb_request_item.description LIKE ?l
 		ORDER BY price DESC', $product
 	);
@@ -285,7 +338,7 @@ function fn_get_request_by_order($user_id,$product_id){
 	$data = db_get_row("
 		SELECT *
 		FROM ?:bb_requests
-		INNER JOIN ?:bb_bids ON ?:bb_bids.request_item_id = ?:bb_requests.bb_request_id
+		INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id
 		WHERE ?:bb_requests.user_id = ?i AND ?:bb_bids.product_id = ?i
 	",$user_id,$product_id);
 

@@ -51,8 +51,10 @@
 					{include file="buttons/button.tpl" but_href="products.view?product_id=`$product.product_id`" but_text=$lang.view_details but_role="submit"}
 				{/if}
 
-				{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
-				{$smarty.capture.$add_to_cart}
+				{if $auth.user_id == $owned_user}
+					{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
+					{$smarty.capture.$add_to_cart}
+				{/if}
 
 				{assign var="list_buttons" value="list_buttons_`$obj_id`"}
 				{$smarty.capture.$list_buttons}
