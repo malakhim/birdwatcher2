@@ -43,26 +43,46 @@ function fn_archive_request($request_id){
  * @return [type]
  */
 function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
-	if($update){
+	// Check product_data is in cart
+	$product_in_cart = false;
+	foreach($cart['products'] as $prod){
+		foreach($product_data as $pdata){
+			if($pdata['product_id'] == $prod['product_id']){
+				$product_in_cart = true;
+			}
+		}
+	}
+	// Check product exists for the auction
+	$product_in_auction = false;
+	foreach($product_data as $pdata){
+		$product_in_auction = db_get_field(
+		"SELECT ?:bb_requests.bb_request_id
+		FROM ?:bb_requests 
+		INNER JOIN ?:bb_bids ON ?:bb_requests.bb_request_id = ?:bb_bids.request_id
+		WHERE ?:bb_bids.product_id = ?i AND ?:bb_requests.user_id = ?i
+		",$pdata['product_id'],$auth['user_id']);
+	}
+	// If both above are true then add product to cart
+	$valid_purchase = false;
+	if($product_in_cart && ($product_in_auction && $product_in_auction != NULL && !empty($product_in_auction))){
+		$valid_purchase = true;
+	}
+
+	if($valid_purchase){
 		$update_data = Array(
-			"?:bb_requests.item_added_to_cart" => "0",
+			"item_added_to_cart" => "1",
 		);
 	}else{
 		$update_data = Array(
-			"?:bb_requests.item_added_to_cart" => "1",
+			"item_added_to_cart" => "0",
 		);
 	}
 	foreach($product_data as $prod){
-		db_query('UPDATE ?:bb_requests 
-			INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.request_id
-			SET ?u 
+		db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
 			WHERE 
 				?:bb_requests.user_id = ?i 
 				AND 
-					?:bb_bids.product_id = ?i
-				AND
-					?:bb_bids.quantity = ?i',
-			$update_data,$auth['user_id'],$prod['product_id'],$prod['amount']
+					?:bb_bids.product_id = ?i',$update_data,$auth['user_id'],$prod['product_id']
 		);
 	}
 }
@@ -81,8 +101,7 @@ function fn_billibuys_order_placement_routines($order_id, $force_notification, $
 
 function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$price){
 	$bid_id = $_SESSION['bid_id'];
-	$price = db_get_field("
-		SELECT price 
+	$price = db_get_field("SELECT price 
 		FROM ?:bb_bids 
 		INNER JOIN ?:bb_requests ON
 			?:bb_requests.bb_request_id = ?:bb_bids.request_id
@@ -91,8 +110,7 @@ function fn_billibuys_get_product_price_post($product_id, $amount, $auth, &$pric
 }
 
 function fn_get_bid_by_product($product_id,$request_id){
-	$bid = db_get_row("
-			SELECT *
+	$bid = db_get_row("SELECT *
 			FROM
 				?:bb_bids
 			WHERE
@@ -116,8 +134,7 @@ function fn_get_bids($params){
 	}else
 		$fields = '*';
 
-	$bids = db_get_array("
-		SELECT $fields
+	$bids = db_get_array("SELECT $fields
 		FROM 
 			?:bb_bids
 		INNER JOIN
@@ -128,7 +145,7 @@ function fn_get_bids($params){
 				?:bb_bids.user_id = ?:user_profiles.user_id
 		WHERE 
 		 ?:bb_bids.request_id = ?i
-		GROUP BY request_item_id",
+		GROUP BY request_id",
 			$params['request_id']
 		);
 
@@ -201,8 +218,7 @@ function fn_submit_bids($bb_data,$auth){
 		}
 
 		//Search for existing bid
-		$existing_bid = db_get_row('
-			SELECT *
+		$existing_bid = db_get_row('SELECT *
 			FROM ?:bb_bids
 			WHERE ?:bb_bids.user_id = ?i AND ?:bb_bids.request_id = ?i',$auth['user_id'], $request_id
 		);
@@ -335,8 +351,8 @@ function fn_get_requests_by_product($product){
 
 
 function fn_get_request_by_order($user_id,$product_id){
-	$data = db_get_row("
-		SELECT *
+	$data = db_get_row(
+		"SELECT *
 		FROM ?:bb_requests
 		INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id
 		WHERE ?:bb_requests.user_id = ?i AND ?:bb_bids.product_id = ?i
@@ -391,8 +407,8 @@ function fn_get_requests($params){
 		),$params);
 
 	if($params['own_auctions'] == false){
-			$requests = db_get_array('
-				SELECT * 
+			$requests = db_get_array(
+				'SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
 					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id'
@@ -402,8 +418,8 @@ function fn_get_requests($params){
 		$user = $params['user'];
 		if($user !== 0){
 			// Get request by this user
-			$requests = db_get_array('
-				SELECT * 
+			$requests = db_get_array(
+				'SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
 					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 

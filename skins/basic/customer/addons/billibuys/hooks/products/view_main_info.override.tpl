@@ -54,6 +54,8 @@
 				{if $auth.user_id == $owned_user}
 					{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
 					{$smarty.capture.$add_to_cart}
+				{else}
+					{$lang.are_you_owner}
 				{/if}
 
 				{assign var="list_buttons" value="list_buttons_`$obj_id`"}
