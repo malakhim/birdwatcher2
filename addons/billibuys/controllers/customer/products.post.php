@@ -15,6 +15,7 @@ if ($mode == 'view'){
 			$view->assign('price',$bid['price']);
 			$view->assign('quantity',$bid['quantity']);
 			$view->assign('owned_user',$request['user_id']);
+			$view->assign('item_added_to_cart',$request['item_added_to_cart']);
 		}else{
 			$view->assign('price',$lang['bb_item_enter_through_bids']);
 		}

@@ -52,8 +52,12 @@
 				{/if}
 
 				{if $auth.user_id == $owned_user}
+					{if !$item_added_to_cart}
 					{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
 					{$smarty.capture.$add_to_cart}
+					{else}
+						{$lang.bid_already_accepted_for_this_auction}
+					{/if}
 				{else}
 					{$lang.are_you_owner}
 				{/if}

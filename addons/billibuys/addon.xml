@@ -124,6 +124,7 @@
 		<item lang="EN" id="bb_text_log_in_to_place_request">Please log in to place a request</item>
 		<item lang="EN" id="max_price">Max Price</item>
 		<item lang="EN" id="are_you_user">Are you the owner of this auction? Log in to purchase this item!</item>
+		<item lang="EN" id="bid_already_accepted_for_this_auction">You have already accepted a bid from this auction. Go to your cart and remove it if you wish to change this.</item>
 
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	

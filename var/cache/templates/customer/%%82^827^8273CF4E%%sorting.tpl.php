@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-08-30 19:37:21
+<?php /* Smarty version 2.6.18, created on 2013-09-21 11:03:04
          compiled from views/products/components/sorting.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_query_remove', 'views/products/components/sorting.tpl', 20, false),array('modifier', 'fn_get_products_sorting', 'views/products/components/sorting.tpl', 21, false),array('modifier', 'fn_get_products_sorting_orders', 'views/products/components/sorting.tpl', 22, false),array('modifier', 'fn_get_products_views', 'views/products/components/sorting.tpl', 23, false),array('modifier', 'default', 'views/products/components/sorting.tpl', 24, false),array('modifier', 'count', 'views/products/components/sorting.tpl', 43, false),array('modifier', 'replace', 'views/products/components/sorting.tpl', 47, false),array('modifier', 'fn_url', 'views/products/components/sorting.tpl', 47, false),)), $this); ?>
