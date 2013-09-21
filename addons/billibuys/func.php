@@ -35,12 +35,29 @@ function fn_archive_request($request_id){
 }
 
 /**
+ * Post delete-from-cart script, toggles item_added_to_cart flag to 00 for the request linked to the item that's being deleted from cart
+ * @param  array  $cart       The cart
+ * @param  int  $cart_id    The ID of the product in the cart
+ * @param  boolean $full_erase No idea.
+ * @return boolean              Just good practice.
+ */
+function fn_billibuys_delete_cart_product($cart, $cart_id, $full_erase = true){
+	$update_data = Array("item_added_to_cart" => 00);
+	db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
+		WHERE 
+			?:bb_requests.user_id = ?i 
+			AND 
+				?:bb_bids.product_id = ?i',$update_data,$_SESSION['auth']['user_id'],$cart['products'][$cart_id]['product_id']);
+	return true;
+}
+
+/**
  * Post add-to-cart script, toggles item_added_to_cart flag on the request table for associated request
  * @param  Array $product_data product data
  * @param  Array $cart current cart
  * @param  Array $auth auth array
  * @param  Boolean $update if cart has been updated, this will be true
- * @return [type]
+ * @return boolean Just good practice
  */
 function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 	// Check product_data is in cart
@@ -85,6 +102,8 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 					?:bb_bids.product_id = ?i',$update_data,$auth['user_id'],$prod['product_id']
 		);
 	}
+
+	return true;
 }
 
 /**
@@ -178,7 +197,6 @@ function fn_get_bids($params){
 		GROUP BY request_id",
 			$params['request_id']
 		);
-
 
 	return $bids;
 }

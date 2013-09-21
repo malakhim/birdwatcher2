@@ -1,0 +1,1 @@
+{include file="common_templates/image.tpl" obj_id=$key images=$product.main_pair object_type="product" show_thumbnail="Y" image_width=$settings.Thumbnails.product_cart_thumbnail_width image_height=$settings.Thumbnails.product_cart_thumbnail_height}

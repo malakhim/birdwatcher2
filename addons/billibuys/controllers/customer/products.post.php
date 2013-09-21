@@ -3,6 +3,7 @@
 if (!defined('AREA')) { die('Access denied'); }
 
 if ($mode == 'view'){
+	$view->assign('breadcrumbs',false);
 	if(!empty($_REQUEST['product_id']) && isset($_REQUEST['request_id']) && is_numeric($_REQUEST['request_id']) && !empty($_REQUEST['request_id'])) {
 		// Get price and quantity from db
 		// Add price and quantity for this bid to session variable
@@ -16,12 +17,7 @@ if ($mode == 'view'){
 			$view->assign('quantity',$bid['quantity']);
 			$view->assign('owned_user',$request['user_id']);
 			$view->assign('item_added_to_cart',$request['item_added_to_cart']);
-			$view->assign('breadcrumbs',false);
-		}else{
-			$view->assign('price',$lang['bb_item_enter_through_bids']);
 		}
-	}else{
-		$view->assign("price",$lang['bb_item_enter_through_bids']);
 	}
 }
 

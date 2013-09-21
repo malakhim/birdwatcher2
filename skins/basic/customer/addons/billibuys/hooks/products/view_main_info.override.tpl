@@ -29,6 +29,9 @@
 					<span class="chain-new">{$lang.price}</span>
 					<input type="hidden" name="price" value="{$price}"/>
 					{include file="common_templates/price.tpl" value=$price}
+				</div>
+			{else}
+				{$lang.bb_item_enter_through_bids}
 			{/if}
 		</div>
 
@@ -40,28 +43,32 @@
 
 		<br/>
 		{if $capture_options_vs_qty}{/capture}{/if}
-		<div style="padding: 0 !important;" class="qty {if $quick_view} form-field{if !$capture_options_vs_qty} product-list-field{/if}{/if}{if $settings.Appearance.quantity_changer == "Y"} changer{/if}" id="qty_{$obj_prefix}{$product.product_id}">
-			<input type="hidden" name="product_data[{$product.product_id}][amount]" value="{$quantity}"/>
-			<label for="qty_count_{$obj_prefix}{$product.product_id}">{$quantity_text|default:$lang.qty}:</label>
-			<div class="center valign cm-value-changer">
-			<input type="text" size="5" class="input-text-short cm-amount" id="qty_count_{$product.product_id}" name="product_data[{$product.product_id}][amount]" value="{"$quantity"|default:1}" disabled />
+		{if isset($smarty.request.bid_id) && isset($smarty.request.request_id)}
+			<div style="padding: 0 !important;" class="qty {if $quick_view} form-field{if !$capture_options_vs_qty} product-list-field{/if}{/if}{if $settings.Appearance.quantity_changer == "Y"} changer{/if}" id="qty_{$obj_prefix}{$product.product_id}">
+				<input type="hidden" name="product_data[{$product.product_id}][amount]" value="{$quantity}"/>
+				<label for="qty_count_{$obj_prefix}{$product.product_id}">{$quantity_text|default:$lang.qty}:</label>
+				<div class="center valign cm-value-changer">
+				<input type="text" size="5" class="input-text-short cm-amount" id="qty_count_{$product.product_id}" name="product_data[{$product.product_id}][amount]" value="{"$quantity"|default:1}" disabled />
+				</div>
 			</div>
-		</div>
+		{/if}
 		{if $capture_buttons}{capture name="buttons"}{/if}
 			<div class="buttons-container">
 				{if $show_details_button}
 					{include file="buttons/button.tpl" but_href="products.view?product_id=`$product.product_id`" but_text=$lang.view_details but_role="submit"}
 				{/if}
 
-				{if $auth.user_id == $owned_user}
-					{if $item_added_to_cart == 0}
-						{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
-						{$smarty.capture.$add_to_cart}
+				{if isset($smarty.request.bid_id) && isset($smarty.request.request_id)}
+					{if $auth.user_id == $owned_user}
+						{if $item_added_to_cart == 0}
+							{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
+							{$smarty.capture.$add_to_cart}
+						{else}
+							{$lang.bid_already_accepted_for_this_auction}
+						{/if}
 					{else}
-						{$lang.bid_already_accepted_for_this_auction}
+						{$lang.are_you_owner}
 					{/if}
-				{else}
-					{$lang.are_you_owner}
 				{/if}
 
 				{assign var="list_buttons" value="list_buttons_`$obj_id`"}

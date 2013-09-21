@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-16 17:44:52
+<?php /* Smarty version 2.6.18, created on 2013-09-21 19:14:03
          compiled from views/checkout/components/cart_items.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'floatval', 'views/checkout/components/cart_items.tpl', 17, false),array('modifier', 'default', 'views/checkout/components/cart_items.tpl', 35, false),array('modifier', 'trim', 'views/checkout/components/cart_items.tpl', 36, false),array('modifier', 'fn_url', 'views/checkout/components/cart_items.tpl', 43, false),array('modifier', 'unescape', 'views/checkout/components/cart_items.tpl', 134, false),array('modifier', 'fn_generate_thumbnail', 'views/checkout/components/cart_items.tpl', 134, false),array('modifier', 'escape', 'views/checkout/components/cart_items.tpl', 134, false),array('modifier', 'fn_convert_relative_to_absolute_image_url', 'views/checkout/components/cart_items.tpl', 137, false),array('modifier', 'format_price', 'views/checkout/components/cart_items.tpl', 296, false),array('modifier', 'fn_get_company_name', 'views/checkout/components/cart_items.tpl', 339, false),array('block', 'hook', 'views/checkout/components/cart_items.tpl', 18, false),array('function', 'math', 'views/checkout/components/cart_items.tpl', 52, false),)), $this); ?>
@@ -62,7 +62,13 @@ $this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop
 	<div class="product-image cm-reload-<?php echo $this->_tpl_vars['obj_id']; ?>
 " id="product_image_update_<?php echo $this->_tpl_vars['obj_id']; ?>
 ">
-		<?php $this->_tag_stack[] = array('hook', array('name' => "checkout:product_icon")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+		<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php ob_start(); $this->_in_capture[] = 'd7412e3d52a5bbf1c66def4bb44339a8';
+$_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/hooks/checkout/product_icon.override.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+$this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['d7412e3d52a5bbf1c66def4bb44339a8'])) { echo implode("\n", $this->_scripts['d7412e3d52a5bbf1c66def4bb44339a8']); unset($this->_scripts['d7412e3d52a5bbf1c66def4bb44339a8']); }
+ ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
+<?php else: ?><?php $this->_tag_stack[] = array('hook', array('name' => "checkout:product_icon")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
 		<a href="<?php echo fn_url("products.view?product_id=".($this->_tpl_vars['product']['product_id'])); ?>
 ">
 		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('obj_id' => $this->_tpl_vars['key'], 'images' => $this->_tpl_vars['product']['main_pair'], 'object_type' => 'product', 'show_thumbnail' => 'Y', 'image_width' => $this->_tpl_vars['settings']['Thumbnails']['product_cart_thumbnail_width'], 'image_height' => $this->_tpl_vars['settings']['Thumbnails']['product_cart_thumbnail_height'], )); ?>
@@ -81,7 +87,7 @@ unset($_smarty_tpl_vars);
 ]" value="<?php echo $this->_tpl_vars['ordered_amount']; ?>
 " />
 <?php endforeach; endif; unset($_from); ?>
-<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?>
 	<!--product_image_update_<?php echo $this->_tpl_vars['obj_id']; ?>
 --></div>
 	</td>

@@ -34,9 +34,9 @@
 							{/if}
 						{else}
 							{if $request.timestamp.msg == 'invalid_date'}
-								{$lang.error_occurred}
+								{$lang.invalid_date_format}
 							{elseif $request.timestamp.msg == 'nonpositive_value'}
-								{$lang.error_occurred}
+								{$lang.date_nonpositive}
 							{/if}
 						{/if}
 					</td>

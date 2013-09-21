@@ -10,7 +10,7 @@
 	<!--product_image_update_{$obj_id}--></div>
 	</td>
 	<td width="50%" valign="top" class="product-description">
-	<a href="{"products.view?product_id=`$product.product_id`"|fn_url}" class="product-title">{$product.product|unescape}</a>{if !$product.exclude_from_calculate}<a class="{$ajax_class} icon-delete-big" href="{"checkout.delete?cart_id=`$key`&amp;redirect_mode=`$mode`"|fn_url}" rev="cart_items,checkout_totals,cart_status*,checkout_steps,checkout_cart" title="{$lang.remove}"></a>{/if}	
+	{$product.product|unescape}{if !$product.exclude_from_calculate}<a class="{$ajax_class} icon-delete-big" href="{"checkout.delete?cart_id=`$key`&amp;redirect_mode=`$mode`"|fn_url}" rev="cart_items,checkout_totals,cart_status*,checkout_steps,checkout_cart" title="{$lang.remove}"></a>{/if}	
 		<p class="sku{if !$product.product_code} hidden{/if}" id="sku_{$key}">
 			{$lang.sku}: <span class="cm-reload-{$obj_id}" id="product_code_update_{$obj_id}">{$product.product_code}<!--product_code_update_{$obj_id}--></span>
 		</p>

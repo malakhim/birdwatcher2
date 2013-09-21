@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-14 15:57:06
+<?php /* Smarty version 2.6.18, created on 2013-09-21 19:31:58
          compiled from views/static_data/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/static_data/update.tpl', 23, false),array('modifier', 'strpos', 'views/static_data/update.tpl', 55, false),array('modifier', 'indent', 'views/static_data/update.tpl', 56, false),array('modifier', 'escape', 'views/static_data/update.tpl', 74, false),array('modifier', 'fn_static_data_megabox', 'views/static_data/update.tpl', 96, false),array('modifier', 'fn_explode_localizations', 'views/static_data/update.tpl', 131, false),array('modifier', 'default', 'views/static_data/update.tpl', 139, false),array('modifier', 'fn_allow_save_object', 'views/static_data/update.tpl', 154, false),)), $this); ?>
