@@ -1,3 +1,5 @@
+<br />
+
 {if $product}
 	{assign var="obj_id" value=$product.product_id}
 
@@ -51,8 +53,16 @@
 					{include file="buttons/button.tpl" but_href="products.view?product_id=`$product.product_id`" but_text=$lang.view_details but_role="submit"}
 				{/if}
 
-				{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
-				{$smarty.capture.$add_to_cart}
+				{if $auth.user_id == $owned_user}
+					{if $item_added_to_cart == 0}
+						{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
+						{$smarty.capture.$add_to_cart}
+					{else}
+						{$lang.bid_already_accepted_for_this_auction}
+					{/if}
+				{else}
+					{$lang.are_you_owner}
+				{/if}
 
 				{assign var="list_buttons" value="list_buttons_`$obj_id`"}
 				{$smarty.capture.$list_buttons}

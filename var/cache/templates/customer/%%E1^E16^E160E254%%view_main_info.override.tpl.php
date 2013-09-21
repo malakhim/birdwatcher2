@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 11:23:03
+<?php /* Smarty version 2.6.18, created on 2013-09-21 13:03:47
          compiled from addons/billibuys/hooks/products/view_main_info.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 35, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 40, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 47, false),array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 65, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 98, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 98, false),)), $this); ?>
@@ -19,7 +19,7 @@ fn_preload_lang_vars(array('price','description','qty','view_details','delete','
 						return;
 					}
 				}
-			 ?><br/>
+			 ?><br />
 
 <?php if ($this->_tpl_vars['product']): ?>
 	<?php $this->assign('obj_id', $this->_tpl_vars['product']['product_id'], false); ?>

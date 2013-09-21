@@ -15,17 +15,6 @@
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
 		<item for="install">
-			CREATE TABLE `?:bb_request_archive` (
-				`archive_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-				`user_id` int(11) unsigned NOT NULL,
-				`request_id` int(11),
-				`ip_address` int(11) unsigned NOT NULL,
-				`timestamp` int(11) unsigned NOT NULL,
-				`allow_over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
-				PRIMARY KEY (`archive_id`)
-			) Engine=MyISAM DEFAULT CHARSET UTF8;
-		</item>
-		<item for="install">
 			CREATE TABLE `?:bb_notifications` (
 				`bb_notify_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				`notify_string` VARCHAR(255),
@@ -42,30 +31,21 @@
 				`request_item_id` int(11),
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
-				`allow_over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
-				`item_added_to_cart` tinyint(2) unsigned NOT NULL ZEROFILL,
+				`allow_over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`item_added_to_cart` tinyint(2) ZEROFILL unsigned NOT NULL,
 				PRIMARY KEY (`bb_request_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
-			CREATE TABLE `?:bb_request_item_archive` (
-				`bb_request_item_id` int(11) NOT NULL AUTO_INCREMENT,
-				`title` VARCHAR(50),
-				`description` VARCHAR(500),
-				`max_price` DECIMAL(10,2),
-				`over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
-				PRIMARY KEY (`bb_request_item_id`)
-			) Engine=MyISAM DEFAULT CHARSET UTF8;
-		</item>
-		<item for="install">
-			CREATE TABLE `?:bb_bids_archive` (
-				`bb_request_id` int(11) NOT NULL AUTO_INCREMENT,
-				`request_item_id` int(11),
-				`product_id` int(11),
-				`price` DECIMAL(10,2),
-				`quantity` INT(11),
-				`user_id` INT(11),
-				PRIMARY KEY (`archive_id`)
+			CREATE TABLE `?:bb_request_archive` (
+				`bb_request_archive_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`bb_request_id` int(11),
+				`user_id` int(11) unsigned NOT NULL,
+				`request_id` int(11),
+				`ip_address` int(11) unsigned NOT NULL,
+				`timestamp` int(11) unsigned NOT NULL,
+				`allow_over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				PRIMARY KEY (`bb_request_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
@@ -74,19 +54,42 @@
 				`title` VARCHAR(50),
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
-				`over_max_price` tinyint(2) unsigned NOT NULL ZEROFILL,
+				`over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
 				PRIMARY KEY (`bb_request_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
+			CREATE TABLE `?:bb_request_item_archive` (
+				`bb_request_item_archive_id` int(11) NOT NULL AUTO_INCREMENT,
+				`bb_request_item_id` int(11),
+				`title` VARCHAR(50),
+				`description` VARCHAR(500),
+				`max_price` DECIMAL(10,2),
+				`over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				PRIMARY KEY (`bb_request_item_archive_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
 			CREATE TABLE `?:bb_bids` (
-				`bb_item_id` int(11) NOT NULL AUTO_INCREMENT,
+				`bb_bid_id` int(11) NOT NULL AUTO_INCREMENT,
 				`request_id` int(11),
 				`product_id` int(11),
 				`price` DECIMAL(10,2),
 				`quantity` INT(11),
 				`user_id` INT(11),
-				PRIMARY KEY (`bb_item_id`)
+				PRIMARY KEY (`bb_bid_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_bids_archive` (
+				`bb_bid_archive_id` int(11) NOT NULL AUTO_INCREMENT,
+				`bb_bid_id` int(11),
+				`request_id` int(11),
+				`product_id` int(11),
+				`price` DECIMAL(10,2),
+				`quantity` INT(11),
+				`user_id` INT(11),
+				PRIMARY KEY (`bb_bid_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_requests</item>

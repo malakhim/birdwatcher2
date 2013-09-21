@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-16 17:06:55
+<?php /* Smarty version 2.6.18, created on 2013-09-21 13:31:33
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'ucwords', 'addons/billibuys/views/billibuys/request.tpl', 19, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/request.tpl', 60, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/request.tpl', 34, false),)), $this); ?>
@@ -51,7 +51,7 @@ fn_preload_lang_vars(array('item','price','name','quantity','total_price','delet
 	<?php if (is_array ( $this->_tpl_vars['bid'] )): ?>
 		<tr <?php echo smarty_function_cycle(array('values' => "class=\"table-row\","), $this);?>
 >
-			<td><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['bid']['product'], 'but_href' => fn_url("products.view&product_id=".($this->_tpl_vars['bid']['product_id'])."&request_id=".($this->_tpl_vars['_REQUEST']['request_id'])."&bid_id=".($this->_tpl_vars['bid']['bb_item_id'])), 'but_role' => 'text', )); ?>
+			<td><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['bid']['product'], 'but_href' => fn_url("products.view&product_id=".($this->_tpl_vars['bid']['product_id'])."&request_id=".($this->_tpl_vars['_REQUEST']['request_id'])."&bid_id=".($this->_tpl_vars['bid']['bb_bid_id'])), 'but_role' => 'text', )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -146,7 +146,7 @@ fn_preload_lang_vars(array('item','price','name','quantity','total_price','delet
 </td>
 			<td><?php echo $this->_tpl_vars['bid']['tot_price']; ?>
 </td>
-					</tr>
+		</tr>
 	<?php endif; ?>
 <?php endforeach; endif; unset($_from); ?>
 </table>

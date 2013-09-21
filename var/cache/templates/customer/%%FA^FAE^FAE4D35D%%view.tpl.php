@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-16 17:03:24
+<?php /* Smarty version 2.6.18, created on 2013-09-21 13:02:57
          compiled from addons/billibuys/views/billibuys/view.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/view.tpl', 1, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/view.tpl', 66, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/view.tpl', 40, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_place_request','item','durat_since_start','delete','two_weeks_plus','error_occurred','error_occurred','text_no_matching_results_found','please_login','bb_error_occurred','billibuys'));
+fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_place_request','item','durat_since_start','delete','two_weeks_plus','invalid_date_format','date_nonpositive','text_no_matching_results_found','please_login','bb_error_occurred','billibuys'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -143,10 +143,10 @@ fn_preload_lang_vars(array('bb_text_place_request_question','bb_text_log_in_to_p
 							<?php endif; ?>
 						<?php else: ?>
 							<?php if ($this->_tpl_vars['request']['timestamp']['msg'] == 'invalid_date'): ?>
-								<?php echo fn_get_lang_var('error_occurred', $this->getLanguage()); ?>
+								<?php echo fn_get_lang_var('invalid_date_format', $this->getLanguage()); ?>
 
 							<?php elseif ($this->_tpl_vars['request']['timestamp']['msg'] == 'nonpositive_value'): ?>
-								<?php echo fn_get_lang_var('error_occurred', $this->getLanguage()); ?>
+								<?php echo fn_get_lang_var('date_nonpositive', $this->getLanguage()); ?>
 
 							<?php endif; ?>
 						<?php endif; ?>

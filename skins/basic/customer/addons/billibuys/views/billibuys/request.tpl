@@ -18,12 +18,11 @@
 {foreach from=$bids item=bid}
 	{if is_array($bid)}
 		<tr {cycle values="class=\"table-row\","}>
-			<td>{include file="buttons/button.tpl" but_text=$bid.product but_href="products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_item_id`"|fn_url but_role="text"}</td>
+			<td>{include file="buttons/button.tpl" but_text=$bid.product but_href="products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url but_role="text"}</td>
 			<td>{$bid.price}</td>
 			<td>{$bid.profile_name}</td>
 			<td>{$bid.quantity}</td>
 			<td>{$bid.tot_price}</td>
-			{*<td>{if $bid.current_bid ne ''}${$bid.current_bid}{else}{$lang.bb_no_bids}!{/if}</td>*}
 		</tr>
 	{/if}
 {/foreach}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-16 17:11:15
+<?php /* Smarty version 2.6.18, created on 2013-09-21 13:03:49
          compiled from blocks/product_tabs/files.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'blocks/product_tabs/files.tpl', 26, false),array('modifier', 'unescape', 'blocks/product_tabs/files.tpl', 31, false),array('modifier', 'formatfilesize', 'blocks/product_tabs/files.tpl', 41, false),)), $this); ?>

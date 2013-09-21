@@ -1,4 +1,4 @@
-{if $chains && !$quick_view}
+{**{if $chains && !$quick_view}
 
 	{if $product}
 		{assign var="obj_id" value=$product.product_id}
@@ -277,4 +277,4 @@
 	{$smarty.capture.$form_close}
 	{/if}
 
-{/if}
+{/if}*}

@@ -145,7 +145,7 @@ function fn_get_bid_by_product($product_id,$request_id){
 				?:bb_bids
 			WHERE
 				?:bb_bids.product_id = $product_id AND ?:bb_bids.request_id = $request_id
-			GROUP BY bb_item_id
+			GROUP BY bb_bid_id
 		");
 
 	return $bid;
@@ -255,9 +255,10 @@ function fn_submit_bids($bb_data,$auth){
 
 		//Archive existing bid if exists
 		if(!empty($existing_bid) || $existing_bid != NULL){
-			db_query('DELETE FROM ?:bb_bids WHERE ?:bb_bids.bb_item_id = ?i',$existing_bid['bb_item_id']);
-			unset($existing_bid['bb_item_id']);
-			db_query('DELETE FROM ?:bb_bids_archive WHERE ?:bb_bids_archive.user_id = ?i AND ?:bb_bids_archive.request_id = ?i',$auth['user_id'],$bb_data['request_id']);
+			db_query('DELETE FROM ?:bb_bids WHERE ?:bb_bids.bb_bid_id = ?i',$existing_bid['bb_bid_id']);
+			//Delete from bids archive to prevent duplicates
+			// Not used atm
+			// db_query('DELETE FROM ?:bb_bids_archive WHERE ?:bb_bids_archive.user_id = ?i AND ?:bb_bids_archive.request_id = ?i',$auth['user_id'],$request_id);
 			db_query('INSERT INTO ?:bb_bids_archive ?e',$existing_bid);
 		}
 
