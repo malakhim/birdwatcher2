@@ -18,7 +18,8 @@ function fn_archive_request($request_id){
 	$request = db_get_row("SELECT * FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 
 	// Get request details and archive them
-	$request_item = db_get_row("SELECT * FROM ?:bb_request_item WHERE ?:bb_request_item_id = ?i",$request['request_item_id']);
+	$request_item = db_get_row("SELECT * FROM ?:bb_request_item WHERE bb_request_item_id = ?i",$request['request_item_id']);
+
 	db_query("INSERT INTO ?:bb_request_item_archive ?e",$request_item);
 
 	// Archive actual request
@@ -28,6 +29,7 @@ function fn_archive_request($request_id){
 	$id = db_get_field("SELECT LAST_INSERT_ID()");
 	if($id){
 		db_query("DELETE FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+		db_query("DELETE FROM ?:bb_request_item WHERE ?:bb_request_item.bb_request_item_id = ?i",$request_item['bb_request_item_id']);
 		return true;
 	}else{
 		return false;

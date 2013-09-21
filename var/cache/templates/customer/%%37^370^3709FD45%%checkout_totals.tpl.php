@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 19:14:03
+<?php /* Smarty version 2.6.18, created on 2013-09-21 20:01:56
          compiled from views/checkout/components/checkout_totals.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/checkout/components/checkout_totals.tpl', 1, false),array('modifier', 'fn_url', 'views/checkout/components/checkout_totals.tpl', 17, false),array('modifier', 'format_price', 'views/checkout/components/checkout_totals.tpl', 47, false),array('block', 'hook', 'views/checkout/components/checkout_totals.tpl', 33, false),)), $this); ?>

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-06 22:44:02
+<?php /* Smarty version 2.6.18, created on 2013-09-21 19:46:46
          compiled from views/checkout/components/shipping_rates.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'array_sum', 'views/checkout/components/shipping_rates.tpl', 1, false),array('modifier', 'fn_url', 'views/checkout/components/shipping_rates.tpl', 54, false),array('modifier', 'unescape', 'views/checkout/components/shipping_rates.tpl', 73, false),array('modifier', 'fn_get_product_name', 'views/checkout/components/shipping_rates.tpl', 73, false),array('modifier', 'format_price', 'views/checkout/components/shipping_rates.tpl', 85, false),array('modifier', 'replace', 'views/checkout/components/shipping_rates.tpl', 146, false),array('modifier', 'is_array', 'views/checkout/components/shipping_rates.tpl', 178, false),array('modifier', 'implode', 'views/checkout/components/shipping_rates.tpl', 179, false),array('block', 'hook', 'views/checkout/components/shipping_rates.tpl', 59, false),)), $this); ?>

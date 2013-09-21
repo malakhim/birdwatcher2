@@ -11,6 +11,7 @@
 		<item for="install">DROP TABLE IF EXISTS ?:bb_requests</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_request_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_request_item</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_request_item_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
@@ -96,6 +97,7 @@
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_archive</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_notify_id</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item_archive</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
 	</queries>
