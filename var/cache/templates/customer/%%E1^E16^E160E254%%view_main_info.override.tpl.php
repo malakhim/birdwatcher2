@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 10:28:19
+<?php /* Smarty version 2.6.18, created on 2013-09-21 11:23:03
          compiled from addons/billibuys/hooks/products/view_main_info.override.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 33, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 38, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 45, false),array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 63, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 96, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 96, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 35, false),array('modifier', 'trim', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 40, false),array('modifier', 'format_price', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 47, false),array('modifier', 'default', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 65, false),array('modifier', 'replace', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 98, false),array('modifier', 'fn_url', 'addons/billibuys/hooks/products/view_main_info.override.tpl', 98, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('price','description','qty','view_details','delete','bid_already_accepted_for_this_auction','are_you_owner'));
 ?>
@@ -19,7 +19,9 @@ fn_preload_lang_vars(array('price','description','qty','view_details','delete','
 						return;
 					}
 				}
-			 ?><?php if ($this->_tpl_vars['product']): ?>
+			 ?><br/>
+
+<?php if ($this->_tpl_vars['product']): ?>
 	<?php $this->assign('obj_id', $this->_tpl_vars['product']['product_id'], false); ?>
 
 	<?php $this->assign('obj_id', $this->_tpl_vars['product']['product_id'], false); ?>
@@ -188,9 +190,9 @@ _update--></div>
 				<?php endif; ?>
 
 				<?php if ($this->_tpl_vars['auth']['user_id'] == $this->_tpl_vars['owned_user']): ?>
-					<?php if (! $this->_tpl_vars['item_added_to_cart']): ?>
-					<?php $this->assign('add_to_cart', "add_to_cart_".($this->_tpl_vars['obj_id']), false); ?>
-					<?php echo $this->_smarty_vars['capture'][$this->_tpl_vars['add_to_cart']]; ?>
+					<?php if ($this->_tpl_vars['item_added_to_cart'] == 0): ?>
+						<?php $this->assign('add_to_cart', "add_to_cart_".($this->_tpl_vars['obj_id']), false); ?>
+						<?php echo $this->_smarty_vars['capture'][$this->_tpl_vars['add_to_cart']]; ?>
 
 					<?php else: ?>
 						<?php echo fn_get_lang_var('bid_already_accepted_for_this_auction', $this->getLanguage()); ?>

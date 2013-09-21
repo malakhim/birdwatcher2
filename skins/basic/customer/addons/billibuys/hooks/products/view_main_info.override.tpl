@@ -1,3 +1,5 @@
+<br />
+
 {if $product}
 	{assign var="obj_id" value=$product.product_id}
 
@@ -52,9 +54,9 @@
 				{/if}
 
 				{if $auth.user_id == $owned_user}
-					{if !$item_added_to_cart}
-					{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
-					{$smarty.capture.$add_to_cart}
+					{if $item_added_to_cart == 0}
+						{assign var="add_to_cart" value="add_to_cart_`$obj_id`"}
+						{$smarty.capture.$add_to_cart}
 					{else}
 						{$lang.bid_already_accepted_for_this_auction}
 					{/if}

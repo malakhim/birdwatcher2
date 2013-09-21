@@ -3,7 +3,6 @@
  * @author Bryan Wu
  * @copyright BilliBuys 2013
  * @desc Functions for BilliBuys
- * TODO: Need to figure out how to set to vendor area
  */
 
 
@@ -34,6 +33,7 @@ function fn_archive_request($request_id){
 		return false;
 	}
 }
+
 /**
  * Post add-to-cart script, toggles item_added_to_cart flag on the request table for associated request
  * @param  Array $product_data product data
@@ -87,6 +87,13 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
 	}
 }
 
+/**
+ * Sets "item_added_to_cart" to 0 as part of the cart clearing process
+ * @param  Array  $cart      The cart
+ * @param  boolean $complete  No idea
+ * @param  boolean $clear_all Double no idea
+ * @return boolean             Returning true just for good practice
+ */
 function fn_billibuys_clear_cart($cart, $complete = false, $clear_all = false){
 	// Iterate through cart's products
 	foreach($cart['products'] as $product){
