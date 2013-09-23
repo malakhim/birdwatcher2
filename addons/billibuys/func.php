@@ -116,24 +116,26 @@ function fn_billibuys_post_add_to_cart($product_data, $cart, $auth, $update){
  * @return boolean             Returning true just for good practice
  */
 function fn_billibuys_clear_cart($cart, $complete = false, $clear_all = false){
-	// Iterate through cart's products
-	foreach($cart['products'] as $product){
-		$user_id = $_SESSION['auth']['user_id'];
-		if($user_id){ // Good typing practices? What's that?
-			// Set item_added_to_cart to 0 for the request
-			$update_data = Array('item_added_to_cart' => 0);
-			db_query(
-				"UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_requests.bb_request_id = ?:bb_bids.request_id SET ?u WHERE
-					?:bb_bids.product_id = ?i AND
-					?:bb_bids.price = ?i AND
-					?:bb_requests.user_id = ?i",
-				$update_data,
-				$product['product_id'],
-				$product['price'],
-				$user_id
-			);
+	if($cart && is_array($cart) && $cart != null){
+		// Iterate through cart's products
+		foreach($cart['products'] as $product){
+			$user_id = $_SESSION['auth']['user_id'];
+			if($user_id){ // Good typing practices? What's that?
+				// Set item_added_to_cart to 0 for the request
+				$update_data = Array('item_added_to_cart' => 0);
+				db_query(
+					"UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_requests.bb_request_id = ?:bb_bids.request_id SET ?u WHERE
+						?:bb_bids.product_id = ?i AND
+						?:bb_bids.price = ?i AND
+						?:bb_requests.user_id = ?i",
+					$update_data,
+					$product['product_id'],
+					$product['price'],
+					$user_id
+				);
+			}
+			// If user isn't logged in (ie someone accidentally enabled "can have cart without logging in" in admin backend) then this will simply ignore everything
 		}
-		// If user isn't logged in (ie someone accidentally enabled "can have cart without logging in" in admin backend) then this will simply ignore everything
 	}
 	return true;	
 }

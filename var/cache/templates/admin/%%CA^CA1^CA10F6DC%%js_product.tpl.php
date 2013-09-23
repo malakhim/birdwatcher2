@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-06-26 14:56:47
+<?php /* Smarty version 2.6.18, created on 2013-09-23 17:00:40
          compiled from pickers/js_product.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'math', 'pickers/js_product.tpl', 19, false),array('modifier', 'fn_get_company_name', 'pickers/js_product.tpl', 31, false),array('modifier', 'is_array', 'pickers/js_product.tpl', 38, false),array('modifier', 'fn_url', 'pickers/js_product.tpl', 75, false),array('modifier', 'unescape', 'pickers/js_product.tpl', 75, false),array('block', 'hook', 'pickers/js_product.tpl', 60, false),)), $this); ?>
@@ -88,7 +88,10 @@ _<?php echo $this->_tpl_vars['delete_id']; ?>
 	<?php endif; ?>
 
 	<?php $this->_tag_stack[] = array('hook', array('name' => "product_picker:table_column_options")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-	<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+	<?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/bundled_products/hooks/product_picker/table_column_options.post.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 <td class="nowrap">
 	<?php if (! $this->_tpl_vars['hide_delete_button'] && ! $this->_tpl_vars['show_only_name']): ?>
 		<?php ob_start(); ?>

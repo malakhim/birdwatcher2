@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-06-26 14:56:47
+<?php /* Smarty version 2.6.18, created on 2013-09-23 17:00:40
          compiled from pickers/products_picker.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_product_name', 'pickers/products_picker.tpl', 1, false),array('modifier', 'default', 'pickers/products_picker.tpl', 1, false),array('modifier', 'count', 'pickers/products_picker.tpl', 1, false),array('modifier', 'fn_get_selected_product_options_info', 'pickers/products_picker.tpl', 1, false),array('modifier', 'fn_url', 'pickers/products_picker.tpl', 1, false),array('modifier', 'is_array', 'pickers/products_picker.tpl', 21, false),array('modifier', 'explode', 'pickers/products_picker.tpl', 22, false),array('modifier', 'implode', 'pickers/products_picker.tpl', 33, false),array('modifier', 'fn_get_product_options', 'pickers/products_picker.tpl', 78, false),array('modifier', 'escape', 'pickers/products_picker.tpl', 114, false),array('modifier', 'fn_check_view_permissions', 'pickers/products_picker.tpl', 141, false),array('function', 'math', 'pickers/products_picker.tpl', 15, false),array('function', 'script', 'pickers/products_picker.tpl', 19, false),array('block', 'hook', 'pickers/products_picker.tpl', 69, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_product_name', 'pickers/products_picker.tpl', 1, false),array('modifier', 'default', 'pickers/products_picker.tpl', 1, false),array('modifier', 'count', 'pickers/products_picker.tpl', 1, false),array('modifier', 'fn_get_selected_product_options_info', 'pickers/products_picker.tpl', 1, false),array('modifier', 'fn_url', 'pickers/products_picker.tpl', 1, false),array('modifier', 'is_array', 'pickers/products_picker.tpl', 21, false),array('modifier', 'explode', 'pickers/products_picker.tpl', 22, false),array('modifier', 'implode', 'pickers/products_picker.tpl', 33, false),array('modifier', 'fn_get_product_options', 'pickers/products_picker.tpl', 110, false),array('modifier', 'escape', 'pickers/products_picker.tpl', 146, false),array('modifier', 'fn_check_view_permissions', 'pickers/products_picker.tpl', 173, false),array('function', 'math', 'pickers/products_picker.tpl', 15, false),array('function', 'script', 'pickers/products_picker.tpl', 19, false),array('block', 'hook', 'pickers/products_picker.tpl', 69, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('add_product','position_short','name','deleted_product','no_items','editing_defined_products','defined_items','name','quantity','options','any_option_combinations','deleted_product','no_items','add_products','remove_this_item','remove_this_item','add_products'));
+fn_preload_lang_vars(array('add_product','position_short','name','deleted_product','no_items','editing_defined_products','defined_items','name','quantity','price','discount','value','discounted_price','to_fixed','options','any_option_combinations','deleted_product','no_items','add_products','remove_this_item','remove_this_item','add_products'));
 ?>
 <?php 
 
@@ -103,12 +103,62 @@ unset($_smarty_tpl_vars);
 		<th><?php echo fn_get_lang_var('quantity', $this->getLanguage()); ?>
 </th>
 		<?php $this->_tag_stack[] = array('hook', array('name' => "product_picker:table_header")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
-		<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+		<?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php if ($this->_tpl_vars['controller'] == 'bundled_products' || $this->_tpl_vars['extra_mode'] == 'bundled_products'): ?>
+	<th><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
+</th>
+	<th><?php echo fn_get_lang_var('discount', $this->getLanguage()); ?>
+</th>
+	<th><?php echo fn_get_lang_var('value', $this->getLanguage()); ?>
+</th>
+	<th><?php echo fn_get_lang_var('discounted_price', $this->getLanguage()); ?>
+</th>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 		<th>&nbsp;</th>
 	</tr>
 	<tbody id="<?php echo $this->_tpl_vars['data_id']; ?>
 " class="<?php if (! $this->_tpl_vars['item_ids']): ?>hidden<?php endif; ?> cm-picker-options">
-	<?php $this->_tag_stack[] = array('hook', array('name' => "product_picker:table_rows")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+	<?php $this->_tag_stack[] = array('hook', array('name' => "product_picker:table_rows")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['bundled_products']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php if ($this->_tpl_vars['controller'] == 'bundled_products' || $this->_tpl_vars['extra_mode'] == 'bundled_products'): ?>
+
+<?php if ($this->_tpl_vars['product_data']['min_qty'] == 0 || $this->_tpl_vars['item']['min_qty'] == 0): ?>
+	<?php $this->assign('min_qty', '1', false); ?>
+<?php else: ?>
+	<?php $this->assign('min_qty', smarty_modifier_default(@$this->_tpl_vars['product_data']['min_qty'], @$this->_tpl_vars['item']['min_qty']), false); ?>
+<?php endif; ?>
+
+<tr>
+	<td><?php echo smarty_modifier_default(@$this->_tpl_vars['item']['product_name'], @$this->_tpl_vars['product_data']['product']); ?>
+</td>
+	<td><?php echo $this->_tpl_vars['min_qty']; ?>
+</td>
+	<td>
+		<input type="hidden" id="item_price_bp_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+" value="<?php echo smarty_modifier_default(smarty_modifier_default(@$this->_tpl_vars['item']['price'], @$this->_tpl_vars['product_data']['price']), '0'); ?>
+" />
+		<input type="hidden" name="item_data_bp_[amount]" id="item_amount_bp_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+" value="<?php echo $this->_tpl_vars['min_qty']; ?>
+" />
+	</td>
+	<td>
+		<select id="item_modifier_type_bp_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+" name="item_data[modifier_type]" class="hidden">
+			<option value="to_fixed" <?php if ($this->_tpl_vars['item']['modifier_type'] == 'to_fixed'): ?>selected="selected"<?php endif; ?>><?php echo fn_get_lang_var('to_fixed', $this->getLanguage()); ?>
+</option>
+		</select>
+	</td>
+	<td>
+		<input type="hidden" class="cm-chain-<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+" value="<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+" />
+		<input type="hidden" name="item_data[modifier]" id="item_modifier_bp_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+_<?php echo $this->_tpl_vars['item']['chain_id']; ?>
+" size="4" value="0" class="input-text" />
+	</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?>
 	<?php if ($this->_tpl_vars['item_ids']): ?>
 	<?php $_from = $this->_tpl_vars['item_ids']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['product_id'] => $this->_tpl_vars['product']):
