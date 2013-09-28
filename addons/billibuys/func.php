@@ -23,10 +23,10 @@ function fn_archive_request($request_id){
 	db_query("INSERT INTO ?:bb_request_item_archive ?e",$request_item);
 
 	// Archive actual request
-	db_query("INSERT INTO ?:bb_request_archive ?e",$request);
+	$id = db_query("INSERT INTO ?:bb_request_archive ?e",$request);
 
 	// If inserted into archive table, return true else return false
-	$id = db_get_field("SELECT LAST_INSERT_ID()");
+	// $id = db_get_field("SELECT LAST_INSERT_ID()");
 	if($id){
 		db_query("DELETE FROM ?:bb_requests WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 		db_query("DELETE FROM ?:bb_request_item WHERE ?:bb_request_item.bb_request_item_id = ?i",$request_item['bb_request_item_id']);
@@ -344,10 +344,10 @@ function fn_submit_request($user, $post = ''){
 
 		//Do actual insertion of request item name
 		//TODO: Return error messages for minimum and max string size
-		db_query('INSERT INTO ?:bb_request_item ?e', $post['request']);
+		$id = db_query('INSERT INTO ?:bb_request_item ?e', $post['request']);
 
 		//Get last id of the requested item
-		$id = db_get_field('SELECT last_insert_id()');
+		// $id = db_get_field('SELECT last_insert_id()');
 
 		//Same as above, but for the ?:bb_request table
 		$data = Array(
@@ -488,6 +488,90 @@ function fn_get_requests($params){
 		}
 	}
 	return $requests;
+}
+
+/**
+ * Gets categories given parameters, or gets all categories if no $params is given
+ * @param  Array $params Contains fields and where conditions
+ * @return Array         An array of categories that fulfils the conditions
+ * @todo Need to add in where conditions
+ */
+function fn_bb_get_categories($params = Array()){
+	// Set default variables
+	$fields = "*";
+
+	// Check params and replace default variables if params passes all checks
+	if(!empty($params)){
+		if(!empty($params['fields'])){
+			$fields = implode(",",$params['fields']);
+		}
+	}
+
+	// Get categories
+	$categories = db_get_array("SELECT $fields
+		FROM ?:bb_request_categories
+	");
+
+	return $categories;
+}
+
+function fn_bb_add_category($category_data,$auth){
+	$_data = $category_data;
+
+	if (isset($_data['position']) && empty($_data['position']) && $_data['position'] != '0' && isset($_data['parent_id'])) {
+		$_data['position'] = db_get_field("SELECT max(position) FROM ?:bb_request_categories WHERE parent_id = ?i", $_data['parent_id']);
+		$_data['position'] = $_data['position'] + 10;
+	}
+
+	// create new category
+	if (empty($category_id)) {
+		$create = true;
+		$category_id = db_query("INSERT INTO ?:bb_request_categories ?e", $_data);
+
+		if (empty($category_id)) {
+			return false;
+		}
+
+		// now we need to update 'id_path' field, as we know $category_id
+		/* Generate id_path for category */
+		$parent_id = intval($_data['parent_category_id']);
+		if ($parent_id == 0) {
+			$id_path = $category_id;
+		} else {
+			$id_path = db_get_row("SELECT id_path FROM ?:bb_request_categories WHERE bb_request_category_id = ?i", $parent_id);
+			$id_path = $id_path['id_path'] . '/' . $category_id;
+		}
+
+		db_query('UPDATE ?:bb_request_categories SET ?u WHERE bb_request_category_id = ?i', array('id_path' => $id_path), $category_id);
+
+
+		//
+		// Adding same category descriptions for all cart languages
+		//
+		$_data = $category_data;
+		$_data['category_id'] =	$category_id;
+
+		foreach ((array)Registry::get('languages') as $_data['lang_code'] => $v) {
+			db_query("INSERT INTO ?:category_descriptions ?e", $_data);
+		}
+
+	// update existing category
+	} else {
+
+		/* regenerate id_path for all child categories of the updated category */
+		if (isset($category_data['parent_id'])) {
+			fn_change_category_parent($category_id, intval($category_data['parent_id']));
+		}
+
+		db_query("UPDATE ?:categories SET ?u WHERE category_id = ?i", $_data, $category_id);
+		$_data = $category_data;
+		db_query("UPDATE ?:category_descriptions SET ?u WHERE category_id = ?i AND lang_code = ?s", $_data, $category_id, $lang_code);
+	}
+
+	// Log category add/update
+	fn_log_event('categories', !empty($create) ? 'create' : 'update', array(
+		'category_id' => $category_id
+	));
 }
 
 ?>

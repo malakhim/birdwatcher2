@@ -12,7 +12,7 @@
 </orders>
 
 <products>
-	<item title="categories" dispatch="categories.manage" position="100" />
+	<!--item title="categories" dispatch="categories.manage" position="100" /-->
 	<item title="products" dispatch="products.manage" position="200" />
 	<item title="product_features" dispatch="product_features.manage" position="300" />
 	

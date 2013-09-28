@@ -333,7 +333,40 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			die;
 		}
 		// Else condition is handled in the function, by returning false and thus not redirecting
+	}elseif($mode == 'categories_manage'){
+		$categories = fn_bb_get_categories();
+		$view->assign('categories',$categories);
+	}elseif($mode == 'category_add'){
+		// Get categories for select element
+		// $categories = fn_bb_get_categories();
+
+		// $child_for = array_keys($categories);
+		// $where_condition = !empty($_REQUEST['category_id']) ? db_quote(' AND bb_request_category_id != ?i', $_REQUEST['category_id']) : '';
+		// $has_children = db_get_hash_array("SELECT bb_request_category_id, parent_category_id FROM ?:bb_request_categories WHERE parent_category_id IN(?n) ?p", 'parent_category_id', $child_for, $where_condition);
+
+		// 	// Group categories by the level (simple)
+		// foreach ($categories as $k => $v) {
+		// 	$v['level'] = substr_count($v['id_path'], '/');
+		// 	if ((!empty($params['current_category_id']) || $v['level'] == 0) && isset($has_children[$k])) {
+		// 		$v['has_children'] = $has_children[$k]['category_id'];
+		// 	}
+		// 	$tmp[$v['level']][$v['category_id']] = $v;
+
+		// 	// Get images
+		// 	// if ($params['get_images'] == true) {
+		// 	// 	$tmp[$v['level']][$v['category_id']]['main_pair'] = fn_get_image_pairs($v['category_id'], 'category', 'M', true, true, $lang_code);
+		// 	// }
+		// }
+		// 
+		fn_add_breadcrumb(fn_get_lang_var('bb_manage_billibuys_categories'),"billibuys.categories_manage");
+		if($_SERVER['REQUEST_METHOD'] == 'POST'){
+			fn_bb_add_category($_REQUEST['category_data'],$auth);
+			return array(CONTROLLER_STATUS_REDIRECT,$_REQUEST['dispatch']);
+		}
 	}
+
+
+	
 
 
 

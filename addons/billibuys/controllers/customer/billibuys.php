@@ -8,6 +8,7 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 	if($mode == 'view'){
+
 		// Stub for viewing own auctions
 		$search_params = Array(
 			'user'         => $auth['user_id'],
@@ -128,6 +129,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		if(!$auth['user_id']){
 			// Redirect user to login if they ended up on this page accidentally (or otherwise)
 			return array(CONTROLLER_STATUS_REDIRECT, "auth.login_form");
+		}else{
+			fn_add_breadcrumb(fn_get_lang_var('bb_place_request'), "billibuys.place_request");
 		}
 	}
 

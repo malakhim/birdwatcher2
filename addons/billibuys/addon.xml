@@ -15,6 +15,8 @@
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
 		<item for="install">DROP TABLE IF EXISTS ?:bb_notifications</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_request_categories</item>
+		<item for="install">DROP TABLE IF EXISTS ?:bb_request_category_descriptions</item>
 		<item for="install">
 			CREATE TABLE `?:bb_notifications` (
 				`bb_notify_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -29,11 +31,12 @@
 			CREATE TABLE `?:bb_requests` (
 				`bb_request_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				`user_id` int(11) unsigned NOT NULL,
-				`request_item_id` int(11),
+				`request_item_id` int(11) unsigned,
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
 				`allow_over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
 				`item_added_to_cart` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`request_category_id` int(11) unsigned,
 				PRIMARY KEY (`bb_request_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -46,7 +49,25 @@
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
 				`allow_over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`request_category_id` int(11) unsigned,
 				PRIMARY KEY (`bb_request_archive_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_request_categories` (
+				`bb_request_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`parent_category_id` int(11) unsigned ZEROFILL,
+				`id_path` varchar(255) ZEROFILL,
+				`position` smallint(5) unsigned ZEROFILL,
+				`active` tinyint(2) DEFAULT "1",
+				PRIMARY KEY (`bb_request_category_id`)
+			) Engine=MyISAM DEFAULT CHARSET UTF8;
+		</item>
+		<item for="install">
+			CREATE TABLE `?:bb_request_category_descriptions` (
+				`bb_request_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+				`category_name` VARCHAR(100),
+				PRIMARY KEY (`bb_request_category_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
@@ -100,6 +121,8 @@
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_item_archive</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids</item>
 		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_bids_archive</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_categories</item>
+		<item for="uninstall">DROP TABLE IF EXISTS ?:bb_request_category_descriptions</item>
 	</queries>
 
 	<language_variables>
@@ -110,12 +133,13 @@
 		<item lang="EN" id="currenth_bid">Current Bid</item>
 		<item lang="EN" id="place_bid">Place Bid</item>
 		<item lang="EN" id="create_product_package">Create new Product/Package</item>
+		<item lang="EN" id="bb_manage_billibuys_categories">Manage Billibuys Categories</item>
 
 		<!-- Back end package view variables -->
 		<item lang="EN" id="add_package">Add Package</item>
 
 		<!-- Notify variables -->
-		<item lang="EN" id="item">Item</item>
+		<item lang="EN" id="bb_item">Item</item>
 
 		<!-- Front end view variables -->
 		<item lang="EN" id="bb_item_enter_through_bids">This item can only be purchased through bids</item>
@@ -127,18 +151,23 @@
 		<item lang="EN" id="two_weeks_plus">2+ weeks</item>
 		<item lang="EN" id="bb_text_place_request_question">Would you like to place a request?</item>
 		<item lang="EN" id="bb_text_log_in_to_place_request">Please log in to place a request</item>
-		<item lang="EN" id="max_price">Max Price</item>
 		<item lang="EN" id="are_you_owner">Are you the owner of this auction? Log in to purchase this item!</item>
-		<item lang="EN" id="bid_already_accepted_for_this_auction">You have already accepted a bid from this auction. Go to your cart and remove it if you wish to change this.</item>
+		<item lang="EN" id="bb_allow_over_max_price">My max price is flexible</item>
+		<item lang="EN" id="bb_looking_for_item">Looking for an item to buy?</item>
+		<item lang="EN" id="bb_let_sellers_come_to_you_with_personalised_offers">Let sellers come to you with personalised offers</item>
+		<item lang="EN" id="bb_item_description">Item Description</item>
+		<item lang="EN" id="bb_max_price">Max Price (in AUD)</item>
+		<item lang="EN" id="bb_need_item_by">I need this item by...</item>
+		<item lang="EN" id="bb_item_category">Item Category</item>
 
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
 		<item lang="EN"	id="bb_packages">Packages</item>
-		<item lang="EN" id="bb_allow_over_max_price">Allow bids that are 10% over your bid price?</item>
-
+		<item lang="EN" id="bb_place_request">Place Request</item>
 
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
 		<item lang="EN" id="bid_is_over_request_max">Your bid is over the customer's limit. Please keep your total bid under </item>
+		<item lang="EN" id="bid_already_accepted_for_this_auction">You have already accepted a bid from this auction. Go to your cart and remove it if you wish to change this.</item>
 	</language_variables>
 </addon>

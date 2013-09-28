@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-25 16:47:28
+<?php /* Smarty version 2.6.18, created on 2013-09-28 16:53:48
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 23, false),array('modifier', 'unescape', 'index.tpl', 26, false),array('modifier', 'strip_tags', 'index.tpl', 26, false),array('modifier', 'count', 'index.tpl', 28, false),array('modifier', 'html_entity_decode', 'index.tpl', 52, false),array('modifier', 'default', 'index.tpl', 52, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 54, false),array('modifier', 'sizeof', 'index.tpl', 58, false),array('modifier', 'fn_link_attach', 'index.tpl', 60, false),array('modifier', 'fn_url', 'index.tpl', 60, false),array('modifier', 'defined', 'index.tpl', 87, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 204, false),array('modifier', 'fn_query_remove', 'index.tpl', 247, false),array('modifier', 'strpos', 'index.tpl', 248, false),array('block', 'hook', 'index.tpl', 46, false),array('function', 'join_css', 'index.tpl', 102, false),array('function', 'script', 'index.tpl', 121, false),array('function', 'render_location', 'index.tpl', 289, false),)), $this); ?>
@@ -79,7 +79,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/recurring_billing/hooks/index/styles.post.tpl' => 1367063839,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1380348372,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -134,7 +134,8 @@ if ($this->_foreach['bkt']['total'] > 0):
 /addons/banners/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['discussion']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
 /addons/discussion/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['wishlist']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
 /addons/wishlist/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['recurring_billing']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
-/addons/recurring_billing/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+/addons/recurring_billing/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/addons/billibuys/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 <?php $this->_smarty_vars['capture']['styles'] = ob_get_contents(); ob_end_clean(); ?>
 <?php echo smarty_function_join_css(array('content' => $this->_smarty_vars['capture']['styles']), $this);?>
 
