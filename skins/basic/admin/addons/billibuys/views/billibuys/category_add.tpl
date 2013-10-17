@@ -23,9 +23,9 @@
 			<label for="category_data_parent_id">{$lang.location}:</label>
 			<select	name="category_data[parent_category_id]" id="category_data_parent_id">
 				<option	value="0" {if $category_data.parent_category_id == "0"}selected="selected"{/if}>- {$lang.root_level} -</option>
-				{foreach from=0|fn_bb_get_categories:false item="cat" name="categories"}
-					{if $cat.id_path|strpos:"`$category_data.id_path`/" === false && $cat.category_id != $id || !$id}
-						<option	value="{$cat.category_id}" {if $cat.disabled}disabled="disabled"{/if} {if $category_data.parent_id == $cat.category_id}selected="selected"{/if}>{$cat.category|indent:$cat.level:"&#166;&nbsp;&nbsp;&nbsp;&nbsp;":"&#166;--&nbsp;"}</option>
+				{foreach from=0|fn_bb_get_categories item="cat" name="categories"}
+					{if $cat.id_path|strpos:"`$category_data.id_path`/" === false && $cat.bb_request_category_id != $id || !$id}
+						<option	value="{$cat.bb_request_category_id}" {if $cat.disabled}disabled="disabled"{/if} {if $category_data.parent_id == $cat.bb_request_category_id}selected="selected"{/if}>{$cat.category_name|indent:$cat.level:"&#166;&nbsp;&nbsp;&nbsp;&nbsp;":"&#166;--&nbsp;"}</option>
 					{/if}
 				{/foreach}
 			</select>
@@ -146,7 +146,7 @@
 </div>
 *}
 <div class="buttons-container cm-toggle-button buttons-bg">
-	{include file="buttons/save_cancel.tpl" but_name="dispatch[billibuys.category_add]"}
+	{include file="buttons/save_cancel.tpl" but_name="dispatch[billibuys.category_add]" hide_second_button = true}
 </div>
 
 </form>

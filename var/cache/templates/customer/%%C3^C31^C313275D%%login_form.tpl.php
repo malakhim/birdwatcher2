@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 23:10:22
+<?php /* Smarty version 2.6.18, created on 2013-10-17 18:48:57
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 17, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 24, false),array('modifier', 'fn_needs_image_verification', 'views/auth/login_form.tpl', 41, false),array('modifier', 'uniqid', 'views/auth/login_form.tpl', 44, false),array('block', 'hook', 'views/auth/login_form.tpl', 64, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('returning_customer','email','username','password','f
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/image_verification.tpl' => 1367063745,
+  'addons/billibuys/hooks/index/login_buttons.post.tpl' => 1381744039,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -119,7 +119,8 @@ unset($_smarty_tpl_vars);
 		<?php if ($this->_tpl_vars['id'] != 'checkout'): ?>
 			</div>
 		<?php endif; ?>
-	<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+	<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><input type="hidden" name="request_title" value="<?php echo $this->_tpl_vars['_REQUEST']['request_title']; ?>
+" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 <?php if ($this->_tpl_vars['id'] == 'checkout'): ?>
 	</div>
 <?php endif; ?>

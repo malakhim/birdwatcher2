@@ -57,17 +57,19 @@
 			CREATE TABLE `?:bb_request_categories` (
 				`bb_request_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				`parent_category_id` int(11) unsigned ZEROFILL,
-				`id_path` varchar(255) ZEROFILL,
+				`id_path` varchar(255),
 				`position` smallint(5) unsigned ZEROFILL,
-				`active` tinyint(2) DEFAULT "1",
+				`status` char(1) DEFAULT "A",
 				PRIMARY KEY (`bb_request_category_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
 			CREATE TABLE `?:bb_request_category_descriptions` (
-				`bb_request_category_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-				`category_name` VARCHAR(100),
-				PRIMARY KEY (`bb_request_category_id`)
+				`bb_request_category_id` int(11) unsigned ZEROFILL NOT NULL,
+				`lang_code` VARCHAR(2) NOT NULL DEFAULT 'EN',
+				`category_name` VARCHAR(50),
+				`description` VARCHAR(500),
+				PRIMARY KEY (`bb_request_category_id`,`lang_code`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
 		<item for="install">
@@ -160,6 +162,12 @@
 		<item lang="EN" id="bb_need_item_by">I need this item by...</item>
 		<item lang="EN" id="bb_item_category">Item Category</item>
 
+		<item lang="EN" id="bb_looking_for_an_item">Looking for an item</item>
+		<item lang="EN" id="bb_let_sellers_come_to_you">Let the sellers come to you with personalised offers</item>
+		<item lang="EN" id="bb_looking_for_buyer">Looking to sell to someone who's looking for your item</item>
+		<item lang="EN" id="bb_select_a_category">Select a category for your item</item>
+		<item lang="EN" id="bb_i_want">I want</item>
+
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
 		<item lang="EN"	id="bb_packages">Packages</item>
@@ -169,5 +177,7 @@
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
 		<item lang="EN" id="bid_is_over_request_max">Your bid is over the customer's limit. Please keep your total bid under </item>
 		<item lang="EN" id="bid_already_accepted_for_this_auction">You have already accepted a bid from this auction. Go to your cart and remove it if you wish to change this.</item>
+		<item lang="EN" id="bb_name_too_long">Name is too long. Please keep it under 50 characters</item>
+		<item lang="EN" id="bb_description_too_long">Description is too long. Please keep it under 50 characters</item>
 	</language_variables>
 </addon>

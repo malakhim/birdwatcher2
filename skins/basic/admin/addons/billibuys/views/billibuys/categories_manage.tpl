@@ -2,7 +2,7 @@
 
 <div class="items-container multi-level">
 	{if $categories}
-		{include file="views/categories/components/categories_tree.tpl" header="1" parent_id=$bb_request_category_id}
+		{include file="addons/billibuys/views/billibuys/components/categories_tree.tpl" header="1" parent_id=$bb_request_category_id categories=$categories}
 	{else}
 		<p class="no-items">{$lang.no_items}</p>
 	{/if}

@@ -509,19 +509,40 @@ function fn_bb_get_categories($params = Array()){
 
 	// Get categories
 	$categories = db_get_array("SELECT $fields
-		FROM ?:bb_request_categories
+		FROM ?:bb_request_categories INNER JOIN ?:bb_request_category_descriptions ON ?:bb_request_categories.bb_request_category_id = ?:bb_request_category_descriptions.bb_request_category_id
+		GROUP BY ?:bb_request_categories.bb_request_category_id
 	");
+
+	foreach($categories as &$cat){
+		$cat['level'] = substr_count($cat['id_path'],'/');
+		$cat['position'] = ltrim($cat['position'],'0');
+	}
 
 	return $categories;
 }
 
 function fn_bb_add_category($category_data,$auth){
+	define(POSITION_INCREMENT,100);
+
 	$_data = $category_data;
 
 	if (isset($_data['position']) && empty($_data['position']) && $_data['position'] != '0' && isset($_data['parent_id'])) {
 		$_data['position'] = db_get_field("SELECT max(position) FROM ?:bb_request_categories WHERE parent_id = ?i", $_data['parent_id']);
 		$_data['position'] = $_data['position'] + 10;
 	}
+
+	if(strlen($_data['category_name']) > 50){
+		fn_set_notification('E',fn_get_lang_var('error'),fn_get_lang_var('bb_name_too_long'));
+		return false;
+	}
+
+	if(strlen($_data['category_description']) > 500){
+		fn_set_notification('E',fn_get_lang_var('error'),fn_get_lang_var('bb_description_too_long'));
+		return false;		
+	}
+
+	// Get highest value of category position and add 100 to that
+	$_data['position'] = db_get_field("SELECT position FROM ?:bb_request_categories ORDER BY position DESC") + POSITION_INCREMENT;
 
 	// create new category
 	if (empty($category_id)) {
@@ -544,15 +565,13 @@ function fn_bb_add_category($category_data,$auth){
 
 		db_query('UPDATE ?:bb_request_categories SET ?u WHERE bb_request_category_id = ?i', array('id_path' => $id_path), $category_id);
 
-
 		//
 		// Adding same category descriptions for all cart languages
 		//
-		$_data = $category_data;
-		$_data['category_id'] =	$category_id;
+		$_data['bb_request_category_id'] =	$category_id;
 
 		foreach ((array)Registry::get('languages') as $_data['lang_code'] => $v) {
-			db_query("INSERT INTO ?:category_descriptions ?e", $_data);
+			db_query("INSERT INTO ?:bb_request_category_descriptions ?e", $_data);
 		}
 
 	// update existing category

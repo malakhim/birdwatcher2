@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 19:47:08
+<?php /* Smarty version 2.6.18, created on 2013-10-18 07:37:29
          compiled from letter_footer.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_check_user_type_admin_area', 'letter_footer.tpl', 2, false),array('modifier', 'replace', 'letter_footer.tpl', 3, false),)), $this); ?>

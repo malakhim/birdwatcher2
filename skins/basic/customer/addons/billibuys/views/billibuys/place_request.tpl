@@ -1,8 +1,7 @@
-
 <form name="bb_request_form" action="{""|fn_url}" method="post">
 	<div class="form-field">
 		<label for="bb_request_title" class="cm-required cm-trim">{$lang.title}</label>
-		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{$request.title}" class="input-text" />
+		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{$smarty.request.request_title}" class="input-text" />
 	</div>
 
 	<div class="form-field">

@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:22902:"<orders>
+a:2:{s:4:"data";s:22455:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -176,7 +176,7 @@ a:2:{s:4:"data";s:22902:"<orders>
 </orders>
 
 <products>
-	<item title="categories" dispatch="categories.manage" position="100" />
+	<!--item title="categories" dispatch="categories.manage" position="100" /-->
 	<item title="products" dispatch="products.manage" position="200" />
 	<item title="product_features" dispatch="product_features.manage" position="300" />
 	
@@ -346,17 +346,6 @@ a:2:{s:4:"data";s:22902:"<orders>
 
 </administration>
 <products>
-	<!-- <item title="billibuys" dispatch="billibuys.view" /> -->
-
-	<!-- <side>
-		<item group="events.search" title="custom_event_fields" href="%INDEX_SCRIPT?dispatch=events.field_editor" />
-
-		<item group="events.add" title="search_for_events" href="%INDEX_SCRIPT?dispatch=events.search" />
-		<item group="events.add" title="custom_event_fields" href="%INDEX_SCRIPT?dispatch=events.field_editor" />
-
-		<item group="events.update" title="add_event" href="%INDEX_SCRIPT?dispatch=events.add" />
-		<item group="events.update" title="search_for_events" href="%INDEX_SCRIPT?dispatch=events.search" />
-		<item group="events.update" title="custom_event_fields" href="%INDEX_SCRIPT?dispatch=events.field_editor" />
-	</side> -->
+	<item title="bb_manage_billibuys_categories" dispatch="billibuys.categories_manage" position="20"/>
 </products>
 ";s:6:"expiry";i:0;}

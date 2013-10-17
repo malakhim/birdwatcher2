@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 20:01:18
+<?php /* Smarty version 2.6.18, created on 2013-10-18 08:02:31
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 16, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 62, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 15, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 61, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','submit','delete'));
 ?>
@@ -19,13 +19,12 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 						return;
 					}
 				}
-			 ?>
-<form name="bb_request_form" action="<?php echo fn_url(""); ?>
+			 ?><form name="bb_request_form" action="<?php echo fn_url(""); ?>
 " method="post">
 	<div class="form-field">
 		<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
 </label>
-		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['request']['title']; ?>
+		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['_REQUEST']['request_title']; ?>
 " class="input-text" />
 	</div>
 
