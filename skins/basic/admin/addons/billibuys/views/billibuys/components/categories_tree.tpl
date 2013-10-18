@@ -1,7 +1,6 @@
 {if $parent_id}
 <div class="hidden" id="cat_{$parent_id}">
 {/if}
-{*$categories|@var_dump*}
 {foreach from=$categories item=category}
 {assign var="comb_id" value="cat_`$category.bb_request_category_id`"}
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="table table-tree">
@@ -102,7 +101,7 @@
 		{/strip}
 		</td>
 		<td width="15%" class="nowrap right">
-			<a href="{"products.manage?cid=`$category.bb_request_category_id`"|fn_url}" class="num-items">{if "COMPANY_ID"|defined}{$lang.manage_products}{else}<span>&nbsp;{$category.product_count}&nbsp;</span>{/if}</a>&nbsp;
+			<a href="{"billibuys.view?category_id=`$category.bb_request_category_id`"|fn_url}" class="num-items">{if "COMPANY_ID"|defined}{$lang.manage_products}{else}<span>&nbsp;{$category.product_count}&nbsp;</span>{/if}</a>&nbsp;
 			{*include file="buttons/button.tpl" but_text=$lang.add but_href="products.add?category_id=`$category.bb_request_category_id`" but_role="add"*}
 		</td>
 		<td width="10%">

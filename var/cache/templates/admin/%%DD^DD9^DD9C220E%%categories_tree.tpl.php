@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-10-19 03:23:05
+<?php /* Smarty version 2.6.18, created on 2013-10-19 04:35:35
          compiled from addons/billibuys/views/billibuys/components/categories_tree.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'math', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 45, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 45, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 55, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 118, false),array('modifier', 'lower', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 140, false),array('modifier', 'is_array', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 144, false),array('modifier', 'fn_from_json', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 145, false),array('modifier', 'trim', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 215, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'math', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 44, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 44, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 54, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 117, false),array('modifier', 'lower', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 139, false),array('modifier', 'is_array', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 143, false),array('modifier', 'fn_from_json', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 144, false),array('modifier', 'trim', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 214, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('check_uncheck_all','position_short','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','name','requests','status','expand_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','collapse_sublist_of_items','collapse_sublist_of_items','disabled','expand_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','collapse_sublist_of_items','collapse_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','expand_sublist_of_items','collapse_sublist_of_items','collapse_sublist_of_items','disabled','manage_products','active','hidden','disabled','pending','new','active','disabled','hidden','pending','new','active','disabled','hidden','pending','notify_customer','notify_orders_department','notify_vendor','notify_supplier','delete'));
 ?>
@@ -109,7 +109,7 @@ fn_preload_lang_vars(array('check_uncheck_all','position_short','expand_collapse
 
 		</td>
 		<td width="15%" class="nowrap right">
-			<a href="<?php echo fn_url("products.manage?cid=".($this->_tpl_vars['category']['bb_request_category_id'])); ?>
+			<a href="<?php echo fn_url("billibuys.view?category_id=".($this->_tpl_vars['category']['bb_request_category_id'])); ?>
 " class="num-items"><?php if (defined('COMPANY_ID')): ?><?php echo fn_get_lang_var('manage_products', $this->getLanguage()); ?>
 <?php else: ?><span>&nbsp;<?php echo $this->_tpl_vars['category']['product_count']; ?>
 &nbsp;</span><?php endif; ?></a>&nbsp;
