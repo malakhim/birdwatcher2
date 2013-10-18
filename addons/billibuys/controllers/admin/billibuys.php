@@ -20,7 +20,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 				}
 			}
 		}else{
-			$requests = fn_get_requests();
+			$requests = fn_get_requests($_REQUEST);
 			foreach($requests as &$request){
 				if(is_array($request)){
 					//Get duration since auction was placed

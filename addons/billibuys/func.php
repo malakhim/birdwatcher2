@@ -432,14 +432,18 @@ function fn_get_request($params){
 	}else
 		$fields = '*';
 
+	$where = array(
+		'?:bb_requests.bb_request_id' => $params['request_id'],
+		);
+
 	$data = db_get_row(
 		"SELECT $fields
 		FROM ?:bb_requests
 		INNER JOIN ?:bb_request_item ON 
 			?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id 
-		WHERE ?:bb_requests.bb_request_id = ?i
+		WHERE ?w
 		GROUP BY ?:bb_request_item.bb_request_item_id
-		", $params['request_id']
+		", $where
 		);
 
 	return $data;
@@ -456,15 +460,24 @@ function fn_get_requests($params = Array()){
 	// Initialization
 	$params = array_merge(Array(
 		'user' => 0,
-		'own_auctions' => false
+		'own_auctions' => false,
 		),$params);
+
+	if(isset($params['category_id'])){
+		$where = Array(
+			'request_category_id' => $params['category_id']
+		);
+	}else{
+		$where = 1;
+	}
 
 	if($params['own_auctions'] == false){
 			$requests = db_get_array(
 				'SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
-					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id'
+					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id
+				WHERE ?w',$where
 			);
 			$requests['success'] = true;
 	}else{
