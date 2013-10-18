@@ -20,7 +20,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 				}
 			}
 		}else{
-			$requests = fn_get_requests_by_product($_REQUEST['item']);
+			$requests = fn_get_requests();
 			foreach($requests as &$request){
 				if(is_array($request)){
 					//Get duration since auction was placed
@@ -48,7 +48,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 							// If over 1 hour (fulfils above condition) but is under 1 day, return value in hours
 							$duration = array_merge($duration, Array(
 								'value' => number_format($timediff/SECONDS_PER_HOUR, DECIMAL_POINTS_AFTER_TIMESTAMP), 
-								'unit' => 'h'));	
+								'unit' => 'h'));
 						}elseif($timediff <= 2*SECONDS_PER_WEEK){
 							// If over 1 day (fulfils above condition) but is under 2 weeks, return value in days
 							$duration = array_merge($duration, Array(

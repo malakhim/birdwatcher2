@@ -1,4 +1,7 @@
-a:2:{s:4:"data";s:842:"<customers>
+a:2:{s:4:"data";s:925:"<products>
+	<item title="bb_billibuys" dispatch="billibuys.view" />
+</products>
+<customers>
 	<item title="vendor_administrators" dispatch="profiles.manage" extra="user_type=V" position="250" />
 </customers>
 

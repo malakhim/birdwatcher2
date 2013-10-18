@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2013-10-18 17:03:04
-         compiled from common_templates/table_tools_list.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2013-10-19 03:23:05
+         compiled from addons/billibuys/views/billibuys/categories_manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_check_view_permissions', 'common_templates/table_tools_list.tpl', 16, false),array('modifier', 'fn_url', 'common_templates/table_tools_list.tpl', 20, false),array('modifier', 'default', 'common_templates/table_tools_list.tpl', 24, false),array('modifier', 'strpos', 'common_templates/table_tools_list.tpl', 27, false),array('modifier', 'substr_count', 'common_templates/table_tools_list.tpl', 32, false),array('modifier', 'replace', 'common_templates/table_tools_list.tpl', 33, false),array('modifier', 'defined', 'common_templates/table_tools_list.tpl', 45, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/categories_manage.tpl', 26, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/categories_manage.tpl', 30, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/categories_manage.tpl', 31, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/categories_manage.tpl', 36, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/categories_manage.tpl', 43, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/categories_manage.tpl', 45, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view','edit','more','or','tools','add'));
+fn_preload_lang_vars(array('no_items','add_category','or','tools','add','bb_manage_billibuys_categories'));
 ?>
 <?php 
 
@@ -19,27 +19,22 @@ fn_preload_lang_vars(array('view','edit','more','or','tools','add'));
 						return;
 					}
 				}
-			 ?><?php if ($this->_tpl_vars['popup']): ?>
-	<?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['href'])): ?>
-		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/popupbox.tpl", 'smarty_include_vars' => array('id' => $this->_tpl_vars['id'],'text' => $this->_tpl_vars['text'],'link_text' => $this->_tpl_vars['link_text'],'act' => $this->_tpl_vars['act'],'href' => $this->_tpl_vars['href'],'link_class' => $this->_tpl_vars['link_class'])));
+			 ?><?php ob_start(); ?>
+
+<div class="items-container multi-level">
+	<?php if ($this->_tpl_vars['categories']): ?>
+		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/views/billibuys/components/categories_tree.tpl", 'smarty_include_vars' => array('header' => '1','parent_id' => $this->_tpl_vars['bb_request_category_id'],'categories' => $this->_tpl_vars['categories'])));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
+	<?php else: ?>
+		<p class="no-items"><?php echo fn_get_lang_var('no_items', $this->getLanguage()); ?>
+</p>
 	<?php endif; ?>
-<?php elseif ($this->_tpl_vars['href']): ?>
-<?php $this->assign('_href', fn_url($this->_tpl_vars['href']), false); ?>
-<?php if (! fn_check_view_permissions($this->_tpl_vars['_href'])): ?>
-	<?php $this->assign('link_text', fn_get_lang_var('view', $this->getLanguage()), false); ?>
-<?php endif; ?>
-	<a class="tool-link <?php echo $this->_tpl_vars['extra_class']; ?>
-" href="<?php echo $this->_tpl_vars['_href']; ?>
-" <?php echo $this->_tpl_vars['link_extra']; ?>
-><?php echo smarty_modifier_default(@$this->_tpl_vars['link_text'], fn_get_lang_var('edit', $this->getLanguage())); ?>
-</a>
-<?php endif; ?>
-<?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
-	<?php if (strpos($this->_tpl_vars['tools_list'], "<li")): ?><?php if ($this->_tpl_vars['href']): ?>&nbsp;&nbsp;|<?php elseif ($this->_tpl_vars['separate']): ?>|<?php endif; ?>
-		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('prefix' => $this->_tpl_vars['prefix'], 'hide_actions' => true, 'tools_list' => "<ul>".($this->_tpl_vars['tools_list'])."</ul>", 'display' => 'inline', 'link_text' => fn_get_lang_var('more', $this->getLanguage()), 'link_meta' => 'lowercase', 'skip_check_permissions' => $this->_tpl_vars['skip_check_permissions'], )); ?><?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
+</div>
+
+<?php ob_start(); ?>
+	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('tool_href' => "billibuys.category_add", 'prefix' => 'top', 'hide_tools' => 'true', 'link_text' => fn_get_lang_var('add_category', $this->getLanguage()), )); ?><?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
 
 <?php if ($this->_tpl_vars['tools_list'] && $this->_tpl_vars['prefix'] == 'main' && ! $this->_tpl_vars['only_popup']): ?> <?php echo fn_get_lang_var('or', $this->getLanguage()); ?>
  <?php endif; ?>
@@ -80,5 +75,10 @@ unset($_smarty_tpl_vars);
 <?php endif; ?>
 
 <?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-	<?php endif; ?>
-<?php endif; ?>
+<?php $this->_smarty_vars['capture']['tools'] = ob_get_contents(); ob_end_clean(); ?>
+
+<?php $this->_smarty_vars['capture']['mainbox'] = ob_get_contents(); ob_end_clean(); ?>
+<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/mainbox.tpl", 'smarty_include_vars' => array('title' => fn_get_lang_var('bb_manage_billibuys_categories', $this->getLanguage()),'content' => $this->_smarty_vars['capture']['mainbox'],'tools' => $this->_smarty_vars['capture']['tools'])));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>

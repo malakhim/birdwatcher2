@@ -372,13 +372,13 @@ function fn_submit_request($user, $post = ''){
 }
 
 /**
- * Gets all requests that match a %product
+ * Gets all requests that match a %product% search term
  * @author  bryanw
  * @version 1.0.0
  * @param   String    $product search term
  * @return  Array     ['Success'] true or false, error message if false and all matching results if true
  */
-function fn_get_requests_by_product($product){
+function fn_get_requests_by_product_name($product){
 	$product = '%'.$product.'%'; // This also covers empty string case
 	
 	$requests = db_get_array(
@@ -451,7 +451,7 @@ function fn_get_request($params){
  * @return Array         Array of auction results from database
  * @todo Normalise database functions to work with fn_get_requests_by_product
  */
-function fn_get_requests($params){
+function fn_get_requests($params = Array()){
 
 	// Initialization
 	$params = array_merge(Array(
@@ -516,9 +516,21 @@ function fn_bb_get_categories($params = Array()){
 	foreach($categories as &$cat){
 		$cat['level'] = substr_count($cat['id_path'],'/');
 		$cat['position'] = ltrim($cat['position'],'0');
+		$cat['product_count'] = fn_get_product_count($cat); // TODO: Normalise this to use it's own column like CS Cart does
 	}
 
 	return $categories;
+}
+
+/**
+ * Gets product count by category
+ * @param  Int $category The ID of the category we're looking for
+ * @return Int           Number of products in this category
+ */
+function fn_get_product_count($category){
+	$product_count = db_get_field("SELECT COUNT(*) FROM ?:bb_requests WHERE ?:bb_requests.request_category_id = ?i",$category['bb_request_category_id']);
+
+	return $product_count;
 }
 
 function fn_bb_add_category($category_data,$auth){

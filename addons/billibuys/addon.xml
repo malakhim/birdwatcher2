@@ -172,6 +172,7 @@
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
 		<item lang="EN"	id="bb_packages">Packages</item>
 		<item lang="EN" id="bb_place_request">Place Request</item>
+		<item lang="EN" id="requests">Requests</item>
 
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>
