@@ -111,7 +111,7 @@
 			{capture name="tools_items"}
 			<li><a class="cm-confirm" href="{"categories.delete?category_id=`$category.bb_request_category_id`"|fn_url}">{$lang.delete}</a></li>
 			{/capture}
-			{include file="common_templates/table_tools_list.tpl" prefix=$category.bb_request_category_id tools_list=$smarty.capture.tools_items href="categories.update?category_id=`$category.bb_request_category_id`"}
+			{include file="common_templates/table_tools_list.tpl" prefix=$category.bb_request_category_id tools_list=$smarty.capture.tools_items href="billibuys.category_update?category_id=`$category.bb_request_category_id`"}
 		</td>
 	{/if}
 </tr>

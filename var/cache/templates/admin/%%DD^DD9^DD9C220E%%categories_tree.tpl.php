@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-10-19 04:35:35
+<?php /* Smarty version 2.6.18, created on 2013-10-24 19:12:11
          compiled from addons/billibuys/views/billibuys/components/categories_tree.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'math', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 44, false),array('modifier', 'default', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 44, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 54, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 117, false),array('modifier', 'lower', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 139, false),array('modifier', 'is_array', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 143, false),array('modifier', 'fn_from_json', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 144, false),array('modifier', 'trim', 'addons/billibuys/views/billibuys/components/categories_tree.tpl', 214, false),)), $this); ?>
@@ -339,7 +339,7 @@ _notify_supplier"><?php if (@PRODUCT_TYPE == 'MULTIVENDOR' || @PRODUCT_TYPE == '
 "><?php echo fn_get_lang_var('delete', $this->getLanguage()); ?>
 </a></li>
 			<?php $this->_smarty_vars['capture']['tools_items'] = ob_get_contents(); ob_end_clean(); ?>
-			<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/table_tools_list.tpl", 'smarty_include_vars' => array('prefix' => $this->_tpl_vars['category']['bb_request_category_id'],'tools_list' => $this->_smarty_vars['capture']['tools_items'],'href' => "categories.update?category_id=".($this->_tpl_vars['category']['bb_request_category_id']))));
+			<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/table_tools_list.tpl", 'smarty_include_vars' => array('prefix' => $this->_tpl_vars['category']['bb_request_category_id'],'tools_list' => $this->_smarty_vars['capture']['tools_items'],'href' => "billibuys.category_update?category_id=".($this->_tpl_vars['category']['bb_request_category_id']))));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>

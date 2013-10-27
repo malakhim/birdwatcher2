@@ -363,6 +363,10 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			fn_bb_add_category($_REQUEST['category_data'],$auth);
 			return array(CONTROLLER_STATUS_REDIRECT,$_REQUEST['dispatch']);
 		}
+	}elseif($mode == 'category_update'){
+		$category_data = fn_bb_get_category($_REQUEST['category_id']);
+		$view->assign("category_data",$category_data);
+		$view->assign("id",$category_data['bb_request_category_id']);
 	}
 
 

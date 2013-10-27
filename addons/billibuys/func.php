@@ -433,7 +433,7 @@ function fn_get_request($params){
 		$fields = '*';
 
 	$where = array(
-		'?:bb_requests.bb_request_id' => $params['request_id'],
+		'bb_request_id' => $params['request_id'],
 		);
 
 	$data = db_get_row(
@@ -467,18 +467,17 @@ function fn_get_requests($params = Array()){
 		$where = Array(
 			'request_category_id' => $params['category_id']
 		);
-	}else{
-		$where = 1;
 	}
 
 	if($params['own_auctions'] == false){
-			$requests = db_get_array(
-				'SELECT * 
+			$query = 'SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
-					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id
-				WHERE ?w',$where
-			);
+					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id';
+			if(isset($where)){
+				$query .= ' WHERE ?w';
+			}
+			$requests = db_get_array($query,$where);
 			$requests['success'] = true;
 	}else{
 		$user = $params['user'];
@@ -618,4 +617,8 @@ function fn_bb_add_category($category_data,$auth){
 	));
 }
 
+function fn_bb_get_category($category_id){
+	$category = db_get_row("SELECT * FROM ?:bb_request_categories INNER JOIN ?:bb_request_category_descriptions ON ?:bb_request_category_descriptions.bb_request_category_id = ?:bb_request_categories.bb_request_category_id WHERE ?:bb_request_categories.bb_request_category_id = ?i",$category_id);
+	return $category;
+}
 ?>
