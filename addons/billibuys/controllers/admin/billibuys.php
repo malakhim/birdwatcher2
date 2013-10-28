@@ -367,6 +367,9 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$category_data = fn_bb_get_category($_REQUEST['category_id']);
 		$view->assign("category_data",$category_data);
 		$view->assign("id",$category_data['bb_request_category_id']);
+	}elseif($mode == 'category_delete'){
+		fn_bb_delete_category($_REQUEST['category_id']);
+		return array(CONTROLLER_STATUS_OK,'billibuys.categories_manage');
 	}
 
 

@@ -621,4 +621,21 @@ function fn_bb_get_category($category_id){
 	$category = db_get_row("SELECT * FROM ?:bb_request_categories INNER JOIN ?:bb_request_category_descriptions ON ?:bb_request_category_descriptions.bb_request_category_id = ?:bb_request_categories.bb_request_category_id WHERE ?:bb_request_categories.bb_request_category_id = ?i",$category_id);
 	return $category;
 }
+/**
+ * Deletes category from categories, category_descriptions, does stuff to requests that are under this category - USE WITH CAUTION
+ * @author bryanw
+ * @param  int $category_id category id
+ * @return none              
+ */
+function fn_bb_delete_category($category_id){
+	$where = array("bb_request_category_id"=>$category_id);
+	db_query("DELETE FROM ?:bb_request_categories WHERE ?w",$where);
+	db_query("DELETE FROM ?:bb_request_category_descriptions WHERE ?w",$where);
+
+	
+	
+	// What to do in the case of bids under this auction? Not allow deletion, revert to category id = 0 or Misc or what?
+	 
+	// Should this be an outright deletion for speed purposes or should it be archiving?
+}
 ?>

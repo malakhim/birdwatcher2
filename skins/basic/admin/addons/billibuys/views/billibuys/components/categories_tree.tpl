@@ -8,8 +8,8 @@
 {if $header && !$parent_id}
 {assign var="header" value=""}
 <tr>
-	<th class="center" width="3%">
-		<input type="checkbox" name="check_all" value="Y" title="{$lang.check_uncheck_all}" class="checkbox cm-check-items" /></th>
+	{*<th class="center" width="3%">
+		<input type="checkbox" name="check_all" value="Y" title="{$lang.check_uncheck_all}" class="checkbox cm-check-items" /></th>*}
 	<th width="5%">{$lang.position_short}</th>
 	<th width="57%">
 		{if $show_all && !$smarty.request.b_id}
@@ -81,10 +81,10 @@
 		<td width="10%" class="nowrap">
 			&nbsp;</td>
 	{else}
-		<td class="center" width="3%">
-			<input type="checkbox" name="category_ids[]" value="{$category.bb_request_category_id}" class="checkbox cm-item" /></td>
+		{*<td class="center" width="3%">
+			<input type="checkbox" name="category_ids[]" value="{$category.bb_request_category_id}" class="checkbox cm-item" /></td>*}
 		<td width="5%">
-			<input type="text" name="categories_data[{$category.bb_request_category_id}][position]" value="{$category.position}" size="3" class="input-text-short" /></td>
+			<input type="text" name="categories_data[{$category.bb_request_category_id}][position]" value="{$category.position}" size="3" class="input-text-short " disabled=disabled/></td>
 		<td width="57%">
 		{strip}
 			<span class="strong" style="padding-left: {$shift}px;">
@@ -96,7 +96,7 @@
 					{/if}
 					<img src="{$images_dir}/minus.gif" width="14" height="9" border="0" alt="{$lang.collapse_sublist_of_items}" title="{$lang.collapse_sublist_of_items}" id="off_{$comb_id}" class="hand cm-combination{if !$expand_all || !$show_all} hidden{/if}" />&nbsp;
 				{/if}
-				<a href="{"categories.update?category_id=`$category.bb_request_category_id`"|fn_url}"{if $category.status == "N"} class="manage-root-item-disabled"{/if}{if !$category.subcategories} style="padding-left: 14px;" class="normal"{/if} >{$category.category_name} {*include file="views/companies/components/company_name.tpl" company_name=$category.category_name company_id=$category.bb_request_category_id*}</a>{if $category.status == "N"}&nbsp;<span class="small-note">-&nbsp;[{$lang.disabled}]</span>{/if}
+				<a href="{"billibuys.category_update?category_id=`$category.bb_request_category_id`"|fn_url}"{if $category.status == "N"} class="manage-root-item-disabled"{/if}{if !$category.subcategories} style="padding-left: 14px;" class="normal"{/if} >{$category.category_name} {*include file="views/companies/components/company_name.tpl" company_name=$category.category_name company_id=$category.bb_request_category_id*}</a>{if $category.status == "N"}&nbsp;<span class="small-note">-&nbsp;[{$lang.disabled}]</span>{/if}
 			</span>
 		{/strip}
 		</td>
@@ -108,9 +108,10 @@
 			{include file="common_templates/select_popup.tpl" id=$category.bb_request_category_id status=$category.status hidden=true object_id_name="bb_request_category_id" table="bb_request_categories"}
 		</td>
 		<td width="10%" class="nowrap">
-			{capture name="tools_items"}
-			<li><a class="cm-confirm" href="{"categories.delete?category_id=`$category.bb_request_category_id`"|fn_url}">{$lang.delete}</a></li>
-			{/capture}
+		
+				{capture name="tools_items"}
+				<li>{if !$category.product_count}<a class="cm-confirm" href="{"billibuys.category_delete?category_id=`$category.bb_request_category_id`"|fn_url}">{$lang.delete}</a>{/if}</li>
+				{/capture}
 			{include file="common_templates/table_tools_list.tpl" prefix=$category.bb_request_category_id tools_list=$smarty.capture.tools_items href="billibuys.category_update?category_id=`$category.bb_request_category_id`"}
 		</td>
 	{/if}

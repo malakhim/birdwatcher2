@@ -180,5 +180,6 @@
 		<item lang="EN" id="bid_already_accepted_for_this_auction">You have already accepted a bid from this auction. Go to your cart and remove it if you wish to change this.</item>
 		<item lang="EN" id="bb_name_too_long">Name is too long. Please keep it under 50 characters</item>
 		<item lang="EN" id="bb_description_too_long">Description is too long. Please keep it under 50 characters</item>
+		<item lang="EN" id="reassign_requests_from_this_category_to_delete">Reassign requests from this category to delete it!</item>
 	</language_variables>
 </addon>

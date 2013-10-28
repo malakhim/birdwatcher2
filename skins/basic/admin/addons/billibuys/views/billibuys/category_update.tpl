@@ -42,12 +42,12 @@
 
 
 
-	<div class="form-field">
+	{*<div class="form-field">
 		<label>{$lang.images}:</label>
 		<div class="float-left">
 			{include file="common_templates/attach_images.tpl" image_name="category_main" image_object_type="category" image_pair=$category_data.main_pair image_object_id=$id icon_text=$lang.text_category_icon detailed_text=$lang.text_category_detailed_image no_thumbnail=true}
 		</div>
-	</div>
+	</div>*}
 
 	</fieldset>
 {*

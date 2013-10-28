@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:22455:"<orders>
+a:2:{s:4:"data";s:20232:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -12,37 +12,7 @@ a:2:{s:4:"data";s:22455:"<orders>
 </orders>
 
 <products>
-	<item title="categories" dispatch="categories.manage" position="100" />
 	<item title="products" dispatch="products.manage" position="200" />
-	<item title="product_features" dispatch="product_features.manage" position="300" />
-	
-	<item title="product_filters" dispatch="product_filters.manage" position="400" />
-	
-	<item title="global_options" dispatch="product_options.manage" position="500" />
-	<item title="promotions" dispatch="promotions.manage" position="600" />
-
-	<side>
-		<item group="products.manage" title="global_update" href="%INDEX_SCRIPT?dispatch=products.global_update" />
-		<item group="products.manage" title="bulk_product_addition" href="%INDEX_SCRIPT?dispatch=products.m_add" />
-		<item group="products.manage" title="product_subscriptions" href="%INDEX_SCRIPT?dispatch=products.p_subscr" />
-	
-		<item group="categories.manage" title="bulk_category_addition" href="%INDEX_SCRIPT?dispatch=categories.m_add" />
-
-		<item group="categories.update" title="add_subcategory" href="%INDEX_SCRIPT?dispatch=categories.add&amp;parent_id=%CATEGORY_ID" />
-		<item group="categories.update" title="add_product" href="%INDEX_SCRIPT?dispatch=products.add&amp;category_id=%CATEGORY_ID" />
-		<item group="categories.update" title="view_products" href="%INDEX_SCRIPT?dispatch=products.manage&amp;cid=%CATEGORY_ID" />
-		<item group="categories.update" title="delete_this_category" href="%INDEX_SCRIPT?dispatch=categories.delete&amp;category_id=%CATEGORY_ID" meta="cm-confirm" />
-
-		<item group="products.update" title="add_product" href="%INDEX_SCRIPT?dispatch=products.add" />
-		<item group="products.update" title="clone_this_product" href="%INDEX_SCRIPT?dispatch=products.clone&amp;product_id=%PRODUCT_ID" />
-		<item group="products.update" title="delete_this_product" href="%INDEX_SCRIPT?dispatch=products.delete&amp;product_id=%PRODUCT_ID" meta="cm-confirm" />
-		
-		<item group="product_options.global" title="apply_to_products" href="%INDEX_SCRIPT?dispatch=product_options.global.apply" />
-		
-		<item group="promotions.update" title="add_cart_promotion" href="%INDEX_SCRIPT?dispatch=promotions.add&amp;zone=cart" />
-		
-		<item group="promotions.update" title="add_catalog_promotion" href="%INDEX_SCRIPT?dispatch=promotions.add&amp;zone=catalog" />
-	</side>
 </products>
 
 <customers>
