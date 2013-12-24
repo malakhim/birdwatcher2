@@ -8,6 +8,10 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
+function fn_billibuys_update_profile($action, $user_data, $current_user_data){
+
+}
+
 /**
  * Archives the request, ie moves from bb_requests to bb_request_archive
  * @param  Int $request_id
@@ -46,7 +50,7 @@ function fn_archive_request($request_id){
 function fn_billibuys_delete_cart_product($cart, $cart_id, $full_erase = true){
 	$update_data = Array("item_added_to_cart" => 00);
 	db_query('UPDATE ?:bb_requests INNER JOIN ?:bb_bids ON ?:bb_bids.request_id = ?:bb_requests.bb_request_id SET ?u 
-		WHERE 
+		WHERE
 			?:bb_requests.user_id = ?i 
 			AND 
 				?:bb_bids.product_id = ?i',$update_data,$_SESSION['auth']['user_id'],$cart['products'][$cart_id]['product_id']);
@@ -632,10 +636,10 @@ function fn_bb_delete_category($category_id){
 	db_query("DELETE FROM ?:bb_request_categories WHERE ?w",$where);
 	db_query("DELETE FROM ?:bb_request_category_descriptions WHERE ?w",$where);
 
-	
-	
 	// What to do in the case of bids under this auction? Not allow deletion, revert to category id = 0 or Misc or what?
 	 
 	// Should this be an outright deletion for speed purposes or should it be archiving?
 }
+
+
 ?>

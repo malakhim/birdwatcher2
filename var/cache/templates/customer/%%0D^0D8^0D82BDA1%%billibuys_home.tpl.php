@@ -1,36 +1,81 @@
-<?php /* Smarty version 2.6.18, created on 2013-10-18 07:57:16
+<?php /* Smarty version 2.6.18, created on 2013-12-15 13:42:32
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home.tpl */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home.tpl', 7, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('bb_looking_for_an_item','bb_let_sellers_come_to_you','bb_i_want','submit','or','bb_looking_for_buyer','bb_select_a_category'));
+fn_preload_lang_vars(array('jumbotron_buyer_heading','jumbotron_buyer_subheading','learn_more_buyer','jumbotron_seller_heading','jumbotron_seller_subheading','learn_more_seller','how_does_billibuys_work','for_buyers','step','step_1_buyer','step','step_2_buyer','step','step_3_buyer'));
 ?>
-<?php  ob_start();  ?>
-<p class="txt_1"><?php echo fn_get_lang_var('bb_looking_for_an_item', $this->getLanguage()); ?>
-?</p>
+<?php  ob_start();  ?><div class="container">
+	<div class="panel panel-default" id="buyer_panel">
+		<div class="panel_heading">
+			<?php echo fn_get_lang_var('jumbotron_buyer_heading', $this->getLanguage()); ?>
 
-<p class="txt_1"><?php echo fn_get_lang_var('bb_let_sellers_come_to_you', $this->getLanguage()); ?>
-!</p>
+		</div>
+		<div class="panel_subheading"><?php echo fn_get_lang_var('jumbotron_buyer_subheading', $this->getLanguage()); ?>
+</div>
+		<button type="button" id="buyer_btn_lrn_more" class="btn btn-primary"><?php echo fn_get_lang_var('learn_more_buyer', $this->getLanguage()); ?>
+</button>
+	</div>
 
-<form action="<?php echo fn_url("auth.login_form&return_url=billibuys.place_request"); ?>
-" method="GET">
-<?php if (! $this->_tpl_vars['auth']['user_id']): ?>
-	<input type="hidden" name="dispatch" value="auth.login_form"/>
-	<input type="hidden" name="return_url" value="billibuys.place_request" />
-<?php else: ?>
-	<input type="hidden" name="dispatch" value="billibuys.place_request" />
-<?php endif; ?>
-	<input type="text" name="request_title" id="i_want" value="<?php echo fn_get_lang_var('bb_i_want', $this->getLanguage()); ?>
-..." id="request_title_home" onclick="<?php echo '$(this).val(\'\')'; ?>
-"/>
-<input type="submit" value="<?php echo fn_get_lang_var('submit', $this->getLanguage()); ?>
-" />
-</form>
-<p class="txt_2"><?php echo fn_get_lang_var('or', $this->getLanguage()); ?>
-</p>
+	<div class="panel panel-default" id="seller_panel">
+		<div class="panel_heading">
+			<?php echo fn_get_lang_var('jumbotron_seller_heading', $this->getLanguage()); ?>
 
-<p class="txt_1"><?php echo fn_get_lang_var('bb_looking_for_buyer', $this->getLanguage()); ?>
-?</p>
+		</div>
+		<div class="panel_subheading"><?php echo fn_get_lang_var('jumbotron_seller_subheading', $this->getLanguage()); ?>
+</div>
+		<button type="button" id="seller_btn_lrn_more" class="btn btn-primary"><?php echo fn_get_lang_var('learn_more_seller', $this->getLanguage()); ?>
+</button>
+	</div>
 
-<p class="txt_1"><?php echo fn_get_lang_var('bb_select_a_category', $this->getLanguage()); ?>
-:</p><?php  ob_end_flush();  ?>
+	<div class="steps" id="buyer_steps">
+		<div class="steps_heading"><?php echo fn_get_lang_var('how_does_billibuys_work', $this->getLanguage()); ?>
+ <?php echo fn_get_lang_var('for_buyers', $this->getLanguage()); ?>
+?</div>
+		<div class="steps_images" id="buyer_step_images">
+			<span id="buyer_step_img_1">
+				<img src="http://placekitten.com/220/240" alt="Step 1"/>
+			</span>
+
+			<span id="buyer_step_img_2">
+				<img src="http://placekitten.com/220/240" alt="Step 2"/>
+			</span>
+			<span id="buyer_step_img_3">
+				<img src="http://placekitten.com/220/240"  alt="Step 3"/>
+			</span>
+		</div>
+		<div class="steps_text">
+			<div id="buyer_step_heading_1">
+				<?php echo fn_get_lang_var('step', $this->getLanguage()); ?>
+ 1
+			</div>
+			<div id="buyer_step_text_1">
+				<?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
+
+			</div>
+		</div>
+
+		<div class="steps_text">
+			<div id="buyer_step_heading_2">
+				<?php echo fn_get_lang_var('step', $this->getLanguage()); ?>
+ 2
+			</div>
+			<div id="buyer_step_text_2">
+				<?php echo fn_get_lang_var('step_2_buyer', $this->getLanguage()); ?>
+
+			</div>
+		</div>
+
+		<div class="steps_text">
+			<div id="buyer_step_heading_3">
+				<?php echo fn_get_lang_var('step', $this->getLanguage()); ?>
+ 3
+			</div>
+			<div id="buyer_step_text_3">
+				<?php echo fn_get_lang_var('step_3_buyer', $this->getLanguage()); ?>
+
+			</div>
+		</div>
+
+	</div>
+
+
+</div><?php  ob_end_flush();  ?>

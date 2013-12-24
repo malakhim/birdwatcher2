@@ -32,15 +32,6 @@ $schema = array (
 			'permissions' => true,
 		),
 
-
-		'billibuys' => array(
-			'modes' => array(
-				'view' => true,
-				'notify' => true
-			),
-			'permissions' => true
-		),
-	
 		'profiles' => array (
 			'modes' => array (
 				'update_cards' => array (

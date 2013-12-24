@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:20232:"<orders>
+a:2:{s:4:"data";s:20952:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -296,7 +296,21 @@ a:2:{s:4:"data";s:20232:"<orders>
 		<item group="sitemap" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 		<item group="sitemap.manage" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 	</side>
-</design><administration>
+</design><customers>
+	<item title="events" dispatch="events.search" />
+
+	<side>
+		<item group="events.search" title="custom_event_fields" href="%INDEX_SCRIPT?dispatch=events.field_editor" />
+
+		<item group="events.add" title="search_for_events" href="%INDEX_SCRIPT?dispatch=events.search" />
+		<item group="events.add" title="custom_event_fields" href="%INDEX_SCRIPT?dispatch=events.field_editor" />
+
+		<item group="events.update" title="add_event" href="%INDEX_SCRIPT?dispatch=events.add" />
+		<item group="events.update" title="search_for_events" href="%INDEX_SCRIPT?dispatch=events.search" />
+		<item group="events.update" title="custom_event_fields" href="%INDEX_SCRIPT?dispatch=events.field_editor" />
+	</side>
+</customers>
+<administration>
 	<item title="statistics" dispatch="statistics.reports" position="150" />
 
 	<side>

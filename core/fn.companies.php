@@ -816,11 +816,8 @@ function fn_update_company($company_data, $company_id = 0, $lang_code = CART_LAN
 		unset($company_data['storefront'], $company_data['secure_storefront']);
 	}
 	
-
-
 	unset($company_data['company_id']);
 	$_data = $company_data;
-
 	
 	if (PRODUCT_TYPE != 'ULTIMATE') {
 		// Check if company with same email already exists
@@ -832,8 +829,6 @@ function fn_update_company($company_data, $company_id = 0, $lang_code = CART_LAN
 			return false;
 		}
 	}
-	
-
 
 	$_data['shippings'] = empty($company_data['shippings']) ? '' : fn_create_set($company_data['shippings']);
 	

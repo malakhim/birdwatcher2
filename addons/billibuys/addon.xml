@@ -168,6 +168,26 @@
 		<item lang="EN" id="bb_select_a_category">Select a category for your item</item>
 		<item lang="EN" id="bb_i_want">I want</item>
 
+		<!-- Home page variables -->
+
+		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have <br/>sellers come to you</item>
+		<item lang="EN" id="jumbotron_buyer_subheading">Place a request to save time and money</item>
+		<item lang="EN" id="jumbotron_seller_heading">Find buyers who are looking <br/> for your products</item>
+		<item lang="EN" id="jumbotron_seller_subheading">Look for buyers who want your shit</item>
+		<item lang="EN" id="learn_more_buyer">Learn more about being a buyer</item>
+		<item lang="EN" id="learn_more_seller">Learn more about being a seller</item>
+		<item lang="EN" id="how_does_billibuys_work_for_buyers">How does Billibuys.com work for buyers</item>
+		<item lang="EN" id="how_does_billibuys_work_for_sellers">How does Billibuys.com work for sellers</item>
+
+		<!-- Steps -->
+		<item lang="EN" id="step_1_buyer">Think of a product you want and indicate how much you want to buy it for</item>
+		<item lang="EN" id="step_2_buyer">Sellers will bid with their products and you can choose which ones you want to buy</item>
+		<item lang="EN" id="step_3_buyer">Pay for your purchase and the seller will ship directly to you</item>
+
+		<!-- Back end view variables -->
+		<item lang="EN" id="bb_billibuys_menu_description">View Billibuys Auctions</item>
+		<item lang="EN" id="bb_manage_billibuys_categories_menu_description">Manage Billibuys Categories</item>	
+
 		<!-- General -->
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
 		<item lang="EN"	id="bb_packages">Packages</item>
@@ -181,5 +201,7 @@
 		<item lang="EN" id="bb_name_too_long">Name is too long. Please keep it under 50 characters</item>
 		<item lang="EN" id="bb_description_too_long">Description is too long. Please keep it under 50 characters</item>
 		<item lang="EN" id="reassign_requests_from_this_category_to_delete">Reassign requests from this category to delete it!</item>
+
+
 	</language_variables>
 </addon>

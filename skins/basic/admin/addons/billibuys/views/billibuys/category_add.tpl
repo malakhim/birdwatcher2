@@ -41,14 +41,14 @@
 	{include file="common_templates/select_status.tpl" input_name="category_data[status]" id="category_data" obj=$category_data hidden=true}
 
 
-{*
+
 	<div class="form-field">
 		<label>{$lang.images}:</label>
 		<div class="float-left">
 			{include file="common_templates/attach_images.tpl" image_name="category_main" image_object_type="category" image_pair=$category_data.main_pair image_object_id=$id icon_text=$lang.text_category_icon detailed_text=$lang.text_category_detailed_image no_thumbnail=true}
 		</div>
 	</div>
-*}
+
 	</fieldset>
 {*
 	{include file="common_templates/subheader.tpl" title=$lang.seo_meta_data}

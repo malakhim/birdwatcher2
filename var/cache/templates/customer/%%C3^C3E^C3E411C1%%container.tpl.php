@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-10-17 18:49:04
+<?php /* Smarty version 2.6.18, created on 2013-12-13 16:03:26
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/views/block_manager/render/container.tpl */ ?>
 <?php  ob_start();  ?><div class="container_<?php echo $this->_tpl_vars['container']['width']; ?>
  <?php echo $this->_tpl_vars['container']['user_class']; ?>
