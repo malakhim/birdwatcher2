@@ -30,14 +30,14 @@
 				<img src="http://placekitten.com/220/240"  alt="Step 3"/>
 			</span>
 		</div>
-		<span class="steps_text">
+		<div class="steps_text">
 			<div id="buyer_step_heading_1">
 				{$lang.step} 1
 			</div>
 			<div id="buyer_step_text_1">
 				{$lang.step_1_buyer}
 			</div>
-		</span>
+		</div>
 
 		<div class="steps_text">
 			<div id="buyer_step_heading_2">
@@ -57,6 +57,9 @@
 			</div>
 		</div>
 
+		<div class="cta">
+			<button type="button" id="cta_buyer" class="btn btn-primary">{$lang.register_as_buyer}</button>
+		</div>
 	</div>
 
 

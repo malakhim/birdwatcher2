@@ -57,6 +57,9 @@
 			</div>
 		</div>
 
+		<div class="cta">
+			<button type="button" id="cta_buyer" class="btn btn-primary">{$lang.register_as_buyer}</button>
+		</div>
 	</div>
 
 

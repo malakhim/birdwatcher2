@@ -130,9 +130,13 @@ body{
 	margin-top: 11px;
 }
 
-
 .steps_text{
 	text-align:center;
 	width:270px;
 	line-height:15px;
+}
+
+#cta_buyer{
+	margin-left:340px;
+	margin-top:60px;
 }

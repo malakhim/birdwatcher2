@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2013-12-15 13:42:32
+<?php /* Smarty version 2.6.18, created on 2013-12-29 11:22:46
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home.tpl */ ?>
 <?php
-fn_preload_lang_vars(array('jumbotron_buyer_heading','jumbotron_buyer_subheading','learn_more_buyer','jumbotron_seller_heading','jumbotron_seller_subheading','learn_more_seller','how_does_billibuys_work','for_buyers','step','step_1_buyer','step','step_2_buyer','step','step_3_buyer'));
+fn_preload_lang_vars(array('jumbotron_buyer_heading','jumbotron_buyer_subheading','learn_more_buyer','jumbotron_seller_heading','jumbotron_seller_subheading','learn_more_seller','how_does_billibuys_work','for_buyers','step','step_1_buyer','step','step_2_buyer','step','step_3_buyer','register_as_buyer'));
 ?>
 <?php  ob_start();  ?><div class="container">
 	<div class="panel panel-default" id="buyer_panel">
@@ -75,6 +75,10 @@ fn_preload_lang_vars(array('jumbotron_buyer_heading','jumbotron_buyer_subheading
 			</div>
 		</div>
 
+		<div class="cta">
+			<button type="button" id="cta_buyer" class="btn btn-primary"><?php echo fn_get_lang_var('register_as_buyer', $this->getLanguage()); ?>
+</button>
+		</div>
 	</div>
 
 
