@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-28 16:52:04
+<?php /* Smarty version 2.6.18, created on 2014-01-21 23:51:56
          compiled from views/block_manager/update_block.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/block_manager/update_block.tpl', 15, false),array('modifier', 'fn_url', 'views/block_manager/update_block.tpl', 42, false),array('modifier', 'is_array', 'views/block_manager/update_block.tpl', 91, false),array('modifier', 'str_replace', 'views/block_manager/update_block.tpl', 146, false),array('modifier', 'escape', 'views/block_manager/update_block.tpl', 172, false),array('function', 'script', 'views/block_manager/update_block.tpl', 30, false),array('block', 'hook', 'views/block_manager/update_block.tpl', 132, false),)), $this); ?>

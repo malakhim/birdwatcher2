@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 19:33:01
+<?php /* Smarty version 2.6.18, created on 2014-01-22 11:26:15
          compiled from views/block_manager/components/setting_element.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'views/block_manager/components/setting_element.tpl', 28, false),array('modifier', 'default', 'views/block_manager/components/setting_element.tpl', 36, false),array('modifier', 'is_array', 'views/block_manager/components/setting_element.tpl', 89, false),array('function', 'html_checkboxes', 'views/block_manager/components/setting_element.tpl', 56, false),)), $this); ?>

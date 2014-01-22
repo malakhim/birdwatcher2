@@ -1,8 +1,8 @@
-<?php /* Smarty version 2.6.18, created on 2013-12-13 16:03:26
+<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:44
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 1, false),array('modifier', 'unescape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 14, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 14, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 5, false),)), $this); ?>
-<?php  ob_start();  ?><?php if (trim($this->_tpl_vars['content'])): ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 1, false),array('modifier', 'unescape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 14, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 14, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 5, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/wrappers/onclick_dropdown.tpl', 17, false),)), $this); ?>
+<?php  ob_start();  ?><?php ob_start(); ?><?php if (trim($this->_tpl_vars['content'])): ?>
 	<?php $this->assign('dropdown_id', $this->_tpl_vars['block']['snapping_id'], false); ?>
 	<div class="dropdown-box <?php if ($this->_tpl_vars['block']['user_class']): ?> <?php echo $this->_tpl_vars['block']['user_class']; ?>
 <?php endif; ?><?php if ($this->_tpl_vars['content_alignment'] == 'RIGHT'): ?> float-right<?php elseif ($this->_tpl_vars['content_alignment'] == 'LEFT'): ?> float-left<?php endif; ?>">
@@ -25,4 +25,8 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/
 
 		</div>
 	</div>
-<?php endif; ?><?php  ob_end_flush();  ?>
+<?php endif; ?><?php $this->_smarty_vars['capture']['template_content'] = ob_get_contents(); ob_end_clean(); ?><?php if (trim($this->_smarty_vars['capture']['template_content'])): ?><?php if ($this->_tpl_vars['auth']['area'] == 'A'): ?><span class="cm-template-box" template="blocks/wrappers/onclick_dropdown.tpl" id="<?php echo smarty_function_set_id(array('name' => "blocks/wrappers/onclick_dropdown.tpl"), $this);?>
+"><img class="cm-template-icon hidden" src="<?php echo $this->_tpl_vars['images_dir']; ?>
+/icons/layout_edit.gif" width="16" height="16" alt="" /><?php echo $this->_smarty_vars['capture']['template_content']; ?>
+<!--[/tpl_id]--></span><?php else: ?><?php echo $this->_smarty_vars['capture']['template_content']; ?>
+<?php endif; ?><?php endif; ?><?php  ob_end_flush();  ?>

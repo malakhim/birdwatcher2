@@ -170,6 +170,11 @@
 		<item lang="EN" id="register_as_buyer">Register as a buyer</item>
 
 		<!-- Home page variables -->
+		<item lang="EN" id="about">ABOUT</item>
+		<item lang="EN" id="testimonials">TESTIMONIALS</item>
+		<item lang="EN" id="contact_us">CONTACT US</item>
+		<item lang="EN" id="log_in">LOG IN</item>
+
 
 		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have <br/>sellers come to you</item>
 		<item lang="EN" id="jumbotron_buyer_subheading">Place a request to save time and money</item>

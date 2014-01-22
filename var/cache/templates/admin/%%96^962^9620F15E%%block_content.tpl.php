@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 19:33:01
+<?php /* Smarty version 2.6.18, created on 2014-01-22 11:26:15
          compiled from views/block_manager/components/block_content.tpl */ ?>
 <?php echo ''; ?><?php if ($this->_tpl_vars['block_scheme']['content']): ?><?php echo ''; ?><?php $_from = $this->_tpl_vars['block_scheme']['content']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['name'] => $this->_tpl_vars['setting_data']):
