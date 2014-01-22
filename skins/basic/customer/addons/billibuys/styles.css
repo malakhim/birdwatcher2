@@ -14,6 +14,21 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 .logo-container .logo{
 	opacity: 0.8;
 	filter:alpha(opacity=80); /*For IE8*/
+	margin-top: 0;
+}
+
+#how_does_it_work_scroller{
+	display:inline-block;
+	width: 50px;
+	margin-left:195px;
+}
+
+#how_does_it_work_text{
+	position: absolute;
+}
+
+.how_does_it_work_block{
+	margin-top:50px;
 }
 
 #ci_top_wrapper{
@@ -30,6 +45,35 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	min-height: 900px;
 }
 
+.frontpage_top_social_media{
+	margin-top: 60px;
+	color: white;
+}
+
+.frontpage_top_social_media .fa{
+	padding: 10px 10px 10px 10px;
+	min-width: 45px;
+	text-align: center;
+
+}
+
+.frontpage_top_social_media .fa-twitter{
+	background-color:rgb(93,200,255);
+
+}
+
+.frontpage_top_social_media .fa-facebook{
+	background-color:rgb(88,122,202);
+}
+
+.frontpage_top_social_media .fa-google-plus{
+	background-color: rgb(228,56,7);
+}
+
+.frontpage_top_social_media .fa-pinterest{
+	background-color: rgb(250,92,92);
+}
+
 #header_img{
 	margin-top:-280px;
 }
@@ -39,15 +83,30 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	margin-top: -33px;
 }
 
-/*.frontpage_top_links{
-	z-index: 1;
-	position: absolute;
-}*/
-
-.frontpage_top_links .text_link{
+.frontpage_top_links{
+	text-align:center;
 	font-family: "Arial";
 	font-size: 18pt;
+}
+
+.frontpage_top_links .text_link{
 	color: rgb(149,140,137);
+	padding-top: 10px;
+	padding-bottom:10px;	
+}
+
+.frontpage_top_links .flat_link{
+	color: white;
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+
+.frontpage_top_links .red{
+	background-color: rgb(228,56,7);
+}
+
+.frontpage_top_links .grey{
+	background-color: rgb(149,140,137);
 }
 
 .logo_billibuys{
