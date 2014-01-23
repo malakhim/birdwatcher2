@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 23:50:00
+<?php /* Smarty version 2.6.18, created on 2014-01-23 12:47:00
          compiled from common_templates/popupbox.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'common_templates/popupbox.tpl', 15, false),array('modifier', 'fn_check_view_permissions', 'common_templates/popupbox.tpl', 17, false),array('modifier', 'fn_url', 'common_templates/popupbox.tpl', 20, false),array('modifier', 'unescape', 'common_templates/popupbox.tpl', 26, false),array('modifier', 'escape', 'common_templates/popupbox.tpl', 137, false),)), $this); ?>

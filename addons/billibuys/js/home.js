@@ -3,6 +3,7 @@ $(document).ready(function(){
       {
         pause: 2000,
         showItems: 1,
+        height: 48,
       }
     );
 });

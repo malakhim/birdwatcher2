@@ -1,5 +1,135 @@
 .header{
-	background: none;
+/*background: #1e5799; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+/*background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjA3Y2NhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VkZWVlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /* FF3.6+ */
+/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#207cca), color-stop(100%,#edeeec)); /* Chrome,Safari4+ */
+/*background: -webkit-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* Chrome10+,Safari5.1+ */
+/*background: -o-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* Opera 11.10+ */
+/*background: -ms-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* IE10+ */
+/*background: linear-gradient(to bottom,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* W3C */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#edeeec',GradientType=0 ); /* IE6-8 */
+}
+
+.logo-container .logo{
+	opacity: 0.8;
+	filter:alpha(opacity=80); /*For IE8*/
+	margin-top: 0;
+}
+
+#how_does_it_work_scroller{
+	display:inline-block;
+	width: 50px;
+	margin-left:195px;
+}
+
+#how_does_it_work_text{
+	position: absolute;
+}
+
+.how_does_it_work_block{
+	margin-top:50px;
+}
+
+#ci_top_wrapper{
+	/*background-image: url('images/billibuys_header.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	min-width:100%;*/
+
+	background: url('images/billibuys_header.jpg') no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	min-height: 900px;
+}
+
+.frontpage_top_social_media{
+	margin-top: 60px;
+	color: white;
+}
+
+.frontpage_top_social_media .fa{
+	padding: 10px 10px 10px 10px;
+	min-width: 45px;
+	text-align: center;
+
+}
+
+.frontpage_top_social_media .fa-twitter{
+	background-color:rgb(93,200,255);
+
+}
+
+.frontpage_top_social_media .fa-facebook{
+	background-color:rgb(88,122,202);
+}
+
+.frontpage_top_social_media .fa-google-plus{
+	background-color: rgb(228,56,7);
+}
+
+.frontpage_top_social_media .fa-pinterest{
+	background-color: rgb(250,92,92);
+}
+
+#header_img{
+	margin-top:-280px;
+}
+
+#testimonials{
+	margin-left: 160px;
+	margin-top: -33px;
+}
+
+.frontpage_top_links{
+	text-align:center;
+	font-family: "Arial";
+	font-size: 18pt;
+}
+
+.frontpage_top_links .text_link{
+	color: rgb(149,140,137);
+	padding-top: 10px;
+	padding-bottom:10px;	
+}
+
+.frontpage_top_links .flat_link{
+	color: white;
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+
+.frontpage_top_links .red{
+	background-color: rgb(228,56,7);
+}
+
+.frontpage_top_links .grey{
+	background-color: rgb(149,140,137);
+}
+
+.logo_billibuys{
+	margin-top: 30px;
+}
+
+#buy{
+	background-color: #929cff;
+	width: 660px;
+	height: 700px;
+	margin-left: -221px;
+	padding-top: 200px;
+	padding-left: 340px;
+}
+
+#sell{
+	background-color: #86CC61;
+	width: 680px;
+	height: 660px;
+	margin-left: 439px;
+	padding-left: 340px;
+	margin-top: -700px;
+	padding-top: 200px;
 }
 
 .main{
@@ -22,6 +152,7 @@
 }
 
 .panel_heading{
+	font-family:'Fredericka the Great';
 	font-size:26px;
 	text-align: center;
 	color:#F5C84E;
@@ -30,6 +161,7 @@
 }
 
 .panel_subheading{
+	font-family:'Quando',serif;
 	text-align:center;
 	color:#495FF2;
 	font-weight:bold;
@@ -52,7 +184,8 @@
 }
 
 body{
-	background-image:url("./images/brushed.png");
+	/*background-image:url("./images/brushed.png");*/
+	background-color:#EDEEEC;
 }
 
 .steps_heading{
@@ -130,9 +263,13 @@ body{
 	margin-top: 11px;
 }
 
-
 .steps_text{
 	text-align:center;
 	width:270px;
 	line-height:15px;
+}
+
+#cta_buyer{
+	margin-left:380px;
+	margin-top:60px;
 }

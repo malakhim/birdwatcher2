@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:44
+<?php /* Smarty version 2.6.18, created on 2014-01-23 12:47:13
          compiled from common_templates/loading_box.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'common_templates/loading_box.tpl', 4, false),array('function', 'set_id', 'common_templates/loading_box.tpl', 4, false),)), $this); ?>

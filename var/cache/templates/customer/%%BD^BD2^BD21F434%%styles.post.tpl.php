@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:43
+<?php /* Smarty version 2.6.18, created on 2014-01-23 12:47:12
          compiled from addons/bundled_products/hooks/index/styles.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'addons/bundled_products/hooks/index/styles.post.tpl', 4, false),array('function', 'set_id', 'addons/bundled_products/hooks/index/styles.post.tpl', 4, false),)), $this); ?>

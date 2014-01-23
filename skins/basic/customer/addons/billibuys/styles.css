@@ -11,6 +11,16 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#edeeec',GradientType=0 ); /* IE6-8 */
 }
 
+@font-face{
+	font-family: "Arial Rounded MT Bold";
+	src: url('../fonts/ARLRDBD.TTF');
+}
+
+body{
+	/*background-image:url("./images/brushed.png");*/
+	background-color:#EDEEEC;
+}
+
 .logo-container .logo{
 	opacity: 0.8;
 	filter:alpha(opacity=80); /*For IE8*/
@@ -18,17 +28,39 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 }
 
 #how_does_it_work_scroller{
-	display:inline-block;
-	width: 50px;
-	margin-left:195px;
+	display: inline-block;
+	width: 145px;
+	margin-left: 70px;
+	margin-top: -45px;
 }
 
-#how_does_it_work_text{
-	position: absolute;
+#how_does_it_work_qm{
+	margin-top: -48px;
+	margin-left: 217px;
 }
 
 .how_does_it_work_block{
-	margin-top:50px;
+	margin-top:4px;
+	line-height: 46px
+}
+
+.how_does_it_work_block div{
+	font-family: "Arial Rounded MT Bold";
+	font-size: 32pt;
+	color: rgb(1,146,146);
+    text-shadow:
+    -1px -1px 0 #ffffff,  
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+}
+
+html.ie7 .how_does_it_work_block div,
+html.ie8 .how_does_it_work_block div,
+html.ie9 .how_does_it_work_block div {
+    background-color: white;
+    filter: progid:DXImageTransform.Microsoft.Chroma(color='white') progid:DXImageTransform.Microsoft.Alpha(opacity=100) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=-1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=1,offY=-1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=-1,offY=-1);
+    zoom: 1;
 }
 
 #ci_top_wrapper{
@@ -46,7 +78,7 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 }
 
 .frontpage_top_social_media{
-	margin-top: 60px;
+	margin-top: 28px;
 	color: white;
 }
 
@@ -85,8 +117,8 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 
 .frontpage_top_links{
 	text-align:center;
-	font-family: "Arial";
-	font-size: 18pt;
+	font-family: "Arial Rounded MT Bold";
+	font-size: 14pt;
 }
 
 .frontpage_top_links .text_link{
@@ -107,10 +139,6 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 
 .frontpage_top_links .grey{
 	background-color: rgb(149,140,137);
-}
-
-.logo_billibuys{
-	margin-top: 30px;
 }
 
 #buy{
@@ -136,140 +164,10 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	background:none;
 }
 
-
-#buyer_panel{
-	width:380px;
-	margin-left:65px;
+.for_the_buyers_block{
+	background-color: rgba(255, 255, 255, 0.8);
 }
 
-.panel-default{
-	border-color: #F5C84E;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-left: -15px;
-}
+#for_the_buyers_box_heading{
 
-.panel_heading{
-	font-family:'Fredericka the Great';
-	font-size:26px;
-	text-align: center;
-	color:#F5C84E;
-	margin-bottom:10px;
-	font-weight:bold;
-}
-
-.panel_subheading{
-	font-family:'Quando',serif;
-	text-align:center;
-	color:#495FF2;
-	font-weight:bold;
-}
-
-#buyer_btn_lrn_more{
-	margin-top: 30px;
-	margin-left: 60px;
-}
-
-#seller_btn_lrn_more{
-	margin-top: 30px;
-	margin-left: 65px;
-}
-
-#seller_panel{
-	margin-left: 467px;
-	margin-top: -230px;
-	width: 380px;
-}
-
-body{
-	/*background-image:url("./images/brushed.png");*/
-	background-color:#EDEEEC;
-}
-
-.steps_heading{
-	color: #495FF2;
-	font-weight: bold;
-	font-size: 25px;
-	margin-left:-15px;
-}
-
-.steps{
-	width:960px;
-	margin-top:60px;
-}
-
-.steps_images{
-	margin-top:40px;
-	margin-left:65px;
-}
-
-#buyer_step_img_2{
-	margin-left:55px;
-}
-
-#buyer_step_img_3{
-	margin-left:55px;
-}
-
-.steps_text{
-	margin-top:20px;
-}
-
-#buyer_step_heading_1{
-	margin-left:80px;
-}
-
-#buyer_step_text_1{
-	margin-top:10px;
-}
-
-#buyer_step_heading_1{
-	margin-left: 90px;
-	font-weight: bold;
-	color: blue;
-}
-
-#buyer_step_text_1{
-	margin-left:70px;
-}
-
-#buyer_step_heading_2{
-	margin-left: 430px;
-	margin-top: -90px;
-	width: 50px;
-	font-weight: bold;
-	color: blue;
-}
-
-#buyer_step_text_2{
-	margin-left: 350px;
-	width: 210px;
-	margin-top: 10px;
-}
-
-#buyer_step_heading_3{
-	margin-left: 710px;
-	margin-top: -90px;
-	width: 50px;
-	font-weight: bold;
-	color: blue;
-}
-
-#buyer_step_text_3{
-	margin-left: 630px;
-	width: 200px;
-	margin-top: 11px;
-}
-
-.steps_text{
-	text-align:center;
-	width:270px;
-	line-height:15px;
-}
-
-#cta_buyer{
-	margin-left:380px;
-	margin-top:60px;
 }

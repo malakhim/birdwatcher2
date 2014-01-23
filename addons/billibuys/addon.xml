@@ -176,15 +176,16 @@
 		<item lang="EN" id="log_in">LOG IN</item>
 
 
-		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have <br/>sellers come to you</item>
-		<item lang="EN" id="jumbotron_buyer_subheading">Place a request to save time and money</item>
+		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have the<br/>Sellers come to you</item>
+		<item lang="EN" id="jumbotron_buyer_subheading">Place a request today to save time and money!</item>
 		<item lang="EN" id="jumbotron_seller_heading">Find buyers who are looking <br/> for your products</item>
 		<item lang="EN" id="jumbotron_seller_subheading">Look for buyers who want your shit</item>
-		<item lang="EN" id="learn_more_buyer">Learn more about being a buyer</item>
-		<item lang="EN" id="learn_more_seller">Learn more about being a seller</item>
+		<item lang="EN" id="learn_more">Learn more</item>
 		<item lang="EN" id="how_does_billibuys_work_for">How does Billibuys.com work for</item>
 		<item lang="EN" id="buyers">buyers</item>
 		<item lang="EN" id="sellers">sellers</item>
+		<item lang="EN" id="for_the_buyers">For the Buyers</item>
+		<item lang="EN" id="for_the_sellers">For the Sellers</item>
 
 		<!-- Steps -->
 		<item lang="EN" id="step_1_buyer">Think of a product you want and indicate how much you want to buy it for</item>
