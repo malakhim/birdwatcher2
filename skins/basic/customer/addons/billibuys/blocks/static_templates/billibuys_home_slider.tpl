@@ -92,5 +92,8 @@
         <span class="da-arrows-prev"></span>
         <span class="da-arrows-next"></span>
     </nav>
+</div>
 
+<div class="register_btn">
+	{$lang.register}
 </div>

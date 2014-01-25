@@ -249,3 +249,37 @@ html.ie9 .how_does_it_work_block div {
 .sellerslider{
 	display:none;
 }
+
+.register_btn{
+	float: right;
+	background-color: rgb(149,140,137);
+	color: white;
+	padding: 20px;
+	text-transform: uppercase;
+	font-family: "Arial Rounded MT Bold";
+	cursor:pointer;
+}
+
+.billibuys_home_slider{
+	display:none;
+}
+
+.about_billibuys_block{
+	font-family: "Arial Rounded MT Bold";
+}
+
+.about_heading{
+	font-size: 26pt;	
+}
+
+.about_heading .billibuys_coloured_1{
+	color: rgb(255,109,12);
+}
+
+.about_heading .billibuys_coloured_2{
+	color: rgb(71,90,168);
+}
+
+#about_line_5{
+	float:right;
+}
