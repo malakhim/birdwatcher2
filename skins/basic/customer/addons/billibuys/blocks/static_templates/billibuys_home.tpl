@@ -1,13 +1,5 @@
 {** block-description:billibuys_home_page **}
 
-<!-- <img src="images/billibuys_header.jpg" id="header_img"/> -->
-
-{literal}
-<script src="addons/billibuys/js/home.js" type="text/javascript"></script>
-{/literal}
-
-
-
 {**
 <div class="container">
 	<div class="panel panel-default" id="buyer_panel">

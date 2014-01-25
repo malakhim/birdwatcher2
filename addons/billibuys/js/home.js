@@ -6,4 +6,9 @@ $(document).ready(function(){
         height: 48,
       }
     );
+  $('#background_img').css('margin-left','-' + $('#background_img').offset().left + 'px');
+
+  $('.da-slider').cslider({
+    autoplay:true
+  });
 });

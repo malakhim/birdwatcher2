@@ -177,20 +177,27 @@
 
 
 		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have the<br/>Sellers come to you</item>
-		<item lang="EN" id="jumbotron_buyer_subheading">Place a request today to save time and money!</item>
+		<item lang="EN" id="jumbotron_buyer_subheading">Place a request today to save time and money</item>
 		<item lang="EN" id="jumbotron_seller_heading">Find buyers who are looking <br/> for your products</item>
 		<item lang="EN" id="jumbotron_seller_subheading">Look for buyers who want your shit</item>
 		<item lang="EN" id="learn_more">Learn more</item>
 		<item lang="EN" id="how_does_billibuys_work_for">How does Billibuys.com work for</item>
-		<item lang="EN" id="buyers">buyers</item>
-		<item lang="EN" id="sellers">sellers</item>
+		<item lang="EN" id="buyers">Buyers</item>
+		<item lang="EN" id="sellers">Sellers</item>
 		<item lang="EN" id="for_the_buyers">For the Buyers</item>
 		<item lang="EN" id="for_the_sellers">For the Sellers</item>
 
 		<!-- Steps -->
+		<item lang="EN" id="get_bids">Get bids from sellers</item>
+		<item lang="EN" id="purchase_items">Purchase items from bids</item>
 		<item lang="EN" id="step_1_buyer">Think of a product you want and indicate how much you want to buy it for</item>
 		<item lang="EN" id="step_2_buyer">Sellers will bid with their products and you can choose which ones you want to buy</item>
 		<item lang="EN" id="step_3_buyer">Pay for your purchase and the seller will ship directly to you</item>
+
+		<item lang="EN" id="step_1_seller">Register your product with us<br/>All products are accepted, from small to large</item>
+		<item lang="EN" id="step_2_seller">Browse list of buyers' requests<br/>These will be automatically matched to your products</item>
+		<item lang="EN" id="step_3_seller">Place a bid on a request and wait for buyer to choose your item</item>
+		<item lang="EN" id="step_4_seller">Check buyer's payment and ship item to buyer</item>
 
 		<!-- Back end view variables -->
 		<item lang="EN" id="bb_billibuys_menu_description">View Billibuys Auctions</item>

@@ -1,11 +1,18 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-23 12:47:13
+<?php /* Smarty version 2.6.18, created on 2014-01-24 11:37:27
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl', 17, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl', 17, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl', 23, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl', 23, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('about','testimonials','contact_us','log_in'));
 ?>
 <?php  ob_start();  ?><?php ob_start(); ?>
+<?php echo '
+<script src="addons/billibuys/js/home.js" type="text/javascript"></script>
+'; ?>
+
+
+<div id="background_img"><img src="images/billibuys_header.jpg"></div>
+
 <div class="alpha grid_2 text_link">
 	<?php echo fn_get_lang_var('about', $this->getLanguage()); ?>
 

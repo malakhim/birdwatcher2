@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-22 11:47:04
+<?php /* Smarty version 2.6.18, created on 2014-01-24 11:00:11
          compiled from views/block_manager/update_container.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/block_manager/update_container.tpl', 2, false),array('modifier', 'fn_url', 'views/block_manager/update_container.tpl', 5, false),)), $this); ?>

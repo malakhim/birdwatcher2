@@ -1,14 +1,14 @@
 <div class="infobox_heading">
-	{$lang.for_the_buyers}
+	{$lang.for_the_sellers}
 </div>
 <br/>
 
 <div class="infobox_subheading">
-	{$lang.jumbotron_buyer_heading}
+	{$lang.jumbotron_seller_heading}
 </div>
 
 <div class="infobox_text">
-	{$lang.jumbotron_buyer_subheading}!
+	{$lang.jumbotron_seller_subheading}!
 </div>
 
 <div class="learn_more_box">
