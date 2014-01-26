@@ -9,6 +9,16 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 /*background: -ms-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* IE10+ */
 /*background: linear-gradient(to bottom,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* W3C */
 /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#edeeec',GradientType=0 ); /* IE6-8 */
+	display: none;
+}
+
+@font-face{
+	font-family: "Arial Rounded MT Bold";
+	src: url('../fonts/ARLRDBD.TTF');
+}
+
+body{
+	/*background-color:#EDEEEC;*/
 }
 
 .logo-container .logo{
@@ -18,35 +28,68 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 }
 
 #how_does_it_work_scroller{
-	display:inline-block;
-	width: 50px;
-	margin-left:195px;
+	display: inline-block;
+	width: 145px;
+	margin-left: 70px;
+	margin-top: -45px;
 }
 
-#how_does_it_work_text{
-	position: absolute;
+#how_does_it_work_qm{
+	margin-top: -48px;
+	margin-left: 217px;
 }
 
 .how_does_it_work_block{
-	margin-top:50px;
+	margin-top:4px;
+	line-height: 46px
 }
 
-#ci_top_wrapper{
+.how_does_it_work_block div{
+	font-family: "Arial Rounded MT Bold";
+	font-size: 32pt;
+	color: rgb(1,146,146);
+    text-shadow:
+    -1px -1px 0 #ffffff,  
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+}
+
+#background_img{
+	position: absolute;
+	z-index: -1;
+	max-height:710px;
+	overflow: hidden;
+}
+
+#background_img img{
+	width:100%;
+}
+
+html.ie7 .how_does_it_work_block div,
+html.ie8 .how_does_it_work_block div,
+html.ie9 .how_does_it_work_block div {
+    background-color: white;
+    filter: progid:DXImageTransform.Microsoft.Chroma(color='white') progid:DXImageTransform.Microsoft.Alpha(opacity=100) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=-1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=1,offY=-1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=-1,offY=-1);
+    zoom: 1;
+}
+
+.homepage_header{
 	/*background-image: url('images/billibuys_header.jpg');
 	background-size: 100%;
 	background-repeat: no-repeat;
 	min-width:100%;*/
 
-	background: url('images/billibuys_header.jpg') no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	min-height: 900px;
+	/*background: url('images/billibuys_header.jpg') no-repeat;*/
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	min-height: 710px;
 }
 
 .frontpage_top_social_media{
-	margin-top: 60px;
+	margin-top: 28px;
 	color: white;
 }
 
@@ -85,8 +128,8 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 
 .frontpage_top_links{
 	text-align:center;
-	font-family: "Arial";
-	font-size: 18pt;
+	font-family: "Arial Rounded MT Bold";
+	font-size: 14pt;
 }
 
 .frontpage_top_links .text_link{
@@ -107,10 +150,6 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 
 .frontpage_top_links .grey{
 	background-color: rgb(149,140,137);
-}
-
-.logo_billibuys{
-	margin-top: 30px;
 }
 
 #buy{
@@ -136,140 +175,114 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	background:none;
 }
 
-
-#buyer_panel{
-	width:380px;
-	margin-left:65px;
-}
-
-.panel-default{
-	border-color: #F5C84E;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-left: -15px;
-}
-
-.panel_heading{
-	font-family:'Fredericka the Great';
-	font-size:26px;
+.for_the_buyers_block, .for_the_sellers_block{
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
-	color:#F5C84E;
-	margin-bottom:10px;
-	font-weight:bold;
+	margin-top:90px;
+	padding-bottom: 30px;
+
 }
 
-.panel_subheading{
-	font-family:'Quando',serif;
-	text-align:center;
-	color:#495FF2;
-	font-weight:bold;
+.infobox_heading{
+	color: white;
+	font-size: 22pt;
+	padding: 10px 0 10px 0;
+	text-transform: uppercase;
+	font-family: "Arial Rounded MT Bold";
 }
 
-#buyer_btn_lrn_more{
-	margin-top: 30px;
-	margin-left: 60px;
+.for_the_buyers_block .infobox_heading{
+	background-color: rgb(1,146,146);
 }
 
-#seller_btn_lrn_more{
-	margin-top: 30px;
-	margin-left: 65px;
+.for_the_sellers_block .infobox_heading{
+	background-color: rgb(232,34,191);
 }
 
-#seller_panel{
-	margin-left: 467px;
-	margin-top: -230px;
-	width: 380px;
+.infobox_subheading{
+	font-family: "Arial";
+	font-size: 19pt;
+	line-height: 27px;
+	width: 320px;
+	margin: auto;
+	font-weight: bolder;
 }
 
-body{
-	/*background-image:url("./images/brushed.png");*/
-	background-color:#EDEEEC;
+.for_the_buyers_block .infobox_subheading{
+	color: rgb(1, 146, 146);
 }
 
-.steps_heading{
-	color: #495FF2;
+.for_the_sellers_block .infobox_subheading{
+	color: rgb(232, 34, 191);
+}
+
+.infobox_text{
+	font-family: "Arial";
+	font-size: 13pt;
 	font-weight: bold;
-	font-size: 25px;
-	margin-left:-15px;
 }
 
-.steps{
-	width:960px;
-	margin-top:60px;
+.learn_more_box{
+	font-family: "Arial";
+	font-size: 14pt;
+	text-transform: uppercase;
+	width: 170px;
+	margin: auto;
+	margin-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
 }
 
-.steps_images{
-	margin-top:40px;
-	margin-left:65px;
+.for_the_buyers_block .learn_more_box{
+	background-color: rgb(1,146,146);
 }
 
-#buyer_step_img_2{
-	margin-left:55px;
+.for_the_sellers_block .learn_more_box{
+	background-color: rgb(232, 34, 191);
 }
 
-#buyer_step_img_3{
-	margin-left:55px;
+.buyerslider{
+	display:none;
 }
 
-.steps_text{
-	margin-top:20px;
+.sellerslider{
+	display:none;
 }
 
-#buyer_step_heading_1{
-	margin-left:80px;
+.register_btn{
+	float: right;
+	background-color: rgb(149,140,137);
+	color: white;
+	padding: 20px;
+	text-transform: uppercase;
+	font-family: "Arial Rounded MT Bold";
+	cursor:pointer;
+	width: 110px;
+	font-size: 11pt;
+	height: 70px;	
 }
 
-#buyer_step_text_1{
-	margin-top:10px;
+.billibuys_home_slider{
+	display:none;
 }
 
-#buyer_step_heading_1{
-	margin-left: 90px;
-	font-weight: bold;
-	color: blue;
+.about_billibuys_block{
+	font-family: "Arial Rounded MT Bold";
 }
 
-#buyer_step_text_1{
-	margin-left:70px;
+.about_heading{
+	font-size: 26pt;	
 }
 
-#buyer_step_heading_2{
-	margin-left: 430px;
-	margin-top: -90px;
-	width: 50px;
-	font-weight: bold;
-	color: blue;
+.about_heading .billibuys_coloured_1{
+	color: rgb(255,109,12);
 }
 
-#buyer_step_text_2{
-	margin-left: 350px;
-	width: 210px;
-	margin-top: 10px;
+.about_heading .billibuys_coloured_2{
+	color: rgb(71,90,168);
 }
 
-#buyer_step_heading_3{
-	margin-left: 710px;
-	margin-top: -90px;
-	width: 50px;
-	font-weight: bold;
-	color: blue;
-}
-
-#buyer_step_text_3{
-	margin-left: 630px;
-	width: 200px;
-	margin-top: 11px;
-}
-
-.steps_text{
-	text-align:center;
-	width:270px;
-	line-height:15px;
-}
-
-#cta_buyer{
-	margin-left:380px;
-	margin-top:60px;
+#about_line_5{
+	float:right;
 }

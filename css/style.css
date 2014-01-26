@@ -66,6 +66,11 @@
 	text-transform: uppercase;
 	font-size: 26pt;
 }
+
+.sellerslider .da-slide h2{
+	color: rgb(232,34,191);
+}
+
 .da-slide p{
 	width: 45%;
 	top: 120px;

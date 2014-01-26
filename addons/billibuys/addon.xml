@@ -168,6 +168,7 @@
 		<item lang="EN" id="bb_select_a_category">Select a category for your item</item>
 		<item lang="EN" id="bb_i_want">I want</item>
 		<item lang="EN" id="register_as_buyer">Register as a buyer</item>
+		<item lang="EN" id="footer_copyright">&copy; BilliBuys Pty Ltd. All Rights Reserved.</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>
@@ -175,7 +176,7 @@
 		<item lang="EN" id="contact_us">CONTACT US</item>
 		<item lang="EN" id="log_in">LOG IN</item>
 
-		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have the<br/>Sellers come to you</item>
+		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have the Sellers come to you</item>
 		<item lang="EN" id="jumbotron_buyer_subheading">Place a request today to save time and money</item>
 		<item lang="EN" id="jumbotron_seller_heading">Find buyers who are looking <br/> for your products</item>
 		<item lang="EN" id="jumbotron_seller_subheading">Look for buyers who want exactly what you have</item>

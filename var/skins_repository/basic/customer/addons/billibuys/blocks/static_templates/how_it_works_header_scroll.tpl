@@ -11,3 +11,4 @@
 		<li>{$lang.sellers}</li>
 	</ul>
 </div>
+<div id="how_does_it_work_qm">?</div>

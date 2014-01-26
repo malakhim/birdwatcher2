@@ -15,14 +15,15 @@
 		current		: 0, 	// index of current slide
 		bgincrement	: 50,	// increment the bg position (parallax effect) when sliding
 		autoplay	: false,// slideshow on / off
-		interval	: 4000  // time between transitions
+		interval	: 4000,  // time between transitions
+		end         : false
     };
 	
 	$.Slider.prototype 	= {
 		_init 				: function( options ) {
 			
 			this.options 		= $.extend( true, {}, $.Slider.defaults, options );
-			
+
 			this.$slides		= this.$el.children('div.da-slide');
 			this.slidesCount	= this.$slides.length;
 			
@@ -242,7 +243,7 @@
 			
 				if( !this.options.bgincrement ) {
 					
-					this.$el.on( 'webkitAnimationEnd.cslider animationend.cslider OAnimationEnd.cslider', function( event ) {
+					this.$el.bind( 'webkitAnimationEnd.cslider animationend.cslider OAnimationEnd.cslider', function( event ) {
 						
 						if( event.originalEvent.animationName === 'toRightAnim4' || event.originalEvent.animationName === 'toLeftAnim4' ) {
 							

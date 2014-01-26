@@ -1,5 +1,11 @@
 {** block-description:frontpage_top_links **}
 
+{literal}
+<script src="addons/billibuys/js/home.js" type="text/javascript"></script>
+{/literal}
+
+<div id="background_img"><img src="images/billibuys_header.jpg"></div>
+
 <div class="alpha grid_2 text_link">
 	{$lang.about}
 </div>

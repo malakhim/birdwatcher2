@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-23 13:04:54
+<?php /* Smarty version 2.6.18, created on 2014-01-25 16:30:48
          compiled from exception.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'exception.tpl', 2, false),array('modifier', 'defined', 'exception.tpl', 18, false),array('modifier', 'trim', 'exception.tpl', 30, false),array('function', 'render_location', 'exception.tpl', 16, false),array('function', 'set_id', 'exception.tpl', 30, false),)), $this); ?>

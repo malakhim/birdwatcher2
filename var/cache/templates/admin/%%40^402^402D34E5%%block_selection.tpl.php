@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-23 13:31:49
+<?php /* Smarty version 2.6.18, created on 2014-01-25 16:55:53
          compiled from views/block_manager/block_selection.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/block_manager/block_selection.tpl', 1, false),array('modifier', 'replace', 'views/block_manager/block_selection.tpl', 29, false),array('modifier', 'truncate', 'views/block_manager/block_selection.tpl', 38, false),array('function', 'script', 'views/block_manager/block_selection.tpl', 17, false),)), $this); ?>

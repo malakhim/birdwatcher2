@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-23 13:04:54
+<?php /* Smarty version 2.6.18, created on 2014-01-25 16:30:48
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/static_templates/404.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/static_templates/404.tpl', 6, false),array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/static_templates/404.tpl', 48, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/static_templates/404.tpl', 48, false),)), $this); ?>
