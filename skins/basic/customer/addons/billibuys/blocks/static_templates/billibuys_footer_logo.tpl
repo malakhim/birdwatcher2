@@ -1,1 +1,1 @@
-<img src="images/billibuys_logo_white.png" id="billibuys_footer_logo" width="180px">
+<a href="{''|fn_url}"><img src="images/billibuys_logo_white.png" id="billibuys_footer_logo" width="180px"></a>

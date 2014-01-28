@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-25 17:08:58
+<?php /* Smarty version 2.6.18, created on 2014-01-28 18:12:25
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/about_billibuys_block.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/about_billibuys_block.tpl', 17, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/about_billibuys_block.tpl', 17, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('about','about_line_1','about_line_2','about_line_3','about_line_4','about_line_5','register'));
+fn_preload_lang_vars(array('about','about_line_1','about_line_2','about_line_3','about_line_4','about_line_5','find_out_how'));
 ?>
 <?php  ob_start();  ?><?php ob_start(); ?><div class="about_heading"><?php echo fn_get_lang_var('about', $this->getLanguage()); ?>
  <span class="billibuys_coloured_1">Billi</span><span class="billibuys_coloured_2">Buys</span></div>
@@ -24,8 +24,8 @@ fn_preload_lang_vars(array('about','about_line_1','about_line_2','about_line_3',
 
 	</div><br/><br/>
 
-	<div class="register_btn">
-		<?php echo fn_get_lang_var('register', $this->getLanguage()); ?>
+	<div class="find_out_how_subbtn">
+		<?php echo fn_get_lang_var('find_out_how', $this->getLanguage()); ?>
 
 	</div>
 </div><?php $this->_smarty_vars['capture']['template_content'] = ob_get_contents(); ob_end_clean(); ?><?php if (trim($this->_smarty_vars['capture']['template_content'])): ?><?php if ($this->_tpl_vars['auth']['area'] == 'A'): ?><span class="cm-template-box" template="addons/billibuys/blocks/static_templates/about_billibuys_block.tpl" id="<?php echo smarty_function_set_id(array('name' => "addons/billibuys/blocks/static_templates/about_billibuys_block.tpl"), $this);?>

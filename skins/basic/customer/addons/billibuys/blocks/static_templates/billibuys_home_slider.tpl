@@ -1,6 +1,7 @@
 {** block-description:billibuys_home_slider **}
 
 <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+<script type="text/javascript" src="js/jquery-timing.min.js"></script>
 <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
 <script type="text/javascript" src="js/jquery.cslider.js"></script>
 
@@ -95,5 +96,5 @@
 </div>
 
 <div class="register_btn">
-	{$lang.register}
+	{$lang.register_now_for_free}!
 </div>

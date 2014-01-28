@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:44
+<?php /* Smarty version 2.6.18, created on 2014-01-28 16:51:10
          compiled from common_templates/image_verification.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_needs_image_verification', 'common_templates/image_verification.tpl', 1, false),array('modifier', 'uniqid', 'common_templates/image_verification.tpl', 4, false),array('modifier', 'fn_url', 'common_templates/image_verification.tpl', 7, false),array('modifier', 'trim', 'common_templates/image_verification.tpl', 16, false),array('function', 'set_id', 'common_templates/image_verification.tpl', 16, false),)), $this); ?>

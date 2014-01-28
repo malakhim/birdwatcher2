@@ -176,7 +176,7 @@
 		<item lang="EN" id="contact_us">CONTACT US</item>
 		<item lang="EN" id="log_in">LOG IN</item>
 
-		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have the Sellers come to you</item>
+		<item lang="EN" id="jumbotron_buyer_hneading">Request an item and have the Sellers come to you</item>
 		<item lang="EN" id="jumbotron_buyer_subheading">Place a request today to save time and money</item>
 		<item lang="EN" id="jumbotron_seller_heading">Find buyers who are looking <br/> for your products</item>
 		<item lang="EN" id="jumbotron_seller_subheading">Look for buyers who want exactly what you have</item>
@@ -186,17 +186,19 @@
 		<item lang="EN" id="sellers">Sellers</item>
 		<item lang="EN" id="for_the_buyers">For the Buyers</item>
 		<item lang="EN" id="for_the_sellers">For the Sellers</item>
+		<item lang="EN" id="find_out_how">Find out how</item>
+		<item lang="EN" id="register_now_for_free">Register now for free</item>
 
 		<!-- Steps -->
 		<item lang="EN" id="get_bids">Get bids from sellers</item>
 		<item lang="EN" id="purchase_items">Purchase items from bids</item>
-		<item lang="EN" id="step_1_buyer">Think of a product you want and indicate how much you want to buy it for</item>
-		<item lang="EN" id="step_2_buyer">Sellers will bid with their products and you can choose which ones you want to buy</item>
-		<item lang="EN" id="step_3_buyer">Pay for your purchase and the seller will ship directly to you</item>
+		<item lang="EN" id="step_1_buyer">Think of a product you want and indicate how much you want to buy it for.</item>
+		<item lang="EN" id="step_2_buyer">Sellers will bid with their products and you can choose which ones you want to buy.</item>
+		<item lang="EN" id="step_3_buyer">Pay for your purchase and the seller will ship directly to you.</item>
 
-		<item lang="EN" id="step_1_seller">Register your product with us<br/>All products are accepted, from small to large</item>
-		<item lang="EN" id="step_2_seller">Browse list of buyers' requests<br/>These will be automatically matched to your products</item>
-		<item lang="EN" id="step_3_seller">Place a bid on a request and wait for buyer to choose your item</item>
+		<item lang="EN" id="step_1_seller">Register your product with us. All products are accepted, from small to large</item>
+		<item lang="EN" id="step_2_seller">Browse list of buyers' requests. These will be automatically matched to your products</item>
+		<item lang="EN" id="step_3_seller">Place a bid on a request and wait for buyer to choose your item.</item>
 		<item lang="EN" id="step_4_seller">Check buyer's payment and ship item to buyer</item>
 
 		<!-- About section -->
@@ -215,6 +217,8 @@
 		<item lang="EN"	id="bb_packages">Packages</item>
 		<item lang="EN" id="bb_place_request">Place Request</item>
 		<item lang="EN" id="requests">Requests</item>
+		<item lang="EN" id="terms_and_conditions">Terms and Conditions</item>
+		<item lang="EN" id="disclaimer">Disclaimer</item>
 
 		<!-- Error messages -->
 		<item lang="EN" id="error_occurred">An error has occurred. Please try refreshing the page, or contact customer support.</item>

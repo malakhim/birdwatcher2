@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:43
+<?php /* Smarty version 2.6.18, created on 2014-01-28 16:51:10
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 3, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 10, false),array('modifier', 'trim', 'views/auth/login_form.tpl', 67, false),array('block', 'hook', 'views/auth/login_form.tpl', 35, false),array('function', 'set_id', 'views/auth/login_form.tpl', 67, false),)), $this); ?>

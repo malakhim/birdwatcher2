@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:44
+<?php /* Smarty version 2.6.18, created on 2014-01-28 16:51:10
          compiled from addons/billibuys/hooks/index/login_buttons.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'addons/billibuys/hooks/index/login_buttons.post.tpl', 1, false),array('function', 'set_id', 'addons/billibuys/hooks/index/login_buttons.post.tpl', 1, false),)), $this); ?>

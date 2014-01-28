@@ -11,7 +11,7 @@
 		{$lang.about_line_5}
 	</div><br/><br/>
 
-	<div class="register_btn">
-		{$lang.register}
+	<div class="find_out_how_subbtn">
+		{$lang.find_out_how}
 	</div>
 </div>
