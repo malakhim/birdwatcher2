@@ -10,9 +10,9 @@
 	{$lang.about}
 </div>
 
-<div class="grid_3 text_link">
+<!-- <div class="grid_3 text_link">
 	{$lang.testimonials}
-</div>
+</div> -->
 
 <div class="grid_3 flat_link red">
 	{$lang.contact_us}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 22:56:42
+<?php /* Smarty version 2.6.18, created on 2014-01-30 16:28:11
          compiled from views/site_layout/design_mode.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/site_layout/design_mode.tpl', 21, false),array('modifier', 'defined', 'views/site_layout/design_mode.tpl', 23, false),array('modifier', 'default', 'views/site_layout/design_mode.tpl', 55, false),array('modifier', 'fn_check_view_permissions', 'views/site_layout/design_mode.tpl', 56, false),)), $this); ?>

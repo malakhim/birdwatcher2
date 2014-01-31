@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-28 16:30:47
+<?php /* Smarty version 2.6.18, created on 2014-01-28 18:26:57
          compiled from addons/gift_registry/hooks/index/styles.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'addons/gift_registry/hooks/index/styles.post.tpl', 1, false),array('function', 'set_id', 'addons/gift_registry/hooks/index/styles.post.tpl', 1, false),)), $this); ?>

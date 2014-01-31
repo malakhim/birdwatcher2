@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-28 18:17:39
+<?php /* Smarty version 2.6.18, created on 2014-01-31 19:57:14
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl', 100, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl', 100, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl', 146, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl', 146, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_buyer','step_1_buyer','for_the_buyers','step','get_bids','step_2_buyer','step_1_buyer','for_the_buyers','step','purchase_items','step_3_buyer','step_1_buyer','for_the_sellers','step','step_1_seller','step_1_buyer','for_the_sellers','step','step_2_seller','step_1_buyer','for_the_sellers','step','step_3_seller','step_1_buyer','for_the_sellers','step','step_4_seller','step_1_buyer','register_now_for_free'));
 ?>
@@ -13,6 +13,14 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
+<?php ob_start(); ?>
+	<?php echo '
+		$lang_group = {$lang_group}
+		$step_subheading = {$step_subheading}
+		$step_number = {$step_number}
+	'; ?>
+
+<?php $this->_smarty_vars['capture']['slide'] = ob_get_contents(); ob_end_clean(); ?> 
 
 <div id="da-slider" class="da-slider buyerslider">
 
@@ -24,6 +32,11 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </p>
 		<span class="slide-body"><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </span>
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
 		<div class="da-img">
@@ -41,6 +54,15 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </span>
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
+		<div class="da-img">
+			<img src="http://placekitten.com/350/250" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -56,6 +78,11 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </span>
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -79,6 +106,11 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </span>
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -93,6 +125,11 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </span>
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -107,6 +144,11 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </span>
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -121,6 +163,11 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
 </span>
 		<!-- <p><?php echo fn_get_lang_var('step_1_buyer', $this->getLanguage()); ?>
 </p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+		
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>

@@ -1,19 +1,19 @@
 $(document).ready(function(){
   var delay = 2000;
-  $('#how_does_it_work_scroller').vTicker('init',
-      {
-        pause: delay,
-        startPaused: true,
-        showItems: 1,
-        height: 48,
-        mousePause: false,
-      }
-    );
+  // $('#how_does_it_work_scroller').vTicker('init',
+  //     {
+  //       pause: delay,
+  //       startPaused: true,
+  //       showItems: 1,
+  //       height: 48,
+  //       mousePause: false,
+  //     }
+  //   );
 
-  $('.for_the_buyers_block').repeat().toggleClass('highlighted').wait(delay, function(){
-    $('#how_does_it_work_scroller').vTicker('next', {animate: true});
-    $('.for_the_sellers_block').toggleClass('highlighted').wait(delay)
-  });
+  // $('.for_the_buyers_block').repeat().toggleClass('highlighted').wait(delay, function(){
+  //   // $('#how_does_it_work_scroller').vTicker('next', {animate: true});
+  //   $('.for_the_sellers_block').toggleClass('highlighted').wait(delay)
+  // });
 
   $('.for_the_buyers_block .learn_more_box').click(function(){
     show_slider('buyer');

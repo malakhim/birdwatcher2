@@ -3,7 +3,7 @@
 	min-width: 520px;
 	height: 400px;
 	position: relative;
-	margin: 30px auto;
+	/*margin: 30px auto;*/
 	overflow: hidden;
 	/*background: transparent url(../images/waves.gif) repeat 0% 0%;*/
 	/*border-top: 8px solid #efc34a;*/
@@ -226,13 +226,13 @@
 /* Animation classes and animations */
 
 /* Slide in from the right*/
-.da-slide-fromright h2{
+/*.da-slide-fromright h2{
 	-webkit-animation: fromRightAnim1 0.6s ease-in 0.8s both;
 	-moz-animation: fromRightAnim1 0.6s ease-in 0.8s both;
 	-o-animation: fromRightAnim1 0.6s ease-in 0.8s both;
 	-ms-animation: fromRightAnim1 0.6s ease-in 0.8s both;
 	animation: fromRightAnim1 0.6s ease-in 0.8s both;
-}
+}*/
 .da-slide-fromright p{
 	-webkit-animation: fromRightAnim2 0.6s ease-in 0.8s both;
 	-moz-animation: fromRightAnim2 0.6s ease-in 0.8s both;
@@ -353,13 +353,13 @@
 	100%{ left: 60%; opacity: 1; }
 }
 /* Slide in from the left*/
-.da-slide-fromleft h2{
+/*.da-slide-fromleft h2{
 	-webkit-animation: fromLeftAnim1 0.6s ease-in 0.6s both;
 	-moz-animation: fromLeftAnim1 0.6s ease-in 0.6s both;
 	-o-animation: fromLeftAnim1 0.6s ease-in 0.6s both;
 	-ms-animation: fromLeftAnim1 0.6s ease-in 0.6s both;
 	animation: fromLeftAnim1 0.6s ease-in 0.6s both;
-}
+}*/
 .da-slide-fromleft p{
 	-webkit-animation: fromLeftAnim2 0.6s ease-in 0.6s both;
 	-moz-animation: fromLeftAnim2 0.6s ease-in 0.6s both;
@@ -480,13 +480,13 @@
 	100%{ left: 60%; opacity: 1; }
 }
 /* Slide out to the right */
-.da-slide-toright h2{
+/*.da-slide-toright h2{
 	-webkit-animation: toRightAnim1 0.6s ease-in 0.6s both;
 	-moz-animation: toRightAnim1 0.6s ease-in 0.6s both;
 	-o-animation: toRightAnim1 0.6s ease-in 0.6s both;
 	-ms-animation: toRightAnim1 0.6s ease-in 0.6s both;
 	animation: toRightAnim1 0.6s ease-in 0.6s both;
-}
+}*/
 .da-slide-toright p{
 	-webkit-animation: toRightAnim2 0.6s ease-in 0.3s both;
 	-moz-animation: toRightAnim2 0.6s ease-in 0.3s both;
@@ -611,13 +611,13 @@
 	100%{ left: 100%; opacity: 0; }
 }
 /* Slide out to the left*/
-.da-slide-toleft h2{
+/*.da-slide-toleft h2{
 	-webkit-animation: toLeftAnim1 0.6s ease-in both;
 	-moz-animation: toLeftAnim1 0.6s ease-in both;
 	-o-animation: toLeftAnim1 0.6s ease-in both;
 	-ms-animation: toLeftAnim1 0.6s ease-in both;
 	animation: toLeftAnim1 0.6s ease-in both;
-}
+}*/
 .da-slide-toleft p{
 	-webkit-animation: toLeftAnim2 0.6s ease-in 0.3s both;
 	-moz-animation: toLeftAnim2 0.6s ease-in 0.3s both;

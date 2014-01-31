@@ -7,8 +7,7 @@
 <div id="how_does_it_work_text">{$lang.how_does_billibuys_work_for}</div>
 <div id="how_does_it_work_scroller">
 	<ul>
-		<li>{$lang.buyers}</li>
-		<li>{$lang.sellers}</li>
+		<li>{$lang.buyers}?</li>
+		<li><span style="color:rgb(232,34,191)">{$lang.sellers}?</span></li>
 	</ul>
 </div>
-<div id="how_does_it_work_qm">?</div>

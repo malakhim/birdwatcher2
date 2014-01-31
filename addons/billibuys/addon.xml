@@ -168,7 +168,7 @@
 		<item lang="EN" id="bb_select_a_category">Select a category for your item</item>
 		<item lang="EN" id="bb_i_want">I want</item>
 		<item lang="EN" id="register_as_buyer">Register as a buyer</item>
-		<item lang="EN" id="footer_copyright">&copy; BilliBuys Pty Ltd. All Rights Reserved.</item>
+		<item lang="EN" id="footer_copyright">BilliBuys Pty Ltd. All Rights Reserved.</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>
@@ -187,6 +187,7 @@
 		<item lang="EN" id="for_the_buyers">For the Buyers</item>
 		<item lang="EN" id="for_the_sellers">For the Sellers</item>
 		<item lang="EN" id="find_out_how">Find out how</item>
+		<item lang="EN" id="find_out_more">Find out more</item>
 		<item lang="EN" id="register_now_for_free">Register now for free</item>
 
 		<!-- Steps -->
@@ -202,11 +203,11 @@
 		<item lang="EN" id="step_4_seller">Check buyer's payment and ship item to buyer</item>
 
 		<!-- About section -->
-		<item lang="EN" id="about_line_1">We are a site that loves buyers and sellers equally.</item>		
-		<item lang="EN" id="about_line_2">We want sellers to have real-time market information.</item>		
-		<item lang="EN" id="about_line_3">We want buyers to not have to spend so much time browsing.</item>		
-		<item lang="EN" id="about_line_4">We think eCommerce has been bogged down with too much bloat and competition.</item>
-		<item lang="EN" id="about_line_5">We're here to introduce a new way to shop.</item>
+		<item lang="EN" id="about_line_1">We love both buyers and sellers.</item>		
+		<item lang="EN" id="about_line_2">We want sellers to have real-time buyer information.</item>		
+		<item lang="EN" id="about_line_3">We want buyers to have access to relevant sellers.</item>		
+		<item lang="EN" id="about_line_4">We think eCommerce needs a change</item>
+		<item lang="EN" id="about_line_5">A new way to shop.</item>
 
 		<!-- Back end view variables -->
 		<item lang="EN" id="bb_billibuys_menu_description">View Billibuys Auctions</item>
