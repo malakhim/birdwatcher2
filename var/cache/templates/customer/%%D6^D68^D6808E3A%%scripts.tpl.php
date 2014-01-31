@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-28 18:26:57
+<?php /* Smarty version 2.6.18, created on 2014-01-31 21:37:45
          compiled from common_templates/scripts.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'script', 'common_templates/scripts.tpl', 3, false),array('function', 'set_id', 'common_templates/scripts.tpl', 97, false),array('modifier', 'escape', 'common_templates/scripts.tpl', 14, false),array('modifier', 'defined', 'common_templates/scripts.tpl', 80, false),array('modifier', 'fn_generate_security_hash', 'common_templates/scripts.tpl', 86, false),array('modifier', 'trim', 'common_templates/scripts.tpl', 97, false),array('block', 'hook', 'common_templates/scripts.tpl', 95, false),)), $this); ?>

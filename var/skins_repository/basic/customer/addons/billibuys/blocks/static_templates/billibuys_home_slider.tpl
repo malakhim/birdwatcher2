@@ -7,6 +7,13 @@
 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
+{capture name="slide"}
+	{literal}
+		$lang_group = {$lang_group}
+		$step_subheading = {$step_subheading}
+		$step_number = {$step_number}
+	{/literal}
+{/capture} 
 
 <div id="da-slider" class="da-slider buyerslider">
 
@@ -14,6 +21,11 @@
 		<h2>{$lang.for_the_buyers}</h2>
 		<p>{$lang.step} 1 {$lang.request_a_product}</p>
 		<span class="slide-body">{$lang.step_1_buyer}</span>
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<!-- <p>{$lang.step_1_buyer}</p> -->
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
@@ -25,6 +37,15 @@
 		<p>{$lang.step} 2 {$lang.get_bids}</p>
 		<span class="slide-body">{$lang.step_2_buyer}</span>
 		<!-- <p>{$lang.step_1_buyer}</p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
+		<div class="da-img">
+			<img src="http://placekitten.com/350/250" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -35,6 +56,11 @@
 		<p>{$lang.step} 3 {$lang.purchase_items}</p>
 		<span class="slide-body">{$lang.step_3_buyer}</span>
 		<!-- <p>{$lang.step_1_buyer}</p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -54,6 +80,11 @@
 		<p>{$lang.step} 1</p>
 		<span class="slide-body">{$lang.step_1_seller}</span>
 		<!-- <p>{$lang.step_1_buyer}</p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -64,6 +95,11 @@
 		<p>{$lang.step} 2</p>
 		<span class="slide-body">{$lang.step_2_seller}</span>
 		<!-- <p>{$lang.step_1_buyer}</p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -74,6 +110,11 @@
 		<p>{$lang.step} 3</p>
 		<span class="slide-body">{$lang.step_3_seller}</span>
 		<!-- <p>{$lang.step_1_buyer}</p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>
@@ -84,6 +125,11 @@
 		<p>{$lang.step} 4</p>
 		<span class="slide-body">{$lang.step_4_seller}</span>
 		<!-- <p>{$lang.step_1_buyer}</p> -->
+
+		<div class="da-img stickimg">
+			<img src="http://placekitten.com/400/80" />
+		</div>
+		
 		<div class="da-img">
 			<img src="http://placekitten.com/350/250" />
 		</div>

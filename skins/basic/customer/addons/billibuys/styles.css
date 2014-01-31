@@ -188,7 +188,11 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .for_the_buyers_block, .for_the_sellers_block{
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgb(255, 255, 255);
+	opacity:.80;
+	filter: alpha(opacity=80);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 	text-align: center;
 	margin-top:50px;
 	padding-bottom: 30px;

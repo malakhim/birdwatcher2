@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-28 18:26:58
+<?php /* Smarty version 2.6.18, created on 2014-01-31 21:37:46
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/for_the_sellers_frontpage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/for_the_sellers_frontpage.tpl', 16, false),array('function', 'set_id', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/for_the_sellers_frontpage.tpl', 16, false),)), $this); ?>

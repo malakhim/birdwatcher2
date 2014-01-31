@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .header{
 /*background: #1e5799; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -14,8 +19,14 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 
 @font-face{
 	font-family: "Arial Rounded MT Bold";
+	src: url('../../../../../fonts/ARLRDBD.EOT');
+}
+
+@font-face{
+	font-family: "Arial Rounded MT Bold";
 	src: url('../../../../../fonts/ARLRDBD.TTF');
 }
+
 
 body{
 	/*background-color:#EDEEEC;*/
@@ -40,20 +51,16 @@ body{
 }
 
 .how_does_it_work_block{
-	margin-top:4px;
-	line-height: 46px
+	margin-top:53px;
+	line-height: 46px;
+	/*width: 399px;*/
 }
 
-.how_does_it_work_block div{
+/*.how_does_it_work_block div{
 	font-family: "Arial Rounded MT Bold";
-	font-size: 32pt;
+	font-size: 33pt;
 	color: rgb(1,146,146);
-    text-shadow:
-    -1px -1px 0 #ffffff,  
-    1px -1px 0 #ffffff,
-    -1px 1px 0 #ffffff,
-    1px 1px 0 #ffffff;
-}
+}*/
 
 #background_img{
 	position: absolute;
@@ -91,6 +98,10 @@ html.ie9 .how_does_it_work_block div {
 .frontpage_top_social_media{
 	margin-top: 28px;
 	color: white;
+}
+
+.frontpage_top_social_media a{
+	color: white;	
 }
 
 .frontpage_top_social_media .fa{
@@ -136,6 +147,7 @@ html.ie9 .how_does_it_work_block div {
 	color: rgb(149,140,137);
 	padding-top: 10px;
 	padding-bottom:10px;	
+	text-transform: uppercase;
 }
 
 .frontpage_top_links .flat_link{
@@ -176,12 +188,19 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .for_the_buyers_block, .for_the_sellers_block{
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgb(255, 255, 255);
+	opacity:.80;
+	filter: alpha(opacity=80);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 	text-align: center;
-	margin-top:90px;
+	margin-top:50px;
 	padding-bottom: 30px;
-	border: 1px black solid;
+	/*border: 1px black solid;*/
+}
 
+.for_the_blocks{
+	margin-top: 20px;
 }
 
 .infobox_heading{
@@ -260,19 +279,20 @@ html.ie9 .how_does_it_work_block div {
 	text-transform: uppercase;
 	font-family: "Arial Rounded MT Bold";
 	cursor:pointer;
-	width: 110px;
+	width: 255px;
 	font-size: 11pt;
 	height: 70px;		
 }
 
 .billibuys_home_slider{
 	display:none;
+	margin-top: 10px;
 }
 
 .about_billibuys_block{
 	font-family: "Arial Rounded MT Bold";
 	margin-top: 30px;
-	background-color: rgba(255, 255, 255, 0.8);
+	/*background-color: rgba(255, 255, 255, 0.9);*/
 }
 
 .about_heading{
@@ -287,8 +307,18 @@ html.ie9 .how_does_it_work_block div {
 	color: rgb(71,90,168);
 }
 
-#about_line_5{
-	float:right;
+.about_line_5{
+	/*float:right;*/
+	color: rgb(1,146,146);
+	text-align: center;
+	font-size: 35pt;
+	margin-top: 80px;
+	margin-bottom: 50px;
+    text-shadow:
+    -1px -1px 0 #ffffff,  
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;		
 }
 
 #billibuys_about_text{
@@ -300,7 +330,7 @@ html.ie9 .how_does_it_work_block div {
 	background-color: rgb(149,140,137);
 	font-family: "Arial Rounded MT Bold";
 	font-size: 10pt;
-	margin-top: 50px;
+	margin-top: 18px;
 }
 
 .footer a:link, .footer a:visited{
@@ -308,8 +338,9 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .billibuys_footer{
-	margin-top:-9px;
+	margin-top:-16px;
 	color: white;
+	font-size: 8pt;
 }
 
 .billibuys_footer .fa{
@@ -321,7 +352,6 @@ html.ie9 .how_does_it_work_block div {
 
 .billibuys_footer .fa-twitter{
 	background-color:rgb(93,200,255);
-
 }
 
 .billibuys_footer .fa-facebook{
@@ -340,7 +370,7 @@ html.ie9 .how_does_it_work_block div {
 
 #billibuys_footer_logo{
 	float:left;
-	margin-top:-17px;
+	margin-top:-25px;
 }
 
 .highlighted{
@@ -352,7 +382,8 @@ html.ie9 .how_does_it_work_block div {
 /*Style 2 for homepage*/
 
 .how_does_it_work_blk2{
-	margin-top: 170px;
+	font-family: "Arial Rounded MT Bold";
+	font-size: 33pt;
 }
 
 .find_out_how_subbtn{
@@ -363,7 +394,12 @@ html.ie9 .how_does_it_work_block div {
 	text-transform: uppercase;
 	font-family: "Arial Rounded MT Bold";
 	cursor:pointer;
-	width: 170px;
 	font-size: 11pt;
 	height: 70px;		
+	margin-top: 30px;
+}
+
+.da-slide .da-img.stickimg{
+	margin-left: -520px;
+	margin-top: 170px;
 }

@@ -191,6 +191,7 @@
 		<item lang="EN" id="register_now_for_free">Register now for free</item>
 
 		<!-- Steps -->
+		<item lang="EN" id="request_a_product">Request a product</item>
 		<item lang="EN" id="get_bids">Get bids from sellers</item>
 		<item lang="EN" id="purchase_items">Purchase items from bids</item>
 		<item lang="EN" id="step_1_buyer">Think of a product you want and indicate how much you want to buy it for.</item>
@@ -206,7 +207,7 @@
 		<item lang="EN" id="about_line_1">We love both buyers and sellers.</item>		
 		<item lang="EN" id="about_line_2">We want sellers to have real-time buyer information.</item>		
 		<item lang="EN" id="about_line_3">We want buyers to have access to relevant sellers.</item>		
-		<item lang="EN" id="about_line_4">We think eCommerce needs a change</item>
+		<item lang="EN" id="about_line_4">We think eCommerce needs a change.</item>
 		<item lang="EN" id="about_line_5">A new way to shop.</item>
 
 		<!-- Back end view variables -->
