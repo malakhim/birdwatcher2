@@ -1,1 +1,0 @@
-a:2:{s:4:"data";a:1:{s:2:"EN";a:7:{s:11:"all_vendors";s:11:"All vendors";s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:11:"incompleted";s:10:"Incomplete";s:12:"parent_order";N;s:12:"order_placed";s:12:"Order placed";s:30:"text_order_placed_successfully";s:40:"Your order has been placed successfully.";}}s:6:"expiry";i:0;}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-29 19:03:04
+<?php /* Smarty version 2.6.18, created on 2014-02-01 07:00:06
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/auth/login_form.tpl', 3, false),array('modifier', 'truncate', 'views/auth/login_form.tpl', 3, false),array('modifier', 'default', 'views/auth/login_form.tpl', 7, false),)), $this); ?>

@@ -18,6 +18,6 @@
 	{$lang.contact_us}
 </div>
 
-<div class="omega grid_3 flat_link grey">
-	{$lang.log_in}
+<div class="omega grid_4 flat_link grey">
+	{$lang.log_in}/{$lang.register}
 </div>

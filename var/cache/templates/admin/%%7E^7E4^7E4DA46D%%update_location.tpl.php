@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-31 16:58:17
+<?php /* Smarty version 2.6.18, created on 2014-02-03 13:27:06
          compiled from views/block_manager/update_location.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/block_manager/update_location.tpl', 21, false),array('modifier', 'escape', 'views/block_manager/update_location.tpl', 58, false),)), $this); ?>

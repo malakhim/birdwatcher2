@@ -1,1 +1,0 @@
-a:2:{s:4:"data";a:1:{s:15:"update_handlers";a:9:{i:0;s:6:"addons";i:1;s:8:"settings";i:2;s:9:"bm_blocks";i:3;s:18:"bm_blocks_snapping";i:4;s:17:"bm_blocks_content";i:5;s:22:"bm_blocks_descriptions";i:6;s:11:"bm_snapping";i:7;s:9:"languages";i:8;s:15:"language_values";}}s:6:"expiry";i:0;}

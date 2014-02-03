@@ -1,1 +1,0 @@
-a:2:{s:4:"data";a:1:{s:2:"EN";a:8:{s:11:"all_vendors";s:11:"All vendors";s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:4:"home";s:4:"Home";s:26:"text_transaction_cancelled";s:40:"Transaction was canceled by the customer";s:11:"incompleted";s:10:"Incomplete";s:12:"parent_order";N;s:9:"important";s:9:"Important";}}s:6:"expiry";i:0;}

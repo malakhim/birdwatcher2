@@ -1,8 +1,0 @@
-<?php /* Smarty version 2.6.18, created on 2013-09-21 19:47:08
-         compiled from common_templates/modifier.tpl */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'round', 'common_templates/modifier.tpl', 2, false),array('modifier', 'abs', 'common_templates/modifier.tpl', 5, false),)), $this); ?>
-<?php echo ''; ?><?php if ($this->_tpl_vars['is_integer'] == true): ?><?php echo ''; ?><?php $this->assign('mod_value', round($this->_tpl_vars['mod_value']), false); ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php if ($this->_tpl_vars['display_sign']): ?><?php echo ''; ?><?php if ($this->_tpl_vars['mod_value'] > 0): ?><?php echo '+'; ?><?php else: ?><?php echo '-'; ?><?php endif; ?><?php echo ''; ?><?php endif; ?><?php echo ''; ?><?php if ($this->_tpl_vars['mod_type'] == 'A' || $this->_tpl_vars['mod_type'] == 'F'): ?><?php echo ''; ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/price.tpl", 'smarty_include_vars' => array('value' => abs($this->_tpl_vars['mod_value']))));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?><?php echo ''; ?><?php else: ?><?php echo ''; ?><?php if ($this->_tpl_vars['span_id'] && ! $this->_tpl_vars['no_ids']): ?><?php echo '<span id="'; ?><?php echo $this->_tpl_vars['span_id']; ?><?php echo '" class="'; ?><?php echo $this->_tpl_vars['class']; ?><?php echo '">'; ?><?php endif; ?><?php echo ''; ?><?php echo abs($this->_tpl_vars['mod_value']); ?><?php echo ''; ?><?php if ($this->_tpl_vars['span_id'] && ! $this->_tpl_vars['no_ids']): ?><?php echo '</span>'; ?><?php endif; ?><?php echo '%'; ?><?php endif; ?><?php echo ''; ?>

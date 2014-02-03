@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-01-21 23:09:04
+<?php /* Smarty version 2.6.18, created on 2014-02-03 13:20:33
          compiled from views/site_layout/logos.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/site_layout/logos.tpl', 16, false),array('modifier', 'cat', 'views/site_layout/logos.tpl', 29, false),array('modifier', 'md5', 'views/site_layout/logos.tpl', 29, false),array('modifier', 'escape', 'views/site_layout/logos.tpl', 41, false),array('modifier', 'count', 'views/site_layout/logos.tpl', 63, false),array('modifier', 'default', 'views/site_layout/logos.tpl', 81, false),array('modifier', 'defined', 'views/site_layout/logos.tpl', 83, false),array('function', 'script', 'views/site_layout/logos.tpl', 26, false),array('block', 'hook', 'views/site_layout/logos.tpl', 52, false),)), $this); ?>
