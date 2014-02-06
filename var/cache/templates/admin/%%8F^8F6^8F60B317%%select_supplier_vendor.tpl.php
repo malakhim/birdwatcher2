@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-01 07:36:17
+<?php /* Smarty version 2.6.18, created on 2014-02-03 15:24:42
          compiled from common_templates/select_supplier_vendor.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_company_name', 'common_templates/select_supplier_vendor.tpl', 1, false),array('modifier', 'default', 'common_templates/select_supplier_vendor.tpl', 15, false),array('modifier', 'defined', 'common_templates/select_supplier_vendor.tpl', 26, false),array('modifier', 'truncate', 'common_templates/select_supplier_vendor.tpl', 53, false),array('modifier', 'fn_url', 'common_templates/select_supplier_vendor.tpl', 61, false),)), $this); ?>

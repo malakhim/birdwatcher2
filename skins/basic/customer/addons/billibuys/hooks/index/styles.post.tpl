@@ -11,3 +11,8 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
 <link href="{$config.skin_path}/addons/billibuys/styles.css" rel="stylesheet" type="text/css" />
+
+<!-- [if IE]>
+	<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+	<link href="{$config.skin_path}/addons/billibuys/styles-ie.css" rel="stylesheet" type="text/css" />
+<![endif]-->

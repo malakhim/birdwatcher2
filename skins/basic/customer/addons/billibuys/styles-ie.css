@@ -1,0 +1,416 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+/*background: #1e5799; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+/*background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzFlNTc5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMjA3Y2NhIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VkZWVlYyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /* FF3.6+ */
+/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#207cca), color-stop(100%,#edeeec)); /* Chrome,Safari4+ */
+/*background: -webkit-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* Chrome10+,Safari5.1+ */
+/*background: -o-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* Opera 11.10+ */
+/*background: -ms-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* IE10+ */
+/*background: linear-gradient(to bottom,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* W3C */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#edeeec',GradientType=0 ); /* IE6-8 */
+	display: none;
+}
+
+@font-face{
+	font-family: "Nunito";
+	/*src: url('../../../../../fonts/ARLRDBD.EOT') format('embedded-opentype');*/
+}
+
+body{
+	/*background-color:#EDEEEC;*/
+}
+
+#how_does_it_work_scroller{
+	display: inline-block;
+	width: 175px;
+	margin-left: 70px;
+	margin-top: -45px;
+}
+
+#how_does_it_work_qm{
+	margin-top: -48px;
+	margin-left: 217px;
+}
+
+.how_does_it_work_block{
+	margin-top:73px;
+	line-height: 46px;
+	/*width: 399px;*/
+}
+
+/*.how_does_it_work_block div{
+	font-family: "Nunito";
+	font-size: 33pt;
+	color: rgb(1,146,146);
+}*/
+
+#background_img{
+	position: absolute;
+	z-index: -1;
+	max-height:710px;
+	overflow: hidden;
+}
+
+#background_img img{
+	width:100%;
+}
+
+html.ie7 .how_does_it_work_block div,
+html.ie8 .how_does_it_work_block div,
+html.ie9 .how_does_it_work_block div {
+    background-color: white;
+    filter: progid:DXImageTransform.Microsoft.Chroma(color='white') progid:DXImageTransform.Microsoft.Alpha(opacity=100) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=-1,offY=1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=1,offY=-1) progid:DXImageTransform.Microsoft.dropshadow(color=#ffffff,offX=-1,offY=-1);
+    zoom: 1;
+}
+
+.homepage_header{
+	/*background-image: url('images/billibuys_header.jpg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	min-width:100%;*/
+
+	/*background: url('images/billibuys_header.jpg') no-repeat;*/
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
+	min-height: 710px;
+}
+
+.frontpage_top_social_media{
+	margin-top: 28px;
+	color: white;
+}
+
+.frontpage_top_social_media a{
+	color: white;	
+}
+
+.frontpage_top_social_media .fa{
+	padding: 15px 15px 15px 15px;
+	min-width: 45px;
+	text-align: center;
+
+}
+
+.frontpage_top_social_media .fa-twitter{
+	background-color:rgb(93,200,255);
+
+}
+
+.frontpage_top_social_media .fa-facebook{
+	background-color:rgb(88,122,202);
+	padding-left: 23px;
+	padding-right: 23px;
+}
+
+.frontpage_top_social_media .fa-google-plus{
+	background-color: rgb(228,56,7);
+}
+
+.frontpage_top_social_media .fa-pinterest{
+	background-color: rgb(250,92,92);
+}
+
+#header_img{
+	margin-top:-280px;
+}
+
+#testimonials{
+	margin-left: 160px;
+	margin-top: -33px;
+}
+
+.frontpage_top_links{
+	text-align:center;
+	font-family: "Nunito";
+	font-size: 14pt;
+}
+
+.frontpage_top_links .text_link{
+	color: rgb(149,140,137);
+	padding-top: 10px;
+	padding-bottom:10px;	
+	text-transform: uppercase;
+}
+
+.frontpage_top_links .flat_link{
+	text-transform: uppercase;
+	color: white;
+	padding-top: 10px;
+	padding-bottom:10px;
+}
+
+.frontpage_top_links .red{
+	background-color: rgb(228,56,7);
+}
+
+.frontpage_top_links .grey{
+	background-color: rgb(149,140,137);
+}
+
+#buy{
+	background-color: #929cff;
+	width: 660px;
+	height: 700px;
+	margin-left: -221px;
+	padding-top: 200px;
+	padding-left: 340px;
+}
+
+#sell{
+	background-color: #86CC61;
+	width: 680px;
+	height: 660px;
+	margin-left: 439px;
+	padding-left: 340px;
+	margin-top: -700px;
+	padding-top: 200px;
+}
+
+.main{
+	background:none;
+}
+
+.for_the_buyers_block, .for_the_sellers_block{
+	background-color: rgb(255, 255, 255);
+	opacity:.80;
+	filter: alpha(opacity=80);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+	text-align: center;
+	margin-top:50px;
+	padding-bottom: 30px;
+	/*border: 1px black solid;*/
+}
+
+.for_the_blocks{
+	margin-top: 20px;
+}
+
+.infobox_heading{
+	color: white;
+	font-size: 22pt;
+	padding: 10px 0 10px 0;
+	text-transform: uppercase;
+	font-family: "Nunito";
+}
+
+.for_the_buyers_block .infobox_heading{
+	background-color: rgb(1,146,146);
+}
+
+.for_the_sellers_block .infobox_heading{
+	background-color: rgb(232,34,191);
+}
+
+.infobox_subheading{
+	font-family: "Arial";
+	font-size: 19pt;
+	line-height: 27px;
+	width: 320px;
+	margin: auto;
+	font-weight: bolder;
+}
+
+.for_the_buyers_block .infobox_subheading{
+	color: rgb(1, 146, 146);
+}
+
+.for_the_sellers_block .infobox_subheading{
+	color: rgb(232, 34, 191);
+}
+
+.infobox_text{
+	font-family: "Arial";
+	font-size: 13pt;
+	font-weight: bold;
+}
+
+.learn_more_box{
+	font-family: "Arial";
+	font-size: 14pt;
+	text-transform: uppercase;
+	width: 170px;
+	margin: auto;
+	margin-top: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: white;
+	cursor: pointer;
+}
+
+.for_the_buyers_block .learn_more_box{
+	background-color: rgb(1,146,146);
+}
+
+.for_the_sellers_block .learn_more_box{
+	background-color: rgb(232, 34, 191);
+}
+
+.buyerslider{
+	display:none;
+}
+
+.sellerslider{
+	display:none;
+}
+
+.register_btn{
+	float: right;
+	background-color: rgb(228,58,7);
+	color: white;
+	padding: 20px;
+	text-transform: uppercase;
+	font-family: "Nunito";
+	cursor:pointer;
+	width: 255px;
+	font-size: 11pt;
+	height: 70px;		
+	text-align: center;
+}
+
+.billibuys_home_slider{
+	display:none;
+	margin-top: 10px;
+}
+
+.about_billibuys_block{
+	font-family: "Nunito";
+	margin-top: 132px;
+	/*background-color: rgba(255, 255, 255, 0.9);*/
+}
+
+.about_heading{
+	font-size: 26pt;	
+}
+
+.about_heading .billibuys_coloured_1{
+	color: rgb(255,109,12);
+}
+
+.about_heading .billibuys_coloured_2{
+	color: rgb(71,90,168);
+}
+
+.about_line_5{
+	/*float:right;*/
+	/*color: rgb(72,90,165);*/
+	color: #6986FF;
+	/*color: rgb(228,58,7);*/
+	text-align: center;
+	font-size: 35pt;
+	margin-top: 80px;
+	margin-bottom: 50px;
+    text-shadow:
+    -1px -1px 0 #ffffff,  
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;		
+}
+
+#billibuys_about_text{
+	font-size: 14pt;
+	line-height: 35px;
+}
+
+.footer{
+	background-color: rgb(149,140,137);
+	font-family: "Nunito";
+	font-size: 10pt;
+	margin-top: 18px;
+}
+
+.footer a:link, .footer a:visited{
+	color: white;
+}
+
+.billibuys_footer{
+	margin-top:-16px;
+	color: white;
+	font-size: 8pt;
+}
+
+.billibuys_footer .fa{
+	padding: 22px 22px 22px 22px;
+	min-width: 45px;
+	text-align: center;
+	font-size: 20pt;
+	height: 70px;
+}
+
+.billibuys_footer .fa-twitter{
+	background-color:rgb(93,200,255);
+}
+
+.billibuys_footer .fa-facebook{
+	background-color: rgb(88,122,202);
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.billibuys_footer .fa-google-plus{
+	background-color: rgb(228,56,7);
+}
+
+.billibuys_footer .fa-pinterest{
+	background-color: rgb(250,92,92);
+}
+
+#billibuys_footer_logo{
+	float:left;
+	margin-top:-25px;
+}
+
+.highlighted{
+    -webkit-box-shadow:0 0 20px blue; 
+    -moz-box-shadow: 0 0 20px blue; 
+    box-shadow:0 0 20px blue;
+}
+
+/*Style 2 for homepage*/
+
+.how_does_it_work_blk2{
+	font-family: "Nunito";
+	font-size: 33pt;
+}
+
+.find_out_how_subbtn{
+	float: right;
+	background-color: rgb(228,58,7);
+	color: white;
+	padding: 20px;
+	text-transform: uppercase;
+	font-family: "Nunito";
+	cursor:pointer;
+	font-size: 11pt;
+	height: 20px;		
+	margin-top: 30px;
+	margin-right: -386px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 45px;
+	padding-top: 10px;
+}
+
+.da-slide .da-img.stickimg{
+	margin-left: -520px;
+	margin-top: 170px;
+}
+
+.about_line_5.bottom{
+	float: right;
+	color: black;
+	font-size: 14pt;
+	margin-top: 0px;
+}
+
+.logo-container .logo{
+	margin-top:-18px;
+}

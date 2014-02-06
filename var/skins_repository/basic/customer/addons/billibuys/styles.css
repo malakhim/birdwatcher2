@@ -32,12 +32,6 @@ body{
 	/*background-color:#EDEEEC;*/
 }
 
-.logo-container .logo{
-	opacity: 0.8;
-	filter:alpha(opacity=80); /*For IE8*/
-	margin-top: 0;
-}
-
 #how_does_it_work_scroller{
 	display: inline-block;
 	width: 175px;
@@ -51,7 +45,7 @@ body{
 }
 
 .how_does_it_work_block{
-	margin-top:53px;
+	margin-top:73px;
 	line-height: 46px;
 	/*width: 399px;*/
 }
@@ -151,6 +145,7 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .frontpage_top_links .flat_link{
+	text-transform: uppercase;
 	color: white;
 	padding-top: 10px;
 	padding-bottom:10px;
@@ -273,7 +268,7 @@ html.ie9 .how_does_it_work_block div {
 
 .register_btn{
 	float: right;
-	background-color: rgb(149,140,137);
+	background-color: rgb(228,58,7);
 	color: white;
 	padding: 20px;
 	text-transform: uppercase;
@@ -282,6 +277,7 @@ html.ie9 .how_does_it_work_block div {
 	width: 255px;
 	font-size: 11pt;
 	height: 70px;		
+	text-align: center;
 }
 
 .billibuys_home_slider{
@@ -309,7 +305,7 @@ html.ie9 .how_does_it_work_block div {
 
 .about_line_5{
 	/*float:right;*/
-	color: rgb(1,146,146);
+	color: rgb(72,90,165);
 	text-align: center;
 	font-size: 35pt;
 	margin-top: 80px;
@@ -397,9 +393,17 @@ html.ie9 .how_does_it_work_block div {
 	font-size: 11pt;
 	height: 70px;		
 	margin-top: 30px;
+	margin-right: -277px;
 }
 
 .da-slide .da-img.stickimg{
 	margin-left: -520px;
 	margin-top: 170px;
+}
+
+.about_line_5.bottom{
+	float: right;
+	color: black;
+	font-size: 14pt;
+	margin-top: 0px;
 }

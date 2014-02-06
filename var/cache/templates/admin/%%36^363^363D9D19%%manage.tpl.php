@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-01 07:36:17
+<?php /* Smarty version 2.6.18, created on 2014-02-03 15:24:42
          compiled from views/pages/manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/pages/manage.tpl', 20, false),array('modifier', 'default', 'views/pages/manage.tpl', 31, false),array('modifier', 'fn_check_view_permissions', 'views/pages/manage.tpl', 43, false),array('modifier', 'substr_count', 'views/pages/manage.tpl', 47, false),array('modifier', 'replace', 'views/pages/manage.tpl', 48, false),array('modifier', 'defined', 'views/pages/manage.tpl', 60, false),)), $this); ?>

@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:20952:"<orders>
+a:2:{s:4:"data";s:21118:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -329,6 +329,11 @@ a:2:{s:4:"data";s:20952:"<orders>
 	<subitem item="statistics" title="products" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=products" />
 
 </administration>
+<website>
+	<side>
+		<item group="pages.update" title="add_form" href="%INDEX_SCRIPT?dispatch=pages.add&amp;page_type=F&amp;parent_id=%PAGE_ID" />
+	</side>
+</website>
 <products>
 	<item title="bb_manage_billibuys_categories" dispatch="billibuys.categories_manage" position="20"/>
 </products>
