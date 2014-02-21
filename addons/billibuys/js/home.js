@@ -28,6 +28,15 @@ $(document).ready(function(){
   $('.find_out_how_subbtn').click(function(){
     $('html, body').animate({scrollTop: $('.how_does_it_work_block').offset().top},1000); 
   });
+
+  $('.contact-link').click(function(){
+    window.location.href = 'contact-us.html';
+  });
+
+  $('.login-link').click(function(){
+    window.location.href = 'index.php?dispatch=auth.login_form';
+  });
+
 });
 
 function show_slider(group){

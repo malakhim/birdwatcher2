@@ -132,7 +132,7 @@
 		<item lang="EN" id="create_notification">Would you like to be notified when someone places a request for an item?</item>
 		<item lang="EN" id="item">Item</item>
 		<item lang="EN" id="posted">Posted</item>
-		<item lang="EN" id="currenth_bid">Current Bid</item>
+		<item lang="EN" id="current_bid">Current Bid</item>
 		<item lang="EN" id="place_bid">Place Bid</item>
 		<item lang="EN" id="create_product_package">Create new Product/Package</item>
 		<item lang="EN" id="bb_manage_billibuys_categories">Manage Billibuys Categories</item>
@@ -169,12 +169,17 @@
 		<item lang="EN" id="bb_i_want">I want</item>
 		<item lang="EN" id="register_as_buyer">Register as a buyer</item>
 		<item lang="EN" id="footer_copyright">BilliBuys Pty Ltd. All Rights Reserved.</item>
+		<item lang="LM" id="footer_copyright">Lorem ipsum dolor sit amet, consectetue</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>
+		<item lang="LM" id="about">Lorem</item>
 		<item lang="EN" id="testimonials">TESTIMONIALS</item>
+		<item lang="LM" id="testimonials">Lorem ipsum.</item>
 		<item lang="EN" id="contact_us">CONTACT US</item>
+		<item lang="LM" id="contact_us">Lorem ipsu</item>
 		<item lang="EN" id="log_in">LOG IN</item>
+		<item lang="LM" id="log_in">lorem.</item>
 
 		<item lang="EN" id="jumbotron_buyer_heading">Request an item and have the Sellers come to you</item>
 		<item lang="EN" id="jumbotron_buyer_subheading">Place a request today to save time and money</item>
@@ -184,8 +189,8 @@
 		<item lang="EN" id="how_does_billibuys_work_for">How does Billibuys.com work for</item>
 		<item lang="EN" id="buyers">Buyers</item>
 		<item lang="EN" id="sellers">Sellers</item>
-		<item lang="EN" id="for_the_buyers">For the Buyers</item>
-		<item lang="EN" id="for_the_sellers">For the Sellers</item>
+		<item lang="EN" id="for_the_buyers">For Buyers</item>
+		<item lang="EN" id="for_the_sellers">For Sellers</item>
 		<item lang="EN" id="find_out_how">Find out how</item>
 		<item lang="EN" id="find_out_more">Find out more</item>
 		<item lang="EN" id="register_now_for_free">Register now for free</item>
@@ -230,6 +235,9 @@
 		<item lang="EN" id="bb_name_too_long">Name is too long. Please keep it under 50 characters</item>
 		<item lang="EN" id="bb_description_too_long">Description is too long. Please keep it under 50 characters</item>
 		<item lang="EN" id="reassign_requests_from_this_category_to_delete">Reassign requests from this category to delete it!</item>
+
+		<!-- Frontend main view page variables-->
+		<item lang="EN" id="view_requests">Current Requests</item>		
 
 	</language_variables>
 </addon>

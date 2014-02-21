@@ -14,10 +14,10 @@
 	{$lang.testimonials}
 </div> -->
 
-<div class="grid_3 flat_link red">
+<div class="grid_3 flat_link red contact-link">
 	{$lang.contact_us}
 </div>
 
-<div class="omega grid_4 flat_link grey">
+<div class="omega grid_4 flat_link grey login-link">
 	{$lang.log_in}/{$lang.register}
 </div>

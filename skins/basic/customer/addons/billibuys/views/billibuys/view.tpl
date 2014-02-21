@@ -7,7 +7,6 @@
 	</form>
 </div>
 *}
-
 {if $auth.user_id}
 	<a href="{"billibuys.place_request"|fn_url}">{$lang.bb_text_place_request_question}</a>
 {else}
@@ -57,8 +56,5 @@
 		
 	{/if}
 </div>
-{capture name="mainbox"}
-<!-- This is a test -->
 
-{/capture}
-{include file="common_templates/mainbox.tpl" title=$lang.billibuys content=$smarty.capture.mainbox title_extra=$smarty.capture.title_extra tools=$smarty.capture.tools}
+{capture name="mainbox_title"}{$lang.view_requests}{/capture}

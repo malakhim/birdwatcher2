@@ -17,15 +17,10 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 	display: none;
 }
 
-/*@font-face{
-	font-family: "Nunito";
-	src: url('../../../../../fonts/ARLRDBD.EOT') format('embedded-opentype');
-}
-
 @font-face{
 	font-family: "Nunito";
-	src: url('../../../../../fonts/ARLRDBD.TTF');
-}*/
+	/*src: url('../../../../../fonts/ARLRDBD.EOT') format('embedded-opentype');*/
+}
 
 body{
 	/*background-color:#EDEEEC;*/
@@ -418,8 +413,4 @@ html.ie9 .how_does_it_work_block div {
 
 .logo-container .logo{
 	margin-top:-18px;
-}
-
-.flat_link{
-	cursor: pointer;
 }

@@ -1,11 +1,25 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-03 14:06:54
+<?php /* Smarty version 2.6.18, created on 2014-02-21 13:39:30
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 3, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 10, false),array('modifier', 'trim', 'views/auth/login_form.tpl', 67, false),array('block', 'hook', 'views/auth/login_form.tpl', 35, false),array('function', 'set_id', 'views/auth/login_form.tpl', 67, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 17, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 24, false),array('modifier', 'fn_needs_image_verification', 'views/auth/login_form.tpl', 41, false),array('modifier', 'uniqid', 'views/auth/login_form.tpl', 44, false),array('block', 'hook', 'views/auth/login_form.tpl', 64, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('returning_customer','email','username','password','forgot_password_question','remember_me','sign_in'));
+fn_preload_lang_vars(array('returning_customer','email','username','password','forgot_password_question','image_verification_label','image_verification_body','remember_me','sign_in'));
 ?>
-<?php ob_start(); ?>
+<?php 
+
+				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
+				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
+					if ($this->check_inline_blocks(array (
+  'addons/billibuys/hooks/index/login_buttons.post.tpl' => 1391922883,
+))) {
+						$_smarty_compile_path = $this->_get_compile_path($rname);
+						$this->_compile_resource($rname, $_smarty_compile_path);
+						$inline_no_check[$rname] = true;
+						include $_smarty_compile_path;
+						return;
+					}
+				}
+			 ?>
 <?php $this->assign('form_name', smarty_modifier_default(@$this->_tpl_vars['form_name'], 'main_login_form'), false); ?>
 
 <?php ob_start(); ?>
@@ -48,10 +62,35 @@ unset($_smarty_tpl_vars);
 			</div>
 
 			<?php if ($this->_tpl_vars['settings']['Image_verification']['use_for_login'] == 'Y'): ?>
-				<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/image_verification.tpl", 'smarty_include_vars' => array('id' => "login_".($this->_tpl_vars['form_name']),'align' => 'left')));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
+				<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('id' => "login_".($this->_tpl_vars['form_name']), 'align' => 'left', )); ?><?php if (fn_needs_image_verification("") == true): ?>	
+	<?php $this->assign('is', $this->_tpl_vars['settings']['Image_verification'], false); ?>
+	
+	<?php $this->assign('id_uniqid', uniqid($this->_tpl_vars['id']), false); ?>
+	<div class="captcha form-field">
+	<?php if ($this->_tpl_vars['sidebox']): ?>
+		<p><img id="verification_image_<?php echo $this->_tpl_vars['id']; ?>
+" class="image-captcha valign" src="<?php echo fn_url("image.captcha?verification_id=".($this->_tpl_vars['SESS_ID']).":".($this->_tpl_vars['id'])."&amp;".($this->_tpl_vars['id_uniqid'])."&amp;", 'C', 'rel', '&amp;'); ?>
+" alt="" onclick="this.src += 'reload' ;" width="<?php echo $this->_tpl_vars['is']['width']; ?>
+" height="<?php echo $this->_tpl_vars['is']['height']; ?>
+" /></p>
+	<?php endif; ?>
+		<label for="verification_answer_<?php echo $this->_tpl_vars['id']; ?>
+" class="cm-required"><?php echo fn_get_lang_var('image_verification_label', $this->getLanguage()); ?>
+</label>
+		<input class="captcha-input-text valign cm-autocomplete-off" type="text" id="verification_answer_<?php echo $this->_tpl_vars['id']; ?>
+" name="verification_answer" value= "" />
+	<?php if (! $this->_tpl_vars['sidebox']): ?>
+		<img id="verification_image_<?php echo $this->_tpl_vars['id']; ?>
+" class="image-captcha valign" src="<?php echo fn_url("image.captcha?verification_id=".($this->_tpl_vars['SESS_ID']).":".($this->_tpl_vars['id'])."&amp;".($this->_tpl_vars['id_uniqid'])."&amp;", 'C', 'rel', '&amp;'); ?>
+" alt="" onclick="this.src += 'reload' ;"  width="<?php echo $this->_tpl_vars['is']['width']; ?>
+" height="<?php echo $this->_tpl_vars['is']['height']; ?>
+" />
+	<?php endif; ?>
+	<p<?php if ($this->_tpl_vars['align']): ?> class="<?php echo $this->_tpl_vars['align']; ?>
+"<?php endif; ?>><?php echo fn_get_lang_var('image_verification_body', $this->getLanguage()); ?>
+</p>
+	</div>
+<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 			<?php endif; ?>
 
 <?php if ($this->_tpl_vars['id'] == 'checkout'): ?>
@@ -80,10 +119,8 @@ unset($_smarty_tpl_vars);
 		<?php if ($this->_tpl_vars['id'] != 'checkout'): ?>
 			</div>
 		<?php endif; ?>
-	<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/hooks/index/login_buttons.post.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+	<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><input type="hidden" name="request_title" value="<?php echo $this->_tpl_vars['_REQUEST']['request_title']; ?>
+" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 <?php if ($this->_tpl_vars['id'] == 'checkout'): ?>
 	</div>
 <?php endif; ?>
@@ -103,8 +140,3 @@ unset($_smarty_tpl_vars);
 	<?php ob_start(); ?><?php echo fn_get_lang_var('sign_in', $this->getLanguage()); ?>
 <?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>
 <?php endif; ?>
-<?php $this->_smarty_vars['capture']['template_content'] = ob_get_contents(); ob_end_clean(); ?><?php if (trim($this->_smarty_vars['capture']['template_content'])): ?><?php if ($this->_tpl_vars['auth']['area'] == 'A'): ?><span class="cm-template-box" template="views/auth/login_form.tpl" id="<?php echo smarty_function_set_id(array('name' => "views/auth/login_form.tpl"), $this);?>
-"><img class="cm-template-icon hidden" src="<?php echo $this->_tpl_vars['images_dir']; ?>
-/icons/layout_edit.gif" width="16" height="16" alt="" /><?php echo $this->_smarty_vars['capture']['template_content']; ?>
-<!--[/tpl_id]--></span><?php else: ?><?php echo $this->_smarty_vars['capture']['template_content']; ?>
-<?php endif; ?><?php endif; ?>
