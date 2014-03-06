@@ -370,6 +370,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	}elseif($mode == 'category_delete'){
 		fn_bb_delete_category($_REQUEST['category_id']);
 		return array(CONTROLLER_STATUS_OK,'billibuys.categories_manage');
+	}elseif($mode == 'view_requests'){
+		fn_redirect("index.php?dispatch=billibuys.view");
 	}
 
 

@@ -267,7 +267,7 @@ function fn_submit_bids($bb_data,$auth){
 					// Check price is under or equal to max, if not return to original
 					$over_max = true;
 					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
-				}elseif(strpos($request_item['title'],$product_name) === FALSE){
+				}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
 					// Throw name-not-matching error
 					$error_msg = fn_get_lang_var('bid_name_matching_error');
 				}

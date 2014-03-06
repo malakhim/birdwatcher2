@@ -1,5 +1,5 @@
-a:2:{s:4:"data";s:925:"<products>
-	<item title="bb_billibuys" dispatch="billibuys.view" />
+a:2:{s:4:"data";s:842:"<products>
+	<item title="bb_billibuys" dispatch="billibuys.view_requests" />
 </products>
 <customers>
 	<item title="vendor_administrators" dispatch="profiles.manage" extra="user_type=V" position="250" />
@@ -15,6 +15,4 @@ a:2:{s:4:"data";s:925:"<products>
 	</side>
 	<item title="vendor_account_balance" dispatch="companies.balance" position="200" />
 </vendors>
-<products>
-	<item title="bb_billibuys" dispatch="billibuys.view" position="10"/>
-</products>";s:6:"expiry";i:0;}
+";s:6:"expiry";i:0;}

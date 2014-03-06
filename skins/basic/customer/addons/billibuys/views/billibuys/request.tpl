@@ -15,18 +15,23 @@
 		<th>{$lang.total_price}</th>
 		{*<th>{$lang.user}</th>*}
 	</tr>
-{foreach from=$bids item=bid}
-	{if is_array($bid)}
-		<tr {cycle values="class=\"table-row\","}>
-			<td>{include file="buttons/button.tpl" but_text=$bid.product but_href="products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url but_role="text"}</td>
-			<td>{$bid.price}</td>
-			<td>{$bid.profile_name}</td>
-			<td>{$bid.quantity}</td>
-			<td>{$bid.tot_price}</td>
+	{if $bids != null & isset($bids)}
+		{foreach from=$bids item=bid}
+			{if is_array($bid)}
+				<tr {cycle values="class=\"table-row\","}>
+					<td>{include file="buttons/button.tpl" but_text=$bid.product but_href="products.view&product_id=`$bid.product_id`&request_id=`$_REQUEST.request_id`&bid_id=`$bid.bb_bid_id`"|fn_url but_role="text"}</td>
+					<td>{$bid.price}</td>
+					<td>{$bid.profile_name}</td>
+					<td>{$bid.quantity}</td>
+					<td>{$bid.tot_price}</td>
+				</tr>
+			{/if}
+		{/foreach}
+	{else}
+		<tr class="no-items">
+			<td colspan="7"><p>{$lang.no_data}</p></td>
 		</tr>
 	{/if}
-{/foreach}
 </table>
-{*$bids|@var_dump*}
 <br />
 {include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}

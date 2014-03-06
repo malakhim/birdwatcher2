@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-06 22:24:39
+<?php /* Smarty version 2.6.18, created on 2014-03-07 09:01:50
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 18, false),array('modifier', 'escape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 22, false),array('modifier', 'fn_get_comparison_products', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 45, false),array('modifier', 'count', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 46, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 48, false),array('modifier', 'fn_needs_image_verification', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 73, false),array('modifier', 'uniqid', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 76, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 18, false),array('modifier', 'escape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 22, false),array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),array('modifier', 'fn_get_comparison_products', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 45, false),array('modifier', 'count', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 46, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 48, false),array('modifier', 'fn_needs_image_verification', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 73, false),array('modifier', 'uniqid', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 76, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('profile_details','downloads','orders','view_compare_list','my_tags','events','return_requests','my_points','wishlist','rb_subscriptions','apply_for_vendor_account','track_my_order','track_my_order','order_id','email','go','image_verification_label','image_verification_body','sign_out','sign_in','register','sign_in'));
 ?>
@@ -30,7 +30,13 @@ fn_preload_lang_vars(array('profile_details','downloads','orders','view_compare_
 ">
 	<?php $this->assign('return_current_url', smarty_modifier_escape($this->_tpl_vars['config']['current_url'], 'url'), false); ?>
 	<ul class="account-info">
-	<?php $this->_tag_stack[] = array('hook', array('name' => "profiles:my_account_menu")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
+	<?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php ob_start(); $this->_in_capture[] = 'ad0d6dea550dccf22d1c29b115d10d0f';
+$_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "addons/billibuys/hooks/profiles/my_account_menu.override.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+$this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop($this->_in_capture); if (!empty($this->_scripts['ad0d6dea550dccf22d1c29b115d10d0f'])) { echo implode("\n", $this->_scripts['ad0d6dea550dccf22d1c29b115d10d0f']); unset($this->_scripts['ad0d6dea550dccf22d1c29b115d10d0f']); }
+ ?><?php else: ?><?php $this->assign('addon_content', "", false); ?><?php endif; ?><?php if (trim($this->_tpl_vars['addon_content'])): ?><?php echo $this->_tpl_vars['addon_content']; ?>
+<?php else: ?><?php $this->_tag_stack[] = array('hook', array('name' => "profiles:my_account_menu")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?>
 		<?php if ($this->_tpl_vars['auth']['user_id']): ?>
 			<?php if ($this->_tpl_vars['user_info']['firstname'] || $this->_tpl_vars['user_info']['lastname']): ?>
 				<li class="user-name"><?php echo $this->_tpl_vars['user_info']['firstname']; ?>
@@ -86,7 +92,7 @@ fn_preload_lang_vars(array('profile_details','downloads','orders','view_compare_
 <?php if ($this->_tpl_vars['wishlist_count'] > 0): ?> (<?php echo $this->_tpl_vars['wishlist_count']; ?>
 )<?php endif; ?></a></li><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['recurring_billing']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><li><a href="<?php echo fn_url("subscriptions.search"); ?>
 " rel="nofollow"><?php echo fn_get_lang_var('rb_subscriptions', $this->getLanguage()); ?>
-</a></li><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+</a></li><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?><?php endif; ?>
 
 	
 	<?php if ($this->_tpl_vars['settings']['Suppliers']['apply_for_vendor'] == 'Y' && ! ( $this->_tpl_vars['controller'] == 'companies' && $this->_tpl_vars['mode'] == 'apply_for_vendor' || $this->_tpl_vars['user_info']['company_id'] )): ?>

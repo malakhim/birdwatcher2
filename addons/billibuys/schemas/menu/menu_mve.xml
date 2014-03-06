@@ -1,3 +1,3 @@
 <products>
-	<item title="bb_billibuys" dispatch="billibuys.view" />
+	<item title="bb_billibuys" dispatch="billibuys.view_requests" />
 </products>

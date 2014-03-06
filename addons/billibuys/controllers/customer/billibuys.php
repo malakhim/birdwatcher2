@@ -96,6 +96,9 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		// Get database results
 		$request = fn_get_request($params);
 
+		if(empty($request)){
+			return array(CONTROLLER_STATUS_NO_PAGE);
+		}
 		// Remove underscores from any column names in database results and format timestamp
 		foreach($request as $k=>&$r){
 			if($k == 'timestamp'){

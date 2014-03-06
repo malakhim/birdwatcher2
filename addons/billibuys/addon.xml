@@ -226,6 +226,7 @@
 		<item lang="EN" id="bb_billibuys">Billibuys</item>	
 		<item lang="EN"	id="bb_packages">Packages</item>
 		<item lang="EN" id="bb_place_request">Place Request</item>
+		<item lang="EN" id="place_request">Place Request</item>
 		<item lang="EN" id="requests">Requests</item>
 		<item lang="EN" id="terms_and_conditions">Terms and Conditions</item>
 		<item lang="EN" id="disclaimer">Disclaimer</item>

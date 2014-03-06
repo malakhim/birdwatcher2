@@ -103,7 +103,7 @@
 		</ul>
 		{/capture}
 
-	{include file="buttons/save_cancel.tpl" but_text=$lang.btn_place_bid_txt but_name="dispatch[billibuys.place_bid]" hide_second_button=true cancel_action="close"}
+	{include file="buttons/save_cancel.tpl" but_text=$lang.btn_place_bid_txt but_name="dispatch[billibuys.m_place_bid]" hide_second_button=true}
 	</div>
 </div>
 {/if}
