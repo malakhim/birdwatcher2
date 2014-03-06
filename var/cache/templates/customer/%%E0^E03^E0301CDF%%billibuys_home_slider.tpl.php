@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-06 15:46:32
+<?php /* Smarty version 2.6.18, created on 2014-03-06 16:41:12
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_buyer','step_1_buyer','for_the_buyers','step','get_bids','step_2_buyer','step_1_buyer','for_the_buyers','step','purchase_items','step_3_buyer','step_1_buyer','for_the_sellers','step','step_1_seller','step_1_buyer','for_the_sellers','step','step_2_seller','step_1_buyer','for_the_sellers','step','step_3_seller','step_1_buyer','for_the_sellers','step','step_4_seller','step_1_buyer','register_now_for_free'));

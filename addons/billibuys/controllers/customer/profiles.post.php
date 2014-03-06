@@ -71,15 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Regenerate session_id for security reasons
 			Session::regenerate_id();
 			
-			//
-			// If customer placed orders before login, assign these orders to this account
-			//
-			if (!empty($auth['order_ids'])) {
-				foreach ($auth['order_ids'] as $k => $v) {
-					db_query("UPDATE ?:orders SET ?u WHERE order_id = ?i", array('user_id' => $user_data['user_id']), $v);
-				}
-			}
-
 			fn_login_user($user_data['user_id']);
 			
 			Helpdesk::auth();
@@ -139,9 +130,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 			// Change user type to Vendor and company ID to the one that was just created
 			db_query("UPDATE ?:users SET ?u WHERE user_id = ?i", array('user_type' => 'V', 'company_id' => $company_id), $user_data['user_id']);
+
+			return array(CONTROLLER_STATUS_OK, "billibuys.view");
 		}
-	}elseif($mode == 'update'){
-		var_dump("test");die;		
 	}
 }
 

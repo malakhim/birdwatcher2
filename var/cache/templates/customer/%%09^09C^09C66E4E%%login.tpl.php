@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-06 15:46:20
+<?php /* Smarty version 2.6.18, created on 2014-03-06 16:41:01
          compiled from buttons/login.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/login.tpl', 40, false),array('modifier', 'fn_url', 'buttons/login.tpl', 40, false),)), $this); ?>

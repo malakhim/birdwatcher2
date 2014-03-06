@@ -1081,8 +1081,6 @@ function fn_update_user($user_id, $user_data, &$auth, $ship_to_another, $notify_
 
 	$register_at_checkout = isset($user_data['register_at_checkout']) && $user_data['register_at_checkout'] == 'Y' ? true : false;
 
-
-
 	if (!empty($user_id)) {
 		$current_user_data = db_get_row("SELECT user_id, company_id, is_root, status, user_type, user_login, lang_code, password, salt, last_passwords FROM ?:users WHERE user_id = ?i", $user_id);
 		if (!empty($user_data['profile_id']) && AREA != 'A') {

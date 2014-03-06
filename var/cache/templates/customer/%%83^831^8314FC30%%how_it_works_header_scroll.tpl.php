@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-21 13:57:24
+<?php /* Smarty version 2.6.18, created on 2014-03-06 16:41:12
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/how_it_works_header_scroll.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('how_does_billibuys_work_for','buyers','sellers'));
