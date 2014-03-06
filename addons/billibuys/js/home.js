@@ -36,7 +36,7 @@ $(document).ready(function(){
   $('.login-link').click(function(){
     window.location.href = 'index.php?dispatch=auth.login_form';
   });
-
+ 
 });
 
 function show_slider(group){
