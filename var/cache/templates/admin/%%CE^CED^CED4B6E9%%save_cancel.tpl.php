@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-06 16:42:25
+<?php /* Smarty version 2.6.18, created on 2014-03-06 20:01:47
          compiled from buttons/save_cancel.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/save_cancel.tpl', 1, false),array('modifier', 'fn_check_view_permissions', 'buttons/save_cancel.tpl', 24, false),array('modifier', 'fn_url', 'buttons/save_cancel.tpl', 56, false),array('modifier', 'strpos', 'buttons/save_cancel.tpl', 137, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'buttons/save_cancel.tpl', 1, false),array('modifier', 'fn_check_view_permissions', 'buttons/save_cancel.tpl', 24, false),array('modifier', 'fn_url', 'buttons/save_cancel.tpl', 56, false),array('modifier', 'strpos', 'buttons/save_cancel.tpl', 138, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('create','create_and_close','save','save_and_close','remove_this_item','remove_this_item','remove_this_item','remove_this_item','or','cancel','cancel'));
 ?>
@@ -29,8 +29,8 @@ fn_preload_lang_vars(array('create','create_and_close','save','save_and_close','
 
 <?php if ($this->_tpl_vars['but_name']): ?><?php $this->assign('r', $this->_tpl_vars['but_name'], false); ?><?php else: ?><?php $this->assign('r', $this->_tpl_vars['but_href'], false); ?><?php endif; ?>
 <?php if (fn_check_view_permissions($this->_tpl_vars['r'])): ?>
-<?php if (! $this->_tpl_vars['hide_first_button']): ?>
-	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => smarty_modifier_default(@$this->_tpl_vars['but_text'], @$this->_tpl_vars['but_label']), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_role' => 'button_main', 'but_name' => $this->_tpl_vars['but_name'], 'but_meta' => $this->_tpl_vars['but_meta'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+	<?php if (! $this->_tpl_vars['hide_first_button']): ?>
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => smarty_modifier_default(@$this->_tpl_vars['but_text'], @$this->_tpl_vars['but_label']), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_role' => 'button_main', 'but_name' => $this->_tpl_vars['but_name'], 'but_meta' => $this->_tpl_vars['but_meta'], )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
 	<?php $this->assign('class', "text-link", false); ?>
 <?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
 	<?php $this->assign('class', "text-button-delete", false); ?>
@@ -123,11 +123,12 @@ fn_preload_lang_vars(array('create','create_and_close','save','save_and_close','
 <?php endif; ?>
 
 <?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-<?php else: ?>
-	<?php $this->assign('skip_or', true, false); ?>
-<?php endif; ?>
+	<?php else: ?>
+		<?php $this->assign('skip_or', true, false); ?>
+	<?php endif; ?>
 	<?php if (! $this->_tpl_vars['hide_second_button'] && $this->_tpl_vars['cancel_action'] != 'close'): ?>
-	&nbsp;<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['but_label2'], 'but_role' => 'button_main', 'but_name' => $this->_tpl_vars['but_name'], 'but_meta' => "cm-save-and-close ".($this->_tpl_vars['but_meta']), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'allow_href' => true, )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
+	test
+		&nbsp;<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => $this->_tpl_vars['but_label2'], 'but_role' => 'button_main', 'but_name' => $this->_tpl_vars['but_name'], 'but_meta' => "cm-save-and-close ".($this->_tpl_vars['but_meta']), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'allow_href' => true, )); ?><?php if ($this->_tpl_vars['but_role'] == 'text'): ?>
 	<?php $this->assign('class', "text-link", false); ?>
 <?php elseif ($this->_tpl_vars['but_role'] == 'delete'): ?>
 	<?php $this->assign('class', "text-button-delete", false); ?>

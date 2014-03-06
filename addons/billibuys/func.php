@@ -225,9 +225,15 @@ function fn_bb_submit_notification($bb_data){
 		}
 	}
 }
-
+/**
+ * Submit a bid (aka offer)
+ * @param  array $bb_data The bid data
+ * @param  array $auth    duh
+ * @return boolean        success?
+ */
 function fn_submit_bids($bb_data,$auth){
 	//TODO: Check is in vendor/admin and in vendor/admin area
+	//FIXME: Need a cancel button
 	if(empty($bb_data) || !is_array($bb_data)){
 		return false;
 	}else{
@@ -235,10 +241,14 @@ function fn_submit_bids($bb_data,$auth){
 		parse_str($bb_data['redirect_url']);
 
 		//FIXME: $bb_data['request_id'] doesn't exist, need to get the right variable from it
-		$request_item = db_get_row("SELECT max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+		$request_item = db_get_row("SELECT title, max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
+
+		$currencies = Registry::get('currencies');
+		$currency_symbol = $currencies[CART_PRIMARY_CURRENCY]['symbol'];
 
 		foreach($bb_data['product_ids'] as $pid){
 			$price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'] ;
+			$product_name = $bb_data['products_data'][$pid]['product'] ;
 		}
 
 		$mp = $request_item['max_price'];
@@ -248,28 +258,32 @@ function fn_submit_bids($bb_data,$auth){
 
 		if($price != NULL && $request_item['max_price'] != 0){
 			if($price > 0 && is_numeric($price) && $price != NULL){
-				if($request_item['allow_over_max_price'] && $price > ($mp + 0.1 * $mp)){
+				$mp_plus_extra = $mp + 0.1*$mp;
+				if($request_item['allow_over_max_price'] && $price > ($mp_plus_extra)){
 					// Check price is over by 10%, if not return to original
 					$over_max = true;
-					$error_msg = $lang['bid_is_over_request_max'].'$'.$mp+0.1*$mp;
+					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra.'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp_plus_extra).'.');
 				}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
 					// Check price is under or equal to max, if not return to original
 					$over_max = true;
-					$error_msg = $lang['bid_is_over_request_max'].'$'.$mp;
+					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
+				}elseif(strpos($request_item['title'],$product_name) === FALSE){
+					// Throw name-not-matching error
+					$error_msg = fn_get_lang_var('bid_name_matching_error');
 				}
 			}else{
 				// Throw non-numeric error
 				// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
-				$error_msg = $lang['error_occurred'];
+				$error_msg = fn_get_lang_var('error_occurred');
 			}
 		}else{
 			// Throw non-numeric error
 			// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
-			$error_msg = $lang['error_occurred'];
+			$error_msg = fn_get_lang_var('error_occurred');
 		}
 
-		if($over_max){
-			fn_set_notification('E', $lang['error'], $error_msg);
+		if($error_msg != null && isset($error_msg)){
+			fn_set_notification('E', fn_get_lang_var('error'), $error_msg);
 			return false;
 		}
 

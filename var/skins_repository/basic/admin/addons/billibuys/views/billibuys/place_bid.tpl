@@ -1,10 +1,14 @@
 {capture name="mainbox"}
 
+{literal}
+<script src="addons/billibuys/js/place_bid.js" type="text/javascript"></script>
+{/literal}
+
 {include file="views/products/components/products_search_form.tpl" dispatch="products.manage"}
 
 <div id="content_manage_products">
 <form action="{""|fn_url}" method="post" name="manage_products_form">
-<input type="hidden" name="category_id" value="{$search.cid}" />
+<input type="hidden" name="request_id" value="{$smarty.request.request_id}" id="request_id"/>
 
 {include file="common_templates/pagination.tpl" save_current_page=true save_current_url=true div_id=$smarty.request.content_id}
 
@@ -99,17 +103,15 @@
 		</ul>
 		{/capture}
 
-		{include file="buttons/save.tpl" but_name="dispatch[billibuys.m_place_bid]" but_role="button_main"}
+	{include file="buttons/save_cancel.tpl" but_text=$lang.btn_place_bid_txt but_name="dispatch[billibuys.place_bid]" hide_second_button=true cancel_action="close"}
 	</div>
 </div>
 {/if}
 
-{capture name="select_fields_to_edit"}
-
 <div class="buttons-container">
-	{include file="buttons/save_cancel.tpl" but_text=$lang.modify_selected but_name="dispatch[products.store_selection]" cancel_action="close"}
+
 </div>
-{/capture}
+
 {include file="common_templates/popupbox.tpl" id="select_fields_to_edit" text=$lang.select_fields_to_edit content=$smarty.capture.select_fields_to_edit}
 
 {capture name="tools"}
@@ -118,6 +120,8 @@
 
 </form>
 <!--content_manage_products--></div>
+
+
 
 {/capture}
 {include file="common_templates/mainbox.tpl" title=$lang.products content=$smarty.capture.mainbox title_extra=$smarty.capture.title_extra tools=$smarty.capture.tools select_languages=true}

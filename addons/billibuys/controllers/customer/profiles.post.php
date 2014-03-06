@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			return array(CONTROLLER_STATUS_REDIRECT, "profiles.add");
 		}
 
-		// Log user in as vendor
+		// Log user in as vendor (doesn't work!)
 		
 		$_POST['password'] = $udata['password1'];
 
@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$suffix = (strpos($_SERVER['HTTP_REFERER'], '?') !== false ? '&' : '?') . 'login_type=login' . (!empty($_REQUEST['return_url']) ? '&return_url=' . urlencode($_REQUEST['return_url']) : '');
 			return array(CONTROLLER_STATUS_REDIRECT, "$_SERVER[HTTP_REFERER]$suffix");
 		}
+
+
 
 		//
 		// Success login
