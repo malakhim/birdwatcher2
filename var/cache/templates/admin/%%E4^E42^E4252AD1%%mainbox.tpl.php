@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-03 15:15:45
+<?php /* Smarty version 2.6.18, created on 2014-03-06 15:56:25
          compiled from common_templates/mainbox.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_link_attach', 'common_templates/mainbox.tpl', 1, false),array('modifier', 'default', 'common_templates/mainbox.tpl', 31, false),array('modifier', 'sizeof', 'common_templates/mainbox.tpl', 43, false),array('modifier', 'lower', 'common_templates/mainbox.tpl', 52, false),array('modifier', 'fn_url', 'common_templates/mainbox.tpl', 61, false),array('modifier', 'unescape', 'common_templates/mainbox.tpl', 61, false),array('modifier', 'trim', 'common_templates/mainbox.tpl', 79, false),array('modifier', 'fn_check_view_permissions', 'common_templates/mainbox.tpl', 109, false),)), $this); ?>

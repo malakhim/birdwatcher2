@@ -22,3 +22,5 @@
 		{include file="buttons/button.tpl" but_text=$lang.submit but_name="dispatch[billibuys.view]" but_id="but_submit_request"}
 	</div>
 </form>
+
+{capture name="mainbox_title"}{$lang.place_request}{/capture}

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-02-21 13:39:30
+<?php /* Smarty version 2.6.18, created on 2014-03-06 15:46:35
          compiled from common_templates/notification.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'common_templates/notification.tpl', 3, false),array('modifier', 'fn_get_notifications', 'common_templates/notification.tpl', 4, false),array('modifier', 'lower', 'common_templates/notification.tpl', 20, false),)), $this); ?>

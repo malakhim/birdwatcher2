@@ -140,6 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			// Change user type to Vendor and company ID to the one that was just created
 			db_query("UPDATE ?:users SET ?u WHERE user_id = ?i", array('user_type' => 'V', 'company_id' => $company_id), $user_data['user_id']);
 		}
+	}elseif($mode == 'update'){
+		var_dump("test");die;		
 	}
 }
 
