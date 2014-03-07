@@ -31,7 +31,7 @@
 	{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='product' name="update_all_vendors[product]"}
 </div>
 
-{hook name="companies:product_details_fields"}
+{*hook name="companies:product_details_fields"}
 	
 	{if $mode != "add"}
 		{assign var="reload_form" value=true}
@@ -40,8 +40,8 @@
 
 	{include file="views/companies/components/company_field.tpl" title=$lang.vendor name="product_data[company_id]" id="product_data_company_id" selected=$product_data.company_id tooltip=$companies_tooltip reload_form=$reload_form}
 	<input type="hidden" value="product_categories" name="result_ids">
-{/hook}
-
+{/hook*}
+{*
 <div class="form-field {$no_hide_input_if_shared_product}" id="product_categories">
 	{math equation="rand()" assign="rnd"}
 	{if $smarty.request.category_id}
@@ -53,7 +53,7 @@
 
 	<div class="select-field categories">{include file="pickers/categories_picker.tpl" hide_input=$product_data.shared_product company_ids=$categories_company_id rnd=$rnd data_id="categories" input_name="product_data[categories]" radio_input_name="product_data[main_category]" main_category=$product_data.main_category item_ids=$product_data.category_ids|default:$request_category_id hide_link=true hide_delete_button=true display_input_id="category_ids" disable_no_item_text=true view_mode="list"}</div>
 <!--product_categories--></div>
-
+*}
 <div class="form-field {$no_hide_input_if_shared_product}">
 	<label for="price_price" class="cm-required">{$lang.price} ({$currencies.$primary_currency.symbol}):</label>
 	<input type="text" name="product_data[price]" id="price_price" size="10" value="{$product_data.price|default:"0.00"|fn_format_price:$primary_currency:null:false}" class="input-text-medium" />
@@ -67,7 +67,7 @@
 </div>
 {** /General info section **}
 
-{include file="common_templates/select_status.tpl" input_name="product_data[status]" id="product_data" obj=$product_data hidden=true}
+{*include file="common_templates/select_status.tpl" input_name="product_data[status]" id="product_data" obj=$product_data hidden=true*}
 
 <div class="form-field">
 	<label>{$lang.images}:</label>
@@ -75,7 +75,7 @@
 </div>
 </fieldset>
 
-
+{*
 <fieldset>
 
 {include file="common_templates/subheader.tpl" title=$lang.options_settings}
@@ -95,8 +95,8 @@
 	</select>
 </div>
 </fieldset>
-
-
+*}
+{*
 <fieldset>
 
 {include file="common_templates/subheader.tpl" title=$lang.pricing_inventory}
@@ -173,7 +173,8 @@
 	</div>
 </div>
 </fieldset>
-
+*}
+{*
 <fieldset>
 
 {include file="common_templates/subheader.tpl" title=$lang.seo_meta_data}
@@ -227,7 +228,9 @@
 	</select>
 </div>
 </fieldset>
+*}
 
+{*
 <fieldset>
 
 {include file="common_templates/subheader.tpl" title=$lang.extra}
@@ -284,7 +287,9 @@
 	{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='search_words' name="update_all_vendors[search_words]"}
 </div>
 </fieldset>
-<!--content_detailed--></div> {* /content detailed *}
+
+
+<!--content_detailed--></div> *}{* /content detailed *}
 
 {** /Product description section **}
 

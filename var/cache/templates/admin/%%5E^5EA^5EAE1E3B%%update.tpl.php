@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 13:03:02
+<?php /* Smarty version 2.6.18, created on 2014-03-07 16:30:03
          compiled from views/currencies/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'views/currencies/update.tpl', 23, false),array('modifier', 'fn_check_form_permissions', 'views/currencies/update.tpl', 23, false),array('modifier', 'is_array', 'views/currencies/update.tpl', 98, false),array('modifier', 'fn_from_json', 'views/currencies/update.tpl', 99, false),array('modifier', 'default', 'views/currencies/update.tpl', 102, false),array('modifier', 'lower', 'views/currencies/update.tpl', 102, false),array('modifier', 'fn_allow_save_object', 'views/currencies/update.tpl', 139, false),array('block', 'hook', 'views/currencies/update.tpl', 63, false),)), $this); ?>

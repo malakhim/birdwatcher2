@@ -14,7 +14,6 @@
 		{assign var="skip_or" value=true}
 	{/if}
 	{if !$hide_second_button && $cancel_action != "close"}
-	test
 		&nbsp;{include file="buttons/button.tpl" but_text=$but_label2 but_role="button_main" but_name=$but_name but_meta="cm-save-and-close `$but_meta`" but_onclick=$but_onclick allow_href=true}
 	{/if}
 {else}

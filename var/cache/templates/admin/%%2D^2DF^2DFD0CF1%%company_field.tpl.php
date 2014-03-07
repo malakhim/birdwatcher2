@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 13:52:16
+<?php /* Smarty version 2.6.18, created on 2014-03-07 16:30:05
          compiled from views/companies/components/company_field.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_get_company_name', 'views/companies/components/company_field.tpl', 1, false),array('modifier', 'default', 'views/companies/components/company_field.tpl', 1, false),array('modifier', 'defined', 'views/companies/components/company_field.tpl', 23, false),array('modifier', 'strval', 'views/companies/components/company_field.tpl', 30, false),array('modifier', 'fn_get_default_company_id', 'views/companies/components/company_field.tpl', 31, false),array('modifier', 'escape', 'views/companies/components/company_field.tpl', 40, false),array('modifier', 'truncate', 'views/companies/components/company_field.tpl', 72, false),array('modifier', 'fn_url', 'views/companies/components/company_field.tpl', 80, false),)), $this); ?>

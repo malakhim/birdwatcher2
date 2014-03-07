@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 13:03:02
+<?php /* Smarty version 2.6.18, created on 2014-03-07 16:30:03
          compiled from views/currencies/manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'views/currencies/manage.tpl', 1, false),array('modifier', 'trim', 'views/currencies/manage.tpl', 1, false),array('modifier', 'fn_url', 'views/currencies/manage.tpl', 23, false),array('modifier', 'escape', 'views/currencies/manage.tpl', 34, false),array('modifier', 'fn_allow_save_object', 'views/currencies/manage.tpl', 36, false),array('function', 'script', 'views/currencies/manage.tpl', 15, false),array('block', 'hook', 'views/currencies/manage.tpl', 54, false),)), $this); ?>
