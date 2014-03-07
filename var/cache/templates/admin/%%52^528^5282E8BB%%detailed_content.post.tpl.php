@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 16:30:06
+<?php /* Smarty version 2.6.18, created on 2014-03-07 22:31:26
          compiled from addons/seo/hooks/products/detailed_content.post.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'addons/seo/hooks/products/detailed_content.post.tpl', 1, false),)), $this); ?>

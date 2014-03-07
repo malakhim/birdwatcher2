@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 19:27:38
+<?php /* Smarty version 2.6.18, created on 2014-03-07 22:49:26
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 16, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 23, false),array('modifier', 'fn_needs_image_verification', 'views/auth/login_form.tpl', 40, false),array('modifier', 'uniqid', 'views/auth/login_form.tpl', 43, false),array('block', 'hook', 'views/auth/login_form.tpl', 63, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('returning_customer','email','username','password','f
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/login_buttons.post.tpl' => 1394105512,
+  'addons/billibuys/hooks/index/login_buttons.post.tpl' => 1394181574,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

@@ -41,6 +41,10 @@
 	{include file="views/companies/components/company_field.tpl" title=$lang.vendor name="product_data[company_id]" id="product_data_company_id" selected=$product_data.company_id tooltip=$companies_tooltip reload_form=$reload_form}
 	<input type="hidden" value="product_categories" name="result_ids">
 {/hook*}
+
+{*FIXME: dodgy fix for categories preventing products being created*}
+<input type="hidden" name="product_data[main_category]" value="166"/>
+<input type="hidden" name="product_data[categories]" value="166"/>
 {*
 <div class="form-field {$no_hide_input_if_shared_product}" id="product_categories">
 	{math equation="rand()" assign="rnd"}

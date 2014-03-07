@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 17:22:00
+<?php /* Smarty version 2.6.18, created on 2014-03-07 22:42:54
          compiled from views/products/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'fn_url', 'views/products/update.tpl', 28, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 28, false),array('modifier', 'defined', 'views/products/update.tpl', 28, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 92, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 761, false),array('modifier', 'in_array', 'views/products/update.tpl', 767, false),array('modifier', 'escape', 'views/products/update.tpl', 808, false),array('block', 'hook', 'views/products/update.tpl', 703, false),array('function', 'script', 'views/products/update.tpl', 755, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'fn_url', 'views/products/update.tpl', 28, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 28, false),array('modifier', 'defined', 'views/products/update.tpl', 28, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 96, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 765, false),array('modifier', 'in_array', 'views/products/update.tpl', 771, false),array('modifier', 'escape', 'views/products/update.tpl', 812, false),array('block', 'hook', 'views/products/update.tpl', 707, false),array('function', 'script', 'views/products/update.tpl', 759, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('information','name','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','price','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','full_description','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','images','text_product_thumbnail','text_product_detailed_image','additional_images','text_position_updating','sort_images','sort','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','additional_thumbnail','additional_popup_larger_image','text_additional_thumbnail','text_additional_detailed_image','new_product','previous','next','preview','preview_as_admin','editing_product'));
 ?>
@@ -85,6 +85,9 @@ unset($_smarty_tpl_vars);
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 </div>
 
+
+<input type="hidden" name="product_data[main_category]" value="166"/>
+<input type="hidden" name="product_data[categories]" value="166"/>
 <div class="form-field <?php echo $this->_tpl_vars['no_hide_input_if_shared_product']; ?>
 ">
 	<label for="price_price" class="cm-required"><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>

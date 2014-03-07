@@ -9,7 +9,6 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
-
 		// Stub for viewing own auctions
 		$search_params = Array(
 			'user'         => $auth['user_id'],

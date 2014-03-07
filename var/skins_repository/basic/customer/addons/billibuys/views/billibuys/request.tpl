@@ -1,8 +1,14 @@
 {capture name="mainbox_title"}{$request.title}{/capture}
 
 {foreach from=$request item=r key=k}
-	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id"}
-		<strong>{$k|@ucwords}</strong>: {$r}<br />
+	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id" && $k NEQ "timestamp"}
+		{if $k EQ 'expiry date'}
+			<strong>{$k|@ucwords}</strong>: {$expiry}<br />
+		{elseif $k EQ 'max price' && $r EQ '0.00'}
+			<strong>{$k|@ucwords}</strong>: {$lang.no_max_price}<br />
+		{else}
+			<strong>{$k|@ucwords}</strong>: {$r}<br />
+		{/if}
 	{/if}
 {/foreach}
 
@@ -34,4 +40,9 @@
 	{/if}
 </table>
 <br />
-{include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}
+
+{if $expired == 0}
+	{include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}
+{else}
+	{$lang.auction_finished}. <a href="{"billibuys.view"|fn_url}">{$lang.click_here_to_return_to_main_page}</a>
+{/if}

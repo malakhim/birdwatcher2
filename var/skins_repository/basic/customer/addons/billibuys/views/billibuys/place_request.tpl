@@ -1,4 +1,7 @@
+<script type="text/javascript" src="js/datepicker.js"></script>
+
 <form name="bb_request_form" action="{""|fn_url}" method="post">
+
 	<div class="form-field">
 		<label for="bb_request_title" class="cm-required cm-trim">{$lang.title}</label>
 		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="{$smarty.request.request_title}" class="input-text" />
@@ -15,7 +18,12 @@
 	</div>
 
 	<div class="form-field">
-		<label for="bb_over_max_price" class="cm-trim"><input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items" />{$lang.bb_allow_over_max_price}</label>
+		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="{$lang.bb_allow_over_max_price}" class="checkbox cm-check-items">{$lang.bb_allow_over_max_price}
+	</div>	
+
+	<div class="form-field">
+		<label for="bb_expiry_date" class="cm-trim cm-required">{$lang.bb_select_expiry_date}</label>
+		<input type="text" name="expiry_date" id="bb_expiry_date"/>
 	</div>	
 
 	<div class="buttons-container">

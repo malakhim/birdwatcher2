@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// Create/update product
 	//
 	if ($mode == 'update') {
+
 		if (!empty($_REQUEST['product_data']['product'])) {
 
 			fn_companies_filter_company_product_categories($_REQUEST, $_REQUEST['product_data']);

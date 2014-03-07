@@ -221,6 +221,10 @@ if ($mode == 'logout') {
 
 	unset($_SESSION['product_notifications']);
 
+	if (AREA == 'C') {
+		fn_set_notification('N', fn_get_lang_var('notice'), fn_get_lang_var('successful_logout'));
+	}
+
 	return array(CONTROLLER_STATUS_OK, $index_script);
 }
 
