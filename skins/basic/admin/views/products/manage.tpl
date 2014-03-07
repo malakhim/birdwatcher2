@@ -1,7 +1,7 @@
 {capture name="mainbox"}
-
+{*
 {include file="views/products/components/products_search_form.tpl" dispatch="products.manage"}
-
+*}
 <div id="content_manage_products">
 <form action="{""|fn_url}" method="post" name="manage_products_form">
 <input type="hidden" name="category_id" value="{$search.cid}" />
@@ -93,11 +93,11 @@
 </tr>
 {/foreach}
 </table>
-
+{*
 {if $products}
 	{include file="common_templates/table_tools.tpl" href="#products" visibility="Y"}
 {/if}
-
+*}
 {include file="common_templates/pagination.tpl" div_id=$smarty.request.content_id}
 
 {if $products}

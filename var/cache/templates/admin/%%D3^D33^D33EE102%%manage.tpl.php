@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 17:24:50
+<?php /* Smarty version 2.6.18, created on 2014-03-07 17:41:03
          compiled from views/products/manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_url', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_query_remove', 'views/products/manage.tpl', 25, false),array('modifier', 'unescape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_generate_thumbnail', 'views/products/manage.tpl', 78, false),array('modifier', 'escape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_get_company_name', 'views/products/manage.tpl', 103, false),array('modifier', 'fn_format_price', 'views/products/manage.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'views/products/manage.tpl', 166, false),array('modifier', 'lower', 'views/products/manage.tpl', 212, false),array('modifier', 'is_array', 'views/products/manage.tpl', 216, false),array('modifier', 'fn_from_json', 'views/products/manage.tpl', 217, false),array('modifier', 'trim', 'views/products/manage.tpl', 287, false),array('modifier', 'substr_count', 'views/products/manage.tpl', 402, false),array('modifier', 'replace', 'views/products/manage.tpl', 403, false),array('modifier', 'defined', 'views/products/manage.tpl', 415, false),array('modifier', 'count', 'views/products/manage.tpl', 434, false),array('modifier', 'sort_by', 'views/products/manage.tpl', 436, false),array('modifier', 'md5', 'views/products/manage.tpl', 447, false),array('block', 'hook', 'views/products/manage.tpl', 45, false),array('function', 'cycle', 'views/products/manage.tpl', 53, false),array('function', 'math', 'views/products/manage.tpl', 72, false),array('function', 'split', 'views/products/manage.tpl', 436, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_url', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_query_remove', 'views/products/manage.tpl', 25, false),array('modifier', 'unescape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_generate_thumbnail', 'views/products/manage.tpl', 78, false),array('modifier', 'escape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_get_company_name', 'views/products/manage.tpl', 103, false),array('modifier', 'fn_format_price', 'views/products/manage.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'views/products/manage.tpl', 166, false),array('modifier', 'lower', 'views/products/manage.tpl', 212, false),array('modifier', 'is_array', 'views/products/manage.tpl', 216, false),array('modifier', 'fn_from_json', 'views/products/manage.tpl', 217, false),array('modifier', 'trim', 'views/products/manage.tpl', 287, false),array('modifier', 'substr_count', 'views/products/manage.tpl', 402, false),array('modifier', 'replace', 'views/products/manage.tpl', 403, false),array('modifier', 'defined', 'views/products/manage.tpl', 415, false),array('block', 'hook', 'views/products/manage.tpl', 45, false),array('function', 'cycle', 'views/products/manage.tpl', 53, false),array('function', 'math', 'views/products/manage.tpl', 72, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','product_code','price','list_price','purchased_qty','subtotal_sum','quantity','status','vendor','supplier','product_code','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','edit','remove_this_item','remove_this_item','active','hidden','disabled','pending','new','active','disabled','hidden','pending','new','active','disabled','hidden','pending','notify_customer','notify_orders_department','notify_vendor','notify_supplier','delete','no_data','select_all','unselect_all','clone_selected','export_selected','delete_selected','edit_selected','choose_action','or','tools','add','text_select_fields2edit_note','select_all','unselect_all','modify_selected','select_fields_to_edit','add_product','or','tools','add','products'));
+fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','product_code','price','list_price','purchased_qty','subtotal_sum','quantity','status','vendor','supplier','product_code','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','edit','remove_this_item','remove_this_item','active','hidden','disabled','pending','new','active','disabled','hidden','pending','new','active','disabled','hidden','pending','notify_customer','notify_orders_department','notify_vendor','notify_supplier','delete','no_data','clone_selected','export_selected','delete_selected','edit_selected','choose_action','or','tools','add','products'));
 ?>
 <?php 
 
@@ -20,12 +20,6 @@ fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','
 					}
 				}
 			 ?><?php ob_start(); ?>
-
-<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "views/products/components/products_search_form.tpl", 'smarty_include_vars' => array('dispatch' => "products.manage")));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-
 <div id="content_manage_products">
 <form action="<?php echo fn_url(""); ?>
 " method="post" name="manage_products_form">
@@ -546,22 +540,6 @@ unset($_smarty_tpl_vars);
 </tr>
 <?php endif; unset($_from); ?>
 </table>
-
-<?php if ($this->_tpl_vars['products']): ?>
-	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('href' => "#products", 'visibility' => 'Y', )); ?><?php if ($this->_tpl_vars['elements_count'] != 1): ?>
-
-<div class="table-tools">
-	<a href="<?php echo $this->_tpl_vars['href']; ?>
-" name="check_all" class="cm-check-items cm-on underlined"><?php echo fn_get_lang_var('select_all', $this->getLanguage()); ?>
-</a>|
-	<a href="<?php echo $this->_tpl_vars['href']; ?>
-" name="check_all" class="cm-check-items cm-off underlined"><?php echo fn_get_lang_var('unselect_all', $this->getLanguage()); ?>
-</a>
-</div>
-
-<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-<?php endif; ?>
-
 <?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/pagination.tpl", 'smarty_include_vars' => array('div_id' => $this->_tpl_vars['_REQUEST']['content_id'])));
 $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
@@ -633,109 +611,6 @@ unset($_smarty_tpl_vars);
 	</div>
 </div>
 <?php endif; ?>
-
-
-<?php ob_start(); ?>
-
-<p><?php echo fn_get_lang_var('text_select_fields2edit_note', $this->getLanguage()); ?>
-</p>
-<?php $__parent_tpl_vars = $this->_tpl_vars; ?><input type="hidden" name="selected_fields[object]" value="product" />
-<?php echo smarty_function_math(array('equation' => "ceil(n/c)",'assign' => 'rows','n' => count($this->_tpl_vars['selected_fields']),'c' => smarty_modifier_default(@$this->_tpl_vars['columns'], '5')), $this);?>
-
-
-<?php echo smarty_function_split(array('data' => smarty_modifier_sort_by($this->_tpl_vars['selected_fields'], 'text'),'size' => $this->_tpl_vars['rows'],'assign' => 'splitted_selected_fields','vertical_delimition' => false,'size_is_horizontal' => true), $this);?>
-
-
-<table cellpadding="5" cellspacing="0" border="0" width="100%">
-<tr valign="top">
-	<?php $_from = $this->_tpl_vars['splitted_selected_fields']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
-    foreach ($_from as $this->_tpl_vars['sfs']):
-?>
-		<td>
-		<ul>
-			<?php $_from = $this->_tpl_vars['sfs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['foreach_sfs'] = array('total' => count($_from), 'iteration' => 0);
-if ($this->_foreach['foreach_sfs']['total'] > 0):
-    foreach ($_from as $this->_tpl_vars['sf']):
-        $this->_foreach['foreach_sfs']['iteration']++;
-?>
-				<li class="select-field">
-					<?php if ($this->_tpl_vars['sf']): ?>
-						<?php if ($this->_tpl_vars['sf']['disabled'] == 'Y'): ?><input type="hidden" value="Y" name="selected_fields<?php echo $this->_tpl_vars['sf']['name']; ?>
-" /><?php endif; ?>
-						<input type="checkbox" value="Y" name="selected_fields<?php echo $this->_tpl_vars['sf']['name']; ?>
-" id="elm_<?php echo md5($this->_tpl_vars['sf']['name']); ?>
-" checked="checked" <?php if ($this->_tpl_vars['sf']['disabled'] == 'Y'): ?>disabled="disabled"<?php endif; ?> class="checkbox cm-item-s" />
-						<label for="elm_<?php echo md5($this->_tpl_vars['sf']['name']); ?>
-"><?php echo $this->_tpl_vars['sf']['text']; ?>
-&nbsp;</label>
-					<?php endif; ?>
-				</li>
-			<?php endforeach; endif; unset($_from); ?>
-		</ul>
-		</td>
-	<?php endforeach; endif; unset($_from); ?>
-</tr></table>
-<p>
-<a name="check_all" class="cm-check-items-s cm-on underlined"><?php echo fn_get_lang_var('select_all', $this->getLanguage()); ?>
-</a>&nbsp;/&nbsp;<a href="#sfields" name="check_all" class="cm-check-items-s cm-off underlined"><?php echo fn_get_lang_var('unselect_all', $this->getLanguage()); ?>
-</a>
-</p><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-
-<div class="buttons-container">
-	<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "buttons/save_cancel.tpl", 'smarty_include_vars' => array('but_text' => fn_get_lang_var('modify_selected', $this->getLanguage()),'but_name' => "dispatch[products.store_selection]",'cancel_action' => 'close')));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-</div>
-<?php $this->_smarty_vars['capture']['select_fields_to_edit'] = ob_get_contents(); ob_end_clean(); ?>
-<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/popupbox.tpl", 'smarty_include_vars' => array('id' => 'select_fields_to_edit','text' => fn_get_lang_var('select_fields_to_edit', $this->getLanguage()),'content' => $this->_smarty_vars['capture']['select_fields_to_edit'])));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
-
-<?php ob_start(); ?>
-	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('tool_href' => "products.add", 'prefix' => 'top', 'link_text' => fn_get_lang_var('add_product', $this->getLanguage()), 'hide_tools' => true, )); ?><?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
-
-<?php if ($this->_tpl_vars['tools_list'] && $this->_tpl_vars['prefix'] == 'main' && ! $this->_tpl_vars['only_popup']): ?> <?php echo fn_get_lang_var('or', $this->getLanguage()); ?>
- <?php endif; ?>
-
-<?php if (substr_count($this->_tpl_vars['tools_list'], "<li") == 1): ?>
-	<?php echo smarty_modifier_replace($this->_tpl_vars['tools_list'], "<ul>", "<ul class=\"cm-tools-list tools-list\">"); ?>
-
-<?php else: ?>
-	<div class="tools-container<?php if ($this->_tpl_vars['display']): ?> <?php echo $this->_tpl_vars['display']; ?>
-<?php endif; ?>">
-		<?php if (! $this->_tpl_vars['hide_tools'] && $this->_tpl_vars['tools_list']): ?>
-		<div class="tools-content<?php if ($this->_tpl_vars['display']): ?> <?php echo $this->_tpl_vars['display']; ?>
-<?php endif; ?>">
-			<a class="cm-combo-on cm-combination <?php if ($this->_tpl_vars['override_meta']): ?><?php echo $this->_tpl_vars['override_meta']; ?>
-<?php else: ?>select-button<?php endif; ?><?php if ($this->_tpl_vars['link_meta']): ?> <?php echo $this->_tpl_vars['link_meta']; ?>
-<?php endif; ?>" id="sw_tools_list_<?php echo $this->_tpl_vars['prefix']; ?>
-"><?php echo smarty_modifier_default(@$this->_tpl_vars['link_text'], fn_get_lang_var('tools', $this->getLanguage())); ?>
-</a>
-			<div id="tools_list_<?php echo $this->_tpl_vars['prefix']; ?>
-" class="cm-tools-list popup-tools hidden cm-popup-box cm-smart-position">
-					<?php echo $this->_tpl_vars['tools_list']; ?>
-
-			</div>
-		</div>
-		<?php endif; ?>
-		<?php if (! $this->_tpl_vars['hide_actions']): ?>
-			<?php if (! ( defined('COMPANY_ID') && ! fn_check_view_permissions($this->_tpl_vars['tool_href']) )): ?>
-				<span class="action-add">
-					<a<?php if ($this->_tpl_vars['tool_id']): ?> id="<?php echo $this->_tpl_vars['tool_id']; ?>
-"<?php endif; ?><?php if ($this->_tpl_vars['tool_href']): ?> href="<?php echo fn_url($this->_tpl_vars['tool_href']); ?>
-"<?php endif; ?><?php if ($this->_tpl_vars['tool_onclick']): ?> onclick="<?php echo $this->_tpl_vars['tool_onclick']; ?>
-; return false;"<?php endif; ?>><?php echo smarty_modifier_default(@$this->_tpl_vars['link_text'], fn_get_lang_var('add', $this->getLanguage())); ?>
-</a>
-				</span>
-			<?php endif; ?>
-		<?php endif; ?>
-	</div>
-<?php endif; ?>
-
-<?php endif; ?><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
-<?php $this->_smarty_vars['capture']['tools'] = ob_get_contents(); ob_end_clean(); ?>
 
 </form>
 <!--content_manage_products--></div>
