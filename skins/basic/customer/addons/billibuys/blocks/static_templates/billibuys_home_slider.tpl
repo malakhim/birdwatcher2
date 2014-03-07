@@ -141,6 +141,6 @@
     </nav>
 </div>
 
-<div class="register_btn">
-	{$lang.register_now_for_free}!
+<div class="find_out_how_subbtn">
+	{$lang.find_out_how}
 </div>

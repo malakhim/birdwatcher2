@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 09:01:50
+<?php /* Smarty version 2.6.18, created on 2014-03-07 12:45:29
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 18, false),array('modifier', 'escape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 22, false),array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),array('modifier', 'fn_get_comparison_products', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 45, false),array('modifier', 'count', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 46, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 48, false),array('modifier', 'fn_needs_image_verification', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 73, false),array('modifier', 'uniqid', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 76, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 18, false),array('modifier', 'escape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 22, false),array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 48, false),array('modifier', 'fn_needs_image_verification', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 73, false),array('modifier', 'uniqid', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 76, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('profile_details','downloads','orders','view_compare_list','my_tags','events','return_requests','my_points','wishlist','rb_subscriptions','apply_for_vendor_account','track_my_order','track_my_order','order_id','email','go','image_verification_label','image_verification_body','sign_out','sign_in','register','sign_in'));
+fn_preload_lang_vars(array('profile_details','downloads','my_tags','return_requests','my_points','wishlist','rb_subscriptions','apply_for_vendor_account','track_my_order','track_my_order','order_id','email','go','image_verification_label','image_verification_body','sign_out','sign_in','register','sign_in'));
 ?>
 <?php 
 
@@ -68,18 +68,8 @@ $this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop
 			<li class="user-name"><?php echo $this->_tpl_vars['user_data']['user_login']; ?>
 </li>
 		<?php endif; ?>
-		<li><a href="<?php echo fn_url("orders.search"); ?>
-" rel="nofollow" class="underlined"><?php echo fn_get_lang_var('orders', $this->getLanguage()); ?>
-</a></li>
-		<?php $this->assign('compared_products', fn_get_comparison_products(""), false); ?>
-		<li><a href="<?php echo fn_url("product_features.compare"); ?>
-" rel="nofollow" class="underlined"><?php echo fn_get_lang_var('view_compare_list', $this->getLanguage()); ?>
-<?php if ($this->_tpl_vars['compared_products']): ?> (<?php echo count($this->_tpl_vars['compared_products']); ?>
-)<?php endif; ?></a></li>
-	<?php if ($this->_tpl_vars['addons']['tags']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><li><a href="<?php echo fn_url("tags.summary"); ?>
+			<?php if ($this->_tpl_vars['addons']['tags']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><li><a href="<?php echo fn_url("tags.summary"); ?>
 " rel="nofollow"><?php echo fn_get_lang_var('my_tags', $this->getLanguage()); ?>
-</a></li><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['gift_registry']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><li><a href="<?php echo fn_url("events.search"); ?>
-" rel="nofollow"><?php echo fn_get_lang_var('events', $this->getLanguage()); ?>
 </a></li><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['rma']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><li><a href="<?php echo fn_url("rma.returns"); ?>
 " rel="nofollow"><?php echo fn_get_lang_var('return_requests', $this->getLanguage()); ?>
 </a></li><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['reward_points']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><?php if ($this->_tpl_vars['auth']['user_id']): ?>
@@ -185,7 +175,7 @@ $this->_tpl_vars['addon_content'] = ob_get_contents(); ob_end_clean(); array_pop
 			<?php if ($this->_tpl_vars['settings']['General']['secure_auth'] != 'Y'): ?>
 				<div  id="login_block<?php echo $this->_tpl_vars['block']['snapping_id']; ?>
 " class="hidden" title="<?php echo fn_get_lang_var('sign_in', $this->getLanguage()); ?>
-">
+"> 
 					<div class="login-popup">
 						<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "views/auth/login_form.tpl", 'smarty_include_vars' => array('style' => 'popup','form_name' => "login_popup_form".($this->_tpl_vars['block']['snapping_id']),'id' => "popup".($this->_tpl_vars['block']['snapping_id']))));
 $this->_tpl_vars = $_smarty_tpl_vars;

@@ -27,9 +27,9 @@
 		{elseif $settings.General.use_email_as_login != 'Y' && $user_data.user_login}
 			<li class="user-name">{$user_data.user_login}</li>
 		{/if}
-		<li><a href="{"orders.search"|fn_url}" rel="nofollow" class="underlined">{$lang.orders}</a></li>
+		{**<li><a href="{"orders.search"|fn_url}" rel="nofollow" class="underlined">{$lang.orders}</a></li>
 		{assign var="compared_products" value=""|fn_get_comparison_products}
-		<li><a href="{"product_features.compare"|fn_url}" rel="nofollow" class="underlined">{$lang.view_compare_list}{if $compared_products} ({$compared_products|count}){/if}</a></li>
+		<li><a href="{"product_features.compare"|fn_url}" rel="nofollow" class="underlined">{$lang.view_compare_list}{if $compared_products} ({$compared_products|count}){/if}</a></li>**}
 	{/hook}
 
 	
@@ -68,7 +68,7 @@
 		{else}
 			<a href="{if $controller == "auth" && $mode == "login_form"}{$config.current_url|fn_url}{else}{"auth.login_form?return_url=`$return_current_url`"|fn_url}{/if}" {if $settings.General.secure_auth != "Y"} rev="login_block{$block.snapping_id}" class="cm-dialog-opener cm-dialog-auto-size account"{else}rel="nofollow" class="account"{/if}>{$lang.sign_in}</a> | <a href="{"profiles.add"|fn_url}" rel="nofollow" class="account">{$lang.register}</a>
 			{if $settings.General.secure_auth != "Y"}
-				<div  id="login_block{$block.snapping_id}" class="hidden" title="{$lang.sign_in}">
+				<div  id="login_block{$block.snapping_id}" class="hidden" title="{$lang.sign_in}"> 
 					<div class="login-popup">
 						{include file="views/auth/login_form.tpl" style="popup" form_name="login_popup_form`$block.snapping_id`" id="popup`$block.snapping_id`"}
 					</div>

@@ -26,7 +26,8 @@ $(document).ready(function(){
   $('#background_img').css('margin-left','-' + $('#background_img').offset().left + 'px');
 
   $('.find_out_how_subbtn').click(function(){
-    $('html, body').animate({scrollTop: $('.how_does_it_work_block').offset().top},1000); 
+    // $('html, body').animate({scrollTop: $('.how_does_it_work_block').offset().top},1000); 
+    window.location.href = 'index.php?dispatch=billibuys.view';
   });
 
   $('.contact-link').click(function(){

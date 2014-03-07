@@ -397,11 +397,17 @@ html.ie9 .how_does_it_work_block div {
 	font-size: 11pt;
 	height: 20px;		
 	margin-top: 30px;
-	margin-right: -386px;
+	margin-right: -404px;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-bottom: 45px;
 	padding-top: 10px;
+}
+
+.billibuys_home_slider .find_out_how_subbtn{
+	margin-right: 0;
+	padding-top: 20px;
+	padding-bottom: 40px;	
 }
 
 .da-slide .da-img.stickimg{

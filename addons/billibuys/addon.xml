@@ -194,7 +194,7 @@
 		<item lang="EN" id="find_out_how">Find out how</item>
 		<item lang="EN" id="find_out_more">Find out more</item>
 		<item lang="EN" id="register_now_for_free">Register now for free</item>
-
+		
 		<!-- Steps -->
 		<item lang="EN" id="request_a_product">Request a product</item>
 		<item lang="EN" id="get_bids">Get bids from sellers</item>
@@ -220,6 +220,7 @@
 		<item lang="EN" id="bb_billibuys_menu_description">View Billibuys Auctions</item>
 		<item lang="EN" id="bb_manage_billibuys_categories_menu_description">Manage Billibuys Categories</item>	
 		<item lang="EN" id="btn_place_bid_txt">Place bid with selected item</item>
+		<item lang="EN" id="place_bid_instr">Please select a product to bid on this request with, or add a new product using the button on the right.</item>
 
 
 		<!-- General -->
@@ -240,7 +241,8 @@
 		<item lang="EN" id="reassign_requests_from_this_category_to_delete">Reassign requests from this category to delete it!</item>
 		<item lang="EN" id="your_bid_amount">Your bid amount is: </item>
 		<item lang="EN" id="bid_name_matching_error">Your item does not match what the buyer requested. Please choose another item.</item>
-
+		<item lang="EN" id="bid_price_cannot_be_zero">You cannot give away items for free in bids. Please put a price on your bid.</item>
+		<item lang="EN" id="no_request_item_selected">Please choose an item to bid with.</item>
 
 		<!-- Frontend main view page variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>		

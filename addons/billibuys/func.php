@@ -237,6 +237,10 @@ function fn_submit_bids($bb_data,$auth){
 	if(empty($bb_data) || !is_array($bb_data)){
 		return false;
 	}else{
+		if(!isset($bb_data['product_ids'])){
+			fn_set_notification('E', fn_get_lang_var('error'), fn_get_lang_var('no_request_item_selected'));
+			return false;
+		}
 		//Used to get the request_id
 		parse_str($bb_data['redirect_url']);
 
@@ -259,22 +263,21 @@ function fn_submit_bids($bb_data,$auth){
 		if($price != NULL && $request_item['max_price'] != 0){
 			if($price > 0 && is_numeric($price) && $price != NULL){
 				$mp_plus_extra = $mp + 0.1*$mp;
-				if($request_item['allow_over_max_price'] && $price > ($mp_plus_extra)){
-					// Check price is over by 10%, if not return to original
-					$over_max = true;
-					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra.'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp_plus_extra).'.');
+				if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){
+					// Check if bid price is over requested max by 10%, indicated by "allow_over_max_price" flag
+					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra).'. '.fn_get_lang_var('your_bid_amount').$currency_symbol.fn_format_price($price).'.';
 				}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
-					// Check price is under or equal to max, if not return to original
-					$over_max = true;
+					// Check bid price is under or equal to request max
 					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
 				}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
 					// Throw name-not-matching error
 					$error_msg = fn_get_lang_var('bid_name_matching_error');
 				}
-			}else{
+			}elseif($price <= 0){
+
 				// Throw non-numeric error
 				// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
-				$error_msg = fn_get_lang_var('error_occurred');
+				$error_msg = fn_get_lang_var('bid_price_cannot_be_zero');
 			}
 		}else{
 			// Throw non-numeric error

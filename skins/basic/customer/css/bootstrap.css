@@ -6580,8 +6580,8 @@ button.close {
 }
 
 .hidden {
-  display: none !important;
-  visibility: hidden !important;
+/*  display: none !important;
+  visibility: hidden !important;*/
 }
 
 .affix {
