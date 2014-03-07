@@ -171,6 +171,9 @@
 		<item lang="EN" id="footer_copyright">BilliBuys Pty Ltd. All Rights Reserved.</item>
 		<item lang="LM" id="footer_copyright">Lorem ipsum dolor sit amet, consectetue</item>
 		<item lang="EN" id="bb_select_expiry_date">Expiry Date</item>
+		<item lang="EN" id="auction_finished">Auction has finished</item>
+		<item lang="EN" id="click_here_to_return_to_main_page">Click here to return to main page</item>
+		<item lang="EN" id="no_max_price">No max price</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>

@@ -89,7 +89,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 				'timestamp',
 				'title',
 				'description',
-				'max_price'
+				'max_price',
+				'expiry_date'
 			)
 		);
 
@@ -129,6 +130,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$view->assign('uid',md5($auth['user_id']));
 		$view->assign('bids',$bids);
 		$view->assign('request',$request);
+		$view->assign('expired',$request['expiry date'] <= microtime(true));
+		$view->assign('expiry',date('d-m-Y',$request['expiry date']));
 	}elseif($mode == 'place_request'){
 		if(!$auth['user_id']){
 			// Redirect user to login if they ended up on this page accidentally (or otherwise)
