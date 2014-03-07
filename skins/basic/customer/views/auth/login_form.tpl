@@ -1,5 +1,4 @@
 {* $Id: login_form.tpl 12290 2011-04-19 10:18:07Z bimib $ *}
-testing123
 {assign var="form_name" value=$form_name|default:main_login_form}
 
 {capture name="login"}

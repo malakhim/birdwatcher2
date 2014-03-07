@@ -245,6 +245,7 @@ function fn_submit_bids($bb_data,$auth){
 		parse_str($bb_data['redirect_url']);
 
 		//FIXME: $bb_data['request_id'] doesn't exist, need to get the right variable from it
+		//
 		$request_item = db_get_row("SELECT title, max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 
 		$currencies = Registry::get('currencies');
@@ -260,7 +261,7 @@ function fn_submit_bids($bb_data,$auth){
 		// Flag to be set to true if request price > allowed max price
 		$over_max = false;
 
-		if($price != NULL && $request_item['max_price'] != 0){
+		if($price !== NULL && $request_item['max_price'] != 0){
 			if($price > 0 && is_numeric($price) && $price != NULL){
 				$mp_plus_extra = $mp + 0.1*$mp;
 				if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){

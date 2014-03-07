@@ -35,8 +35,6 @@
 </tr>
 {foreach from=$products item=product}
 
-
-
 <tr class="{cycle values="table-row,"} {$hide_inputs_if_shared_product}">
 	<td class="center">
    		<input type="radio" name="product_ids[]" value="{$product.product_id}" class="checkbox cm-item" /></td>

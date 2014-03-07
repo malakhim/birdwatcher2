@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 12:45:29
+<?php /* Smarty version 2.6.18, created on 2014-03-07 19:27:38
          compiled from views/auth/login_form.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 17, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 24, false),array('modifier', 'fn_needs_image_verification', 'views/auth/login_form.tpl', 41, false),array('modifier', 'uniqid', 'views/auth/login_form.tpl', 44, false),array('block', 'hook', 'views/auth/login_form.tpl', 64, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/auth/login_form.tpl', 16, false),array('modifier', 'fn_url', 'views/auth/login_form.tpl', 23, false),array('modifier', 'fn_needs_image_verification', 'views/auth/login_form.tpl', 40, false),array('modifier', 'uniqid', 'views/auth/login_form.tpl', 43, false),array('block', 'hook', 'views/auth/login_form.tpl', 63, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('returning_customer','email','username','password','forgot_password_question','image_verification_label','image_verification_body','remember_me','sign_in'));
 ?>
@@ -19,8 +19,7 @@ fn_preload_lang_vars(array('returning_customer','email','username','password','f
 						return;
 					}
 				}
-			 ?>testing123
-<?php $this->assign('form_name', smarty_modifier_default(@$this->_tpl_vars['form_name'], 'main_login_form'), false); ?>
+			 ?><?php $this->assign('form_name', smarty_modifier_default(@$this->_tpl_vars['form_name'], 'main_login_form'), false); ?>
 
 <?php ob_start(); ?>
 <?php if ($this->_tpl_vars['id'] != 'checkout' && $this->_tpl_vars['style'] != 'popup'): ?>

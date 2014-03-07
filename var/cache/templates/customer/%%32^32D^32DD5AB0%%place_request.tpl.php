@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 19:27:38
-         compiled from buttons/login.tpl */ ?>
+<?php /* Smarty version 2.6.18, created on 2014-03-07 19:28:52
+         compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/login.tpl', 40, false),array('modifier', 'fn_url', 'buttons/login.tpl', 40, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 15, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 61, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('sign_in','delete'));
+fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','submit','delete','place_request'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -19,7 +19,38 @@ fn_preload_lang_vars(array('sign_in','delete'));
 						return;
 					}
 				}
-			 ?><?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('sign_in', $this->getLanguage()), 'but_onclick' => $this->_tpl_vars['but_onclick'], 'but_href' => $this->_tpl_vars['but_href'], 'but_role' => $this->_tpl_vars['but_role'], )); ?>
+			 ?><form name="bb_request_form" action="<?php echo fn_url(""); ?>
+" method="post">
+	<div class="form-field">
+		<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
+</label>
+		<input id="bb_request_title" type="text" name="request[title]" size="50" maxlength="50" value="<?php echo $this->_tpl_vars['_REQUEST']['request_title']; ?>
+" class="input-text" />
+	</div>
+
+	<div class="form-field">
+		<label for="bb_request_desc" class="cm-required cm-trim"><?php echo fn_get_lang_var('description', $this->getLanguage()); ?>
+</label>
+		<textarea id="bb_request_desc" name="request[description]" size="255" maxlength="255" value="<?php echo $this->_tpl_vars['request']['desc']; ?>
+" class="input-textarea-long"><?php echo $this->_tpl_vars['request']['desc']; ?>
+</textarea>
+	</div>
+
+	<div class="form-field">
+		<label for="bb_max_price" class="cm-trim cm-integer"><?php echo fn_get_lang_var('max_price', $this->getLanguage()); ?>
+</label>
+		<input id="bb_max_price" type="text" name="request[max_price]" size="32" maxlength="32" value="<?php echo $this->_tpl_vars['request']['max_price']; ?>
+" class="input-text" />
+	</div>
+
+	<div class="form-field">
+		<label for="bb_over_max_price" class="cm-trim"><input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+" class="checkbox cm-check-items" /><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+</label>
+	</div>	
+
+	<div class="buttons-container">
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('submit', $this->getLanguage()), 'but_name' => "dispatch[billibuys.view]", 'but_id' => 'but_submit_request', )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -105,4 +136,9 @@ fn_preload_lang_vars(array('sign_in','delete'));
 </a></span></span>
 
 <?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php  ob_end_flush();  ?>
+<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	</div>
+</form>
+
+<?php ob_start(); ?><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
+<?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?><?php  ob_end_flush();  ?>

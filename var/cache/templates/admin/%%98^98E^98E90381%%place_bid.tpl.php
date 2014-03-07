@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 14:07:24
+<?php /* Smarty version 2.6.18, created on 2014-03-07 19:29:17
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 30, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 79, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 79, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 79, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 113, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 220, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 224, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 225, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 237, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 54, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 73, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 30, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 218, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 222, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 223, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 235, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 52, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('place_bid_instr','position_short','image','name','price','purchased_qty','subtotal_sum','quantity','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','no_data','btn_place_bid_txt','select_fields_to_edit','create_product_package','or','tools','add','products'));
 ?>
@@ -89,8 +89,6 @@ unset($_smarty_tpl_vars);
 <?php $_from = $this->_tpl_vars['products']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['product']):
 ?>
-
-
 
 <tr class="<?php echo smarty_function_cycle(array('values' => "table-row,"), $this);?>
  <?php echo $this->_tpl_vars['hide_inputs_if_shared_product']; ?>
