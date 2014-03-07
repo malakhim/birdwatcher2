@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 19:28:52
+<?php /* Smarty version 2.6.18, created on 2014-03-07 21:27:46
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 15, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 61, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 17, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 69, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','submit','delete','place_request'));
+fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','submit','delete','place_request'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -19,8 +19,11 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 						return;
 					}
 				}
-			 ?><form name="bb_request_form" action="<?php echo fn_url(""); ?>
+			 ?><script type="text/javascript" src="js/datepicker.js"></script>
+
+<form name="bb_request_form" action="<?php echo fn_url(""); ?>
 " method="post">
+
 	<div class="form-field">
 		<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
 </label>
@@ -44,9 +47,15 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 	</div>
 
 	<div class="form-field">
-		<label for="bb_over_max_price" class="cm-trim"><input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
-" class="checkbox cm-check-items" /><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+		<input type="checkbox" id="bb_over_max_price" name="allow_over_max_price" value="N" title="<?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+" class="checkbox cm-check-items"><?php echo fn_get_lang_var('bb_allow_over_max_price', $this->getLanguage()); ?>
+
+	</div>	
+
+	<div class="form-field">
+		<label for="bb_expiry_date" class="cm-trim cm-required"><?php echo fn_get_lang_var('bb_select_expiry_date', $this->getLanguage()); ?>
 </label>
+		<input type="text" name="expiry_date" id="bb_expiry_date"/>
 	</div>	
 
 	<div class="buttons-container">
@@ -141,4 +150,5 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 </form>
 
 <?php ob_start(); ?><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
-<?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?><?php  ob_end_flush();  ?>
+<?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>
+<?php  ob_end_flush();  ?>

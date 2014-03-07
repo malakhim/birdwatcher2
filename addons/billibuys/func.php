@@ -280,6 +280,8 @@ function fn_submit_bids($bb_data,$auth){
 				// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
 				$error_msg = fn_get_lang_var('bid_price_cannot_be_zero');
 			}
+		}elseif(!intval($request_item['max_price'])){
+			// Do nothing (since users can choose to place a request without a max price)
 		}else{
 			// Throw non-numeric error
 			// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
@@ -363,7 +365,7 @@ function fn_get_packages($auth){
 function fn_submit_request($user, $post = ''){
 	//Check that this function call is done after a post request
 	if(!empty($post)){
-
+		$post['expiry_date'] = strtotime($post['expiry_date']);
 		//Do actual insertion of request item name
 		//TODO: Return error messages for minimum and max string size
 		$id = db_query('INSERT INTO ?:bb_request_item ?e', $post['request']);

@@ -170,6 +170,7 @@
 		<item lang="EN" id="register_as_buyer">Register as a buyer</item>
 		<item lang="EN" id="footer_copyright">BilliBuys Pty Ltd. All Rights Reserved.</item>
 		<item lang="LM" id="footer_copyright">Lorem ipsum dolor sit amet, consectetue</item>
+		<item lang="EN" id="bb_select_expiry_date">Expiry Date</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>

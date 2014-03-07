@@ -136,9 +136,5 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}else{
 			fn_add_breadcrumb(fn_get_lang_var('bb_place_request'), "billibuys.place_request");
 		}
-	}elseif($mode == 'homepage_mktwo'){
-		// Placeholder to create a block here
 	}
-
-
 ?>

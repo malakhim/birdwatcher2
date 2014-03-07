@@ -10,6 +10,6 @@
 		{$lang.were_here_to_introduce_text}
 	</div><br/>
  	<div class="find_out_how_subbtn">
-		{$lang.find_out_more}
+		{$lang.find_out_how}
 	</div>
 </div>
