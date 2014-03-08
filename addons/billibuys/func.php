@@ -8,6 +8,10 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
+function fn_billibuys_save_session($sess_id, &$sess_data, $_row){
+	// echo($sess_data);
+}
+
 function fn_billibuys_update_profile($action, $user_data, $current_user_data){
 
 }

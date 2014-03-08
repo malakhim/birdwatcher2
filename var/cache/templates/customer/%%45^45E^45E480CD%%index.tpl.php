@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 11:26:04
+<?php /* Smarty version 2.6.18, created on 2014-03-08 23:39:13
          compiled from index.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'lower', 'index.tpl', 16, false),array('modifier', 'escape', 'index.tpl', 22, false),array('modifier', 'unescape', 'index.tpl', 25, false),array('modifier', 'strip_tags', 'index.tpl', 25, false),array('modifier', 'count', 'index.tpl', 27, false),array('modifier', 'html_entity_decode', 'index.tpl', 51, false),array('modifier', 'default', 'index.tpl', 51, false),array('modifier', 'fn_seo_is_indexed_page', 'index.tpl', 53, false),array('modifier', 'sizeof', 'index.tpl', 57, false),array('modifier', 'fn_link_attach', 'index.tpl', 59, false),array('modifier', 'fn_url', 'index.tpl', 59, false),array('modifier', 'defined', 'index.tpl', 86, false),array('modifier', 'fn_generate_security_hash', 'index.tpl', 213, false),array('modifier', 'fn_query_remove', 'index.tpl', 256, false),array('modifier', 'strpos', 'index.tpl', 257, false),array('block', 'hook', 'index.tpl', 45, false),array('function', 'join_css', 'index.tpl', 111, false),array('function', 'script', 'index.tpl', 130, false),array('function', 'render_location', 'index.tpl', 298, false),)), $this); ?>
@@ -79,7 +79,7 @@ if ($this->_foreach['bkt']['total'] > 0):
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/billibuys/hooks/index/styles.post.tpl' => 1394187645,
+  'addons/billibuys/hooks/index/styles.post.tpl' => 1394281419,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -134,8 +134,8 @@ if ($this->_foreach['bkt']['total'] > 0):
 /addons/discussion/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['wishlist']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
 /addons/wishlist/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['recurring_billing']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
 /addons/recurring_billing/styles.css" rel="stylesheet" type="text/css" /><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['billibuys']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
-/css/bootstrap.min.css" />
+<!-- <link rel="stylesheet" href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/css/bootstrap.min.css" /> -->
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -461,53 +461,7 @@ unset($_smarty_tpl_vars);
 	<?php endif; ?>
 </div>
 
-<?php $this->_tag_stack[] = array('hook', array('name' => "index:footer")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['statistics']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><script type="text/javascript">
-//<![CDATA[
-$(function()<?php echo $this->_tpl_vars['ldelim']; ?>
-
-	$.ajaxRequest('<?php echo fn_url("statistics.collect", 'C', 'rel', '&'); ?>
-', <?php echo $this->_tpl_vars['ldelim']; ?>
-
-		method: 'post',
-		data: <?php echo $this->_tpl_vars['ldelim']; ?>
-
-			've[url]': location.href,
-			've[title]': document.title,
-			've[browser_version]': $.ua.version,
-			've[browser]': $.ua.browser,
-			've[os]': $.ua.os,
-			've[client_language]': $.ua.language,
-			've[referrer]': document.referrer,
-			've[screen_x]': (screen.width || null),
-			've[screen_y]': (screen.height || null),
-			've[color]': (screen.colorDepth || screen.pixelDepth || null),
-			've[time_begin]': <?php echo @MICROTIME; ?>
-
-		<?php echo $this->_tpl_vars['rdelim']; ?>
-,
-		hidden: true
-	<?php echo $this->_tpl_vars['rdelim']; ?>
-);
-<?php echo $this->_tpl_vars['rdelim']; ?>
-);
-//]]>
-</script>
-
-<noscript>
-<?php ob_start(); ?>statistics.collect?ve[url]=<?php echo smarty_modifier_escape(@REAL_URL, 'url'); ?>
-&amp;ve[title]=<?php if ($this->_tpl_vars['page_title']): ?><?php echo smarty_modifier_escape($this->_tpl_vars['page_title'], 'url'); ?>
-<?php else: ?><?php echo smarty_modifier_escape($this->_tpl_vars['location_data']['page_title'], 'url'); ?>
-<?php $_from = $this->_tpl_vars['breadcrumbs']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }$this->_foreach['bkt'] = array('total' => count($_from), 'iteration' => 0);
-if ($this->_foreach['bkt']['total'] > 0):
-    foreach ($_from as $this->_tpl_vars['i']):
-        $this->_foreach['bkt']['iteration']++;
-?><?php if (($this->_foreach['bkt']['iteration']-1) == 1): ?> - <?php endif; ?><?php if (! ($this->_foreach['bkt']['iteration'] <= 1)): ?><?php echo smarty_modifier_escape($this->_tpl_vars['i']['title'], 'url'); ?>
-<?php if (! ($this->_foreach['bkt']['iteration'] == $this->_foreach['bkt']['total'])): ?> :: <?php endif; ?><?php endif; ?><?php endforeach; endif; unset($_from); ?><?php endif; ?>&amp;ve[referrer]=<?php echo smarty_modifier_escape($_SERVER['HTTP_REFERER'], 'url'); ?>
-&amp;ve[time_begin]=<?php echo @MICROTIME; ?>
-<?php $this->_smarty_vars['capture']['statistics_link'] = ob_get_contents(); ob_end_clean(); ?>
-<object data="<?php echo fn_url($this->_smarty_vars['capture']['statistics_link']); ?>
-" width="0" height="0"></object>
-</noscript><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php if ($this->_tpl_vars['addons']['google_analytics']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><script type="text/javascript">
+<?php $this->_tag_stack[] = array('hook', array('name' => "index:footer")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['google_analytics']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><script type="text/javascript">
 //<![CDATA[
 	var _gaq = _gaq || [];
 	_gaq.push(["_setAccount", "<?php echo $this->_tpl_vars['addons']['google_analytics']['tracking_code']; ?>

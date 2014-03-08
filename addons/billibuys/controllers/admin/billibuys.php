@@ -90,7 +90,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 
 		$view->assign('request',$request);
 	}elseif($mode == 'place_bid'){
-		var_dump($auth);
+		// var_dump($auth);
 		// Get list of products
 	$params = $_REQUEST;
 	$params['only_short_fields'] = true;

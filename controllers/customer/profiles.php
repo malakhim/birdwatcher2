@@ -14,7 +14,6 @@
 
 
 if ( !defined('AREA') )	{ die('Access denied');	}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($mode == 'update') {
 		if (Registry::get('settings.Image_verification.use_for_register') == 'Y' && fn_image_verification('register', empty($_REQUEST['verification_answer']) ? '' : $_REQUEST['verification_answer']) == false) {

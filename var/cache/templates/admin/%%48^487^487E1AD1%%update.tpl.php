@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 22:42:54
+<?php /* Smarty version 2.6.18, created on 2014-03-08 23:28:59
          compiled from views/products/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/update.tpl', 1, false),array('modifier', 'fn_get_usergroups', 'views/products/update.tpl', 1, false),array('modifier', 'unescape', 'views/products/update.tpl', 1, false),array('modifier', 'strip_tags', 'views/products/update.tpl', 1, false),array('modifier', 'fn_url', 'views/products/update.tpl', 28, false),array('modifier', 'fn_check_form_permissions', 'views/products/update.tpl', 28, false),array('modifier', 'defined', 'views/products/update.tpl', 28, false),array('modifier', 'fn_format_price', 'views/products/update.tpl', 96, false),array('modifier', 'empty_tabs', 'views/products/update.tpl', 765, false),array('modifier', 'in_array', 'views/products/update.tpl', 771, false),array('modifier', 'escape', 'views/products/update.tpl', 812, false),array('block', 'hook', 'views/products/update.tpl', 707, false),array('function', 'script', 'views/products/update.tpl', 759, false),)), $this); ?>
@@ -173,6 +173,7 @@ unset($_smarty_tpl_vars);
 
 
 
+<!--content_detailed--></div> 
 
 <div id="content_images" class="hidden"> <fieldset>
 	<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "common_templates/subheader.tpl", 'smarty_include_vars' => array('title' => fn_get_lang_var('additional_images', $this->getLanguage()))));

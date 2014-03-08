@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 22:41:12
+<?php /* Smarty version 2.6.18, created on 2014-03-08 23:25:04
          compiled from pickers/users_picker.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'pickers/users_picker.tpl', 1, false),array('modifier', 'default', 'pickers/users_picker.tpl', 17, false),array('modifier', 'is_array', 'pickers/users_picker.tpl', 21, false),array('modifier', 'explode', 'pickers/users_picker.tpl', 22, false),array('modifier', 'escape', 'pickers/users_picker.tpl', 32, false),array('modifier', 'fn_check_view_permissions', 'pickers/users_picker.tpl', 100, false),array('modifier', 'implode', 'pickers/users_picker.tpl', 127, false),array('modifier', 'fn_get_user_short_info', 'pickers/users_picker.tpl', 138, false),array('function', 'math', 'pickers/users_picker.tpl', 15, false),array('function', 'script', 'pickers/users_picker.tpl', 19, false),)), $this); ?>

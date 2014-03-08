@@ -1,16 +1,16 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 22:41:10
+<?php /* Smarty version 2.6.18, created on 2014-03-08 23:25:03
          compiled from views/product_options/update.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/product_options/update.tpl', 1, false),array('modifier', 'defined', 'views/product_options/update.tpl', 24, false),array('modifier', 'fn_url', 'views/product_options/update.tpl', 31, false),array('modifier', 'escape', 'views/product_options/update.tpl', 61, false),array('modifier', 'strpos', 'views/product_options/update.tpl', 63, false),array('modifier', 'unescape', 'views/product_options/update.tpl', 159, false),array('modifier', 'is_array', 'views/product_options/update.tpl', 277, false),array('modifier', 'fn_from_json', 'views/product_options/update.tpl', 278, false),array('modifier', 'lower', 'views/product_options/update.tpl', 281, false),array('block', 'hook', 'views/product_options/update.tpl', 191, false),array('function', 'math', 'views/product_options/update.tpl', 327, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/product_options/update.tpl', 1, false),array('modifier', 'defined', 'views/product_options/update.tpl', 24, false),array('modifier', 'fn_url', 'views/product_options/update.tpl', 31, false),array('modifier', 'escape', 'views/product_options/update.tpl', 61, false),array('modifier', 'strpos', 'views/product_options/update.tpl', 63, false),array('modifier', 'unescape', 'views/product_options/update.tpl', 159, false),array('modifier', 'is_array', 'views/product_options/update.tpl', 277, false),array('modifier', 'fn_from_json', 'views/product_options/update.tpl', 278, false),array('modifier', 'lower', 'views/product_options/update.tpl', 281, false),array('block', 'hook', 'views/product_options/update.tpl', 191, false),array('function', 'math', 'views/product_options/update.tpl', 321, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('general','variants','name','position','inventory','tt_views_product_options_update_inventory','vendor','type','selectbox','radiogroup','checkbox','text','textarea','file','selectbox','radiogroup','checkbox','text','textarea','file','description','comment','comment_hint','required','tt_views_product_options_update_required','missing_variants_handling','display_message','hide_option_completely','regexp','tt_views_product_options_update_regexp','regexp_hint','inner_hint','tt_views_product_options_update_inner_hint','incorrect_filling_message','tt_views_product_options_update_incorrect_filling_message','allowed_extensions','allowed_extensions_hint','max_uploading_file_size','max_uploading_file_size_hint','multiupload','position_short','name','modifier','type','weight_modifier','type','status','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','active','hidden','disabled','status','active','hidden','disabled','status','active','hidden','pending','disabled','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','extra','icon','earned_point_modifier','type','points_lower','active','hidden','disabled','status','active','hidden','disabled','status','active','hidden','pending','disabled','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','extra','icon','earned_point_modifier','type','points_lower','create'));
+fn_preload_lang_vars(array('general','variants','name','position','inventory','tt_views_product_options_update_inventory','vendor','type','selectbox','radiogroup','checkbox','text','textarea','file','selectbox','radiogroup','checkbox','text','textarea','file','description','comment','comment_hint','required','tt_views_product_options_update_required','missing_variants_handling','display_message','hide_option_completely','regexp','tt_views_product_options_update_regexp','regexp_hint','inner_hint','tt_views_product_options_update_inner_hint','incorrect_filling_message','tt_views_product_options_update_incorrect_filling_message','allowed_extensions','allowed_extensions_hint','max_uploading_file_size','max_uploading_file_size_hint','multiupload','position_short','name','modifier','type','weight_modifier','type','status','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','active','hidden','disabled','status','active','hidden','disabled','status','active','hidden','pending','disabled','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','extra','icon','active','hidden','disabled','status','active','hidden','disabled','status','active','hidden','pending','disabled','expand_collapse_list','expand_collapse_list','expand_collapse_list','expand_collapse_list','extra','icon','create'));
 ?>
 <?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'addons/reward_points/hooks/product_options/edit_product_options.post.tpl' => 1367063840,
+  'common_templates/select_status.tpl' => 1367063753,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);
@@ -476,21 +476,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 				</div>
-				<?php if ($this->_tpl_vars['addons']['reward_points']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><div class="form-field">
-	<label for="point_modifier_<?php echo $this->_tpl_vars['id']; ?>
-"><?php echo fn_get_lang_var('earned_point_modifier', $this->getLanguage()); ?>
-&nbsp;/&nbsp;<?php echo fn_get_lang_var('type', $this->getLanguage()); ?>
-:</label>
-	<input type="text" id="point_modifier_<?php echo $this->_tpl_vars['id']; ?>
-" name="option_data[variants][<?php echo $this->_tpl_vars['num']; ?>
-][point_modifier]" value="<?php echo $this->_tpl_vars['vr']['point_modifier']; ?>
-" size="5" class="input-text" />&nbsp;/&nbsp;<select name="option_data[variants][<?php echo $this->_tpl_vars['num']; ?>
-][point_modifier_type]">
-		<option value="A" <?php if ($this->_tpl_vars['vr']['point_modifier_type'] == 'A'): ?>selected="selected"<?php endif; ?>>(<?php echo fn_get_lang_var('points_lower', $this->getLanguage()); ?>
-)</option>
-		<option value="P" <?php if ($this->_tpl_vars['vr']['point_modifier_type'] == 'P'): ?>selected="selected"<?php endif; ?>>(%)</option>
-	</select>
-</div><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+				<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 				
 			</td>
 		</tr>
@@ -662,21 +648,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
 				</div>
-				<?php if ($this->_tpl_vars['addons']['reward_points']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><div class="form-field">
-	<label for="point_modifier_<?php echo $this->_tpl_vars['id']; ?>
-"><?php echo fn_get_lang_var('earned_point_modifier', $this->getLanguage()); ?>
-&nbsp;/&nbsp;<?php echo fn_get_lang_var('type', $this->getLanguage()); ?>
-:</label>
-	<input type="text" id="point_modifier_<?php echo $this->_tpl_vars['id']; ?>
-" name="option_data[variants][<?php echo $this->_tpl_vars['num']; ?>
-][point_modifier]" value="<?php echo $this->_tpl_vars['vr']['point_modifier']; ?>
-" size="5" class="input-text" />&nbsp;/&nbsp;<select name="option_data[variants][<?php echo $this->_tpl_vars['num']; ?>
-][point_modifier_type]">
-		<option value="A" <?php if ($this->_tpl_vars['vr']['point_modifier_type'] == 'A'): ?>selected="selected"<?php endif; ?>>(<?php echo fn_get_lang_var('points_lower', $this->getLanguage()); ?>
-)</option>
-		<option value="P" <?php if ($this->_tpl_vars['vr']['point_modifier_type'] == 'P'): ?>selected="selected"<?php endif; ?>>(%)</option>
-	</select>
-</div><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+				<?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 			</td>
 		</tr>
 		</tbody>

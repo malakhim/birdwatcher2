@@ -90,36 +90,71 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 				$sess_data['auth']['area'] = 'A';
 
-				// var_dump($sess_data);
-
-				// var_dump($user_data);die;
-
 				// based on $area, set account_type
 				$sess_name = str_replace(ACCOUNT_TYPE, 'vendor', SESS_NAME);
 				// get session id
 				$sess_id = fn_get_cookie($sess_name);
+
+				// Get user session data, modify parts of it to make it into vendor session data and save
+				// Oh dear god what have I done
+				// IM SORRY THERE WAS NO OTHER WAY
+				$sess_data = $_SESSION;
+				$sess_data['auth']['area'] = 'V';
+				$sess_data['auth']['user_type'] = 'V';
+				$sess_data['auth']['company_id'] = db_get_field('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
+				// echo db_quote('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
+				// var_dump($sess_id);
+				// var_dump($sess_data);
+				// $raw = '' ;
+				// $line = 0 ;
+				// $keys = array_keys($sess_data) ;
+
+				// foreach ($keys as $key) {
+				// 	$value = $data[$key] ;
+				// 	$line++;
+
+				// 	$raw .= $key . '|' . serialize($value);
+				// }
+
+				// $_row = array(
+				// 	'session_id' => $sess_id,
+				// 	'area' => $area,
+				// 	'expiry' => $new_expire,
+				// 	'data' => $sess_data					
+				// );
+
+				// db_query('REPLACE INTO ?:sessions ?e', $_row);
+
+				// db_query("UPDATE ?:sessions SET data = ?s WHERE session_id = ?s AND area = 'A'",$raw,$sess_id);
+				// Session::save($sess_id,$sess_data,'A');
+				// $new->write(session_id(),$_SESSION);
+				// die;
+				// var_dump($sess_id);
 				// initialise session
-				fn_init_user_session_data($sess_data, $user_data['user_id']);
+				// fn_init_user_session_data($sess_data, $user_data['user_id']);
 				// build session id if it doesn't exist
-				if (empty($sess_id)) {
+				// if (empty($sess_id)) {
 				// 	// change session name and generate new session id
-					session_name($sess_name);
-					session_regenerate_id();
-					$sess_id = session_id();
-				}
+					// session_name($sess_name);
+					// session_regenerate_id();
+					// $sess_id = session_id();
+				// }
+				// $current_session_id = Session::get_id();
 				// set session id for session
-				// Session::set_id($sess_id);
+				
 				// save session_id
-				// Session::save(Session::get_id(), $sess_data, $area);
+				// var_dump(session_id());
+				// Session::save($sess_id, $sess_data, $area);
+				// Session::set_id($current_session_id);
 
 				// var_dump($user_data);
 				// var_dump($sess_data);
 				// var_dump($sess_id);die;
 
 			// Regenerate session_id for security reasons
-			Session::regenerate_id();
-			fn_login_user($user_data['user_id']);
-			Helpdesk::auth();
+			// Session::regenerate_id();
+			// fn_login_user($user_data['user_id']);
+			// Helpdesk::auth();
 			
 			// Set system notifications
 			// if (Registry::get('config.demo_mode') != true && AREA == 'A' && !defined('DEVELOPMENT')) {

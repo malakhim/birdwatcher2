@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:20474:"<orders>
+a:2:{s:4:"data";s:18996:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -133,11 +133,11 @@ a:2:{s:4:"data";s:20474:"<orders>
 		<item group="sitemap.manage" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 	</side>
 </design><orders>
-	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
+	<!-- <item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
 	
-	<item title="shipments" dispatch="shipments.manage" active_option="settings.General.use_shipments" position="400" />
+	<item title="shipments" dispatch="shipments.manage" active_option="settings.General.use_shipments" position="400" /> -->
 	
 	
 	<side>
@@ -156,9 +156,9 @@ a:2:{s:4:"data";s:20474:"<orders>
 	<item title="promotions" dispatch="promotions.manage" position="600" />
 
 	<side>
-		<item group="products.manage" title="global_update" href="%INDEX_SCRIPT?dispatch=products.global_update" />
+		<!-- <item group="products.manage" title="global_update" href="%INDEX_SCRIPT?dispatch=products.global_update" />
 		<item group="products.manage" title="bulk_product_addition" href="%INDEX_SCRIPT?dispatch=products.m_add" />
-		<item group="products.manage" title="product_subscriptions" href="%INDEX_SCRIPT?dispatch=products.p_subscr" />
+		<item group="products.manage" title="product_subscriptions" href="%INDEX_SCRIPT?dispatch=products.p_subscr" /> -->
 	
 		<item group="categories.manage" title="bulk_category_addition" href="%INDEX_SCRIPT?dispatch=categories.m_add" />
 
@@ -296,26 +296,7 @@ a:2:{s:4:"data";s:20474:"<orders>
 		<item group="sitemap" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 		<item group="sitemap.manage" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 	</side>
-</design><administration>
-	<item title="statistics" dispatch="statistics.reports" position="150" />
-
-	<side>
-		<item group="statistics" title="users_online" href="%INDEX_SCRIPT?dispatch=statistics.visitors&amp;section=general&amp;report=online" />
-		<item group="statistics" title="all_users" href="%INDEX_SCRIPT?dispatch=statistics.visitors&amp;section=general&amp;client_type=U" />
-		<item group="statistics" title="remove_statistics" href="%INDEX_SCRIPT?dispatch=statistics.delete" meta="cm-confirm" />
-		<item group="banners.manage" title="banners_statistics" href="%INDEX_SCRIPT?dispatch=statistics.banners" />
-	</side>
-
-	<subitem item="statistics" title="general" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=general" />
-	<subitem item="statistics" title="system" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=system" />
-	<subitem item="statistics" title="geography" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=geography" />
-	<subitem item="statistics" title="referrers" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=referrers" />
-	<subitem item="statistics" title="pages" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=pages" />
-	<subitem item="statistics" title="audience" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=audience" />
-	<subitem item="statistics" title="products" href="%INDEX_SCRIPT?dispatch=statistics.reports&amp;reports_group=products" />
-
-</administration>
-<website>
+</design><website>
 	<item title="seo_rules" dispatch="seo_rules.manage" />
 </website><website>
 	<side>

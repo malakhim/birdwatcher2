@@ -291,9 +291,9 @@
 	{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='search_words' name="update_all_vendors[search_words]"}
 </div>
 </fieldset>
+*}
 
-
-<!--content_detailed--></div> *}{* /content detailed *}
+<!--content_detailed--></div> {* /content detailed *}
 
 {** /Product description section **}
 

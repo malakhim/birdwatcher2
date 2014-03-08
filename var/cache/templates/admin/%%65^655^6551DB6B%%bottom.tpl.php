@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 11:20:56
+<?php /* Smarty version 2.6.18, created on 2014-03-08 23:24:52
          compiled from bottom.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_link_attach', 'bottom.tpl', 1, false),array('modifier', 'defined', 'bottom.tpl', 15, false),array('modifier', 'fn_check_view_permissions', 'bottom.tpl', 23, false),array('modifier', 'fn_url', 'bottom.tpl', 26, false),array('modifier', 'sizeof', 'bottom.tpl', 42, false),array('modifier', 'default', 'bottom.tpl', 45, false),array('modifier', 'lower', 'bottom.tpl', 49, false),array('modifier', 'unescape', 'bottom.tpl', 58, false),array('modifier', 'truncate', 'bottom.tpl', 117, false),array('modifier', 'fn_check_meta_redirect', 'bottom.tpl', 130, false),array('block', 'hook', 'bottom.tpl', 109, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('open_store','close_store','live_store_description','live_store','dev_store_description','dev_store','select_descr_lang','select_descr_lang','users_online','cleanup_history','no_items','last_viewed_items'));
+fn_preload_lang_vars(array('open_store','close_store','live_store_description','live_store','dev_store_description','dev_store','select_descr_lang','select_descr_lang','cleanup_history','no_items','last_viewed_items'));
 ?>
 <?php  ob_start();  ?><?php 
 
@@ -178,10 +178,7 @@ _wrap_<?php echo $this->_tpl_vars['suffix']; ?>
 	<?php endif; ?>
 	<?php if (! defined('COMPANY_ID')): ?>
 		<div class="float-left">
-			<?php $this->_tag_stack[] = array('hook', array('name' => "index:top")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php if ($this->_tpl_vars['addons']['statistics']['status'] == 'A'): ?><?php $__parent_tpl_vars = $this->_tpl_vars; ?><a href="<?php echo fn_url("statistics.visitors?report=online&amp;section=general"); ?>
-" class="users-online" title="<?php echo fn_get_lang_var('users_online', $this->getLanguage()); ?>
-"><span><?php echo smarty_modifier_default(@$this->_tpl_vars['users_online'], 0); ?>
-</span></a><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?><?php endif; ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
+			<?php $this->_tag_stack[] = array('hook', array('name' => "index:top")); $_block_repeat=true;smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], null, $this, $_block_repeat);while ($_block_repeat) { ob_start(); ?><?php $_block_content = ob_get_contents(); ob_end_clean(); $_block_repeat=false;echo smarty_block_hook($this->_tag_stack[count($this->_tag_stack)-1][1], $_block_content, $this, $_block_repeat); }  array_pop($this->_tag_stack); ?>
 		</div>
 	<?php endif; ?>
 	<div class="float-left">
