@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-07 22:27:36
+<?php /* Smarty version 2.6.18, created on 2014-03-08 12:35:06
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'ucwords', 'addons/billibuys/views/billibuys/request.tpl', 22, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/request.tpl', 69, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/request.tpl', 43, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'ucwords', 'addons/billibuys/views/billibuys/request.tpl', 20, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/request.tpl', 67, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/request.tpl', 41, false),)), $this); ?>
 <?php
 fn_preload_lang_vars(array('no_max_price','item','price','name','quantity','total_price','delete','no_data','place_bid','delete','auction_finished','click_here_to_return_to_main_page'));
 ?>
@@ -21,8 +21,6 @@ fn_preload_lang_vars(array('no_max_price','item','price','name','quantity','tota
 				}
 			 ?><?php ob_start(); ?><?php echo $this->_tpl_vars['request']['title']; ?>
 <?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>
-
-
 
 <?php $_from = $this->_tpl_vars['request']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['r']):

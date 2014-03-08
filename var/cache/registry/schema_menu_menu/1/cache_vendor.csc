@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:20308:"<orders>
+a:2:{s:4:"data";s:20326:"<orders>
 	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
@@ -133,11 +133,11 @@ a:2:{s:4:"data";s:20308:"<orders>
 		<item group="sitemap.manage" title="sitemap_settings" href="%INDEX_SCRIPT?dispatch=settings.manage&amp;section_id=Sitemap" />
 	</side>
 </design><orders>
-	<item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
+	<!-- <item title="view_orders" dispatch="orders.manage" alt="order_management" position="100" />
 	<item title="sales_reports" dispatch="sales_reports.view" position="200" />
 	<item title="order_statuses" dispatch="statuses.manage" extra="type=O" position="300" />
 	
-	<item title="shipments" dispatch="shipments.manage" active_option="settings.General.use_shipments" position="400" />
+	<item title="shipments" dispatch="shipments.manage" active_option="settings.General.use_shipments" position="400" /> -->
 	
 	
 	<side>
@@ -156,9 +156,9 @@ a:2:{s:4:"data";s:20308:"<orders>
 	<item title="promotions" dispatch="promotions.manage" position="600" />
 
 	<side>
-		<item group="products.manage" title="global_update" href="%INDEX_SCRIPT?dispatch=products.global_update" />
+		<!-- <item group="products.manage" title="global_update" href="%INDEX_SCRIPT?dispatch=products.global_update" />
 		<item group="products.manage" title="bulk_product_addition" href="%INDEX_SCRIPT?dispatch=products.m_add" />
-		<item group="products.manage" title="product_subscriptions" href="%INDEX_SCRIPT?dispatch=products.p_subscr" />
+		<item group="products.manage" title="product_subscriptions" href="%INDEX_SCRIPT?dispatch=products.p_subscr" /> -->
 	
 		<item group="categories.manage" title="bulk_category_addition" href="%INDEX_SCRIPT?dispatch=categories.m_add" />
 

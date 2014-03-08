@@ -818,7 +818,7 @@ function fn_update_company($company_data, $company_id = 0, $lang_code = CART_LAN
 	
 	unset($company_data['company_id']);
 	$_data = $company_data;
-	
+
 	if (PRODUCT_TYPE != 'ULTIMATE') {
 		// Check if company with same email already exists
 		$is_exist = db_get_field("SELECT email FROM ?:companies WHERE company_id != ?i AND email = ?s", $company_id, $_data['email']);
@@ -829,7 +829,6 @@ function fn_update_company($company_data, $company_id = 0, $lang_code = CART_LAN
 			return false;
 		}
 	}
-
 	$_data['shippings'] = empty($company_data['shippings']) ? '' : fn_create_set($company_data['shippings']);
 	
 	if (!empty($_data['countries_list'])) {
@@ -848,14 +847,12 @@ function fn_update_company($company_data, $company_id = 0, $lang_code = CART_LAN
 		// company title can't be empty
 		if(empty($company_data['company'])) {
 			fn_set_notification('E', fn_get_lang_var('error'), fn_get_lang_var('error_empty_company_name'));
-
 			return false;
 		}
 
 		$_data['timestamp'] = TIME;
 
 		$company_id = db_query("INSERT INTO ?:companies ?e", $_data);
-
 		if (empty($company_id)) {
 			return false;
 		}

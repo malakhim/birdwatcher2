@@ -112,7 +112,6 @@ if ($mode == 'manage') {
 			$sess_name = SESS_NAME;
 		}
 		$sess_id = fn_get_cookie($sess_name);
-		
 		fn_init_user_session_data($sess_data, $_REQUEST['user_id']);
 
 		if (empty($sess_id)) {

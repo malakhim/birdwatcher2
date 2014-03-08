@@ -12,6 +12,9 @@
 
 <products>
 	<item title="products" dispatch="products.manage" position="200" />
+
+	<side>
+	</side>
 </products>
 
 <customers>

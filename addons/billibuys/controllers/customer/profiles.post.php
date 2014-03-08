@@ -5,6 +5,7 @@ if ( !defined('AREA') )	{ die('Access denied');	}
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if($mode == 'update'){
 
+		//This part creates the company
 		// Get data and modify it such that it is passable into fn_update_company
 		// Do we need to check if user exists? In that case get code from companies.php line 50
 		
@@ -38,6 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$company_id = fn_update_company($vdata);
 
+		define(COMPANY_ID,$company_id);
+
 		if(!$company_id){
 			fn_save_post_data();
 			fn_set_notification('E', fn_get_lang_var('error'), fn_get_lang_var('text_error_adding_request'));
@@ -45,15 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 		// Log user in as vendor (doesn't work!)
-		
 		$_POST['password'] = $udata['password1'];
 
 		$vreg_data = array(
 			'return_url' => 'profiles.update',
 			'user_login' => $udata['email'],
 			'password' => $udata['password1'],
-			'dispatch' => 'vendor.php?dispatch=auth.login'
 		);
+
+		// Change user type to Vendor and company ID to the one that was just created
+		db_query("UPDATE ?:users SET ?u WHERE user_id = ?i", array('user_type' => 'V', 'company_id' => $company_id), $user_data['user_id']);
 
 		list($status, $user_data, $user_login, $password, $salt) = fn_auth_routines($vreg_data, $auth);
 
@@ -63,46 +67,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			return array(CONTROLLER_STATUS_REDIRECT, "$_SERVER[HTTP_REFERER]$suffix");
 		}
 
-
+		list($status, $user_data, $user_login, $password, $salt) = fn_auth_routines($vreg_data, $auth);
 
 		//
 		// Success login
 		//
 		if (!empty($user_data) && !empty($password) && fn_generate_salted_password($password, $salt) == $user_data['password']) {
 
+			// check user data exists
+			// $user_data_v = db_get_row("SELECT * FROM ?:users WHERE user_id = ?i $condition", $user_data['user_id']);
+
+			//set area
+			$area = 'V';
+
+			if (!empty($user_data)) {
+				// build session data
+				$sess_data = array(
+					'auth' => fn_fill_auth($user_data, array(), false, $area),
+					'last_status' => empty($_SESSION['last_status']) ? '' : $_SESSION['last_status'],
+				);
+
+				$sess_data['auth']['area'] = 'A';
+
+				// var_dump($sess_data);
+
+				// var_dump($user_data);die;
+
+				// based on $area, set account_type
+				$sess_name = str_replace(ACCOUNT_TYPE, 'vendor', SESS_NAME);
+				// get session id
+				$sess_id = fn_get_cookie($sess_name);
+				// initialise session
+				fn_init_user_session_data($sess_data, $user_data['user_id']);
+				// build session id if it doesn't exist
+				if (empty($sess_id)) {
+				// 	// change session name and generate new session id
+					session_name($sess_name);
+					session_regenerate_id();
+					$sess_id = session_id();
+				}
+				// set session id for session
+				Session::set_id($sess_id);
+				// save session_id
+				Session::save(Session::get_id(), $sess_data, $area);
+
+				// var_dump($user_data);
+				// var_dump($sess_data);
+				// var_dump($sess_id);die;
+
 			// Regenerate session_id for security reasons
 			Session::regenerate_id();
-			
 			fn_login_user($user_data['user_id']);
-			
 			Helpdesk::auth();
 			
 			// Set system notifications
-			if (Registry::get('config.demo_mode') != true && AREA == 'A' && !defined('DEVELOPMENT')) {
+			// if (Registry::get('config.demo_mode') != true && AREA == 'A' && !defined('DEVELOPMENT')) {
 
-				// If username equals to the password
-				if (fn_compare_login_password($user_data, $password)) {
-					if (Registry::get('settings.General.use_email_as_login') == 'Y') {
-						$msg = fn_get_lang_var('warning_insecure_password_email');
-					} else {
-						$msg = fn_get_lang_var('warning_insecure_password');
-					}
-					$msg = str_replace('[link]', fn_url('profiles.update'), $msg);
-					fn_set_notification('E', fn_get_lang_var('warning'), $msg, 'S', 'insecure_password');
-				}
-				if (empty($auth['company_id']) && !empty($auth['user_id'])) {
-					// Insecure admin script
-					if (Registry::get('config.admin_index') == 'admin.php') {
-						fn_set_notification('E', fn_get_lang_var('warning'), fn_get_lang_var('warning_insecure_admin_script'), 'S');
-					}
+			// 	// If username equals to the password
+			// 	if (fn_compare_login_password($user_data, $password)) {
+			// 		if (Registry::get('settings.General.use_email_as_login') == 'Y') {
+			// 			$msg = fn_get_lang_var('warning_insecure_password_email');
+			// 		} else {
+			// 			$msg = fn_get_lang_var('warning_insecure_password');
+			// 		}
+			// 		$msg = str_replace('[link]', fn_url('profiles.update'), $msg);
+			// 		fn_set_notification('E', fn_get_lang_var('warning'), $msg, 'S', 'insecure_password');
+			// 	}
+			// 	if (empty($auth['company_id']) && !empty($auth['user_id'])) {
+			// 		// Insecure admin script
+			// 		if (Registry::get('config.admin_index') == 'admin.php') {
+			// 			fn_set_notification('E', fn_get_lang_var('warning'), fn_get_lang_var('warning_insecure_admin_script'), 'S');
+			// 		}
 
-					fn_set_hook('set_admin_notification', $auth);
-				}	
-			}
+			// 		fn_set_hook('set_admin_notification', $auth);
+			// 	}	
+			// }
 
-			if (!empty($_REQUEST['remember_me'])) {
-				fn_set_session_data(AREA_NAME . '_user_id', $user_data['user_id'], COOKIE_ALIVE_TIME);
-				fn_set_session_data(AREA_NAME . '_password', $user_data['password'], COOKIE_ALIVE_TIME);
+			// if (!empty($_REQUEST['remember_me'])) {
+			// 	fn_set_session_data(AREA_NAME . '_user_id', $user_data['user_id'], COOKIE_ALIVE_TIME);
+			// 	fn_set_session_data(AREA_NAME . '_password', $user_data['password'], COOKIE_ALIVE_TIME);
 			}
 
 			// Set last login time
@@ -130,10 +173,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$redirect_url = "upgrade_center.ie7notify";
 			}
 
-			// Change user type to Vendor and company ID to the one that was just created
-			db_query("UPDATE ?:users SET ?u WHERE user_id = ?i", array('user_type' => 'V', 'company_id' => $company_id), $user_data['user_id']);
 
-			return array(CONTROLLER_STATUS_OK, "billibuys.view");
+
+			// return array(CONTROLLER_STATUS_OK, "billibuys.view");
 		}
 	}
 }

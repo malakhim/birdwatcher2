@@ -1090,8 +1090,6 @@ function fn_update_user($user_id, $user_data, &$auth, $ship_to_another, $notify_
 				return false;
 			}
 		}
-
-		
 		
 		if (PRODUCT_TYPE == 'MULTIVENDOR') {
 			if (AREA != 'A') {
