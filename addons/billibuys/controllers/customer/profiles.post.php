@@ -56,8 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			'password' => $udata['password1'],
 		);
 
-
-
 		list($status, $user_data, $user_login, $password, $salt) = fn_auth_routines($vreg_data, $auth);
 
 		// Change user type to Vendor and company ID to the one that was just created
@@ -69,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			return array(CONTROLLER_STATUS_REDIRECT, "$_SERVER[HTTP_REFERER]$suffix");
 		}
 
+		// To retrieve the new company status and user type
 		list($status, $user_data, $user_login, $password, $salt) = fn_auth_routines($vreg_data, $auth);
 
 		//
@@ -109,9 +108,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					$sess_id = session_id();
 				}
 				// set session id for session
-				Session::set_id($sess_id);
+				// Session::set_id($sess_id);
 				// save session_id
-				Session::save(Session::get_id(), $sess_data, $area);
+				// Session::save(Session::get_id(), $sess_data, $area);
 
 				// var_dump($user_data);
 				// var_dump($sess_data);
