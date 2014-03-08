@@ -56,10 +56,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			'password' => $udata['password1'],
 		);
 
-		// Change user type to Vendor and company ID to the one that was just created
-		db_query("UPDATE ?:users SET ?u WHERE user_id = ?i", array('user_type' => 'V', 'company_id' => $company_id), $user_data['user_id']);
+
 
 		list($status, $user_data, $user_login, $password, $salt) = fn_auth_routines($vreg_data, $auth);
+
+		// Change user type to Vendor and company ID to the one that was just created
+		db_query("UPDATE ?:users SET ?u WHERE user_id = ?i", array('user_type' => 'V', 'company_id' => $company_id), $user_data['user_id']);
 
 		if ($status === false) {
 			fn_save_post_data();
