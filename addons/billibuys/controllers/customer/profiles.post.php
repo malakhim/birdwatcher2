@@ -101,9 +101,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$sess_data = $_SESSION;
 				$sess_data['auth']['area'] = 'V';
 				$sess_data['auth']['user_type'] = 'V';
+				$sess_data['auth']['user_type'] = array();
 				$sess_data['auth']['company_id'] = db_get_field('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
-
-
 
 				// echo db_quote('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
 				// var_dump($sess_id);
@@ -130,11 +129,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 				// db_query("UPDATE ?:sessions SET data = ?s WHERE session_id = ?s AND area = 'A'",$raw,$sess_id);
 				$c_sess_id = session_id();
-				var_dump($c_sess_id);
-				Session::save($c_sess_id,$_SESSION,'C');
-				Session::save($sess_id,$sess_data,'A');
-				
+				// Session::save($c_sess_id,$_SESSION,'C');
 				// Session::regenerate_id();
+				// Session::save($sess_id,$sess_data,'A');
+				// Get db entry
+				$s_data = db_query("SELECT * FROM ?:sessions WHERE session_id = ?s", $c_sess_id);
+
+				// Get auth data
+				// $auth_data = substr($s_data['data'],0,strpos($s_data['data'],'auth')-1);
+
+				// Make necessary modifications to auth data
+				
+				// Save new data into vendor side
+
 				// fn_login_user($user_data['user_id']);
 				// Helpdesk::auth();
 				// $new->write(session_id(),$_SESSION);
