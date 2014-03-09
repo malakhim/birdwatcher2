@@ -102,6 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$sess_data['auth']['area'] = 'V';
 				$sess_data['auth']['user_type'] = 'V';
 				$sess_data['auth']['company_id'] = db_get_field('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
+
+
+
 				// echo db_quote('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
 				// var_dump($sess_id);
 				// var_dump($sess_data);
@@ -126,7 +129,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// db_query('REPLACE INTO ?:sessions ?e', $_row);
 
 				// db_query("UPDATE ?:sessions SET data = ?s WHERE session_id = ?s AND area = 'A'",$raw,$sess_id);
-				// Session::save($sess_id,$sess_data,'A');
+				$c_sess_id = session_id();
+				var_dump($c_sess_id);
+				Session::save($c_sess_id,$_SESSION,'C');
+				Session::save($sess_id,$sess_data,'A');
+				
+				// Session::regenerate_id();
+				// fn_login_user($user_data['user_id']);
+				// Helpdesk::auth();
 				// $new->write(session_id(),$_SESSION);
 				// die;
 				// var_dump($sess_id);
@@ -134,17 +144,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// fn_init_user_session_data($sess_data, $user_data['user_id']);
 				// build session id if it doesn't exist
 				// if (empty($sess_id)) {
-				// 	// change session name and generate new session id
-					// session_name($sess_name);
-					// session_regenerate_id();
-					// $sess_id = session_id();
+					// change session name and generate new session id
+				// $sess_name = str_replace(ACCOUNT_TYPE, 'customer', SESS_NAME);
+				// session_name($sess_name);
+				// session_regenerate_id();
+				// $sess_id = session_id();
 				// }
 				// $current_session_id = Session::get_id();
 				// set session id for session
-				
 				// save session_id
 				// var_dump(session_id());
-				// Session::save($sess_id, $sess_data, $area);
+				// Session::save($sess_id, $_SESSION, 'C');
 				// Session::set_id($current_session_id);
 
 				// var_dump($user_data);
@@ -209,9 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$redirect_url = "upgrade_center.ie7notify";
 			}
 
-
-
-			// return array(CONTROLLER_STATUS_OK, "billibuys.view");
+			return array(CONTROLLER_STATUS_OK, "billibuys.view");
 		}
 	}
 }

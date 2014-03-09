@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 12:27:39
+<?php /* Smarty version 2.6.18, created on 2014-03-09 11:16:30
          compiled from buttons/register_profile.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'replace', 'buttons/register_profile.tpl', 40, false),array('modifier', 'fn_url', 'buttons/register_profile.tpl', 40, false),)), $this); ?>
