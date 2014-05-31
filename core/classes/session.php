@@ -80,6 +80,7 @@ class Session {
 
 	static function save($sess_id, $sess_data, $area = AREA)
 	{
+
 		static $saved = false;
 
 		if ($saved == true) {

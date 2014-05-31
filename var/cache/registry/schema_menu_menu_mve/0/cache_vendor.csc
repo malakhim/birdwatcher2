@@ -1,4 +1,4 @@
-a:2:{s:4:"data";s:842:"<products>
+a:2:{s:4:"data";s:851:"<products>
 	<item title="bb_billibuys" dispatch="billibuys.view_requests" />
 </products>
 <customers>
@@ -13,6 +13,6 @@ a:2:{s:4:"data";s:842:"<products>
 		<item group="companies.update" title="view_vendor_users" href="%INDEX_SCRIPT?dispatch=profiles.manage&amp;company_id=%COMPANY_ID" />
 		<item group="companies.update" title="view_vendor_orders" href="%INDEX_SCRIPT?dispatch=orders.manage&amp;company_id=%COMPANY_ID" />
 	</side>
-	<item title="vendor_account_balance" dispatch="companies.balance" position="200" />
+	<!-- <item title="vendor_account_balance" dispatch="companies.balance" position="200" /> -->
 </vendors>
 ";s:6:"expiry";i:0;}

@@ -1007,7 +1007,7 @@ function fn_attach_image_pairs($name, $object_type, $object_id = 0, $lang_code =
 	$detailed = fn_filter_uploaded_data($name . '_image_detailed');
 	$pairs_data = !empty($_REQUEST[$name . '_image_data']) ? $_REQUEST[$name . '_image_data'] : array();
 
-	return fn_update_image_pairs($icons, $detailed, $pairs_data, $object_id, $object_type, $object_ids, $parent_object, $parent_object_id, true, $lang_code);
+return fn_update_image_pairs($icons, $detailed, $pairs_data, $object_id, $object_type, $object_ids, $parent_object, $parent_object_id, true, $lang_code);
 }
 
 function fn_generate_thumbnail($image_path, $width, $height = 0, $make_box = false)

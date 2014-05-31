@@ -9,11 +9,16 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
+		fn_add_breadcrumb(fn_get_lang_var('view_requests'), "billibuys.view");
 		// Stub for viewing own auctions
 		$search_params = Array(
 			'user'         => $auth['user_id'],
 			'own_auctions' => false,
+			'current'	   => true,
 		);
+
+		// Add whatever other request parameters into the search params
+		$search_params = array_merge($_REQUEST,$search_params);
 
 		$user = $search_params['user'];
 
@@ -28,16 +33,16 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		}
 
 		if($requests['success'] == 1){
-			foreach($requests as &$request){
+			foreach($requests as $key=>&$request){
 				if(is_array($request)){
 					//Get duration since auction was placed
 					//Find number of hours since placed, and divide by $HOURS_PER_DAY to indicate number of days since placed if over $HOURS_PER_DAY (24)
-					$timediff = microtime(true) - $request['timestamp'];
+					// $timediff = microtime(true) - $request['timestamp'];
+					$timediff = $request['expiry_date'] - microtime(true);
 					$duration = Array(
 						'error' => 0, 
 						'msg'   => null,
 						'value' => 0,
-
 					);
 					if($timediff > 0){
 						if($timediff < SECONDS_PER_MINUTE){
@@ -70,14 +75,24 @@ if ( !defined('AREA') ) { die('Access denied'); }
 							//TODO: Send mail
 						}
 					}else{
-						// microtime(true) < $request['timedate'] (Something's gone horribly wrong here folks)
 						$duration = array_merge($duration, Array('error' => 1, 'msg' => 'nonpositive_value'));
+						unset($requests[$key]); // FIXME: This should be done in database function as a conditional rather than in php
 						//TODO: Send mail
 					}
 					$request['timestamp'] = $duration;
 				}
 			}
 		}
+		
+
+		if($_REQUEST['category_id'] > 0){
+			$cat_title = db_get_field("SELECT category_name FROM ?:bb_request_category_descriptions WHERE lang_code = ?s AND bb_request_category_id = ?i",CART_LANGUAGE,$_REQUEST['category_id']);
+			if($cat_title){
+				$view->assign('category_title',$cat_title);
+				fn_add_breadcrumb($cat_title,'index.php?dispatch=billibuys.view&category_id='.$_REQUEST['category_id']);
+			}
+		}
+
 		$view->assign('requests',$requests);
 	}elseif($mode == 'request'){
 
@@ -131,11 +146,14 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		$view->assign('request',$request);
 		$view->assign('expired',$request['expiry date'] <= microtime(true));
 		$view->assign('expiry',date('d-m-Y',$request['expiry date']));
+
 	}elseif($mode == 'place_request'){
 		if(!$auth['user_id']){
 			// Redirect user to login if they ended up on this page accidentally (or otherwise)
 			return array(CONTROLLER_STATUS_REDIRECT, "auth.login_form");
 		}else{
+			$categories = fn_bb_get_categories();
+			$view->assign('categories',$categories);
 			fn_add_breadcrumb(fn_get_lang_var('bb_place_request'), "billibuys.place_request");
 		}
 	}

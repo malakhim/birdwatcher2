@@ -48,10 +48,11 @@
 				{include file="buttons/button.tpl" but_text=$lang.my_order_details but_href="orders.details?order_id=`$order_info.order_id`"}
 			{/if}
 		{/if}
-		&nbsp;{include file="buttons/button.tpl" but_text=$lang.view_orders but_href="orders.search"}
+		&nbsp;{*include file="buttons/button.tpl" but_text=$lang.view_orders but_href="orders.search"*}
 	</div>
 	<div class="float-right">
-		{include file="buttons/continue_shopping.tpl" but_role="text" but_meta="text-button-vmid" but_href=$continue_url|default:$index_script}
+		{*include file="buttons/continue_shopping.tpl" but_role="text" but_meta="text-button-vmid" but_href=$continue_url|default:$index_script*}
+		{include file="buttons/continue_shopping.tpl" but_role="text" but_meta="text-button-vmid" but_href="billibuys.view"|fn_url}
 	</div>
 </div>
 

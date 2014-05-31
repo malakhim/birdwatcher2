@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 23:39:14
+<?php /* Smarty version 2.6.18, created on 2014-06-01 06:24:56
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 18, false),array('modifier', 'escape', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 22, false),array('modifier', 'trim', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 48, false),array('modifier', 'fn_needs_image_verification', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 73, false),array('modifier', 'uniqid', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 76, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/my_account.tpl', 24, false),)), $this); ?>

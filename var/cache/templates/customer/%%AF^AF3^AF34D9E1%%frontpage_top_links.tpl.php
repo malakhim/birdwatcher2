@@ -1,9 +1,12 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 23:49:16
+<?php /* Smarty version 2.6.18, created on 2014-06-01 06:24:54
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('about','testimonials','contact_us','log_in','register'));
 ?>
 <?php  ob_start();  ?>
+<link href="<?php echo $this->_tpl_vars['config']['skin_path']; ?>
+/customer/css/960/960_old.css" rel="stylesheet" type="text/css" />
+
 <?php echo '
 <script src="addons/billibuys/js/home.js" type="text/javascript"></script>
 '; ?>

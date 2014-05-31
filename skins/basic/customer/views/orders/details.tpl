@@ -25,7 +25,7 @@
 				{hook name="orders:details_bullets"}
 				{/hook}
 			{/if}
-			<li>{include  file="buttons/button.tpl" but_role="text" but_text=$lang.re_order but_href="orders.reorder?order_id=`$order_info.order_id`"}</li>
+			{*<li>{include  file="buttons/button.tpl" but_role="text" but_text=$lang.re_order but_href="orders.reorder?order_id=`$order_info.order_id`"}</li>*}
 			</ul>
 		</div>
 	{/if}

@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					fn_delete_session_data('cu_id');
 				}
 				
-				Session::regenerate_id();
+				// Session::regenerate_id();
 			}
 
 			if (!empty($_REQUEST['return_url'])) {

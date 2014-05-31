@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			return array(CONTROLLER_STATUS_REDIRECT, "profiles.add");
 		}
 
-		// Log user in as vendor (doesn't work!)
+		// Log user in as vendor
 		$_POST['password'] = $udata['password1'];
 
 		$vreg_data = array(
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// based on $area, set account_type
 				$sess_name = str_replace(ACCOUNT_TYPE, 'vendor', SESS_NAME);
 				// get session id
-				$sess_id = fn_get_cookie($sess_name);
+				$v_sess_id = fn_get_cookie($sess_name);
 
 				// Get user session data, modify parts of it to make it into vendor session data and save
 				// Oh dear god what have I done
@@ -104,6 +104,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$sess_data['auth']['user_type'] = array();
 				$sess_data['auth']['company_id'] = db_get_field('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
 
+				$c_sess_id = Session::get_id();
+// 				Session::save($c_sess_id,$sess_data,'C');
+				// Session::save($v_sess_id,$sess_data,'A');
+// die;
 				// echo db_quote('SELECT company_id FROM ?:users WHERE user_id = ?i',$user_data['user_id']);
 				// var_dump($sess_id);
 				// var_dump($sess_data);
@@ -128,15 +132,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// db_query('REPLACE INTO ?:sessions ?e', $_row);
 
 				// db_query("UPDATE ?:sessions SET data = ?s WHERE session_id = ?s AND area = 'A'",$raw,$sess_id);
-				$c_sess_id = session_id();
-				// Session::save($c_sess_id,$_SESSION,'C');
-				// Session::regenerate_id();
-				// Session::save($sess_id,$sess_data,'A');
-				// Get db entry
-				$s_data = db_query("SELECT * FROM ?:sessions WHERE session_id = ?s", $c_sess_id);
+				// var_dump(session_id());
+				// $c_sess_id = Session::get_id();
+				// // Session::save($c_sess_id,$_SESSION,'C');
+				// // Session::regenerate_id();
+				// // Session::save($sess_id,$sess_data,'A');
+				// // Get db entry for customer
+				// // var_dump($c_sess_id);
+				// $s_data = Session::read($c_sess_id);
 
-				// Get auth data
-				// $auth_data = substr($s_data['data'],0,strpos($s_data['data'],'auth')-1);
+				// // var_dump($s_data);
+
+				// // Get auth data out of that
+				// $auth_data = substr($s_data['data'],strpos($s_data['data'],'auth'),strpos($s_data['data'],'cart'));
+
+				// var_dump($auth_data);die;
 
 				// Make necessary modifications to auth data
 				
@@ -151,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// fn_init_user_session_data($sess_data, $user_data['user_id']);
 				// build session id if it doesn't exist
 				// if (empty($sess_id)) {
-					// change session name and generate new session id
+				// change session name and generate new session id
 				// $sess_name = str_replace(ACCOUNT_TYPE, 'customer', SESS_NAME);
 				// session_name($sess_name);
 				// session_regenerate_id();
@@ -161,9 +171,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				// set session id for session
 				// save session_id
 				// var_dump(session_id());
-				// Session::save($sess_id, $_SESSION, 'C');
-				// Session::set_id($current_session_id);
-
+				// $c_sess_data = $_SESSION;
+				// $c_sess_id = Session::get_id();
+				// Session::set_id($v_sess_id);
+				// Session::save($sess_id, $sess_data, 'A');
+				// Session::set_id($c_sess_id);
+				// // fn_init_user_session_data($sess_data, $_REQUEST['user_id']);
+				// Session::save($c_sess_id,$c_sess_data,'C');
 				// var_dump($user_data);
 				// var_dump($sess_data);
 				// var_dump($sess_id);die;

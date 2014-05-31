@@ -34,8 +34,9 @@
 				`request_item_id` int(11) unsigned,
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
-				`allow_over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
-				`item_added_to_cart` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`expiry_date` int(11) unsigned NOT NULL,
+				`allow_over_max_price` tinyint(1) ZEROFILL unsigned NOT NULL,
+				`item_added_to_cart` tinyint(1) ZEROFILL unsigned NOT NULL,
 				`request_category_id` int(11) unsigned,
 				PRIMARY KEY (`bb_request_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
@@ -48,7 +49,8 @@
 				`request_id` int(11),
 				`ip_address` int(11) unsigned NOT NULL,
 				`timestamp` int(11) unsigned NOT NULL,
-				`allow_over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`expiry_date` int(11) unsigned NOT NULL,
+				`allow_over_max_price` tinyint(1) ZEROFILL unsigned NOT NULL,
 				`request_category_id` int(11) unsigned,
 				PRIMARY KEY (`bb_request_archive_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
@@ -78,7 +80,7 @@
 				`title` VARCHAR(50),
 				`description` VARCHAR(500),
 				`max_price` DECIMAL(10,2),
-				`over_max_price` tinyint(2) ZEROFILL unsigned NOT NULL,
+				`over_max_price` tinyint(1) ZEROFILL unsigned NOT NULL,
 				PRIMARY KEY (`bb_request_item_id`)
 			) Engine=MyISAM DEFAULT CHARSET UTF8;
 		</item>
@@ -136,6 +138,14 @@
 		<item lang="EN" id="place_bid">Place Bid</item>
 		<item lang="EN" id="create_product_package">Create new Product/Package</item>
 		<item lang="EN" id="bb_manage_billibuys_categories">Manage Billibuys Categories</item>
+
+		<!-- Menu items -->
+		<item lang="EN" id="my_activity">My Activity</item>
+		<item lang="EN" id="buy">Buy</item>
+		<item lang="EN" id="sell">Sell</item>
+		<item lang="EN" id="bidsoffers">Bids/Offers</item>
+		<item lang="EN" id="support">Support</item>
+		<item lang="EN" id="bb_browse">Browse</item>
 
 		<!-- Back end package view variables -->
 		<item lang="EN" id="add_package">Add Package</item>
@@ -246,11 +256,14 @@
 		<item lang="EN" id="reassign_requests_from_this_category_to_delete">Reassign requests from this category to delete it!</item>
 		<item lang="EN" id="your_bid_amount">Your bid amount is: </item>
 		<item lang="EN" id="bid_name_matching_error">Your item does not match what the buyer requested. Please choose another item.</item>
-		<item lang="EN" id="bid_price_cannot_be_zero">You cannot give away items for free in bids. Please put a price on your bid.</item>
+		<item lang="EN" id="bid_price_cannot_be_zero">You cannot give away items for free in bids. Please put a non-negative price on your bid.</item>
+		<item lang="EN" id="qty_cannot_be_zero">Please enter a non-negative quantity.</item>
 		<item lang="EN" id="no_request_item_selected">Please choose an item to bid with.</item>
 
-		<!-- Frontend main view page variables-->
-		<item lang="EN" id="view_requests">Current Requests</item>		
+		<!-- Frontend billibuys.view variables-->
+		<item lang="EN" id="view_requests">Current Requests</item>
+		<item lang="EN" id="item_and_description">Item and Description</item>
+		<item lang="EN" id="time_remaining">Time remaining</item>
 
 	</language_variables>
 </addon>

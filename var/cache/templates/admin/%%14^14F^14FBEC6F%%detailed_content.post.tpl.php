@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 23:25:02
+<?php /* Smarty version 2.6.18, created on 2014-03-10 02:13:38
          compiled from addons/bundled_products/hooks/products/detailed_content.post.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('bundled_products','use_as_a_bundle'));

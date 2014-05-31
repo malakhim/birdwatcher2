@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 23:24:51
+<?php /* Smarty version 2.6.18, created on 2014-06-01 06:24:34
          compiled from top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'truncate', 'top.tpl', 18, false),array('modifier', 'fn_url', 'top.tpl', 22, false),array('modifier', 'escape', 'top.tpl', 22, false),array('modifier', 'defined', 'top.tpl', 48, false),array('modifier', 'sizeof', 'top.tpl', 71, false),array('modifier', 'substr', 'top.tpl', 75, false),array('modifier', 'fn_strlen', 'top.tpl', 76, false),array('block', 'hook', 'top.tpl', 156, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('view_storefront','search','loading','vendor','dashboard','go','search_tooltip'));
+fn_preload_lang_vars(array('view_storefront','search','loading','dashboard','go','search_tooltip'));
 ?>
 <?php 
 
@@ -168,11 +168,7 @@ _wrap_" class="popup-tools cm-popup-box cm-smart-position hidden">
 	</div>
 </div><?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 	<?php else: ?>
-			<?php echo fn_get_lang_var('vendor', $this->getLanguage()); ?>
-: <a href="<?php echo fn_url("companies.update?company_id=".($this->_tpl_vars['s_company'])); ?>
-"><?php echo $this->_tpl_vars['s_companies'][$this->_tpl_vars['s_company']]['company']; ?>
-</a>
-	<?php endif; ?>
+				<?php endif; ?>
 	</div>
 <?php endif; ?>
 	<ul id="menu">

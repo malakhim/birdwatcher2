@@ -12,6 +12,7 @@
 {/if}
 
 <form action="{""|fn_url}" method="post" name="product_update_form" class="cm-form-highlight cm-disable-empty-files {if ""|fn_check_form_permissions || ("COMPANY_ID"|defined && $product_data.shared_product == "Y" && $product_data.company_id != $smarty.const.COMPANY_ID)} cm-hide-inputs{/if}" enctype="multipart/form-data"> {* product update form *}
+<input type="hidden" name="request_id" value="{$smarty.request.request_id}">
 <input type="hidden" name="fake" value="1" />
 <input type="hidden" class="{$no_hide_input_if_shared_product}" name="selected_section" id="selected_section" value="{$smarty.request.selected_section}" />
 <input type="hidden" class="{$no_hide_input_if_shared_product}" name="product_id" value="{$id}" />

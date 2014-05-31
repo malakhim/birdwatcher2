@@ -1,9 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-09 17:08:49
+<?php /* Smarty version 2.6.18, created on 2014-03-10 02:11:47
          compiled from views/products/manage.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_url', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_query_remove', 'views/products/manage.tpl', 25, false),array('modifier', 'unescape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_generate_thumbnail', 'views/products/manage.tpl', 78, false),array('modifier', 'escape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_get_company_name', 'views/products/manage.tpl', 103, false),array('modifier', 'fn_format_price', 'views/products/manage.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'views/products/manage.tpl', 166, false),array('modifier', 'lower', 'views/products/manage.tpl', 212, false),array('modifier', 'is_array', 'views/products/manage.tpl', 216, false),array('modifier', 'fn_from_json', 'views/products/manage.tpl', 217, false),array('modifier', 'trim', 'views/products/manage.tpl', 287, false),array('modifier', 'substr_count', 'views/products/manage.tpl', 402, false),array('modifier', 'replace', 'views/products/manage.tpl', 403, false),array('modifier', 'defined', 'views/products/manage.tpl', 415, false),array('modifier', 'count', 'views/products/manage.tpl', 434, false),array('modifier', 'sort_by', 'views/products/manage.tpl', 436, false),array('modifier', 'md5', 'views/products/manage.tpl', 447, false),array('block', 'hook', 'views/products/manage.tpl', 45, false),array('function', 'cycle', 'views/products/manage.tpl', 53, false),array('function', 'math', 'views/products/manage.tpl', 72, false),array('function', 'split', 'views/products/manage.tpl', 436, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_url', 'views/products/manage.tpl', 1, false),array('modifier', 'fn_query_remove', 'views/products/manage.tpl', 25, false),array('modifier', 'unescape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_generate_thumbnail', 'views/products/manage.tpl', 78, false),array('modifier', 'escape', 'views/products/manage.tpl', 78, false),array('modifier', 'fn_format_price', 'views/products/manage.tpl', 100, false),array('modifier', 'fn_check_view_permissions', 'views/products/manage.tpl', 155, false),array('modifier', 'lower', 'views/products/manage.tpl', 201, false),array('modifier', 'is_array', 'views/products/manage.tpl', 205, false),array('modifier', 'fn_from_json', 'views/products/manage.tpl', 206, false),array('modifier', 'trim', 'views/products/manage.tpl', 276, false),array('modifier', 'substr_count', 'views/products/manage.tpl', 391, false),array('modifier', 'replace', 'views/products/manage.tpl', 392, false),array('modifier', 'defined', 'views/products/manage.tpl', 404, false),array('modifier', 'count', 'views/products/manage.tpl', 423, false),array('modifier', 'sort_by', 'views/products/manage.tpl', 425, false),array('modifier', 'md5', 'views/products/manage.tpl', 436, false),array('block', 'hook', 'views/products/manage.tpl', 45, false),array('function', 'cycle', 'views/products/manage.tpl', 53, false),array('function', 'math', 'views/products/manage.tpl', 72, false),array('function', 'split', 'views/products/manage.tpl', 425, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','product_code','price','list_price','purchased_qty','subtotal_sum','quantity','status','vendor','supplier','product_code','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','edit','remove_this_item','remove_this_item','active','hidden','disabled','pending','new','active','disabled','hidden','pending','new','active','disabled','hidden','pending','notify_customer','notify_orders_department','notify_vendor','notify_supplier','delete','no_data','clone_selected','export_selected','delete_selected','edit_selected','choose_action','or','tools','add','text_select_fields2edit_note','select_all','unselect_all','modify_selected','select_fields_to_edit','add_product','or','tools','add','products'));
+fn_preload_lang_vars(array('check_uncheck_all','position_short','image','name','price','purchased_qty','subtotal_sum','quantity','status','update_for_all_hid_act','update_for_all_hid_dis','update_for_all_act','update_for_all_dis','edit','remove_this_item','remove_this_item','active','hidden','disabled','pending','new','active','disabled','hidden','pending','new','active','disabled','hidden','pending','notify_customer','notify_orders_department','notify_vendor','notify_supplier','delete','no_data','clone_selected','export_selected','delete_selected','edit_selected','choose_action','or','tools','add','text_select_fields2edit_note','select_all','unselect_all','modify_selected','select_fields_to_edit','add_product','or','tools','add','products'));
 ?>
 <?php 
 
@@ -54,11 +54,6 @@ unset($_smarty_tpl_vars);
 <?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=product&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
 " rev=<?php echo $this->_tpl_vars['rev']; ?>
 ><?php echo fn_get_lang_var('name', $this->getLanguage()); ?>
-</a> / <a class="<?php echo $this->_tpl_vars['ajax_class']; ?>
-<?php if ($this->_tpl_vars['search']['sort_by'] == 'code'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
-<?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=code&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
-" rev=<?php echo $this->_tpl_vars['rev']; ?>
-><?php echo fn_get_lang_var('product_code', $this->getLanguage()); ?>
 </a></th>
 	<th width="15%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'price'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
 <?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=price&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
@@ -66,13 +61,7 @@ unset($_smarty_tpl_vars);
 ><?php echo fn_get_lang_var('price', $this->getLanguage()); ?>
  (<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
 )</a></th>
-	<th width="5%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'list_price'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
-<?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=list_price&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
-" rev=<?php echo $this->_tpl_vars['rev']; ?>
-><?php echo fn_get_lang_var('list_price', $this->getLanguage()); ?>
- (<?php echo $this->_tpl_vars['currencies'][$this->_tpl_vars['primary_currency']]['symbol']; ?>
-)</a></th>
-	<?php if ($this->_tpl_vars['search']['order_ids']): ?>
+		<?php if ($this->_tpl_vars['search']['order_ids']): ?>
 	<th width="5%"><a class="cm-ajax<?php if ($this->_tpl_vars['search']['sort_by'] == 'p_qty'): ?> sort-link-<?php echo $this->_tpl_vars['search']['sort_order']; ?>
 <?php endif; ?>" href="<?php echo fn_url(($this->_tpl_vars['c_url'])."&amp;sort_by=p_qty&amp;sort_order=".($this->_tpl_vars['search']['sort_order'])); ?>
 " rev=<?php echo $this->_tpl_vars['rev']; ?>
@@ -128,25 +117,7 @@ unset($_smarty_tpl_vars);
 "<?php endif; ?> />
 				<a href="<?php echo fn_url("products.update?product_id=".($this->_tpl_vars['product']['product_id'])); ?>
 " class="strong<?php if ($this->_tpl_vars['product']['status'] == 'N'): ?> manage-root-item-disabled<?php endif; ?>"><?php echo smarty_modifier_unescape($this->_tpl_vars['product']['product']); ?>
- <?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('company_name' => $this->_tpl_vars['product']['company_name'], 'company_id' => $this->_tpl_vars['product']['company_id'], )); ?><?php if (@PRODUCT_TYPE == 'MULTIVENDOR' || @PRODUCT_TYPE == 'ULTIMATE'): ?>
-<?php $this->assign('lang_vendor_supplier', fn_get_lang_var('vendor', $this->getLanguage()), false); ?>
-<?php else: ?>
-<?php $this->assign('lang_vendor_supplier', fn_get_lang_var('supplier', $this->getLanguage()), false); ?>
-<?php endif; ?>
-
-<?php if ($this->_tpl_vars['company_name']): ?>
- (<?php echo $this->_tpl_vars['lang_vendor_supplier']; ?>
-: <?php echo $this->_tpl_vars['company_name']; ?>
-)
-<?php elseif ($this->_tpl_vars['company_id']): ?>
- (<?php echo $this->_tpl_vars['lang_vendor_supplier']; ?>
-: <?php echo fn_get_company_name($this->_tpl_vars['company_id']); ?>
-)
-<?php endif; ?>
-<?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?></a><div><span class="product-code-label"><?php echo fn_get_lang_var('product_code', $this->getLanguage()); ?>
-: </span><input type="text" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
-][product_code]" size="15" maxlength="32" value="<?php echo $this->_tpl_vars['product']['product_code']; ?>
-" class="input-text product-code" /></div></div>
+ </a></div>
 		<div class="float-right">
 		</div>
 	</td>
@@ -186,11 +157,7 @@ unset($_smarty_tpl_vars);
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
 		</div>
 	</td>
-	<td>
-		<input type="text" name="products_data[<?php echo $this->_tpl_vars['product']['product_id']; ?>
-][list_price]" size="6" value="<?php echo $this->_tpl_vars['product']['list_price']; ?>
-" class="input-text" /></td>
-	<?php if ($this->_tpl_vars['search']['order_ids']): ?>
+		<?php if ($this->_tpl_vars['search']['order_ids']): ?>
 	<td><?php echo $this->_tpl_vars['product']['purchased_qty']; ?>
 </td>
 	<td><?php echo $this->_tpl_vars['product']['purchased_subtotal']; ?>

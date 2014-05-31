@@ -785,9 +785,9 @@ if ($mode == 'global_update') {
 
 	fn_add_breadcrumb(fn_get_lang_var('products'), "products.manage.reset_view");
 
-	fn_add_breadcrumb(fn_get_lang_var('search_results'), "products.manage.last_view");
+	// fn_add_breadcrumb(fn_get_lang_var('search_results'), "products.manage.last_view");
 
-	fn_add_breadcrumb(fn_get_lang_var('category') . ': ' . fn_get_category_name($product_data['main_category']), "products.manage.reset_view?cid=$product_data[main_category]");
+	// fn_add_breadcrumb(fn_get_lang_var('category') . ': ' . fn_get_category_name($product_data['main_category']), "products.manage.reset_view?cid=$product_data[main_category]");
 
 	$taxes = fn_get_taxes();
 	arsort($product_data['category_ids']);
@@ -852,26 +852,26 @@ if ($mode == 'global_update') {
 			'title' => fn_get_lang_var('images'),
 			'js' => true
 		),
-		'options' => array (
-			'title' => fn_get_lang_var('options'),
-			'js' => true
-		),
-		'shippings' => array (
-			'title' => fn_get_lang_var('shipping_properties'),
-			'js' => true
-		),
-		'qty_discounts' => array (
-			'title' => fn_get_lang_var('qty_discounts'),
-			'js' => true
-		),
-		'files' => array (
-			'title' => fn_get_lang_var('files'),
-			'js' => true
-		),
-		'subscribers' => array (
-			'title' => fn_get_lang_var('subscribers'),
-			'js' => true
-		),
+		// 'options' => array (
+		// 	'title' => fn_get_lang_var('options'),
+		// 	'js' => true
+		// ),
+		// 'shippings' => array (
+		// 	'title' => fn_get_lang_var('shipping_properties'),
+		// 	'js' => true
+		// ),
+		// 'qty_discounts' => array (
+		// 	'title' => fn_get_lang_var('qty_discounts'),
+		// 	'js' => true
+		// ),
+		// 'files' => array (
+		// 	'title' => fn_get_lang_var('files'),
+		// 	'js' => true
+		// ),
+		// 'subscribers' => array (
+		// 	'title' => fn_get_lang_var('subscribers'),
+		// 	'js' => true
+		// ),
 	);
 		
 	$tabs['addons'] = array (
@@ -880,12 +880,12 @@ if ($mode == 'global_update') {
 	);
 
 	// If we have some additional product fields, lets add a tab for them
-	if (!empty($product_data['product_features'])) {
-		$tabs['features'] = array(
-			'title' => fn_get_lang_var('features'),
-			'js' => true
-		);
-	}
+	// if (!empty($product_data['product_features'])) {
+	// 	$tabs['features'] = array(
+	// 		'title' => fn_get_lang_var('features'),
+	// 		'js' => true
+	// 	);
+	// }
 
 	// [Product tabs]
 	// block manager is disabled for vendors.

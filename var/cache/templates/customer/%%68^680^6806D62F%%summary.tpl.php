@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-08 23:39:15
+<?php /* Smarty version 2.6.18, created on 2014-03-10 11:21:05
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/checkout/summary.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/checkout/summary.tpl', 1, false),array('modifier', 'format_price', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/checkout/summary.tpl', 23, false),array('modifier', 'floatval', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/checkout/summary.tpl', 50, false),array('block', 'hook', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/checkout/summary.tpl', 63, false),array('function', 'math', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/checkout/summary.tpl', 80, false),)), $this); ?>

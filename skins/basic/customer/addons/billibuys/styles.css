@@ -3,6 +3,40 @@
   padding: 0;
 }
 
+.top-my-account .cm-popup-title:hover a{
+	color:#777;
+}
+
+.top-my-account .cm-popup-title a{
+	color:white;
+}
+
+#second-top-nav{
+	background-color: #f36e21;
+	width: 100%;
+	min-height: 40px;
+	margin-top:5px;
+	position: absolute;
+}
+
+#second-top-nav-elements{
+	position:absolute;
+	margin-top: 10px;
+}
+
+.top_menu_item{
+	font-family: Nunito;
+	font-size: 15pt;
+	padding-left: 30px;
+	color: white;
+	cursor: pointer;
+}
+
+.top-logo .logo-container{
+	margin-top: -20px;
+	min-height: 70px;
+}
+
 .header{
 /*background: #1e5799; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -14,7 +48,9 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 /*background: -ms-linear-gradient(top,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* IE10+ */
 /*background: linear-gradient(to bottom,  #1e5799 0%,#207cca 0%,#edeeec 100%); /* W3C */
 /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#edeeec',GradientType=0 ); /* IE6-8 */
-	background: none;
+	/*background: none;*/
+	/*height:100px;*/
+	background: #4357a6;
 }
 
 /*@font-face{
@@ -181,6 +217,7 @@ html.ie9 .how_does_it_work_block div {
 
 .main{
 	background:none;
+	margin-top: 50px; /*FIXME: This is just a fix for the second nav bar hiding breadcrumbs */;
 }
 
 .for_the_buyers_block, .for_the_sellers_block{
@@ -326,10 +363,11 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .footer{
-	background-color: rgb(149,140,137);
+	background-color: #f36e21;
 	font-family: "Nunito";
 	font-size: 10pt;
 	margin-top: 18px;
+	min-height: 0px;
 }
 
 .footer a:link, .footer a:visited{
@@ -337,12 +375,12 @@ html.ie9 .how_does_it_work_block div {
 }
 
 .billibuys_footer{
-	margin-top:-16px;
+	margin-top:11px;
 	color: white;
 	font-size: 8pt;
 }
 
-.billibuys_footer .fa{
+.fa{
 	padding: 22px 10px 22px 15px;
 	min-width: 45px;
 	text-align: center;
@@ -350,27 +388,48 @@ html.ie9 .how_does_it_work_block div {
 	/*height: 70px;*/
 }
 
-.billibuys_footer .fa-twitter{
+.fa-twitter{
 	background-color:rgb(93,200,255);
 }
 
-.billibuys_footer .fa-facebook{
+.fa-facebook{
 	background-color: rgb(88,122,202);
 	padding-left: 15px;
 	padding-right: 15px;
 }
 
-.billibuys_footer .fa-google-plus{
+.fa-google-plus{
 	background-color: rgb(228,56,7);
 }
 
-.billibuys_footer .fa-pinterest{
+.fa-pinterest{
 	background-color: rgb(250,92,92);
+}
+
+.top-social-media{
+	color: white;
+	padding-left: 20px;
+}
+
+.top-social-media a{
+	color: white;
+}
+
+.top-social-media .fa {
+	padding:10px 10px 0px 15px;
+	min-height: 30px;
+	min-width: 0px;
+	font-size: 18pt;
+}
+
+.top-social-media .fa-facebook{
+	padding-left: 19px;
+	padding-right: 19px;	
 }
 
 #billibuys_footer_logo{
 	float:left;
-	margin-top:-25px;
+	margin-top:-20px;
 }
 
 .highlighted{
@@ -428,4 +487,107 @@ html.ie9 .how_does_it_work_block div {
 
 .flat_link{
 	cursor: pointer;
+}
+
+.cat-left-side-nav div{
+	padding-left: 10px;
+}
+
+#cat-header{
+	background-color: black;
+	color: white;
+	font-weight: bolder;
+	padding-top:5px;
+	padding-bottom:5px;	
+}
+
+.root-lvl-cat{
+	cursor: pointer;
+	color: white;
+	font-weight: bolder;
+	background-color: #00a99d;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.second-lvl-cat{
+	color: black;
+	cursor:pointer;
+	display:none;
+	padding-top:5px;
+	padding-bottom:5px;	
+}
+
+.second-lvl-cat:hover{
+	background-color: #4357a6;
+	color: white;
+}
+
+.left-side-nav-img{
+	float: right;
+	margin-top: 5px;
+	margin-right: 10px;
+	background-image: url("images/left-nav-arrow-down.png");
+	height: 10px;
+	width: 4px;
+	background-repeat: no-repeat;
+}
+
+.left-side-nav-image-opened{
+	background-image: url("images/left-nav-arrow-up.png");
+}
+
+.mainbox2-title{
+	border: none;
+}
+
+.mainbox2-title span{
+	font-size: 18pt;
+	font-family: Nunito;
+	color: #4357a6;
+}
+
+.bb_table th{
+	background-color: #4357a6;
+	color: white;
+	font-family: Nunito;
+	border-right: white solid 1px;
+	padding-left: 10px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.bb_table td{
+	vertical-align: middle;
+}
+
+.bb_table tr{
+	border-top: 20px solid;
+	border-color: transparent;
+}
+
+.bb_subtable tr{
+	border: none;
+}
+
+.bb_table th.nobackground{
+	background: none;
+}
+
+.view-cta-button{
+	color: white;
+	width: 60px;
+	text-align: center;
+	height: 30px;
+	vertical-align: middle;
+	font-size: 10pt;
+	cursor: pointer;
+}
+
+.view-cta-button.view{
+	background-color: #4357a6;
+}
+
+.view-cta-button.bid{
+	background-color: #f36e21;
 }

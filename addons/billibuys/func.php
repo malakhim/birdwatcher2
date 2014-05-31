@@ -8,8 +8,121 @@
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
-function fn_billibuys_save_session($sess_id, &$sess_data, $_row){
-	// echo($sess_data);
+/**
+ * Find position of Nth occurance of search string
+ * @param string $search The search string
+ * @param string $string The string to seach
+ * @param int $occurence The Nth occurance of string
+ * @return int or false if not found
+ */
+function strpos_offset_recursive($needle,$haystack,$occurence){
+	if(($o=strpos($haystack,$needle))===false) 
+		return false;
+	if($occurence>1){
+		$found = strpos_offset_recursive($needle,substr($haystack,$o+strlen($needle)),$occurence-1);
+		return ($found!==false) ? $o+$found+strlen($needle) : false;
+	}
+	return $o;
+}
+
+/**
+ * Logs user into vendor side
+ * @param  int $sess_id   cookie ID
+ * @param  string $sess_data serialised string of data
+ * @param  array $_row      row data to be REPLACEd into db
+ */
+function fn_billibuys_save_session($sess_id, $sess_data, $_row){
+	// Store existing data
+	$old_sess = $sess_data;
+	$old_row = $_row;
+
+	// Array defining session data that needs to be changed
+	$replace_keys = Array(
+		'area',
+		'user_id',
+		'user_type',
+		'company_id',
+	);
+
+	// Pull data from db
+	$sess_string = db_get_field("SELECT data FROM ?:sessions WHERE session_id LIKE ?s && area LIKE ?s",$sess_id, AREA);
+	foreach($replace_keys as $rkey){
+		// Find first instance of key's position
+		$lpos = strpos($sess_string, $rkey);
+		// Find position of last " of key
+		$semicolon_count = 2; // We're looking for second occurrence of semicolons in the session data string
+		$rpos = strpos_offset_recursive(";",substr($sess_string,$lpos),$semicolon_count)+$lpos+2;
+		// Build new string
+		$key_string = substr($sess_string, $lpos-1, ($rpos-$lpos));
+		// Separate key from values in substring
+		$key_arr = explode(';', $key_string);
+		// Get individual values
+		$key_val = explode(':',$key_arr[1]);
+		// Replace stuff
+		// if($key_val[0] == 's'){
+		switch($key_arr[0]){
+			case '"area"':
+				// Length doesn't need to be stated as it's still a single-char string
+				if(AREA == 'C'){
+					$key_val[2] = '"A"';
+				}elseif(AREA == 'A' || AREA == 'V'){
+					$key_val[2] = '"C"';
+				}
+				break;
+			case '"user_id"':
+				// It's okay if user_id = 0, just means won't be logged into vendor as well
+				$user_id = $_SESSION['auth']['user_id'];
+				$key_val[1] = strlen($user_id);
+				$key_val[2] = '"'.$user_id.'"';
+				break;
+			case '"user_type"':
+				$user_type = 'V';
+				if($key_val[0] == 's'){
+					$key_val[2] = '"'.$user_type.'"';
+				}else{
+					$key_val[0] = 's';
+					$key_val[1] = strlen($user_type);
+					$key_val[2] = '"'.$user_type.'";s';
+				}
+				break;
+			case '"company_id"':
+				$company_id = $_SESSION['auth']['company_id'];
+				$key_val[1] = strlen($company_id);
+				$key_val[2] = '"'.$company_id.'"'; 
+				break;
+		}
+
+		// Rebuild string using implode
+		$key_arr[1] = implode(':',$key_val);
+		$new_key_string = implode(';',$key_arr);
+		$sess_string = str_replace($key_string,$new_key_string,$sess_string);
+	}
+
+	if(AREA == 'C'){
+		$sess_replace_string = 'vendor';
+	}elseif(AREA == 'V' || AREA == 'A'){
+		$sess_replace_string = 'customer';
+	}
+	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
+	
+	$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
+
+	if(AREA == 'C'){
+		$new_area = 'A';
+	}else{
+		$new_area = 'C';
+	}
+
+	$row = Array(
+		'session_id' => $sess_id,
+		'area'		 => $new_area,
+		'expiry'	 => TIME + Session::$lifetime,
+		'data'		 => $sess_string,
+	);
+
+	// Replace existing key with the logged in one
+	db_query('REPLACE INTO ?:sessions ?e', $row);
+
 }
 
 function fn_billibuys_update_profile($action, $user_data, $current_user_data){
@@ -236,6 +349,8 @@ function fn_bb_submit_notification($bb_data){
  * @return boolean        success?
  */
 function fn_submit_bids($bb_data,$auth){
+
+	fn_delete_notification('');
 	//TODO: Check is in vendor/admin and in vendor/admin area
 	//FIXME: Need a cancel button
 	if(empty($bb_data) || !is_array($bb_data)){
@@ -245,18 +360,19 @@ function fn_submit_bids($bb_data,$auth){
 			fn_set_notification('E', fn_get_lang_var('error'), fn_get_lang_var('no_request_item_selected'));
 			return false;
 		}
+
 		//Used to get the request_id
 		parse_str($bb_data['redirect_url']);
 
 		//FIXME: $bb_data['request_id'] doesn't exist, need to get the right variable from it
-		//
+		
 		$request_item = db_get_row("SELECT title, max_price, allow_over_max_price FROM ?:bb_request_item INNER JOIN ?:bb_requests ON ?:bb_requests.request_item_id = ?:bb_request_item.bb_request_item_id WHERE ?:bb_requests.bb_request_id = ?i",$request_id);
 
 		$currencies = Registry::get('currencies');
 		$currency_symbol = $currencies[CART_PRIMARY_CURRENCY]['symbol'];
 
 		foreach($bb_data['product_ids'] as $pid){
-			$price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'] ;
+			$price = $bb_data['products_data'][$pid]['price'] * $bb_data['products_data'][$pid]['amount'];
 			$product_name = $bb_data['products_data'][$pid]['product'] ;
 		}
 
@@ -265,33 +381,36 @@ function fn_submit_bids($bb_data,$auth){
 		// Flag to be set to true if request price > allowed max price
 		$over_max = false;
 
-		if($price !== NULL && $request_item['max_price'] != 0){
-			if($price > 0 && is_numeric($price) && $price != NULL){
-				$mp_plus_extra = $mp + 0.1*$mp;
-				if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){
-					// Check if bid price is over requested max by 10%, indicated by "allow_over_max_price" flag
-					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra).'. '.fn_get_lang_var('your_bid_amount').$currency_symbol.fn_format_price($price).'.';
-				}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
-					// Check bid price is under or equal to request max
-					$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
-				}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
-					// Throw name-not-matching error
-					$error_msg = fn_get_lang_var('bid_name_matching_error');
+		if($price > 0){
+			if($price !== NULL && $request_item['max_price'] != 0){
+				if($price > 0 && is_numeric($price) && $price != NULL){
+					$mp_plus_extra = $mp + 0.1*$mp;
+					if($request_item['allow_over_max_price'] && ($price > ($mp_plus_extra))){
+						// Check if bid price is over requested max by 10%, indicated by "allow_over_max_price" flag
+						$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp_plus_extra).'. '.fn_get_lang_var('your_bid_amount').$currency_symbol.fn_format_price($price).'.';
+					}elseif(!$request_item['allow_over_max_price'] && $price > $mp){
+						// Check bid price is under or equal to request max
+						$error_msg = fn_get_lang_var('bid_is_over_request_max').$currency_symbol.fn_format_price($mp).'. '.fn_get_lang_var('your_bid_amount').fn_format_price($mp);
+					}elseif(stripos($request_item['title'],$product_name) === FALSE && stripos($product_name, $request_item['title']) === FALSE){
+						// Throw name-not-matching error
+						$error_msg = fn_get_lang_var('bid_name_matching_error');
+					}
 				}
-			}elseif($price <= 0){
-
+			}elseif(!intval($request_item['max_price'])){
+				// Do nothing (since users can choose to place a request without a max price)
+			}elseif($request_item['expiry_date'] <= microtime(true)){
+				$error_msg = fn_get_lang_var('auction_finished').'.';
+			}else{
 				// Throw non-numeric error
 				// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
-				$error_msg = fn_get_lang_var('bid_price_cannot_be_zero');
+				$error_msg = fn_get_lang_var('error_occurred');
 			}
-		}elseif(!intval($request_item['max_price'])){
-			// Do nothing (since users can choose to place a request without a max price)
-		}elseif($request_item['expiry_date'] <= microtime(true)){
-			$error_msg = fn_get_lang_var('auction_finished').'.';
-		}else{
-			// Throw non-numeric error
+		}elseif($bb_data['products_data'][$pid]['price'] <= 0){
 			// TODO: This is caught by javascript atm, not PHP but needs to return a value in case an invalid bid is POSTed
-			$error_msg = fn_get_lang_var('error_occurred');
+			$error_msg = fn_get_lang_var('bid_price_cannot_be_zero');
+		}elseif($bb_data['products_data'][$pid]['amount'] <= 0){
+			// TODO: Same as above
+			$error_msg = fn_get_lang_var('qty_cannot_be_zero');
 		}
 
 		if($error_msg != null && isset($error_msg)){
@@ -371,7 +490,9 @@ function fn_get_packages($auth){
 function fn_submit_request($user, $post = ''){
 	//Check that this function call is done after a post request
 	if(!empty($post)){
+
 		$expiry_date = strtotime($post['expiry_date']);
+
 		//Do actual insertion of request item name
 		//TODO: Return error messages for minimum and max string size
 		$id = db_query('INSERT INTO ?:bb_request_item ?e', $post['request']);
@@ -385,9 +506,12 @@ function fn_submit_request($user, $post = ''){
 			'request_item_id' => $id,
 			'ip_address' => $_SERVER['REMOTE_ADDR'],
 			'timestamp' => microtime(true),
-			'expiry_date' => $expiry_date
+			'expiry_date' => $expiry_date + SECONDS_PER_DAY, // We want end of day
+			'request_category_id' => $post['category'],
 		);
 		db_query('INSERT INTO ?:bb_requests ?e',$data);
+
+		fn_attach_image_pairs('request_main','request',$id);
 
 		//Check if this item is one of those requested for notifications
 		//TODO: Body
@@ -494,22 +618,47 @@ function fn_get_requests($params = Array()){
 		'own_auctions' => false,
 		),$params);
 
+	// WARNING: This part wipes existing $where
 	if(isset($params['category_id'])){
-		$where = Array(
-			'request_category_id' => $params['category_id']
-		);
+		$where .= 'request_category_id = '.$params['category_id'];
 	}
 
+	if(isset($params['current']) && $params['current']){
+		if(isset($where))
+			$where .= ' AND ';
+		$where .= 'expiry_date > '.microtime(true);
+	}
+
+
+
+	$requests['success'] = false;
+
 	if($params['own_auctions'] == false){
+
+			$query = 'SELECT COUNT(*) 
+				FROM ?:bb_requests 
+				INNER JOIN ?:bb_request_item ON 
+					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id';
+			if(isset($where)){
+				$query .= ' WHERE ?p';
+			}
+			$requests_count = db_get_field($query,$where);
+
+			$limit = fn_paginate($params['page'], $requests_count, Registry::get('settings.Appearance.admin_elements_per_page')); // FIXME: page
+
 			$query = 'SELECT * 
 				FROM ?:bb_requests 
 				INNER JOIN ?:bb_request_item ON 
 					?:bb_request_item.bb_request_item_id = ?:bb_requests.request_item_id';
 			if(isset($where)){
-				$query .= ' WHERE ?w';
+				$query .= ' WHERE ?p';
 			}
-			$requests = db_get_array($query,$where);
-			$requests['success'] = true;
+			$query .= " $limit";
+			$requests = array_merge(db_get_array($query,$where),$requests);
+			if(sizeof($requests) > 1)
+				$requests['success'] = true;
+			else
+				$requests['message'] = 'no_results';
 	}else{
 		$user = $params['user'];
 		if($user !== 0){
@@ -530,6 +679,7 @@ function fn_get_requests($params = Array()){
 			);
 		}
 	}
+
 	return $requests;
 }
 
@@ -553,13 +703,20 @@ function fn_bb_get_categories($params = Array()){
 	// Get categories
 	$categories = db_get_array("SELECT $fields
 		FROM ?:bb_request_categories INNER JOIN ?:bb_request_category_descriptions ON ?:bb_request_categories.bb_request_category_id = ?:bb_request_category_descriptions.bb_request_category_id
+		WHERE lang_code = ?s
 		GROUP BY ?:bb_request_categories.bb_request_category_id
-	");
+	",CART_LANGUAGE);
 
 	foreach($categories as &$cat){
 		$cat['level'] = substr_count($cat['id_path'],'/');
 		$cat['position'] = ltrim($cat['position'],'0');
 		$cat['product_count'] = fn_get_product_count($cat); // TODO: Normalise this to use it's own column like CS Cart does
+		$cat['children_categories'] = 0;
+		foreach($categories as $c){
+			if($c['parent_category_id'] == $cat['bb_request_category_id']){
+				$cat['children_categories']++;
+			}
+		}
 	}
 
 	return $categories;

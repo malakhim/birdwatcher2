@@ -77,7 +77,7 @@ image_type - optional
 		{/if}
 		<div class="float-left">
 		<div class="attach-images-alt">
-			{include file="common_templates/fileuploader.tpl" var_name="`$name`_image_icon`$suffix`[`$key`]" image=true}
+			{include file="../admin/common_templates/fileuploader.tpl" var_name="`$name`_image_icon`$suffix`[`$key`]" image=true}
 		</div>
 
 		<div>
@@ -117,7 +117,7 @@ image_type - optional
 		{/if}
 		
 		<div class="float-left attach-images-alt">
-			{include file="common_templates/fileuploader.tpl" var_name="`$name`_image_detailed`$suffix`[`$key`]"}
+			{include file="../admin/common_templates/fileuploader.tpl" var_name="`$name`_image_detailed`$suffix`[`$key`]"}
 			{if !$hide_alt}
 			<label for="alt_det_{$name}_{$key}">{$lang.alt_text}:</label>
 			<input type="text" class="input-text cm-image-field" id="alt_det_{$name}_{$key}" name="{$name}_image_data{$suffix}[{$key}][detailed_alt]" value="{$pair.detailed.alt}" />

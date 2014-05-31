@@ -20,9 +20,9 @@
 	<th><a class="cm-ajax{if $search.sort_by == "position"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=position&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.position_short}</a></th>
 	{/if}
 	<th width="5%"><span>{$lang.image}</span></th>
-	<th width="60%"><a class="{$ajax_class}{if $search.sort_by == "product"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=product&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.name}</a> / <a class="{$ajax_class}{if $search.sort_by == "code"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=code&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.product_code}</a></th>
+	<th width="60%"><a class="{$ajax_class}{if $search.sort_by == "product"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=product&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.name}</a>{* / <a class="{$ajax_class}{if $search.sort_by == "code"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=code&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.product_code}</a>*}</th>
 	<th width="15%"><a class="cm-ajax{if $search.sort_by == "price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.price} ({$currencies.$primary_currency.symbol})</a></th>
-	<th width="5%"><a class="cm-ajax{if $search.sort_by == "list_price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=list_price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.list_price} ({$currencies.$primary_currency.symbol})</a></th>
+	{*<th width="5%"><a class="cm-ajax{if $search.sort_by == "list_price"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=list_price&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.list_price} ({$currencies.$primary_currency.symbol})</a></th>*}
 	{if $search.order_ids}
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_qty"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_qty&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.purchased_qty}</a></th>
 	<th width="5%"><a class="cm-ajax{if $search.sort_by == "p_subtotal"} sort-link-{$search.sort_order}{/if}" href="{"`$c_url`&amp;sort_by=p_subtotal&amp;sort_order=`$search.sort_order`"|fn_url}" rev={$rev}>{$lang.subtotal_sum} ({$currencies.$primary_currency.symbol})</a></th>
@@ -49,7 +49,7 @@
 	<td>
 		<div class="float-left">
 				<input type="hidden" name="products_data[{$product.product_id}][product]" value="{$product.product}" {if $no_hide_input_if_shared_product} class="{$no_hide_input_if_shared_product}"{/if} />
-				<a href="{"products.update?product_id=`$product.product_id`"|fn_url}" class="strong{if $product.status == "N"} manage-root-item-disabled{/if}">{$product.product|unescape} {include file="views/companies/components/company_name.tpl" company_name=$product.company_name company_id=$product.company_id}</a><div><span class="product-code-label">{$lang.product_code}: </span><input type="text" name="products_data[{$product.product_id}][product_code]" size="15" maxlength="32" value="{$product.product_code}" class="input-text product-code" /></div></div>
+				<a href="{"products.update?product_id=`$product.product_id`"|fn_url}" class="strong{if $product.status == "N"} manage-root-item-disabled{/if}">{$product.product|unescape} {*include file="views/companies/components/company_name.tpl" company_name=$product.company_name company_id=$product.company_id*}</a>{*<div><span class="product-code-label">{$lang.product_code}: </span><input type="text" name="products_data[{$product.product_id}][product_code]" size="15" maxlength="32" value="{$product.product_code}" class="input-text product-code" /></div>*}</div>
 		<div class="float-right">
 		</div>
 	</td>
@@ -59,8 +59,8 @@
 			{include file="buttons/update_for_all.tpl" display=$show_update_for_all object_id='price' name="update_all_vendors[price]"}
 		</div>
 	</td>
-	<td>
-		<input type="text" name="products_data[{$product.product_id}][list_price]" size="6" value="{$product.list_price}" class="input-text" /></td>
+	{*<td>
+		<input type="text" name="products_data[{$product.product_id}][list_price]" size="6" value="{$product.list_price}" class="input-text" /></td>*}
 	{if $search.order_ids}
 	<td>{$product.purchased_qty}</td>
 	<td>{$product.purchased_subtotal}</td>
