@@ -95,6 +95,13 @@ if ( !defined('AREA') ) { die('Access denied'); }
 	}elseif($mode == 'place_bid'){
 		// Get list of products
 		$params = $_REQUEST;
+
+		//If user tried to URL force their way into bidding on their own request, force them back to the view page - Safer than sending to request page for this specific request_id as it prevents injection
+		$request_user_id = db_get_field("SELECT user_id FROM ?:bb_requests WHERE bb_request_id = ?i",$params['request_id']);
+		if($auth['user_id'] == $request_user_id){
+			header('Location: index.php?dispatch=billibuys.view');
+			die;
+		}
 		$params['only_short_fields'] = true;
 		$params['extend'][] = 'companies';
 

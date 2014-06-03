@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-10 02:28:48
+<?php /* Smarty version 2.6.18, created on 2014-06-03 11:12:04
          compiled from addons/billibuys/views/billibuys/place_bid.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'default', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_bid.tpl', 1, false),array('modifier', 'fn_query_remove', 'addons/billibuys/views/billibuys/place_bid.tpl', 30, false),array('modifier', 'unescape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_generate_thumbnail', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'escape', 'addons/billibuys/views/billibuys/place_bid.tpl', 77, false),array('modifier', 'fn_format_price', 'addons/billibuys/views/billibuys/place_bid.tpl', 111, false),array('modifier', 'fn_check_view_permissions', 'addons/billibuys/views/billibuys/place_bid.tpl', 218, false),array('modifier', 'substr_count', 'addons/billibuys/views/billibuys/place_bid.tpl', 222, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_bid.tpl', 223, false),array('modifier', 'defined', 'addons/billibuys/views/billibuys/place_bid.tpl', 235, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/place_bid.tpl', 52, false),array('function', 'math', 'addons/billibuys/views/billibuys/place_bid.tpl', 71, false),)), $this); ?>
@@ -204,7 +204,7 @@ unset($_smarty_tpl_vars);
  ?>
 
 <?php ob_start(); ?>
-	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('tool_href' => "products.add", 'prefix' => 'top', 'link_text' => fn_get_lang_var('create_product_package', $this->getLanguage()), 'hide_tools' => true, )); ?><?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
+	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('tool_href' => $this->_tpl_vars['create_product_href'], 'prefix' => 'top', 'link_text' => fn_get_lang_var('create_product_package', $this->getLanguage()), 'hide_tools' => true, )); ?><?php if ($this->_tpl_vars['skip_check_permissions'] || fn_check_view_permissions($this->_tpl_vars['tools_list'])): ?>
 
 <?php if ($this->_tpl_vars['tools_list'] && $this->_tpl_vars['prefix'] == 'main' && ! $this->_tpl_vars['only_popup']): ?> <?php echo fn_get_lang_var('or', $this->getLanguage()); ?>
  <?php endif; ?>

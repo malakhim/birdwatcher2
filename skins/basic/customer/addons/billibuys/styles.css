@@ -591,3 +591,32 @@ html.ie9 .how_does_it_work_block div {
 .view-cta-button.bid{
 	background-color: #f36e21;
 }
+
+.request-list-image{
+	border: 1px #4357a6 solid;
+	margin-right: 10px;
+}
+
+.pagination-bottom{
+	border: none;
+}
+
+.product-title{
+	font-weight: bolder;
+	color: #f36e21;
+	font-size: 20pt;
+	margin-bottom: 10px;
+}
+
+.bb-product-label{
+	text-transform: uppercase;
+	color: #4357a6;
+	font-weight: bolder;
+	margin-right: 50px;
+	float: left;
+	min-width: 70px;
+}
+
+.bb-product-info{
+	font-weight: bolder;
+}

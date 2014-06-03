@@ -1,7 +1,7 @@
 {capture name="mainbox_title"}{$request.title}{/capture}
 
 {foreach from=$request item=r key=k}
-	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id" && $k NEQ "timestamp"}
+	{if $k NEQ "title" && $k NEQ "bb request id" && $k NEQ "id" && $k NEQ "timestamp" && $k NEQ "user id"}
 		{if $k EQ 'expiry date'}
 			<strong>{$k|@ucwords}</strong>: {$expiry}<br />
 		{elseif $k EQ 'max price' && $r EQ '0.00'}
@@ -42,7 +42,9 @@
 <br />
 
 {if $expired == 0}
-	{include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}
-{else}
+	{if $request_user_id != $smarty.session.auth.user_id}
+		{include file="buttons/button.tpl" but_text=$lang.place_bid but_href="vendor.php?dispatch=billibuys.place_bid&request_id=`$request.id`"|@fn_url but_role="link"}
+	{/if}
+{else if $expired > 0}
 	{$lang.auction_finished}. <a href="{"billibuys.view"|fn_url}">{$lang.click_here_to_return_to_main_page}</a>
 {/if}

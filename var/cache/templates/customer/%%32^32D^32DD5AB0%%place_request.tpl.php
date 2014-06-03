@@ -1,11 +1,11 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-10 11:17:58
+<?php /* Smarty version 2.6.18, created on 2014-06-02 18:50:29
          compiled from addons/billibuys/views/billibuys/place_request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 17, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 69, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/place_request.tpl', 17, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/place_request.tpl', 83, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','submit','delete','place_request'));
+fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_price','bb_allow_over_max_price','bb_select_expiry_date','category','images','text_request_thumbnail','text_request_detailed_image','submit','delete','place_request'));
 ?>
-<?php  ob_start();  ?><?php 
+<?php 
 
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
@@ -21,8 +21,8 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 				}
 			 ?><script type="text/javascript" src="js/datepicker.js"></script>
 
-<form name="bb_request_form" action="<?php echo fn_url(""); ?>
-" method="post">
+<form name="bb_request_form" action="<?php echo fn_url("billibuys.view"); ?>
+" method="post" enctype="multipart/form-data">
 
 	<div class="form-field">
 		<label for="bb_request_title" class="cm-required cm-trim"><?php echo fn_get_lang_var('title', $this->getLanguage()); ?>
@@ -56,7 +56,30 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 		<label for="bb_expiry_date" class="cm-trim cm-required"><?php echo fn_get_lang_var('bb_select_expiry_date', $this->getLanguage()); ?>
 </label>
 		<input type="text" name="expiry_date" id="bb_expiry_date"/>
+	</div>
+
+	<div class="form-field">
+		<label for="bb_category" class="cm-trim cm-required"><?php echo fn_get_lang_var('category', $this->getLanguage()); ?>
+</label>
+		<select name="category" id="bb_category">
+			<?php $_from = $this->_tpl_vars['categories']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
+    foreach ($_from as $this->_tpl_vars['cat']):
+?>
+			<option value="<?php echo $this->_tpl_vars['cat']['bb_request_category_id']; ?>
+"><?php echo $this->_tpl_vars['cat']['category_name']; ?>
+</option>
+			<?php endforeach; endif; unset($_from); ?>
+		</select>
 	</div>	
+
+	<div class="form-field">
+		<label><?php echo fn_get_lang_var('images', $this->getLanguage()); ?>
+:</label>
+		<?php $_smarty_tpl_vars = $this->_tpl_vars;$this->_smarty_include(array('smarty_include_tpl_file' => "../admin/common_templates/attach_images.tpl", 'smarty_include_vars' => array('image_name' => 'request_main','image_object_type' => 'request','hide_server' => true,'icon_text' => fn_get_lang_var('text_request_thumbnail', $this->getLanguage()),'detailed_text' => fn_get_lang_var('text_request_detailed_image', $this->getLanguage()),'no_thumbnail' => true)));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
+	</div>
 
 	<div class="buttons-container">
 		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('submit', $this->getLanguage()), 'but_name' => "dispatch[billibuys.view]", 'but_id' => 'but_submit_request', )); ?>
@@ -150,5 +173,4 @@ fn_preload_lang_vars(array('title','description','max_price','bb_allow_over_max_
 </form>
 
 <?php ob_start(); ?><?php echo fn_get_lang_var('place_request', $this->getLanguage()); ?>
-<?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>
-<?php  ob_end_flush();  ?>
+<?php $this->_smarty_vars['capture']['mainbox_title'] = ob_get_contents(); ob_end_clean(); ?>

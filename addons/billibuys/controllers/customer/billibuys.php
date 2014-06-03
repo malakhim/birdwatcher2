@@ -9,6 +9,8 @@
 if ( !defined('AREA') ) { die('Access denied'); }
 
 	if($mode == 'view'){
+
+
 		fn_add_breadcrumb(fn_get_lang_var('view_requests'), "billibuys.view");
 		// Stub for viewing own auctions
 		$search_params = Array(
@@ -35,6 +37,12 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		if($requests['success'] == 1){
 			foreach($requests as $key=>&$request){
 				if(is_array($request)){
+					$image_id = db_get_field("SELECT detailed_id FROM ?:images_links WHERE object_id = ?i AND object_type LIKE 'request'",$request['bb_request_id']);
+
+					$request['image'] = fn_get_image_pairs($request['bb_request_id'], 'request', 'M', $get_icon = true, $get_detailed = true, $lang_code = CART_LANGUAGE);
+
+
+						// $image_id, 'request');
 					//Get duration since auction was placed
 					//Find number of hours since placed, and divide by $HOURS_PER_DAY to indicate number of days since placed if over $HOURS_PER_DAY (24)
 					// $timediff = microtime(true) - $request['timestamp'];
@@ -104,7 +112,8 @@ if ( !defined('AREA') ) { die('Access denied'); }
 				'title',
 				'description',
 				'max_price',
-				'expiry_date'
+				'expiry_date',
+				'user_id',
 			)
 		);
 
@@ -143,6 +152,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 		// Once bid is purchased, mark request as purchased and no further bids can be purchased
 		$view->assign('uid',md5($auth['user_id']));
 		$view->assign('bids',$bids);
+		$view->assign('request_user_id',$request['user id']);
 		$view->assign('request',$request);
 		$view->assign('expired',$request['expiry date'] <= microtime(true));
 		$view->assign('expiry',date('d-m-Y',$request['expiry date']));

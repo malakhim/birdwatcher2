@@ -10,7 +10,6 @@
 {literal}
 <script src="addons/billibuys/js/view_requests.js" type="text/javascript"></script>
 {/literal}
-{$smarty.request|@count}
 {* DEPRECATED: User will use top nav bar to do all their requesting needs
 {if $auth.user_id}
 	<a href="{"billibuys.place_request"|fn_url}">{$lang.bb_text_place_request_question}</a>
@@ -20,7 +19,6 @@
 *}
 <div id="bb_requests">
 	{if $requests.success eq 1}
-	{*$requests|var_dump*}
 	{include file="common_templates/pagination.tpl"}
 		<table cellpadding="0" cellspacing="0" width="100%" border="0" class="bb_table">
 			<tr>
@@ -32,7 +30,7 @@
 		{foreach from=$requests item=request}
 			{if is_array($request)}
 				<tr {cycle values="class=\"table-row\","}>
-					<td>{*include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=`$request.bb_request_id`"|fn_url but_role="text"*}{$request.title}</td>
+					<td>{*include file="buttons/button.tpl" but_text=$request.title but_href="billibuys.request&request_id=`$request.bb_request_id`"|fn_url but_role="text"*}{include file="common_templates/image.tpl" image_width="40" image_height="40" images=$request.image show_thumbnail="Y" no_ids=true class="request-list-image"}{$request.title}</td>
 					<td>
 						{if $request.timestamp.error == 0}
 							{if $request.timestamp.msg != 'over_two_weeks'}
@@ -48,7 +46,13 @@
 							{/if}
 						{/if}
 					</td>
-					<td>Lowest bid placeholder</td>
+					<td>
+						{if $request.lowest_bid}
+							{$currencies.$primary_currency.symbol}{$request.lowest_bid}
+						{else}
+							{$lang.bb_no_bids}
+						{/if}
+					</td>
 					<td>
 						<table class="bb_subtable">
 						<tr>
@@ -71,7 +75,7 @@
 
 	<!-- Need to add in search results-->
 		{if $requests.message eq 'no_results'}
-			{$lang.text_no_matching_results_found}
+			{$lang.no_current_requests_found}
 		{elseif $requests.message eq 'user_not_logged_in'}
 			{$lang.please_login}
 		{else}

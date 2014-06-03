@@ -98,7 +98,7 @@
 {include file="common_templates/popupbox.tpl" id="select_fields_to_edit" text=$lang.select_fields_to_edit content=$smarty.capture.select_fields_to_edit}
 
 {capture name="tools"}
-	{include file="common_templates/tools.tpl" tool_href="products.add" prefix="top" link_text=$lang.create_product_package hide_tools=true}
+	{include file="common_templates/tools.tpl" tool_href=$create_product_href prefix="top" link_text=$lang.create_product_package hide_tools=true}
 {/capture}
 
 </form>

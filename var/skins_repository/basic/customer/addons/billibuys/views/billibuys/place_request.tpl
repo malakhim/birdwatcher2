@@ -1,6 +1,6 @@
 <script type="text/javascript" src="js/datepicker.js"></script>
 
-<form name="bb_request_form" action="{""|fn_url}" method="post">
+<form name="bb_request_form" action="{"billibuys.view"|fn_url}" method="post" enctype="multipart/form-data">
 
 	<div class="form-field">
 		<label for="bb_request_title" class="cm-required cm-trim">{$lang.title}</label>
@@ -24,8 +24,22 @@
 	<div class="form-field">
 		<label for="bb_expiry_date" class="cm-trim cm-required">{$lang.bb_select_expiry_date}</label>
 		<input type="text" name="expiry_date" id="bb_expiry_date"/>
-	</div>	
+	</div>
 
+	<div class="form-field">
+		<label for="bb_category" class="cm-trim cm-required">{$lang.category}</label>
+		<select name="category" id="bb_category">
+			{foreach from=$categories item='cat'}
+			<option value="{$cat.bb_request_category_id}">{$cat.category_name}</option>
+			{/foreach}
+		</select>
+	</div>	
+{*
+	<div class="form-field">
+		<label>{$lang.images}:</label>
+		{include file="../admin/common_templates/attach_images.tpl" image_name="request_main" image_object_type="request" hide_server=true icon_text=$lang.text_request_thumbnail detailed_text=$lang.text_request_detailed_image no_thumbnail=true}
+	</div>
+*}
 	<div class="buttons-container">
 		{include file="buttons/button.tpl" but_text=$lang.submit but_name="dispatch[billibuys.view]" but_id="but_submit_request"}
 	</div>

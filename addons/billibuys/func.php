@@ -612,13 +612,13 @@ function fn_get_request($params){
  */
 function fn_get_requests($params = Array()){
 
+
 	// Initialization
 	$params = array_merge(Array(
 		'user' => 0,
 		'own_auctions' => false,
 		),$params);
 
-	// WARNING: This part wipes existing $where
 	if(isset($params['category_id'])){
 		$where .= 'request_category_id = '.$params['category_id'];
 	}
@@ -628,8 +628,6 @@ function fn_get_requests($params = Array()){
 			$where .= ' AND ';
 		$where .= 'expiry_date > '.microtime(true);
 	}
-
-
 
 	$requests['success'] = false;
 
@@ -655,10 +653,15 @@ function fn_get_requests($params = Array()){
 			}
 			$query .= " $limit";
 			$requests = array_merge(db_get_array($query,$where),$requests);
-			if(sizeof($requests) > 1)
+			if(sizeof($requests) > 1 && $requests != null){
+				foreach($requests as &$request){
+					$request['lowest_bid'] = db_get_field('SELECT price FROM ?:bb_bids WHERE request_id = ?i ORDER BY price ASC',$request['bb_request_item_id']);
+				}
 				$requests['success'] = true;
-			else
+			}
+			else{
 				$requests['message'] = 'no_results';
+			}
 	}else{
 		$user = $params['user'];
 		if($user !== 0){

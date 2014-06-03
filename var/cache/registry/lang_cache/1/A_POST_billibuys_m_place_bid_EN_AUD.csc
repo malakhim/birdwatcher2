@@ -1,1 +1,1 @@
-a:2:{s:4:"data";a:1:{s:2:"EN";a:4:{s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:6:"orders";s:6:"Orders";s:9:"customers";s:9:"Customers";}}s:6:"expiry";i:0;}
+a:2:{s:4:"data";a:1:{s:2:"EN";a:7:{s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:6:"orders";s:6:"Orders";s:9:"customers";s:9:"Customers";s:24:"bid_price_cannot_be_zero";s:89:"You cannot give away items for free in bids. Please put a non-negative price on your bid.";s:5:"error";s:5:"Error";s:18:"qty_cannot_be_zero";s:37:"Please enter a non-negative quantity.";}}s:6:"expiry";i:0;}

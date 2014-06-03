@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-10 02:13:38
+<?php /* Smarty version 2.6.18, created on 2014-06-02 18:14:35
          compiled from common_templates/attach_images.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'defined', 'common_templates/attach_images.tpl', 24, false),array('modifier', 'define', 'common_templates/attach_images.tpl', 25, false),array('modifier', 'explode', 'common_templates/attach_images.tpl', 48, false),array('modifier', 'default', 'common_templates/attach_images.tpl', 49, false),array('modifier', 'fn_url', 'common_templates/attach_images.tpl', 69, false),array('modifier', 'unescape', 'common_templates/attach_images.tpl', 99, false),array('modifier', 'fn_generate_thumbnail', 'common_templates/attach_images.tpl', 99, false),array('modifier', 'escape', 'common_templates/attach_images.tpl', 99, false),array('modifier', 'cat', 'common_templates/attach_images.tpl', 125, false),array('modifier', 'md5', 'common_templates/attach_images.tpl', 125, false),array('modifier', 'count', 'common_templates/attach_images.tpl', 159, false),array('block', 'hook', 'common_templates/attach_images.tpl', 65, false),array('function', 'math', 'common_templates/attach_images.tpl', 93, false),array('function', 'script', 'common_templates/attach_images.tpl', 122, false),)), $this); ?>
@@ -10,7 +10,7 @@ fn_preload_lang_vars(array('text_thumbnail_manual_loading','thumbnail_manual_loa
 				$rname = !empty($resource_name) ? $resource_name : $params['smarty_include_tpl_file'];
 				if ($this->compile_check && empty($inline_no_check[$rname]) && $this->is_cached($rname)) {
 					if ($this->check_inline_blocks(array (
-  'common_templates/fileuploader.tpl' => 1367063753,
+  '../admin/common_templates/fileuploader.tpl' => 1367063753,
 ))) {
 						$_smarty_compile_path = $this->_get_compile_path($rname);
 						$this->_compile_resource($rname, $_smarty_compile_path);

@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-01 06:24:54
+<?php /* Smarty version 2.6.18, created on 2014-06-03 11:32:14
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_links.tpl */ ?>
 <?php
 fn_preload_lang_vars(array('about','testimonials','contact_us','log_in','register'));

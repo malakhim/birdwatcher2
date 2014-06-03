@@ -1,5 +1,5 @@
 <br />
-
+test123
 {if $product}
 	{assign var="obj_id" value=$product.product_id}
 

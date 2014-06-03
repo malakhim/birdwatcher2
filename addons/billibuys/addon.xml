@@ -185,6 +185,7 @@
 		<item lang="EN" id="click_here_to_return_to_main_page">Click here to return to main page</item>
 		<item lang="EN" id="no_max_price">No max price</item>
 		<item lang="EN" id="successful_logout">You have been successfully logged out.</item>
+		<item lang="EN" id="no_current_requests_found">There are no current requests</item>
 
 		<!-- Home page variables -->
 		<item lang="EN" id="about">About</item>
@@ -259,6 +260,7 @@
 		<item lang="EN" id="bid_price_cannot_be_zero">You cannot give away items for free in bids. Please put a non-negative price on your bid.</item>
 		<item lang="EN" id="qty_cannot_be_zero">Please enter a non-negative quantity.</item>
 		<item lang="EN" id="no_request_item_selected">Please choose an item to bid with.</item>
+		<item lang="EN" id="cannot_bid_own_auction">You cannot bid on your own auction. How did you even get here?</item>
 
 		<!-- Frontend billibuys.view variables-->
 		<item lang="EN" id="view_requests">Current Requests</item>

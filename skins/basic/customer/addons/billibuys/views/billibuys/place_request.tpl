@@ -34,12 +34,12 @@
 			{/foreach}
 		</select>
 	</div>	
-{*
+
 	<div class="form-field">
 		<label>{$lang.images}:</label>
 		{include file="../admin/common_templates/attach_images.tpl" image_name="request_main" image_object_type="request" hide_server=true icon_text=$lang.text_request_thumbnail detailed_text=$lang.text_request_detailed_image no_thumbnail=true}
 	</div>
-*}
+
 	<div class="buttons-container">
 		{include file="buttons/button.tpl" but_text=$lang.submit but_name="dispatch[billibuys.view]" but_id="but_submit_request"}
 	</div>

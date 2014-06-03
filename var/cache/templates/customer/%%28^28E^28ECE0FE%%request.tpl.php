@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-10 02:28:42
+<?php /* Smarty version 2.6.18, created on 2014-06-03 11:34:23
          compiled from addons/billibuys/views/billibuys/request.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'addons/billibuys/views/billibuys/request.tpl', 1, false),array('modifier', 'ucwords', 'addons/billibuys/views/billibuys/request.tpl', 20, false),array('modifier', 'replace', 'addons/billibuys/views/billibuys/request.tpl', 67, false),array('function', 'cycle', 'addons/billibuys/views/billibuys/request.tpl', 41, false),)), $this); ?>
@@ -25,7 +25,7 @@ fn_preload_lang_vars(array('no_max_price','item','price','name','quantity','tota
 <?php $_from = $this->_tpl_vars['request']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }if (count($_from)):
     foreach ($_from as $this->_tpl_vars['k'] => $this->_tpl_vars['r']):
 ?>
-	<?php if ($this->_tpl_vars['k'] != 'title' && $this->_tpl_vars['k'] != 'bb request id' && $this->_tpl_vars['k'] != 'id' && $this->_tpl_vars['k'] != 'timestamp'): ?>
+	<?php if ($this->_tpl_vars['k'] != 'title' && $this->_tpl_vars['k'] != 'bb request id' && $this->_tpl_vars['k'] != 'id' && $this->_tpl_vars['k'] != 'timestamp' && $this->_tpl_vars['k'] != 'user id'): ?>
 		<?php if ($this->_tpl_vars['k'] == 'expiry date'): ?>
 			<strong><?php echo ucwords($this->_tpl_vars['k']); ?>
 </strong>: <?php echo $this->_tpl_vars['expiry']; ?>
@@ -170,7 +170,8 @@ fn_preload_lang_vars(array('no_max_price','item','price','name','quantity','tota
 <br />
 
 <?php if ($this->_tpl_vars['expired'] == 0): ?>
-	<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('place_bid', $this->getLanguage()), 'but_href' => fn_url("vendor.php?dispatch=billibuys.place_bid&request_id=".($this->_tpl_vars['request']['id'])), 'but_role' => 'link', )); ?>
+	<?php if ($this->_tpl_vars['request_user_id'] != $_SESSION['auth']['user_id']): ?>
+		<?php $__parent_tpl_vars = $this->_tpl_vars;$this->_tpl_vars = array_merge($this->_tpl_vars, array('but_text' => fn_get_lang_var('place_bid', $this->getLanguage()), 'but_href' => fn_url("vendor.php?dispatch=billibuys.place_bid&request_id=".($this->_tpl_vars['request']['id'])), 'but_role' => 'link', )); ?>
 
 <?php if ($this->_tpl_vars['but_role'] == 'action'): ?>
 	<?php $this->assign('suffix', "-action", false); ?>
@@ -257,6 +258,7 @@ fn_preload_lang_vars(array('no_max_price','item','price','name','quantity','tota
 
 <?php endif; ?>
 <?php if (isset($__parent_tpl_vars)) { $this->_tpl_vars = $__parent_tpl_vars; unset($__parent_tpl_vars);} ?>
+	<?php endif; ?>
 <?php else: ?>
 	<?php echo fn_get_lang_var('auction_finished', $this->getLanguage()); ?>
 . <a href="<?php echo fn_url("billibuys.view"); ?>
