@@ -1,1 +1,0 @@
-a:2:{s:4:"data";a:1:{s:2:"EN";a:6:{s:11:"all_vendors";s:11:"All vendors";s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:6:"delete";s:6:"Delete";s:17:"view_compare_list";s:12:"Compare list";s:17:"view_larger_image";s:17:"View larger image";}}s:6:"expiry";i:0;}

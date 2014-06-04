@@ -1,1 +1,0 @@
-a:2:{s:4:"data";a:1:{s:2:"EN";a:7:{s:11:"all_vendors";s:11:"All vendors";s:8:"products";s:8:"Products";s:5:"pages";s:5:"Pages";s:6:"orders";s:6:"Orders";s:9:"customers";s:9:"Customers";s:13:"access_denied";s:13:"Access denied";s:16:"error_not_logged";s:52:"You must log in before you can access this resource!";}}s:6:"expiry";i:0;}

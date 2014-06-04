@@ -1,1 +1,0 @@
-<th>{$lang.statistics}</th>

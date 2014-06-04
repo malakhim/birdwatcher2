@@ -1,8 +1,0 @@
-<?php /* Smarty version 2.6.18, created on 2014-03-10 11:21:23
-         compiled from orders/order_notification_subj.tpl */ ?>
-<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'unescape', 'orders/order_notification_subj.tpl', 1, false),)), $this); ?>
-<?php echo smarty_modifier_unescape($this->_tpl_vars['company_placement_info']['company_name']); ?>
-: <?php echo fn_get_lang_var('order', $this->getLanguage()); ?>
- #<?php echo $this->_tpl_vars['order_info']['order_id']; ?>
- <?php echo $this->_tpl_vars['order_status']['email_subj']; ?>
