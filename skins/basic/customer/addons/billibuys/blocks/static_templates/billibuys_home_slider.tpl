@@ -141,6 +141,6 @@
     </nav>
 </div>
 
-<div class="find_out_how_subbtn">
-	{$lang.find_out_how}
-</div>
+<a href="{'billibuys.view'|fn_url}"><span class="find_out_how_subbtn">
+	{$lang.try_for_free}
+</span></a>

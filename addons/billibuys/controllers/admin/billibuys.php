@@ -85,13 +85,13 @@ if ( !defined('AREA') ) { die('Access denied'); }
 			}
 		return array(CONTROLLER_STATUS_OK, "billibuys.view");		
 		}
-	}elseif($mode == 'request'){
+	/*}elseif($mode == 'request'){
 
 		$params = Array('request_id'=>$_GET['request_id']);
 		// Get all bids
 		$request = fn_get_request($params);
 
-		$view->assign('request',$request);
+		$view->assign('request',$request);*/
 	}elseif($mode == 'place_bid'){
 		// Get list of products
 		$params = $_REQUEST;

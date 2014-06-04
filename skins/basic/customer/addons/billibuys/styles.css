@@ -64,7 +64,7 @@ background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #edeeec 100%); /*
 }*/
 
 body{
-	/*background-color:#EDEEEC;*/
+	background-color:white;
 }
 
 #how_does_it_work_scroller{
@@ -179,6 +179,7 @@ html.ie9 .how_does_it_work_block div {
 	padding-top: 10px;
 	padding-bottom:10px;	
 	text-transform: uppercase;
+	display:block;
 }
 
 .frontpage_top_links .flat_link{
@@ -186,6 +187,7 @@ html.ie9 .how_does_it_work_block div {
 	color: white;
 	padding-top: 10px;
 	padding-bottom:10px;
+	display:block;
 }
 
 .frontpage_top_links .red{
@@ -325,7 +327,7 @@ html.ie9 .how_does_it_work_block div {
 
 .about_billibuys_block{
 	font-family: "Nunito";
-	margin-top: 132px;
+	margin-top: 112px;
 	/*background-color: rgba(255, 255, 255, 0.9);*/
 }
 
@@ -459,19 +461,23 @@ html.ie9 .how_does_it_work_block div {
 	margin-right: -404px;
 	padding-left: 20px;
 	padding-right: 20px;
-	padding-bottom: 45px;
+	/*padding-bottom: 45px;*/
 	padding-top: 10px;
 }
 
 .billibuys_home_slider .find_out_how_subbtn{
 	margin-right: 0;
 	padding-top: 20px;
-	padding-bottom: 40px;	
+	/*padding-bottom: 40px;	*/
 }
 
 .da-slide .da-img.stickimg{
 	margin-left: -520px;
 	margin-top: 170px;
+}
+
+.da-slide h2{
+	font-family: Nunito;
 }
 
 .about_line_5.bottom{

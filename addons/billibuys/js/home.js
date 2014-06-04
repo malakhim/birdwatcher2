@@ -14,15 +14,6 @@ $(document).ready(function(){
     window.location.href = 'index.php?dispatch=billibuys.view';
   });
 
-  $('.contact-link').click(function(){
-    window.location.href = 'contact-us.html';
-  });
-
-  $('.login-link').click(function(){
-    window.location.href = 'index.php?dispatch=auth.login_form';
-  });
-
- 
 });
 
 function show_slider(group){

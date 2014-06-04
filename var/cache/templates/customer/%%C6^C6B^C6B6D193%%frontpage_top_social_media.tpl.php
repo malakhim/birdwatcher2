@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-03 11:32:14
+<?php /* Smarty version 2.6.18, created on 2014-06-04 13:35:07
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/frontpage_top_social_media.tpl */ ?>
 <?php  ob_start();  ?><a href="http://www.facebook.com/billibuys"><i class="fa fa-facebook fa-2x"></i></a>&nbsp;&nbsp;
 <i class="fa fa-twitter fa-2x"></i>&nbsp;&nbsp;

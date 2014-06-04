@@ -22,7 +22,7 @@ if ( !defined('AREA') ) { die('Access denied'); }
 // Disable notices displaying
 error_reporting(E_ALL ^ E_NOTICE);
 if (version_compare(PHP_VERSION, '5.3.0', '>=')) {
-	error_reporting(error_reporting() & ~E_DEPRECATED & ~E_STRICT);
+	error_reporting(error_reporting() & ~E_DEPRECATED);
 }
 
 // Set maximum memory limit

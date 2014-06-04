@@ -105,7 +105,7 @@ function fn_billibuys_save_session($sess_id, $sess_data, $_row){
 	}
 	$sess_name = str_replace(ACCOUNT_TYPE, $sess_replace_string, SESS_NAME);
 	
-	$res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
+	// $res = fn_set_cookie($sess_name,$sess_id,Session::$lifetime);
 
 	if(AREA == 'C'){
 		$new_area = 'A';

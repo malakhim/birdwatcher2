@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-01 06:30:09
+<?php /* Smarty version 2.6.18, created on 2014-06-04 13:35:02
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/blocks/static_templates/404.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/blocks/static_templates/404.tpl', 6, false),)), $this); ?>

@@ -1,7 +1,9 @@
-<?php /* Smarty version 2.6.18, created on 2014-06-03 11:32:15
+<?php /* Smarty version 2.6.18, created on 2014-06-04 17:10:44
          compiled from C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl */ ?>
+<?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'fn_url', 'C:/wamp5/www/dutchme2/skins/basic/customer/addons/billibuys/blocks/static_templates/billibuys_home_slider.tpl', 144, false),)), $this); ?>
 <?php
-fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_buyer','step_1_buyer','for_the_buyers','step','get_bids','step_2_buyer','step_1_buyer','for_the_buyers','step','purchase_items','step_3_buyer','step_1_buyer','for_the_sellers','step','step_1_seller','step_1_buyer','for_the_sellers','step','step_2_seller','step_1_buyer','for_the_sellers','step','step_3_seller','step_1_buyer','for_the_sellers','step','step_4_seller','step_1_buyer','find_out_how'));
+fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_buyer','step_1_buyer','for_the_buyers','step','get_bids','step_2_buyer','step_1_buyer','for_the_buyers','step','purchase_items','step_3_buyer','step_1_buyer','for_the_sellers','step','step_1_seller','step_1_buyer','for_the_sellers','step','step_2_seller','step_1_buyer','for_the_sellers','step','step_3_seller','step_1_buyer','for_the_sellers','step','step_4_seller','step_1_buyer','try_for_free'));
 ?>
 <?php  ob_start();  ?>
 <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
@@ -177,7 +179,8 @@ fn_preload_lang_vars(array('for_the_buyers','step','request_a_product','step_1_b
     </nav>
 </div>
 
-<div class="find_out_how_subbtn">
-	<?php echo fn_get_lang_var('find_out_how', $this->getLanguage()); ?>
+<a href="<?php echo fn_url('billibuys.view'); ?>
+"><span class="find_out_how_subbtn">
+	<?php echo fn_get_lang_var('try_for_free', $this->getLanguage()); ?>
 
-</div><?php  ob_end_flush();  ?>
+</span></a><?php  ob_end_flush();  ?>

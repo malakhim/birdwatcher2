@@ -22,5 +22,3 @@ define('INDEX_SCRIPT',  Registry::get('config.customer_index'));
 fn_dispatch();
 
 ?>
-
-

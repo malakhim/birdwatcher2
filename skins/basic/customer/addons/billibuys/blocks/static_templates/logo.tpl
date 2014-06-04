@@ -5,5 +5,5 @@
 	{else}
 		{assign var="home_href" value=""}
 	{/if}
-	<a href="{$home_href|fn_url}" style="background: url('{$images_dir}/{$manifest.Customer_logo.filename}') no-repeat; width:{$manifest.Customer_logo.width}px; height:{$manifest.Customer_logo.height}px;" title="{$manifest.Customer_logo.alt}" class="logo"></a>
+	<a href="{$home_href|fn_url}" style="background: url('{$images_dir}/logo_1.png') no-repeat; width:360px; height:112px;" title="{$manifest.Customer_logo.alt}" class="logo"></a>
 </div>
